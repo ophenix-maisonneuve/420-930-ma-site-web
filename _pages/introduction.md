@@ -6,4 +6,4 @@ permalink: /pages/introduction/
 
 # Introduction
 
-Bienvenue dans le cours de développement Java.
+Bienvenue dans le cours Algorithmes et modèles de programmation.
