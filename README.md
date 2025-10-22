@@ -1,2 +1,4 @@
-# 420-930-ma-site-web
-Site Web pour le cours 420-930-MA: Algorithmes et modèles de programmation
+
+# Site GitHub Pages - Cours Java
+
+Ce dépôt contient le site du cours Java structuré par séances, basé sur le thème Just the Docs.

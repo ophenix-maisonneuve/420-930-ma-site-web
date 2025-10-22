@@ -1,0 +1,9 @@
+
+title: Cours Java
+remote_theme: just-the-docs/just-the-docs
+plugins:
+  - jekyll-remote-theme
+collections:
+  seances:
+    output: true
+    permalink: /:collection/:name
