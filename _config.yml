@@ -12,5 +12,4 @@ just_the_docs:
   collections:
     seances:
       name: "Séances"
-      nav_fold: true
 
