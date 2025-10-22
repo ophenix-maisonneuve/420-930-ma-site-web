@@ -1,7 +1,6 @@
 ---
 layout: default
 title: "Séance 3 - Révision 2"
-parent: Seances
 nav_order: 3
 ---
 
