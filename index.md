@@ -1,4 +1,3 @@
-
 ---
 layout: home
 title: "Algorithmes et modèles de programmation"
