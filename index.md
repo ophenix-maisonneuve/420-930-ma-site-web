@@ -1,6 +1,6 @@
 ---
 layout: home
-title: "Algorithmes et modèles de programmation"
+title: "420-930-MA"
 av_title: "Accueil"
 nav_order: 1
 ---
