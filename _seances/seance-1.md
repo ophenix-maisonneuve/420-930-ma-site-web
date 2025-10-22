@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Séance 1 - Présentation"
-parent: "Seances"
+parent: "Séances"
 nav_order: 1
 ---
 
