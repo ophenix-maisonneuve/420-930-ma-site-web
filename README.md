@@ -1,4 +1,4 @@
 
-# Site GitHub Pages - Cours Java
+# Algorithmes et modèles de programmation - 420-930-MA
 
-Ce dépôt contient le site du cours Java structuré par séances, basé sur le thème Just the Docs.
+Ce dépôt contient le site du cours Algorithmes et modèles de programmation.
