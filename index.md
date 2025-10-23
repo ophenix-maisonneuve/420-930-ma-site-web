@@ -4,13 +4,6 @@ title: "Algorithmes et modèles de programmation"
 av_title: "Accueil"
 nav_order: 1
 ---
-
 # Algorithmes et modèles de programmation
 
-Bienvenue sur le site du cours Algorithmes et modèles de programmation (420-930-MA).
-
-## Séances
-
-- [Séance 1](seances/seance-1)
-- [Séance 2](seances/seance-2)
-- [Séance 3](seances/seance-3)
+Bienvenue sur le site du cours Algorithmes et modèles de programmation (420-930-MA) du Collège de Maisonneuve. Vous trouverez sur ce site tout le matériel du cours, incluant les notes de cours, le calendrier et le code des différents projets.

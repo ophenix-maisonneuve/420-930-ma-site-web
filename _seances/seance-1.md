@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Séance 1 - Présentation"
+title: "<date> - Présentation"
 nav_order: 1
 ---
 

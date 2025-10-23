@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Séance 2 - Révision 1"
+title: "<date> - Révision 1"
 nav_order: 2
 ---
 
