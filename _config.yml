@@ -7,10 +7,16 @@ collections:
   seances:
     output: true
     permalink: /:collection/:name
+  notes:
+    output: true
+    permalink: /:collection/:name
 
 just_the_docs:
   collections:
     seances:
       name: Séances
+      nav_fold: true
+    notes:
+      name: Notes de cours
       nav_fold: true
 
