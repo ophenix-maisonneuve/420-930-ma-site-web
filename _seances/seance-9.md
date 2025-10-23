@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "<date> - Listes et tableaux 1"
+title: "aaaa-MM-dd"
 nav_order: 9
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "<date> - Patrons de création (partie 2)"
+title: "aaaa-MM-dd"
 nav_order: 22
 ---
 

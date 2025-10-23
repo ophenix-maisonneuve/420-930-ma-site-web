@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "<date> - Piles et files 2"
+title: "aaaa-MM-dd"
 nav_order: 12
 ---
 

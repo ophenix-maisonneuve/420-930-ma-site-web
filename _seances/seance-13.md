@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "<date> - Arbres 1"
+title: "aaaa-MM-dd"
 nav_order: 13
 ---
 

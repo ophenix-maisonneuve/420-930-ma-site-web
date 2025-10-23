@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "<date> - Présentation"
+title: "aaaa-MM-dd"
 nav_order: 1
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "<date> - Révision 1"
+title: "aaaa-MM-dd"
 nav_order: 2
 ---
 

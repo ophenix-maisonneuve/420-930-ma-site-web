@@ -1,9 +1,9 @@
 ---
 layout: default
-title: "<date> - Révision 2"
-nav_order: 3
+title: "aaaa-MM-dd"
+nav_order: 29
 ---
 
-# Séance 3 : Révision (partie 2)
+# Séance 29: Préparation à l'épreuve finale (partie 2)
 
-Contenu de la 3e séance.
+Contenu de la séance.

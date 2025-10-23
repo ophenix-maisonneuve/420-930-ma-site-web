@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "<date> - Tables de hachage 1"
+title: "aaaa-MM-dd"
 nav_order: 15
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "<date> - Introduction aux patrons de conception"
+title: "aaaa-MM-dd"
 nav_order: 20
 ---
 

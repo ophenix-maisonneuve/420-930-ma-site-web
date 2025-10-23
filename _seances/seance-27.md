@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "<date> - Patrons architecturaux"
+title: "aaaa-MM-dd"
 nav_order: 27
 ---
 

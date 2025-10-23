@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "<date> - Patrons comportementaux (partie 1)"
+title: "aaaa-MM-dd"
 nav_order: 25
 ---
 

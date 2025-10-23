@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "<date> - Complexité des algorithmes 1"
+title: "aaaa-MM-dd"
 nav_order: 4
 ---
 

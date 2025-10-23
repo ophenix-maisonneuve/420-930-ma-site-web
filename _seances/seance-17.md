@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "<date> - Principes de développement 1"
+title: "aaaa-MM-dd"
 nav_order: 17
 ---
 

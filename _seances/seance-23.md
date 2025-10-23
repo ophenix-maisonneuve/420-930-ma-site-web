@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "<date> - Patrons structurels (partie 1)"
+title: "aaaa-MM-dd"
 nav_order: 23
 ---
 

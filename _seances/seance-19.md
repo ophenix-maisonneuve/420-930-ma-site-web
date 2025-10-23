@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "<date> - Modélisation"
+title: "aaaa-MM-dd"
 nav_order: 19
 ---
 

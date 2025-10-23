@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "<date> - Bases des structures de données 2"
+title: "aaaa-MM-dd"
 nav_order: 7
 ---
 
