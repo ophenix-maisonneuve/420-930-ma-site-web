@@ -2,7 +2,7 @@
 layout: default
 title: "Installation de l'environnement"
 nav_order: 1
-has_toc: true
+has_toc: false
 ---
 # Installation et personnalisation de l'environnement
 

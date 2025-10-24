@@ -2,6 +2,7 @@
 layout: default
 title: "aaaa-MM-dd"
 nav_order: 3
+published: false
 ---
 
 # Séance 3 : Révision (partie 2)
