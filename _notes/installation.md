@@ -12,9 +12,9 @@ Vous trouverez ici toute l'information pour installer et personnaliser votre env
 
 *Si vous utilisez la machine virtuelle du cours, ces étapes ont déjà été effectuées*
 
-- [Ubuntu 24.04](ubuntu.md)
-- [Windows 11](windows.md)
-- [macOS](macos.md)
+- [Ubuntu 24.04](ubuntu)
+- [Windows 11](windows)
+- [macOS](macos)
 
 ## Installation des extensions Java dans Visual Studio Code
 
