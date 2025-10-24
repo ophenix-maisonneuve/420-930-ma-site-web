@@ -49,9 +49,7 @@ Java Extension Pack
 
 Vous verrez un résultat comme celui-ci :
 
-![test](../assets/images/java-extension-pack.png)
-
-![alt text](../assets/images/java-extension-pack.png)
+![Extension Pack for Java by Microsoft](../assets/images/java-extension-pack.png)
 
 ---
 
@@ -116,3 +114,66 @@ Après redémarrage, vérifier que :
 - Le presse-papiers partagé est actif (si activé dans les paramètres)
 
 ## Personnalisation de l'apparence de Ubuntu MATE
+
+## Personnalisation de Visual Studio Code
+Quelques suggestions d'options à activer ou d'extensions à ajouter:
+
+### Extensions
+ - XML par Red Hat
+
+
+### Activer la sauvegarde automatique
+
+#### Étapes
+
+1. **Ouvrir les paramètres**
+   - Cliquez sur l’icône ⚙️ en bas à gauche de VS Code.
+   - Sélectionnez **"Paramètres"** (ou utilisez le raccourci `Ctrl + ,` sur Windows/Linux ou `Cmd + ,` sur macOS).
+
+2. **Rechercher l’option "Auto Save"**
+   - Dans la barre de recherche des paramètres, tapez : `Auto Save`.
+
+3. **Activer la sauvegarde automatique**
+   - Dans la section **Files: Auto Save**, choisissez une des options suivantes :
+     - `off` : désactivé.
+     - `afterDelay` : sauvegarde automatique après un court délai (par défaut 1000 ms).
+     - `onWindowChange` : sauvegarde lorsque vous changez de fenêtre.
+     - `onWindowLostFocus` : sauvegarde lorsque VS Code perd le focus.
+
+4. **(Optionnel) Modifier le délai de sauvegarde**
+   - Toujours dans les paramètres, cherchez **"Files: Auto Save Delay"** pour ajuster le délai (en millisecondes) si vous avez choisi `afterDelay`.
+
+#### Astuce
+
+Vous pouvez aussi modifier directement le fichier `settings.json` :
+
+```json
+{
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000
+}
+``` 
+
+###  Activer le formatage automatique à la sauvegarde
+
+#### Étapes
+
+1. **Ouvrir les paramètres**
+   - Cliquez sur l’icône ⚙️ en bas à gauche de VS Code.
+   - Sélectionnez **"Paramètres"** (ou utilisez le raccourci `Ctrl + ,` sur Windows/Linux ou `Cmd + ,` sur macOS).
+
+2. **Rechercher l’option "Format On Save"**
+   - Dans la barre de recherche des paramètres, tapez : `Format On Save`.
+
+3. **Activer le formatage automatique à la sauvegarde**
+   - Cochez la case **Editor: Format On Save** pour que VS Code formate automatiquement le fichier à chaque sauvegarde.
+
+#### Astuce : Modifier directement le fichier settings.json
+
+1. Ouvrez la palette de commandes (`Ctrl + Shift + P` ou `Cmd + Shift + P`).
+2. Tapez **"Preferences: Open Settings (JSON)"** et ouvrez le fichier.
+3. Ajoutez ou modifiez la ligne suivante :
+
+```json
+"editor.formatOnSave": true
+```
