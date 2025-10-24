@@ -16,7 +16,7 @@ java -version
 
 ## Maven
 ```bash
-sudo apt install maven
+sudo apt install mave --no-install-recommends 
 mvn -version
 ```
 
