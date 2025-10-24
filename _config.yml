@@ -10,12 +10,6 @@ collections:
   notes:
     output: true
     permalink: /:collection/:name
-  concepts-oop:
-    output: true
-    permalink: /:collection/:name
-  installation:
-    output: true
-    permalink: /:collection/:name
 
 just_the_docs:
   collections:
@@ -25,10 +19,5 @@ just_the_docs:
     notes:
       name: Notes de cours
       nav_fold: true
-    concepts-oop:
-      name: Concepts de programmation orientée objet
-      nav_fold: true
-    installation:
-      name: Installation de l'environnement
-      nav_fold: true
+
 
