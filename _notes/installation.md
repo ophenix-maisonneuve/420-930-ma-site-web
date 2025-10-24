@@ -49,8 +49,9 @@ Java Extension Pack
 
 Vous verrez un résultat comme celui-ci :
 
+![test](/assets/images/java-extension-pack.png)
 
-![alt text](/img/image.png)
+![alt text](/assets/images/java-extension-pack.png)
 
 ---
 
