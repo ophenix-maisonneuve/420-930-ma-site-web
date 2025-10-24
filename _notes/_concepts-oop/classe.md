@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Classe, champs, méthodes"
+parent: "Concepts de programmation orientée objet"
+nav_order: 2
+---
+
 # Classe
 
 En Java, une **classe** est un modèle qui définit les propriétés (champs) et les comportements (méthodes) d'un objet.
