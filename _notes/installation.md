@@ -49,9 +49,9 @@ Java Extension Pack
 
 Vous verrez un résultat comme celui-ci :
 
-![test](/assets/images/java-extension-pack.png)
+![test](../assets/images/java-extension-pack.png)
 
-![alt text](/assets/images/java-extension-pack.png)
+![alt text](../assets/images/java-extension-pack.png)
 
 ---
 
@@ -68,9 +68,9 @@ Cliquez sur **Install** pour installer l'ensemble complet. Il inclut :
 
 ---
 
-### 5. Redémarrer VS Code (si nécessaire)
+### 5. Redémarrer Visual Studio Code (si nécessaire)
 
-Après l’installation, redémarrez VS Code pour que toutes les extensions soient bien chargées.
+Après l’installation, redémarrez Visual Studio Code pour que toutes les extensions soient bien chargées.
 
 ## Installation des additions invités VirtualBox (Guest Additions)
 
