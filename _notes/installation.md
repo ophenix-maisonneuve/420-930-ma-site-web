@@ -8,6 +8,13 @@ has_toc: false
 
 Vous trouverez ici toute l'information pour installer et personnaliser votre environnement de développement.
 
+## Modification des paramètres de la machine virtuelle
+
+La machine virtuelle a été créée avec le strict minimum pour pouvoir fonctionner:
+
+- 1 CPU
+- 2 GB de mémoire
+
 ## Installation de Java, Maven et Visual Studio Code
 
 *Si vous utilisez la machine virtuelle du cours, ces étapes ont déjà été effectuées*
@@ -22,7 +29,7 @@ Vous trouverez ici toute l'information pour installer et personnaliser votre env
 
 ### 1. Ouvrir Visual Studio Code
 
-Lancez **VS Code** depuis le menu Démarrer ou un raccourci.
+Lancez **Visual Studio Code** depuis le menu Démarrer ou un raccourci.
 
 ---
 
@@ -41,6 +48,9 @@ Java Extension Pack
 ```
 
 Vous verrez un résultat comme celui-ci :
+
+
+![alt text](/img/image.png)
 
 ---
 
@@ -62,7 +72,6 @@ Cliquez sur **Install** pour installer l'ensemble complet. Il inclut :
 Après l’installation, redémarrez VS Code pour que toutes les extensions soient bien chargées.
 
 ## Installation des additions invités VirtualBox (Guest Additions)
-
 
 ### 1. Mettre à jour le système
 
