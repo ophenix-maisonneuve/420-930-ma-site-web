@@ -11,16 +11,16 @@ nav_order: 1
 
 1. Présentation de l'enseignant
 2. Présentation du cours
-   1. Description
-   2. Survol du plan de cours
-   3. Déroulement des cours
-   4. Enregistrement des séances
+   * Description
+   * Survol du plan de cours
+   * Déroulement des cours
+   * Enregistrement des séances
 3. Outils utilisés
-   1. Site web du cours
-   2. GitHub
-   3. Langage utilisé: Java
-      1. Pourquoi Java?
-   4. Environnement de développement
+   * Site web du cours
+   * GitHub
+   * Langage utilisé: Java
+     * Pourquoi Java?
+   * Environnement de développement
 4. Exploration de l'environnement de développement proposé
    * Machine virtuelle fonctionnant sous VirtualBox ou VMware Workstation
    * Ubuntu MATE 24.04 LTS
@@ -28,7 +28,6 @@ nav_order: 1
    * Maven
    * Visual Studio Code avec extensions Java (*Java Extension Pack*)
    * Exercice de familiarisation
-
 
 Exercice(s) complémentaire(s)
 

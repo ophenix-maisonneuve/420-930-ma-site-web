@@ -24,3 +24,4 @@ mvn -version
 ```bash
 sudo snap install code --classic
 ```
+## Personnalisation de l'apparence de Ubuntu MATE

@@ -10,6 +10,9 @@ collections:
   notes:
     output: true
     permalink: /:collection/:name
+  exercices:
+    output: true
+    permalink: /:collection/:name
 
 just_the_docs:
   collections:
@@ -18,6 +21,9 @@ just_the_docs:
       nav_fold: true
     notes:
       name: Notes de cours
+      nav_fold: true
+    exercices:
+      name: Exercices
       nav_fold: true
 
 
