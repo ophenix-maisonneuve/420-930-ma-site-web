@@ -10,14 +10,14 @@ Vous trouverez ici toute l'information pour installer et personnaliser votre env
 
 ## Configuration de la machine virtuelle
 
-Si vous utilisez la machine virtuelle du cours, vous trouverez des informations utiles pour configurer et paramétrer la machine virtuelle.
+Si vous utilisez la machine virtuelle du cours, vous trouverez des informations utiles pour configurer et optmiser la machine virtuelle.
 
  - [Configuration de la machine virtuelle](machine-virtuelle)
 
 
 ## Installation de Java, Maven et Visual Studio Code
 
-*Si vous utilisez la machine virtuelle du cours, ces étapes ont déjà été effectuées*
+*Si vous utilisez la machine virtuelle du cours, ces étapes ont déjà été effectuées.*
 
 - [Ubuntu 24.04](ubuntu)
 - [Windows 11](windows)
@@ -25,7 +25,7 @@ Si vous utilisez la machine virtuelle du cours, vous trouverez des informations 
 
 ## Installation des extensions Java dans Visual Studio Code
 
-*Si vous utilisez la machine virtuelle du cours, ces étapes ont déjà été effectuées*
+*Si vous utilisez la machine virtuelle du cours, ces étapes ont déjà été effectuées.*
 
 ### 1. Ouvrir Visual Studio Code
 
@@ -74,11 +74,7 @@ Après l’installation, redémarrez Visual Studio Code pour que toutes les exte
 ## Personnalisation de Visual Studio Code
 Quelques suggestions d'options à activer ou d'extensions à ajouter:
 
-### Extensions
- - XML par Red Hat
-
-
-### Activer la sauvegarde automatique
+### Activation la sauvegarde automatique
 
 #### Étapes
 
@@ -133,3 +129,6 @@ Vous pouvez aussi modifier directement le fichier `settings.json` :
 ```json
 "editor.formatOnSave": true
 ```
+
+### Extensions recommandées
+ - XML par Red Hat
