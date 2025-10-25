@@ -1,11 +1,11 @@
 ---
 layout: default
-title: "aaaa-MM-dd"
+title: "2025-10-27"
 nav_order: 1
 ---
 # Séance 1 : Présentations
 
-## DATE
+## 27 octobre 2025
 
 ### Ordre du jour
 
