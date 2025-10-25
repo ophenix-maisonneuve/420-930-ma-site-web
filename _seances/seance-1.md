@@ -31,5 +31,5 @@ nav_order: 1
 
 Exercice(s) complémentaire(s)
 
-* Terminer l'[exercice de familiarisation](/exercices/familiarisation-vscode-java)
+* Terminer l'[exercice de familiarisation](../exercices/familiarisation-vscode-java)
 * Configurer / personnaliser votre environnement à votre goût
