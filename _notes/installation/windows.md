@@ -13,9 +13,9 @@ Ce guide vous explique comment installer **OpenJDK 25**, **Maven** et **Visual S
 
 ## Installation de OpenJDK 25
 
-### Méthode 1 : Installation manuelle via Adoptium
+### Méthode 1 : Installation manuelle (via le build Microsoft de OpenJDK)
 
-1. Rendez-vous sur le site officiel : [https://adoptium.net](https://adoptium.net)
+1. Rendez-vous sur le site officiel : [https://learn.microsoft.com/en-us/java/openjdk/download](https://learn.microsoft.com/en-us/java/openjdk/download)
 2. Téléchargez le JDK 25 pour Windows (format `.msi` ou `.zip`).
 3. Installez-le en suivant les instructions de l'installateur.
 4. Configurez les variables d'environnement :
