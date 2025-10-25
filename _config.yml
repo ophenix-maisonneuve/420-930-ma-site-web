@@ -1,6 +1,6 @@
 title: "420-930-MA"
 remote_theme: just-the-docs/just-the-docs
-logo: "/assets/images/amp-logo"
+logo: "assets/images/amp-logo"
 plugins:
   - jekyll-remote-theme
 
