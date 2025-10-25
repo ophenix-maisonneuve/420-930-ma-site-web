@@ -8,12 +8,12 @@ has_toc: false
 
 Vous trouverez ici toute l'information pour installer et personnaliser votre environnement de développement.
 
-## Modification des paramètres de la machine virtuelle
+## Configuration de la machine virtuelle
 
-La machine virtuelle a été créée avec le strict minimum pour pouvoir fonctionner:
+Si vous utilisez la machine virtuelle du cours, vous trouverez des informations utiles pour configurer et paramétrer la machine virtuelle.
 
-- 1 CPU
-- 2 GB de mémoire
+ - [Configuration de la machine virtuelle](machine-virtuelle)
+
 
 ## Installation de Java, Maven et Visual Studio Code
 
@@ -70,50 +70,6 @@ Cliquez sur **Install** pour installer l'ensemble complet. Il inclut :
 
 Après l’installation, redémarrez Visual Studio Code pour que toutes les extensions soient bien chargées.
 
-## Installation des additions invités VirtualBox (Guest Additions)
-
-### 1. Mettre à jour le système
-
-```bash
-sudo apt update && sudo apt upgrade -y
-```
-
-### 2. Installer les paquets nécessaires
-
-```bash
-sudo apt install build-essential dkms linux-headers-$(uname -r) -y
-```
-
-### 3. Insérer l’image ISO des Guest Additions
-
-Dans le menu de VirtualBox :
-
-- Aller dans **Périphériques > Insérer l’image CD des Additions Invité...**
-
-Cela montera un CD dans `/media/<utilisateur>/VBox_GAs_...`
-
-### 4. Exécuter le script d’installation
-
-```bash
-sudo sh /media/$USER/VBox_GAs_*/VBoxLinuxAdditions.run
-```
-
-### 5. Redémarrer la machine virtuelle
-
-```bash
-sudo reboot
-```
-
----
-
-### 6. Vérification
-
-Après redémarrage, vérifier que :
-
-- Le redimensionnement automatique de l’écran fonctionne
-- Le presse-papiers partagé est actif (si activé dans les paramètres)
-
-## Personnalisation de l'apparence de Ubuntu MATE
 
 ## Personnalisation de Visual Studio Code
 Quelques suggestions d'options à activer ou d'extensions à ajouter:
@@ -127,7 +83,7 @@ Quelques suggestions d'options à activer ou d'extensions à ajouter:
 #### Étapes
 
 1. **Ouvrir les paramètres**
-   - Cliquez sur l’icône ⚙️ en bas à gauche de VS Code.
+   - Cliquez sur l’icône ⚙️ en bas à gauche de Visual Studio Code.
    - Sélectionnez **"Paramètres"** (ou utilisez le raccourci `Ctrl + ,` sur Windows/Linux ou `Cmd + ,` sur macOS).
 
 2. **Rechercher l’option "Auto Save"**
@@ -138,7 +94,7 @@ Quelques suggestions d'options à activer ou d'extensions à ajouter:
      - `off` : désactivé.
      - `afterDelay` : sauvegarde automatique après un court délai (par défaut 1000 ms).
      - `onWindowChange` : sauvegarde lorsque vous changez de fenêtre.
-     - `onWindowLostFocus` : sauvegarde lorsque VS Code perd le focus.
+     - `onWindowLostFocus` : sauvegarde lorsque Visual Studio Code perd le focus.
 
 4. **(Optionnel) Modifier le délai de sauvegarde**
    - Toujours dans les paramètres, cherchez **"Files: Auto Save Delay"** pour ajuster le délai (en millisecondes) si vous avez choisi `afterDelay`.
@@ -159,14 +115,14 @@ Vous pouvez aussi modifier directement le fichier `settings.json` :
 #### Étapes
 
 1. **Ouvrir les paramètres**
-   - Cliquez sur l’icône ⚙️ en bas à gauche de VS Code.
+   - Cliquez sur l’icône ⚙️ en bas à gauche de Visual Studio Code.
    - Sélectionnez **"Paramètres"** (ou utilisez le raccourci `Ctrl + ,` sur Windows/Linux ou `Cmd + ,` sur macOS).
 
 2. **Rechercher l’option "Format On Save"**
    - Dans la barre de recherche des paramètres, tapez : `Format On Save`.
 
 3. **Activer le formatage automatique à la sauvegarde**
-   - Cochez la case **Editor: Format On Save** pour que VS Code formate automatiquement le fichier à chaque sauvegarde.
+   - Cochez la case **Editor: Format On Save** pour que Visual Studio Code formate automatiquement le fichier à chaque sauvegarde.
 
 #### Astuce : Modifier directement le fichier settings.json
 
