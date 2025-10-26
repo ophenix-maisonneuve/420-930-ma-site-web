@@ -27,13 +27,13 @@ just_the_docs:
     exercices:
       name: Exercices
       nav_fold: true
-callouts:
-  highlight:
-    title: Remarque
-    color: light-blue
-  warning:
-    title: Attention
-    color: light-yellow
+  callouts:
+    highlight:
+      title: Remarque
+      color: light-blue
+    warning:
+      title: Attention
+      color: light-yellow
 
 
 
