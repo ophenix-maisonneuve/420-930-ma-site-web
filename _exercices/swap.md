@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Familiarisation avec Java sous Visual Studio Code"
+nav_order: 1
+has_toc: false
+published: false
+---
 
 # 🧪 Exercice: Méthode `swap(a, b)`
 
