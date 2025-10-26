@@ -68,9 +68,7 @@ public class Hero {
 ```
 
 <details>
-<summary>
-###Équivalent Python
-</summary>
+<summary>Équivalent Python</summary>
 
 ```python
 class Hero:
