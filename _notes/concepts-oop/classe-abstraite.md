@@ -9,61 +9,81 @@ Une **classe abstraite** peut contenir des méthodes implémentées et des méth
 public abstract class AbstractVehicule implements Vehicule {
     protected String marque;
 
-    public VehiculeAction(String marque) {
+    public AbstractVehicule(String marque) {
         this.marque = marque;
     }
 
-    public void arreter() {
+    // Implémentation par défaut
+    // L'absence du mot-clé final permet la redéfinition dans les sous-classes
+    public final void arreter() {
         System.out.println(marque + " s'arrête.");
     }
 
-    public abstract void demarrer();
+    // Implémentation finale.
+    // On désire empêcher la redéfinition dans les sous-classes
+    public final void demarrer() {
+        System.out.println(marque + " démarre " + getQualificatif());
+    }
+
+    // Méthode abstraite (mot-clé abstract)
+    // On force les sous-classes à fournir l'implémentation
+    protected abstract String getQualificatif();
 }
 ```
 
 ```java
 public class Voiture extends AbstractVehicule {
-    private String marque;
 
     public Voiture(String marque) {
-        this.marque = marque;
+        super(marque);
     }
 
     @Override
-    public void demarrer() {
-        System.out.println(marque + " démarre doucement.");
+    public String getQualificatif() {
+        return "avec un vrombissement!";
     }
 }
 ```
 
 ```java
 public class Camion extends AbstractVehicule {
-    private String marque;
 
     public Camion(String marque) {
-        this.marque = marque;
+        super(marque);
     }
 
     @Override
-    public void demarrer() {
-        System.out.println(marque + " démarre dans un nuage de fumée.");
+    public void getQualificatif() {
+        return "dans un nuage de fumée.";
     }
 }
 ```
 
 <details>
-<summary>💡 Équivalent Python</summary>
+<summary>Équivalent Python</summary>
 
 ```python
-class VehiculeAction(Vehicule):
+from abc import ABC, abstractmethod
+
+class AbstractVehicule(ABC):
     def __init__(self, marque):
         self._marque = marque
 
+    # Implémentation par défaut
+    # En Python, il n'y a pas de mot-clé 'final' natif, mais on peut utiliser des conventions ou des outils comme @final
     def arreter(self):
         print(f"{self._marque} s'arrête.")
 
-    @abstractmethod
+    # Implémentation finale (avec @final depuis Python 3.8)
+    from typing import final
+
+    @final
     def demarrer(self):
+        print(f"{self._marque} démarre {self.get_qualificatif()}")
+
+    # Méthode abstraite
+    @abstractmethod
+    def get_qualificatif(self):
         pass
 ```
 
