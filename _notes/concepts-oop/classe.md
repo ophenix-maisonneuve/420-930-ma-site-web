@@ -2,7 +2,7 @@
 layout: default
 title: "Classe, champs, méthodes"
 parent: "Concepts de programmation orientée objet"
-nav_order: 2
+nav_order: 3
 ---
 
 # Classe
@@ -68,7 +68,9 @@ public class Hero {
 ```
 
 <details>
-<summary>Équivalent Python</summary>
+<summary>
+###Équivalent Python
+</summary>
 
 ```python
 class Hero:
