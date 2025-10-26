@@ -31,38 +31,39 @@ Si aucun modificateur de visibilité n'est utilisé, Java utilise la visibilité
 ## Exemple
 
 ```java
-public class Hero {
+public class Vehicule {
     // Champs (fields)
     
     // private: accessible uniquement dans cette classe
-    private String nom;
+    private String marque;
     
     // protected: accessible par cette classe, ses sous-classes et les classes du même package
-    protected int force;
+    protected int vitesseMaximale;
 
     // public: accessible de partout
     // static: accessible sans instance de cette classe
-    public static int compteur;
+    public static int compteur = 0;
 
     // Constructeur (constructor)
-    public Hero(String nom, int force) {
+    public Hero(String marque, int vitesseMaximale) {
         // ici, this est obligatoire pour lever l'ambiguité
-        this.nom = nom;
-        this.force = force;
+        this.marque = marque;
+        this.vitesseMaximale = vitesseMaximale;
+        compteur++;
     }
 
     // Méthodes (method)
-    public void combattre() {
+    public void demarrer() {
         // ici, this est optionnel, car il n'y a pas d'ambiguité
-        System.out.println(nom + " combat avec une force de " + this.force);
+        System.out.println(this.marque + " démarre.");
     }
 
-    protected void seReposer() {
-        System.out.println(this.nom + " se repose.");
+    protected void accelerer() {
+        System.out.println(this.marque + " accélère.");
     }
 
-    private void penser() {
-        System.out.println(this.nom + " médite en silence.");
+    private void verifierSysteme() {
+        System.out.println("Vérification du système interne de " + this.nom);
     }
 }
 ```
@@ -73,21 +74,22 @@ public class Hero {
 
 
 ```python
-class Hero:
-    compteur = 0  # Champ public et statique
+class Vehicule:
+    compteur = 0  # Champ public statique
 
-    def __init__(self, nom, force):
-        self.__nom = nom          # Champ privé
-        self._force = force       # Champ protégé
+    def __init__(self, marque, vitesse_maximale):
+        self.__marque = marque         # Champ privé
+        self._vitesse_maximale = vitesse_maximale  # Champ protégé
+        Vehicule.compteur += 1
 
-    def combattre(self):         # Méthode publique
-        print(f"{self.__nom} combat avec une force de {self._force}")
+    def demarrer(self):
+        print(f"{self.__marque} démarre.")
 
-    def _se_reposer(self):       # Méthode protégée
-        print(f"{self.__nom} se repose.")
+    def _accelerer(self):
+        print(f"{self.__marque} accélère.")
 
-    def __penser(self):          # Méthode privée
-        print(f"{self.__nom} médite en silence.")
+    def __verifier_systeme(self):
+        print("Vérification du système interne.")
 ```
 
 </details>
