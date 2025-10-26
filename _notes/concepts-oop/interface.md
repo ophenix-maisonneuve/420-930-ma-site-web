@@ -1,8 +1,14 @@
+---
+layout: default
+title: "Interface"
+parent: "Concepts de programmation orientée objet"
+nav_order: 5
+---
 
-# 🚗 Interface : Vehicule
+# Interface
 
 ## Définition
-Une **interface** définit un contrat que les classes doivent respecter. Elle ne contient que des signatures de méthodes.
+Une **interface** définit un contrat que les classes doivent respecter. Elle ne contient normalement que des signatures de méthodes *public*.
 
 ## Exemple en Java
 ```java
@@ -13,7 +19,7 @@ public interface Vehicule {
 ```
 
 <details>
-<summary>💡 Équivalent Python</summary>
+<summary>Équivalent Python</summary>
 
 ```python
 from abc import ABC, abstractmethod
