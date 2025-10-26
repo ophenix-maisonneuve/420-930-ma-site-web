@@ -17,6 +17,8 @@ nav_order: 1
    * Enregistrement des séances
 3. Outils utilisés
    * Site web du cours
+   * Omnivox / Léa
+   * Moodle
    * GitHub
    * Langage utilisé: Java
      * Pourquoi Java?
