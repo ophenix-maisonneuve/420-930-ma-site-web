@@ -5,7 +5,6 @@ nav_order: 1
 has_toc: false
 published: false
 ---
-
 # 🧪 Exercice: Méthode `swap(a, b)`
 
 ## 🎯 Objectif
@@ -48,32 +47,16 @@ Pourquoi les valeurs de `a` et `b` **n’ont pas changé** après l’appel à `
 
 En Java, les arguments sont toujours passés **par valeur**. Dans le cas des objets comme `String`, cela signifie que **la référence vers l'objet est copiée**. La méthode `swap` modifie les copies locales des références, mais **pas les variables originales** dans `main()`.
 
-## ✅ Variante possible
+## ✅ Implémentation
+
+Implémenter une variante qui permettra à la méthode `swap` d'inverser correctement les valeurs `a` et `b`.
+
+### Indices
 
 Pour contourner cette limitation, on peut :
-- Utiliser un tableau ou une classe contenant les deux valeurs.
-- Modifier les valeurs via des références à un objet mutable.
 
-### Exemple avec un tableau :
-
-```java
-public class Echangeur {
-
-    public static void swap(String[] valeurs) {
-        String temp = valeurs[0];
-        valeurs[0] = valeurs[1];
-        valeurs[1] = temp;
-    }
-
-    public static void main(String[] args) {
-        String[] valeurs = {"Bonjour", "Salut"};
-
-        System.out.println("Avant échange : a = " + valeurs[0] + ", b = " + valeurs[1]);
-        swap(valeurs);
-        System.out.println("Après échange : a = " + valeurs[0] + ", b = " + valeurs[1]);
-    }
-}
-```
+- Passer en argument un tableau ou une classe contenant les deux valeurs.
+- Passer en argument un objet mutable qui contient les références aux deux valeurs.
 
 ## 🎓 Conclusion
 
