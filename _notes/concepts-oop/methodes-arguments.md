@@ -5,10 +5,9 @@ parent: "Concepts de programmation orientée objet"
 nav_order: 3
 ---
 
-# Polymorphisme
+# Méthodes et arguments
 
-
-En Java, **les objets sont toujours passés par copie de leur référence**. Cela signifie que lorsqu’on transmet un objet à une méthode, **on ne transmet pas l’objet lui-même**, mais **une copie de son adresse en mémoire**.
+Java passe toujours les arguments **par valeur** à une méthode. Lorsque l'on passe un type primitif (int, double, boolean, etc), on passe **une copie de la valeur primitive**. Lorsque l'on passe un objet, on passe **copie de leur référence**. Cela signifie que lorsqu’on transmet un objet à une méthode, **on ne transmet pas l’objet lui-même**, mais **une copie de son adresse en mémoire**.
 
 ## Exemple :
 
