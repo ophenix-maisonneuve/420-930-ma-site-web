@@ -71,6 +71,7 @@ public class Hero {
 
 <summary>Équivalent Python</summary>
 
+
 ```python
 class Hero:
     compteur = 0  # Champ public et statique

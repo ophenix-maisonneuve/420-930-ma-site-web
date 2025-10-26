@@ -46,6 +46,7 @@ import com.monentreprise.monmodule.MaClasse;
 
 <summary>Comparaison avec les packages en Python</summary>
 
+
 ### Packages en Python
 
 En Python, un package est un **dossier contenant un fichier `__init__.py`** (même vide). Il permet d’organiser les modules (fichiers `.py`) :
