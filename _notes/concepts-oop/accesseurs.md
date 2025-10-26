@@ -72,8 +72,9 @@ public class Main {
 - Pour **contrôler l'accès** et la modification des champs
 - Pour permettre des **vérifications ou transformations** lors de la lecture ou l'écriture
 
-{:.highlight}
+
 > Python privilégie la simplicité; il n'est donc pas pratique courante d'écrire explicitement des accesseurs comme en Java. Cependant, il est possible d'utiliser le décorateur `@property` si l'on désire un contrôle plus fin sur la logique d'accès à une propriété.
+{: .highlight}
 
 ```python
 class Vehicule:

@@ -1,8 +1,14 @@
+---
+layout: default
+title: "Classe abstraite"
+parent: "Concepts de programmation orientée objet"
+nav_order: 6
+---
 
-# Classe abstraite : VehiculeAction
+# Classe abstraite
 
 ## Définition
-Une **classe abstraite** peut contenir des méthodes implémentées et des méthodes abstraites. Elle sert de base pour d'autres classes.
+Une **classe abstraite** peut contenir des méthodes implémentées et des méthodes abstraites. Elle sert de base pour d'autres classes. Si une **classe abstraite** implémente une **interface**, elle n'a pas à implémenter toutes les méthodes de l'interface. Les méthodes non-implémentées devront être implémentées par les **sous-classes**.
 
 ## Exemple en Java
 ```java
