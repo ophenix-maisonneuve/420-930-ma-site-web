@@ -48,7 +48,7 @@ public class Main {
 - Elle peut **modifier l’état interne** de l’objet (ici, la marque), car elle pointe vers le **même objet en mémoire**.
 - Le changement vers BMW n’a aucun effet sur maVoiture, car la nouvelle instance est assignée à une copie de la référence, pas à l’original.
 
-{: .highlight}
+{:.highlight}
 > Java **ne passe pas les objets par référence** comme en C++. Il passe **la référence par valeur**. Cela peut être déroutant, mais cela signifie :
 >
 > - Les **modifications internes** à l’objet sont visibles à l’extérieur.
