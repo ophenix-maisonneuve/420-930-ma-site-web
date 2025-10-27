@@ -2,14 +2,14 @@
 layout: default
 title: "Polymorphisme"
 parent: "Concepts de programmation orientée objet"
-nav_order: 4
+nav_order: 5
 ---
 
 # Polymorphisme
 
-En programmation orientée objet (POO), le polymorphisme est un principe permettant à des objets de réagir différemment à une même méthode, selon leur type spécifique. Le mot vient du grec polus (plusieurs) et morphe (forme), ce qui signifie littéralement « plusieurs formes ».
+En programmation orientée objet (POO), le polymorphisme est un principe permettant à des objets de réagir **différemment** à une **même méthode**, selon leur **type** spécifique. Le mot vient du grec polus (plusieurs) et morphe (forme), ce qui signifie littéralement « plusieurs formes ».
 
-Ce document présente deux formes de polymorphisme en Java :
+Il existe deux formes de polymorphisme en Java :
 
 - **Polymorphisme statique** (*surcharge de méthode*)
 - **Polymorphisme dynamique** (*redéfinition de méthode*)

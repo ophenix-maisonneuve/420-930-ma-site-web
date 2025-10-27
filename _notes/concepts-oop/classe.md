@@ -50,7 +50,7 @@ public class Vehicule {
         // ici, this est obligatoire pour lever l'ambiguité
         this.marque = marque;
         this.vitesseMaximale = vitesseMaximale;
-        compteur++;
+        nombreVehicules++;
     }
 
     // Méthodes (method)
@@ -64,11 +64,23 @@ public class Vehicule {
     }
 
     private void verifierSysteme() {
-        System.out.println("Vérification du système interne de " + this.nom);
+        System.out.println("Vérification du système interne de " + this.marque);
     }
 
     public static int getNombreVehicules() {
         return nombreVehicules;
+    }
+
+    public static void main(String[] args) {
+        Vehicule v1 = new Vehicule("Honda", 160);
+        v1.demarrer();
+        v1.accelerer();
+
+        Vehicule v2 = new Vehicule("Ferrari", 350);
+        v2.demarrer();
+        v2.accelerer();
+
+        System.out.println("Nombre de véhicules en circulation: " + Vehicule.getNombreVehicules());
     }
 }
 ```

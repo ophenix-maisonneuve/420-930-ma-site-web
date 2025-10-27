@@ -2,7 +2,7 @@
 layout: default
 title: "Classe abstraite"
 parent: "Concepts de programmation orientée objet"
-nav_order: 6
+nav_order: 7
 ---
 
 # Classe abstraite
@@ -59,8 +59,8 @@ public class Camion extends AbstractVehicule {
     }
 
     @Override
-    public void getQualificatif() {
-        return "dans un nuage de fumée.";
+    public String getQualificatif() {
+        return "dans un nuage de fumée noire!";
     }
 }
 ```

@@ -46,9 +46,7 @@ public class Vehicule {
     public void afficherInfos() {
         System.out.println("Marque : " + marque + ", Année : " + annee);
     }
-}
-
-public class Main {
+    
     public static void main(String[] args) {
         Vehicule v = new Vehicule("Toyota", 2020);
         v.afficherInfos();

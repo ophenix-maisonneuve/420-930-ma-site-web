@@ -12,10 +12,10 @@ Java passe toujours les arguments **par valeur** à une méthode. Lorsque l'on p
 ## Exemple :
 
 ```java
-public class Voiture {
+public class Vehicule {
     private String marque;
 
-    public Voiture(String marque) {
+    public Vehicule(String marque) {
         this.marque = marque;
     }
 
@@ -26,16 +26,14 @@ public class Voiture {
     public void afficher() {
         System.out.println("Marque : " + marque);
     }
-}
 
-public class Main {
-    public static void changerVoiture(Voiture v) {
+    public static void changerVoiture(Vehicule v) {
         v.setMarque("Tesla"); // Modifie l'objet pointé
-        v = new Voiture("BMW"); // Ne modifie pas la voiture originale
+        v = new Vehicule("BMW"); // Ne modifie pas la voiture originale
     }
 
     public static void main(String[] args) {
-        Voiture maVoiture = new Voiture("Toyota");
+        Vehicule maVoiture = new Vehicule("Toyota");
         changerVoiture(maVoiture);
         maVoiture.afficher(); // Affiche : Marque : Tesla
     }
