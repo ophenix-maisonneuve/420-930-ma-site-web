@@ -2,5 +2,5 @@
 layout: default
 title: "Concepts de programmation orientée objet"
 nav_order: 3
-published: true
+published: false
 ---
