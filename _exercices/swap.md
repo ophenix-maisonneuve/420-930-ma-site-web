@@ -1,24 +1,24 @@
 ---
 layout: default
-title: "Familiarisation avec Java sous Visual Studio Code"
-nav_order: 1
+title: "Méthode swap(a, b)"
+nav_order: 2
 has_toc: false
 published: false
 ---
-# 🧪 Exercice: Méthode `swap(a, b)`
+# Exercice: Méthode `swap(a, b)`
 
-## 🎯 Objectif
+## Objectif
 
-Implémenter une méthode `swap(String a, String b)` en Java qui inverse les valeurs de deux variables entières.
+Implémenter une méthode `swap(String a, String b)` en Java qui inverse les valeurs de deux variables passées en argument.
 
-## 📋 Consignes
+## Consignes
 
 1. Créer une classe `Echangeur` avec une méthode `swap(String a, String b)`.
 2. Dans la méthode `main`, créer deux variables `a` et `b` avec des valeurs différentes.
 3. Appeller la méthode `swap(a, b)` pour tenter d’inverser les deux valeurs.
 4. Afficher les valeurs de `a` et `b` avant et après l’appel à `swap`.
 
-## 💡 Exemple de code de départ
+## Exemple de code de départ
 
 ```java
 public class Echangeur {
@@ -39,15 +39,15 @@ public class Echangeur {
 }
 ```
 
-## ❓ Question de réflexion
+## Question de réflexion
 
 Pourquoi les valeurs de `a` et `b` **n’ont pas changé** après l’appel à `swap` ?
 
-## 🧠 Explication
+## Explication
 
 En Java, les arguments sont toujours passés **par valeur**. Dans le cas des objets comme `String`, cela signifie que **la référence vers l'objet est copiée**. La méthode `swap` modifie les copies locales des références, mais **pas les variables originales** dans `main()`.
 
-## ✅ Implémentation
+## Implémentation
 
 Implémenter une variante qui permettra à la méthode `swap` d'inverser correctement les valeurs `a` et `b`.
 
@@ -58,7 +58,7 @@ Pour contourner cette limitation, on peut :
 - Passer en argument un tableau ou une classe contenant les deux valeurs.
 - Passer en argument un objet mutable qui contient les références aux deux valeurs.
 
-## 🎓 Conclusion
+## Conclusion
 
 Java passe toujours les arguments **par valeur** à une méthode. Lorsque l'on passe un type primitif (int, double, boolean, etc), on passe **une copie de la valeur primitive**. Lorsque l'on passe un objet, on passe **copie de sa référence**. Cela signifie que lorsqu’on transmet un objet à une méthode, **on ne transmet pas l’objet lui-même**, mais **une copie de son adresse en mémoire**.
 

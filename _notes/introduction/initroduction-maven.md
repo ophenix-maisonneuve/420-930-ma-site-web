@@ -1,7 +1,8 @@
 ---
 layout: default
 title: "Introduction à Maven"
-nav_order: 4
+parent: "Introduction à Java et ses outils"
+nav_order: 2
 ---
 
 # Introduction à Maven
