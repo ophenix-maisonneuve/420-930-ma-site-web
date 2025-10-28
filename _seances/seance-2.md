@@ -25,14 +25,8 @@ published: true
    * Modificateurs: *public*, *protected*, *private*, *final*, *static*
    * Accesseurs
    * Exercice individuel : [méthode swap(a, b)](../exercices/swap)
-4. Polymorphisme en Java
-   * Polymorphisme statique (surcharge de méthode)
-   * Polymorphisme dynamique (redéfinition de méthode)
-   * Interfaces
-   * Classes abstraites
+
 
 ### Exercice(s) complémentaire(s)
 
 * Terminer l'exercice individuel : [méthode swap(a, b)](../exercices/swap)
-
-
