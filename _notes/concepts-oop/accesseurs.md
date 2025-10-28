@@ -2,7 +2,7 @@
 layout: default
 title: "Accesseurs"
 parent: "Concepts de programmation orientée objet"
-nav_order: 2
+nav_order: 3
 ---
 # Accesseurs
 
