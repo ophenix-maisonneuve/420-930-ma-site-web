@@ -17,13 +17,15 @@ Vous allez modéliser des personnages de dessins animés célèbres : Lisa Simps
 
 ## Étapes
 
-### 1. Créez une interface `PersonnageAnime`
+### 1. Clonez le dépôt de l'exercice
 
-Cette interface doit contenir les méthodes suivantes :
-
-- `String getNom()`
-- `void parler()`
-- `void agir()`
+```bash
+git clone git@github.com:ophenix-420-930-ma-24636/poly-dessins-animes.git
+```
+ou
+```bash
+git clone https://github.com/ophenix-420-930-ma-24636/poly-dessins-animes.git
+```
 
 ### 2. Créez une classe abstraite `AbstractPersonnage` qui implémente `PersonnageAnime`
 
