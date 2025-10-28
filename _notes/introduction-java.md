@@ -71,5 +71,4 @@ Cela permet à Java d'avoir des performances proches de celles des langages comp
 
 - [Documentation officielle de Java](https://docs.oracle.com/en/java/)
 - [Java Tutorial (Oracle)](https://docs.oracle.com/javase/tutorial/)
-- [Comparaison Java vs Python (GeeksforGeeks)](https://www.geeksforgeeks.org/difference-between-java-and-python/)
 
