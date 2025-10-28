@@ -4,13 +4,14 @@ logo: "/assets/images/amp-logo.png"
 markdown: kramdown
 plugins:
   - jekyll-remote-theme
+
 callouts:
   highlight:
     title: Remarque
-    color: light-blue
+    color: blue
   warning:
     title: Attention
-    color: light-yellow
+    color: yellow
 
 collections:
   seances:
