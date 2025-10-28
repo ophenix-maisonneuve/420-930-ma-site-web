@@ -43,7 +43,17 @@ Cette interface doit contenir les méthodes suivantes :
 
 Implémentez la méthode `agir()` dans chaque classe avec un comportement propre au personnage. Si vous les connaissez moins:
 
-- Lisa
+#### Lisa Simpson
+
+Intellectuelle, idéaliste, passionée par la justice sociale, la musique et l'apprentissage
+
+#### Eric Cartman
+
+Manipulateur, égocentrique, provocateur, n'hésite pas à insulter ses camarades de classe et à exiger qu'ils respectent son autorité
+
+#### Stewie Griffin
+
+Génie machiavélique avec des ambitions de domination mondiale, mais aussi un goût pour l’humour sarcastique et la sophistication. Accessoirement, est aussi un bébé.
 
 ### 4. Dans une classe `Main`, créez une liste de `PersonnageAnime` contenant les trois personnages
 

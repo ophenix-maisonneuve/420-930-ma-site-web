@@ -3,7 +3,7 @@ layout: default
 title: "Méthode swap(a, b)"
 nav_order: 2
 has_toc: false
-published: false
+published: true
 ---
 # Exercice: Méthode `swap(a, b)`
 
@@ -55,8 +55,8 @@ Implémenter une variante qui permettra à la méthode `swap` d'inverser correct
 
 Pour contourner cette limitation, on peut :
 
-- Passer en argument un tableau ou une classe contenant les deux valeurs.
-- Passer en argument un objet mutable qui contient les références aux deux valeurs.
+- Passer en argument un **tableau** contenant les deux valeurs.
+- Passer en argument un **objet mutable** qui contient les deux valeurs.
 
 ## Conclusion
 
