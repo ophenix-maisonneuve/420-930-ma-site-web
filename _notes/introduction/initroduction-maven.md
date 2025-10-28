@@ -58,8 +58,8 @@ mvn archetype:generate [-D archetypeArtifactId=maven-archetype-quickstart]
 ```
 
 {: .highlight}
-
 > Le paramètre `-D archetypeArtifactId` sert à spécifier l'archétype à utiliser. Il est optionnel; s'il est omis, Maven présentera une (très longue...) liste d'archétypes utilisables. 
+
 ---
 
 ## Structure du fichier `pom.xml`
