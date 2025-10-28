@@ -66,14 +66,6 @@ La JVM utilise un **compilateur JIT** pour améliorer les performances. Le JIT c
 
 Cela permet à Java d'avoir des performances proches de celles des langages compilés comme C++, tout en conservant la flexibilité d'une machine virtuelle.
 
-## Résumé des avantages de Java
-
-- Fortement typé : détection d'erreurs à la compilation
-- Portabilité grâce à la JVM
-- Performances optimisées avec le JIT
-- Large écosystème et communauté
-- Orienté objet dès sa conception
-
 
 ## Références utiles
 
