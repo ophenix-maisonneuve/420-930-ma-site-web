@@ -156,5 +156,3 @@ Cela exécutera la méthode `main()` de la classe `App`.
 ## Références utiles
 
 - [Documentation officielle de Maven](https://maven.apache.org/guides/index.html)
-- [Guide Maven par Baeldung](https://www.baeldung.com/maven)
-- [Tutoriel Maven par OpenClassrooms](https://openclassrooms.com/fr/courses/26832-apprenez-a-programmer-en-java/26838-utilisez-maven-pour-gerer-vos-projets)
