@@ -33,7 +33,7 @@ git clone https://github.com/ophenix-420-930-ma-24636/poly-dessins-animes.git
 - Ajoutez un constructeur qui prend en paramètre le nom du personnage (`String`)
 - Implémentez la méthode `getNom()` dans la classe abstraite.
   - Cette méthode doit retourner le nom du personnage.
-- Implémentez la méthode `parler()` dans la classe abstraite. Cette méthode doit écrire
+- Implémentez la méthode `parler()` dans la classe abstraite.
   - Cette méthode doit écrire sur la console `Bonjour, je suis {nom du personnage}!`
 - Laissez la méthode `agir()` non implémentées (abstraite).
 
@@ -59,8 +59,8 @@ Génie machiavélique avec des ambitions de domination mondiale, mais aussi un g
 
 ### 4. Dans une classe `Main`, créez une liste de `PersonnageAnime` contenant les trois personnages
 
-- Créez une méthode
-- Parcourez la liste et appelez les méthodes `parler()` et `agir()` sur chaque élément.
+- Créez une méthode ```public static void main(String[] args)```
+- Dans cette méthode, parcourez la liste et appelez les méthodes `parler()` et `agir()` sur chaque élément.
 
 ## Étape supplémentaire : interaction entre personnages
 

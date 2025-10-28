@@ -18,7 +18,7 @@ published: true
      * Dépendances
      * Plugins
      * Cycle de vie
-   * Exercice en groupe: ajout d'un pom.xml au projet **hello**
+   * Exercice en groupe: modification du pom.xml du projet **hello**
 3. Éléments d'une classe Java
    * Organisation en paquets (*packages*)
    * Classes, champs, méthodes
