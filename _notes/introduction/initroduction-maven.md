@@ -27,6 +27,40 @@ Maven fonctionne selon un **cycle de vie** composé de plusieurs **phases**, don
 
 ---
 
+## Structure d'un projet Maven
+Maven fonctionne sur le principe de convention plutôt que configuration (*convention over configuration*), c'est-à-dire qu'il assume certaines conventions qui, si elles sont respectées, facilitent grandement l'utilisation. Par convention, la structure d'un projet Maven est la suivante:
+```
+mon-projet/
+├── pom.xml                  # Fichier de configuration principal du projet Maven
+├── src/
+│   ├── main/
+│   │   ├── java/            # Code source Java principal
+│   │   │   └── com/
+│   │   │       └── example/
+│   │   │           └── App.java
+│   │   └── resources/       # Fichiers de configuration et ressources (ex: application.properties)
+│   └── test/
+│       ├── java/            # Code source des tests unitaires
+│       │   └── com/
+│       │       └── example/
+│       │           └── AppTest.java
+│       └── resources/       # Ressources pour les tests
+├── target/                  # Répertoire généré contenant les fichiers compilés
+└── README.md                # Documentation du projet (optionnel)
+        
+```
+
+### Création à l'aide d'archétypes (*archetype*)
+Les archétypes (*archetypes*) Maven sont des modèles de projets prédéfinis. Ils sont très utiles au démarrage d'un projet, car ils permettent d'automatiser la création d'une structure de projet au lieu d'avoir à tout créer manuellement. Pour un projet simple, la commande suivante permet de générer une structure de base:
+
+```bash
+mvn archetype:generate [-D archetypeArtifactId=maven-archetype-quickstart]
+```
+
+{: .highlight}
+> Le paramètre `-D archetypeArtifactId` sert à spécifier l'archétype à utiliser. Il est optionnel; s'il est omis, Maven présentera une (très longue...) liste d'archétypes utilisables. 
+---
+
 ## Structure du fichier `pom.xml`
 
 Le fichier `pom.xml` est le cœur du projet Maven. Voici les sections importantes :
@@ -60,7 +94,7 @@ Le fichier `pom.xml` est le cœur du projet Maven. Voici les sections importante
 
 Les plugins Maven sont des modules permettent d'étendre les fonctionnalités du cycle de vie de construction. Ils sont utilisés pour compiler du code, exécuter des tests, créer des fichiers JAR, déployer des artefacts, etc. On peut rattacher l'exécution d'un plugin à l'une des phases du cycle de vie de Maven, ce qui permet d'ajouter des fonctionnalités et de personnaliser la construction.
 
-## Exemple 1 : Créer un fichier `.jar`
+## Exemple 1 : Créer et exécuter un fichier `.jar`
 
 ### Structure du projet :
 ```
