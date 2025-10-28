@@ -31,6 +31,8 @@ published: true
    * Interfaces
    * Classes abstraites
 
-Exercice(s) complémentaire(s)
-* [Personnages de dessins animés](../exercices/polymorphisme-dessins-animes)
+### Exercice(s) complémentaire(s)
+
+* Terminer l'exercice individuel : [méthode swap(a, b)](../exercices/swap)
+
 

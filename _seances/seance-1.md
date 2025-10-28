@@ -31,7 +31,7 @@ nav_order: 1
    * Visual Studio Code avec extensions Java (*Java Extension Pack*)
    * Exercice de familiarisation
 
-Exercice(s) complémentaire(s)
+### Exercice(s) complémentaire(s)
 
 * Terminer l'[exercice de familiarisation](../exercices/familiarisation-vscode-java)
 * Configurer / personnaliser votre environnement à votre goût

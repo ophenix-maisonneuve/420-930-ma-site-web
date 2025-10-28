@@ -8,3 +8,6 @@ published: false
 # Séance 3 : Révision (partie 2)
 
 Contenu de la 3e séance.
+
+### Exercice(s) complémentaire(s)
+[Personnages de dessins animés](../exercices/polymorphisme-dessins-animes)

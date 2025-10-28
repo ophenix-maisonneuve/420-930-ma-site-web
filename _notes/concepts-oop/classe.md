@@ -21,12 +21,13 @@ En Java, une **classe** est un modèle qui définit les propriétés (champs) et
 - `protected` : accessible dans la classe et ses sous-classes, ainsi que les classes dans le même package
 - `public` : accessible depuis n'importe quelle classe.
 
+{: .highlight}
+> Si aucun modificateur de visibilité n'est utilisé, Java utilise la visibilité par défaut (*default*), qui permet uniquement l'accès par les autres classes du même package.
+
 ## Mot-clé `static`
 Le mot-clé static permet de définir des champs et des méthodes accessibles sans avoir créer une instance de la classe. Ces champs/méthodes appartiennent à la classe elle-même, et non à une instance en particulier
 - **Champ (field)** : le champ appartient à la classe, et non à une instance en particulier
 - **Méthode (method)** : la méthode appartient à la classe, et peut donc être appelée sans instance comme ceci: Classe.methode(...)
-
-Si aucun modificateur de visibilité n'est utilisé, Java utilise la visibilité par défaut (*default*), qui permet uniquement l'accès par les autres classes du même package.
 
 
 ## Exemple
