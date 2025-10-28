@@ -70,5 +70,5 @@ Cela permet à Java d'avoir des performances proches de celles des langages comp
 ## Références utiles
 
 - [Documentation officielle de Java](https://docs.oracle.com/en/java/)
-- [Java Tutorial (Oracle)](https://docs.oracle.com/javase/tutorial/)
+- [Learn Java](https://dev.java/learn/)
 
