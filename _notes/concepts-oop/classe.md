@@ -139,10 +139,11 @@ class Vehicule:
     def __verifier_systeme(self):
         print("Vérification du système interne.")
 ```
-Il est à noter qu'en Python, comme dans l'exemple ci-haut, les éléments protégés (un seul *underscore*) et les éléments privés (deux *underscore*) ne le sont que par **convention**. Techniquement, tout est accessible, mais la discipline des développeurs est sollicitée.
-
-Depuis la version 3.8, Python inclut les mécanismes suivants qui ressemblent au comportement de `final` en Java:
-* Annotation `Final` : indique qu'une variable ne doit pas être réassignée
-* Décorateur `@final` : indique qu'une méthode ne doit pas être redéfinie dans une sous-classe
+{:.warning}
+> Il est à noter qu'en Python, comme dans l'exemple ci-haut, les éléments protégés (un seul *underscore*) et les éléments privés (deux *underscore*) ne le sont que par **convention**. Techniquement, tout est accessible, mais la discipline des développeurs est sollicitée.
+>
+> Depuis la version 3.8, Python inclut les mécanismes suivants qui ressemblent au comportement de `final` en Java:
+> * Annotation `Final` : indique qu'une variable ne doit pas être réassignée
+> * Décorateur `@final` : indique qu'une méthode ne doit pas être redéfinie dans une sous-classe
 
 </details>
