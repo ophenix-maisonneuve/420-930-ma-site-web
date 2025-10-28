@@ -21,12 +21,12 @@ public abstract class AbstractVehicule implements Vehicule {
 
     // Implémentation par défaut
     // L'absence du mot-clé final permet la redéfinition dans les sous-classes
-    public final void arreter() {
+    public void arreter() {
         System.out.println(marque + " s'arrête.");
     }
 
     // Implémentation finale.
-    // On désire empêcher la redéfinition dans les sous-classes
+    // Le mot-clé final empêche la redéfinition dans les sous-classes
     public final void demarrer() {
         System.out.println(marque + " démarre " + getQualificatif());
     }

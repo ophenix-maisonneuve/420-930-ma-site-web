@@ -1,10 +1,36 @@
 ---
 layout: default
-title: "aaaa-MM-dd"
+title: "2025-10-28"
 nav_order: 2
-published: false
+published: true
 ---
 
-# Séance 2 : Révision (partie 1)
+# Séance 2 : Programmation orientée objet en Java (partie 1)
 
-Contenu de la séance 2
+## 27 octobre 2025
+
+### Ordre du jour
+
+1. Retour sur l'[exercice de familiarisation](../exercices/familiarisation-vscode-java)
+2. Maven
+   * Conventions
+   * pom.xml
+     * Dépendances
+     * Plugins
+     * Cycle de vie
+   * Exercice en groupe: ajout d'un pom.xml au projet **hello**
+3. Éléments d'une classe Java
+   * Organisation en paquets (*packages*)
+   * Classes, champs, méthodes
+   * Modificateurs: *public*, *protected*, *private*, *final*, *static*
+   * Accesseurs
+   * Exercice individuel : [méthode swap(a, b)](../exercices/swap)
+4. Polymorphisme en Java
+   * Polymorphisme statique (surcharge de méthode)
+   * Polymorphisme dynamique (redéfinition de méthode)
+   * Interfaces
+   * Classes abstraites
+
+Exercice(s) complémentaire(s)
+* [Personnages de dessins animés](../exercices/polymorphisme-dessins-animes)
+

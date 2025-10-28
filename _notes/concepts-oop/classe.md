@@ -39,17 +39,17 @@ public class Vehicule {
     private String marque;
     
     // protected: accessible par cette classe, ses sous-classes et les classes du même package
-    protected int vitesseMaximale;
+    protected int annee;
 
     // public: accessible de partout
     // static: accessible sans instance de cette classe
     public static int nombreVehicules = 0;
 
     // Constructeur (constructor)
-    public Vehicule(String marque, int vitesseMaximale) {
+    public Vehicule(String marque, int annee) {
         // ici, this est obligatoire pour lever l'ambiguité
         this.marque = marque;
-        this.vitesseMaximale = vitesseMaximale;
+        this.annee = annee;
         nombreVehicules++;
     }
 
@@ -59,8 +59,8 @@ public class Vehicule {
         System.out.println(this.marque + " démarre.");
     }
 
-    protected void accelerer() {
-        System.out.println(this.marque + " accélère.");
+    protected void arreter() {
+        System.out.println(this.marque + " arrête.");
     }
 
     private void verifierSysteme() {
@@ -74,11 +74,11 @@ public class Vehicule {
     public static void main(String[] args) {
         Vehicule v1 = new Vehicule("Honda", 160);
         v1.demarrer();
-        v1.accelerer();
+        v1.arreter();
 
         Vehicule v2 = new Vehicule("Ferrari", 350);
         v2.demarrer();
-        v2.accelerer();
+        v2.arreter();
 
         System.out.println("Nombre de véhicules en circulation: " + Vehicule.getNombreVehicules());
     }
@@ -98,11 +98,11 @@ Le mot-clé `final` en Java est utilisé pour indiquer qu'un élément ne peut p
 ```java
 public final class Vehicule {
     private final String marque;
-    private final int vitesseMaximale;
+    private final int annee;
 
-    public Vehicule(String marque, int vitesseMaximale) {
+    public Vehicule(String marque, int annee) {
         this.marque = marque;
-        this.vitesseMaximale = vitesseMaximale;
+        this.annee = annee;
     }
 
     public final void demarrer() {
@@ -113,7 +113,7 @@ public final class Vehicule {
 
 Dans cet exemple :
 - La classe `Vehicule` est `final`, donc aucune autre classe ne peut l'étendre.
-- Les champs `marque` et `vitesseMaximale` sont `final`, donc leur valeur ne peut pas être modifiée après le constructeur.
+- Les champs `marque` et `annee` sont `final`, donc leur valeur ne peut pas être modifiée après le constructeur.
 - La méthode `demarrer()` est `final`, donc elle ne peut pas être redéfinie dans une sous-classe.
 
 <details>
@@ -125,20 +125,21 @@ Dans cet exemple :
 class Vehicule:
     compteur = 0  # Champ public statique
 
-    def __init__(self, marque, vitesse_maximale):
+    def __init__(self, marque, annee):
         self.__marque = marque         # Champ privé
-        self._vitesse_maximale = vitesse_maximale  # Champ protégé
+        self._annee = annee  # Champ protégé
         Vehicule.compteur += 1
 
     def demarrer(self):
         print(f"{self.__marque} démarre.")
 
-    def _accelerer(self):
-        print(f"{self.__marque} accélère.")
+    def _arreter(self):
+        print(f"{self.__marque} arrête.")
 
     def __verifier_systeme(self):
         print("Vérification du système interne.")
 ```
+Il est à noter qu'en Python, comme dans l'exemple ci-haut, les éléments protégés (un seul *underscore*) et les éléments privés (deux *underscore*) ne le sont que par **convention**. Techniquement, tout est accessible, mais la discipline des développeurs est sollicitée.
 
 Depuis la version 3.8, Python inclut les mécanismes suivants qui ressemblent au comportement de `final` en Java:
 * Annotation `Final` : indique qu'une variable ne doit pas être réassignée

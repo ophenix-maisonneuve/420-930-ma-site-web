@@ -2,7 +2,7 @@
 layout: default
 title: "Polymorphisme"
 parent: "Concepts de programmation orientée objet"
-nav_order: 4
+nav_order: 8
 published: false
 ---
 # Type `record` en Java

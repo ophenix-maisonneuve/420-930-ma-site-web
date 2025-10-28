@@ -13,7 +13,7 @@ Apache Maven est un outil de gestion de projet et d'automatisation de la constru
 
 ## Cycle de vie de Maven
 
-Maven fonctionne selon un **cycle de vie** composé de plusieurs **phases** :
+Maven fonctionne selon un **cycle de vie** composé de plusieurs **phases**, dont les principales sont :
 
 1. **validate** : vérifie que le projet est correct.
 2. **compile** : compile le code source.
@@ -22,6 +22,8 @@ Maven fonctionne selon un **cycle de vie** composé de plusieurs **phases** :
 5. **verify** : vérifie que l'artefact généré est valide.
 6. **install** : installe l'artefact généré dans le dépôt local.
 7. **deploy** : déploie l'artefact dans un dépôt distant.
+
+![Cycle de vie Maven](../assets/images/maven-lifecycle.png)
 
 ---
 
@@ -157,3 +159,4 @@ Cela exécutera la méthode `main()` de la classe `App`.
 ## Références utiles
 
 - [Documentation officielle de Maven](https://maven.apache.org/guides/index.html)
+- [Liste complète du cycle de vie de Maven](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#Lifecycle_Reference)
