@@ -4,6 +4,13 @@ logo: "/assets/images/amp-logo.png"
 markdown: kramdown
 plugins:
   - jekyll-remote-theme
+callouts:
+  highlight:
+    title: Remarque
+    color: light-blue
+  warning:
+    title: Attention
+    color: light-yellow
 
 collections:
   seances:
@@ -27,13 +34,7 @@ just_the_docs:
     exercices:
       name: Exercices
       nav_fold: true
-  callouts:
-    highlight:
-      title: Remarque
-      color: light-blue
-    warning:
-      title: Attention
-      color: light-yellow
+
 
 
 
