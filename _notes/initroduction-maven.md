@@ -18,9 +18,9 @@ Maven fonctionne selon un **cycle de vie** composé de plusieurs **phases** :
 2. **compile** : compile le code source.
 3. **test** : exécute les tests unitaires.
 4. **package** : crée un fichier JAR ou WAR.
-5. **verify** : vérifie que le package est valide.
-6. **install** : installe le package dans le dépôt local.
-7. **deploy** : déploie le package dans un dépôt distant.
+5. **verify** : vérifie que l'artefact généré est valide.
+6. **install** : installe l'artefact généré dans le dépôt local.
+7. **deploy** : déploie l'artefact dans un dépôt distant.
 
 ---
 
