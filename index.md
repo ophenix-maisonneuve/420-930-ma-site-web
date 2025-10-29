@@ -12,3 +12,4 @@ Quelques liens importants:
 
 * [Omnivox/Léa](https://cmaisonneuve-lea.omnivox.ca/)
 * [GitHub](https://github.com/ophenix-420-930-ma-24636)
+* [Télécharger la VM de développement](https://cmaisonneuveqcca-my.sharepoint.com/:u:/g/personal/ophenix_cmaisonneuve_qc_ca/EajKt8QEuIJLrnwv2QK9BHEBgmlQA9D-j21ttWNn_iklXw?e=jltaPz)
