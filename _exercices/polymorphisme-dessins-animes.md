@@ -46,7 +46,7 @@ git clone https://github.com/ophenix-420-930-ma-24636/poly-dessins-animes.git
 Implémentez la méthode `agir()` dans chaque classe avec un comportement propre au personnage. Si vous les connaissez moins:
 
 <details markdown="1">
-<summary markdown="1">Lisa Simpson</summary>
+<summary markdown="span">Lisa Simpson</summary>
 
 ![Lisa](../assets/images/lisa.png)
 
@@ -54,7 +54,7 @@ Intellectuelle, idéaliste, passionée par la justice sociale, la musique et l'a
 </details>
 
 <details markdown="1">
-<summary markdown="1">Eric Cartman</summary>
+<summary markdown="span">Eric Cartman</summary>
 
 ![Cartman](../assets/images/cartman.png)
 
@@ -62,7 +62,7 @@ Manipulateur, égocentrique, provocateur, n'hésite pas à insulter ses camarade
 </details>
 
 <details markdown="1">
-<summary markdown="1">Stewie Griffin</summary>
+<summary markdown="span">Stewie Griffin</summary>
 
 ![Stewie](../assets/images/stewie.png)
 
