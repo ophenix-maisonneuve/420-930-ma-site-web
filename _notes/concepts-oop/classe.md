@@ -73,11 +73,11 @@ public class Vehicule {
     }
 
     public static void main(String[] args) {
-        Vehicule v1 = new Vehicule("Honda", 160);
+        Vehicule v1 = new Vehicule("Honda", 2001);
         v1.demarrer();
         v1.arreter();
 
-        Vehicule v2 = new Vehicule("Ferrari", 350);
+        Vehicule v2 = new Vehicule("Ferrari", 2024);
         v2.demarrer();
         v2.arreter();
 
@@ -85,6 +85,38 @@ public class Vehicule {
     }
 }
 ```
+<details markdown="1">
+
+<summary markdown="span">###Équivalent Python</summary>
+
+
+```python
+class Vehicule:
+    nombreVehicules = 0  # Champ public statique
+
+    def __init__(self, marque, annee):
+        self.__marque = marque         # Champ privé
+        self._annee = annee  # Champ protégé
+        Vehicule.nombreVehicules += 1
+
+    def demarrer(self):
+        print(f"{self.__marque} démarre.")
+
+    def _arreter(self):
+        print(f"{self.__marque} arrête.")
+
+    def __verifier_systeme(self):
+        print("Vérification du système interne.")
+```
+
+{: .warning}
+> Il est à noter qu'en Python, comme dans l'exemple ci-haut, les éléments protégés (un seul *underscore*) et les éléments privés (deux *underscore*) ne le sont que par **convention**. Techniquement, tout est accessible, mais la discipline des développeurs est sollicitée.
+>
+> Depuis la version 3.8, Python inclut les mécanismes suivants qui ressemblent au comportement de `final` en Java:
+> * Annotation `Final` : indique qu'une variable ne doit pas être réassignée
+> * Décorateur `@final` : indique qu'une méthode ne doit pas être redéfinie dans une sous-classe
+
+</details>
 
 ## Mot-clé final
 
@@ -119,32 +151,9 @@ Dans cet exemple :
 
 <details markdown="1">
 
-<summary markdown="span">Équivalent Python</summary>
-
-
-```python
-class Vehicule:
-    compteur = 0  # Champ public statique
-
-    def __init__(self, marque, annee):
-        self.__marque = marque         # Champ privé
-        self._annee = annee  # Champ protégé
-        Vehicule.compteur += 1
-
-    def demarrer(self):
-        print(f"{self.__marque} démarre.")
-
-    def _arreter(self):
-        print(f"{self.__marque} arrête.")
-
-    def __verifier_systeme(self):
-        print("Vérification du système interne.")
-```
-{:.warning}
-> Il est à noter qu'en Python, comme dans l'exemple ci-haut, les éléments protégés (un seul *underscore*) et les éléments privés (deux *underscore*) ne le sont que par **convention**. Techniquement, tout est accessible, mais la discipline des développeurs est sollicitée.
->
-> Depuis la version 3.8, Python inclut les mécanismes suivants qui ressemblent au comportement de `final` en Java:
-> * Annotation `Final` : indique qu'une variable ne doit pas être réassignée
-> * Décorateur `@final` : indique qu'une méthode ne doit pas être redéfinie dans une sous-classe
+<summary markdown="span">###Équivalent Python</summary>
+Depuis la version 3.8, Python inclut les mécanismes suivants qui ressemblent au comportement de `final` en Java:
+* Annotation `Final` : indique qu'une variable ne doit pas être réassignée
+* Décorateur `@final` : indique qu'une méthode ne doit pas être redéfinie dans une sous-classe
 
 </details>
