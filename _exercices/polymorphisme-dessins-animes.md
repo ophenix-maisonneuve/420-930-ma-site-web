@@ -94,7 +94,9 @@ Testez ensuite ces interactions dans une boucle où chaque personnage interagit 
 
 Nous allons maintenant ajouter un 4e personnage: Maggie Simpson. Comme elle ne parle jamais, on désire qu'une exception soit lancée lorsque l'on appelle sa méthode `parler()`.
 
-- Créez votre propre classe d'exception, par exemple:
+- Créez votre propre classe d'exception appelée `PersonnageMuetException`
+
+#### Exemple:
 ```java
 public class PersonnageMuetException extends Exception {
 
@@ -113,6 +115,8 @@ public class PersonnageMuetException extends Exception {
 
 - Créez une nouvelle classe `MaggieSimpson` qui étend `AbstractPersonnageAnime`.
 - Que se passe-t-il si vous tentez de faire lancer une `PersonnageMuetException` à la méthode `parler()`? Pourquoi?
+
+#### Exemple
 ```java
 public void parler() throws PersonnageMuetException {
   //
