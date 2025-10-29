@@ -45,28 +45,40 @@ git clone https://github.com/ophenix-420-930-ma-24636/poly-dessins-animes.git
 
 Implémentez la méthode `agir()` dans chaque classe avec un comportement propre au personnage. Si vous les connaissez moins:
 
-#### Lisa Simpson
+<details markdown="1">
+<summary markdown="1">Lisa Simpson</summary>
 
-Intellectuelle, idéaliste, passionée par la justice sociale, la musique et l'apprentissage
+![Lisa](../assets/images/lisa.png)
 
-#### Eric Cartman
+Intellectuelle, idéaliste, passionée par la justice sociale, la musique et l'apprentissage.
+</details>
 
-Manipulateur, égocentrique, provocateur, n'hésite pas à insulter ses camarades de classe et à exiger qu'ils respectent son autorité
+<details markdown="1">
+<summary markdown="1">Eric Cartman</summary>
 
-#### Stewie Griffin
+![Cartman](../assets/images/cartman.png)
 
-Génie machiavélique avec des ambitions de domination mondiale, mais aussi un goût pour l’humour sarcastique et la sophistication. Accessoirement, est aussi un bébé.
+Manipulateur, égocentrique, provocateur, n'hésite pas à insulter ses camarades de classe et à exiger qu'ils respectent son autorité.
+</details>
+
+<details markdown="1">
+<summary markdown="1">Stewie Griffin</summary>
+
+![Stewie](../assets/images/stewie.png)
+
+Génie machiavélique avec des ambitions de domination mondiale, mais aussi un goût pour l’humour sarcastique et la sophistication. Accessoirement: c'est aussi un bébé.
+</details>
 
 ### 4. Dans une classe `Main`, créez une liste de `PersonnageAnime` contenant les trois personnages
 
 - Créez une méthode ```public static void main(String[] args)```
 - Dans cette méthode, parcourez la liste et appelez les méthodes `parler()` et `agir()` sur chaque élément.
 
-## Étape supplémentaire : interaction entre personnages
+### 5. Interaction entre personnages
 
 Ajoutez une méthode `interagirAvec(PersonnageAnime autre)` dans l'interface `PersonnageAnime`. Cette méthode doit permettre à un personnage d'interagir avec un autre personnage en affichant un message personnalisé.
 
-### Exemple :
+#### Exemple :
 
 ```java
 public void interagirAvec(PersonnageAnime autre) {
@@ -77,3 +89,35 @@ public void interagirAvec(PersonnageAnime autre) {
 Implémentez cette méthode dans chaque sous-classe (`LisaSimpson`, `EricCartman`, `StewieGriffin`) avec un message spécifique à leur personnalité.
 
 Testez ensuite ces interactions dans une boucle où chaque personnage interagit avec les autres.
+
+### 6. Ajout d'un personnage muet
+
+Nous allons maintenant ajouter un 4e personnage: Maggie Simpson. Comme elle ne parle jamais, on désire qu'une exception soit lancée lorsque l'on appelle sa méthode `parler()`.
+
+- Créez votre propre classe d'exception, par exemple:
+```java
+public class PersonnageMuetException extends Exception {
+
+    private final PersonnageAnime personnage;
+
+    public PersonnageMuetException(PersonnageAnime personnage) {
+        this.personnage = personnage;
+    }
+
+    @Override
+    public String getMessage() {
+        return "%s ne parle pas!".formatted(personnage.getNom());
+    }
+}
+```
+
+- Créez une nouvelle classe `MaggieSimpson` qui étend `AbstractPersonnageAnime`.
+- Que se passe-t-il si vous tentez de faire lancer une `PersonnageMuetException` à la méthode `parler()`? Pourquoi?
+```java
+public void parler() throws PersonnageMuetException {
+  //
+}
+```
+
+- Si vous modifiez la classe `PersonnageMuetException` pour qu'elle étende plutôt `RuntimeException`, observez-vous un changement de comportement? Pourquoi?
+
