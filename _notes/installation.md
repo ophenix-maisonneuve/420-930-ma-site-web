@@ -98,13 +98,13 @@ Quelques suggestions d'options à activer ou d'extensions à ajouter:
 
 {: .astuce}
 >Vous pouvez aussi modifier directement le fichier `settings.json` :
-
-```json
-{
-  "files.autoSave": "afterDelay",
-  "files.autoSaveDelay": 1000
-}
-``` 
+>
+>```json
+>{
+>  "files.autoSave": "afterDelay",
+>  "files.autoSaveDelay": 1000
+>}
+>``` 
 
 ###  Activer le formatage automatique à la sauvegarde
 
@@ -121,7 +121,7 @@ Quelques suggestions d'options à activer ou d'extensions à ajouter:
    - Cochez la case **Editor: Format On Save** pour que Visual Studio Code formate automatiquement le fichier à chaque sauvegarde.
 
 {: .astuce}
->#### Modifier directement le fichier settings.json
+>#### Modifier directement le fichier `settings.json
 >
 >1. Ouvrez la palette de commandes (`Ctrl + Shift + P` ou `Cmd + Shift + P`).
 >2. Tapez **"Preferences: Open Settings (JSON)"** et ouvrez le fichier.
