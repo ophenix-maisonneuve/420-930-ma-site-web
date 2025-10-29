@@ -12,7 +12,7 @@ published: true
 ### Ordre du jour
 
 1. Retour sur l'[exercice de familiarisation](../exercices/familiarisation-vscode-java)
-2. Maven
+2. [Maven](../notes/introduction-maven)
    * Conventions
    * pom.xml
      * Dépendances
@@ -20,10 +20,10 @@ published: true
      * Cycle de vie
    * Exercice en groupe: modification du pom.xml du projet **hello**
 3. Éléments d'une classe Java
-   * Organisation en paquets (*packages*)
-   * Classes, champs, méthodes
-   * Modificateurs: *public*, *protected*, *private*, *final*, *static*
-   * Accesseurs
+   * [Organisation en paquets (*packages*)](../notes/package)
+   * [Classes, champs, méthodes](../notes/classe)
+   * [Modificateurs: *public*, *protected*, *private*, *final*, *static*](../notes/classe)
+   * [Accesseurs](../notes/accesseurs)
    * Exercice individuel : [méthode swap(a, b)](../exercices/swap)
 
 
