@@ -117,9 +117,9 @@ Dans cet exemple :
 - Les champs `marque` et `annee` sont `final`, donc leur valeur ne peut pas être modifiée après le constructeur.
 - La méthode `demarrer()` est `final`, donc elle ne peut pas être redéfinie dans une sous-classe.
 
-<details>
+<details markdown="1">
 
-<summary>Équivalent Python</summary>
+<summary markdown="span">Équivalent Python</summary>
 
 
 ```python
