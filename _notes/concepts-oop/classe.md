@@ -87,9 +87,7 @@ public class Vehicule {
 ```
 <details markdown="1">
 
-<summary markdown="span">
-    ### Équivalent Python
-</summary>
+### <summary markdown="span">Équivalent Python</summary>
 
 
 ```python
