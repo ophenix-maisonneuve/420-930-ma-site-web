@@ -16,15 +16,14 @@ nav_order: 1
    * Déroulement des cours
    * Enregistrement des séances
 3. Outils utilisés
-   * Site web du cours
-   * Omnivox / Léa
-   * Moodle
-   * GitHub
-   * Langage utilisé: Java
+   * [Site web du cours](https://ophenix-maisonneuve.github.io/420-930-ma-site-web/)
+   * [Omnivox / Léa](https://cmaisonneuve-lea.omnivox.ca/)
+   * [GitHub](https://github.com/ophenix-420-930-ma-24636)
+   * Langage utilisé: [Java](../notes/introduction-java)
      * Pourquoi Java?
-   * Environnement de développement
+   * [Environnement de développement](../notes/installation)
 4. Exploration de l'environnement de développement proposé
-   * Machine virtuelle fonctionnant sous VirtualBox ou VMware Workstation
+   * [Machine virtuelle](../notes/machine-virtuelle) fonctionnant sous VirtualBox ou VMware Workstation
    * Ubuntu MATE 24.04 LTS
    * Java 25 JDK
    * Maven
