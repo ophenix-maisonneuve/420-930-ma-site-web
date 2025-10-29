@@ -71,7 +71,11 @@ public class Vehicule {
 - Pour permettre des **vérifications ou transformations** lors de la lecture ou l'écriture
 
 {: .highlight}
-> Python privilégie la simplicité; il n'est donc pas pratique courante d'écrire explicitement des accesseurs comme en Java. Cependant, il est possible d'utiliser le décorateur `@property` si l'on désire un contrôle plus fin sur la logique d'accès à une propriété.
+> À titre comparatif, Python privilégie la simplicité; il n'est donc pas pratique courante d'écrire explicitement des accesseurs comme en Java. Cependant, il est possible d'utiliser le décorateur `@property` si l'on désire un contrôle plus fin sur la logique d'accès à une propriété.
+
+<details markdown="1">
+
+<summary markdown="span"><strong>Voir un exemple</strong></summary>
 
 ```python
 class Vehicule:
@@ -92,3 +96,4 @@ print(v.marque)  # Accès via le getter
 v.marque = "Honda"  # Utilise le setter
 print(v.marque)
 ```
+</details>

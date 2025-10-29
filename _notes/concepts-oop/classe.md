@@ -146,7 +146,7 @@ Dans cet exemple :
 
 <details markdown="1">
 
-<summary markdown="span">###Équivalent Python</summary>
+<summary markdown="span"><strong>Équivalent Python</strong></summary>
 Depuis la version 3.8, Python inclut les mécanismes suivants qui ressemblent au comportement de `final` en Java:
 * Annotation `Final` : indique qu'une variable ne doit pas être réassignée
 * Décorateur `@final` : indique qu'une méthode ne doit pas être redéfinie dans une sous-classe

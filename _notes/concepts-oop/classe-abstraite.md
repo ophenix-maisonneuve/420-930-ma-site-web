@@ -65,8 +65,8 @@ public class Camion extends AbstractVehicule {
 }
 ```
 
-<details>
-<summary>Équivalent Python</summary>
+<details markdown="1">
+<summary markdown="span"><strong>Équivalent Python</strong></summary>
 
 ```python
 from abc import ABC, abstractmethod
