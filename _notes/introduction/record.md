@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Polymorphisme"
-parent: "Concepts de programmation orientée objet"
-nav_order: 8
+title: "Type record"
+parent: "Introduction à Java et ses outils"
+nav_order: 3
 published: false
 ---
 # Type `record` en Java
