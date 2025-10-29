@@ -12,6 +12,9 @@ callouts:
   warning:
     title: Attention
     color: yellow
+  astuce:
+    title: astuce
+    color: green
 
 collections:
   seances:
