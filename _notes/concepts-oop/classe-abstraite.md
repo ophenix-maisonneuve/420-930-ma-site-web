@@ -13,7 +13,7 @@ Une **classe abstraite** peut contenir des méthodes implémentées et des méth
 ## Exemple en Java
 ```java
 public abstract class AbstractVehicule implements Vehicule {
-    protected String marque;
+    private final String marque;
 
     public AbstractVehicule(String marque) {
         this.marque = marque;
@@ -45,7 +45,7 @@ public class Voiture extends AbstractVehicule {
     }
 
     @Override
-    public String getQualificatif() {
+    protected String getQualificatif() {
         return "avec un vrombissement!";
     }
 }
@@ -59,7 +59,7 @@ public class Camion extends AbstractVehicule {
     }
 
     @Override
-    public String getQualificatif() {
+    protected String getQualificatif() {
         return "dans un nuage de fumée noire!";
     }
 }

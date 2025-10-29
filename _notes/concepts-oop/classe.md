@@ -55,15 +55,19 @@ public class Vehicule {
     }
 
     // Méthodes (method)
+
+    // public: accessible de partout
     public void demarrer() {
         // ici, this est optionnel, car il n'y a pas d'ambiguité
         System.out.println(this.marque + " démarre.");
     }
 
+    // protected: accessible par cette classe, ses sous-classes et les classes du même package
     protected void arreter() {
         System.out.println(this.marque + " arrête.");
     }
 
+    // private: accessible uniquement dans cette classe
     private void verifierSysteme() {
         System.out.println("Vérification du système interne de " + this.marque);
     }
@@ -107,6 +111,12 @@ class Vehicule:
 
     def __verifier_systeme(self):
         print("Vérification du système interne.")
+
+    
+    @staticmethod
+    def get_nombre_vehicules():
+        return Vehicule.nombreVehicules
+
 ```
 
 {: .warning}
