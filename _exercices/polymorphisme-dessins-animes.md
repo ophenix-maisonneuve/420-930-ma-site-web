@@ -113,7 +113,7 @@ public class PersonnageMuetException extends Exception {
 }
 ```
 
-- Créez une nouvelle classe `MaggieSimpson` qui étend `AbstractPersonnageAnime`.
+- Créez une nouvelle classe `MaggieSimpson` qui étend `AbstractPersonnage`.
 - Que se passe-t-il si vous tentez de faire lancer une `PersonnageMuetException` à la méthode `parler()`? Pourquoi?
 
 #### Exemple
