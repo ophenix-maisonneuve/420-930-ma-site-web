@@ -6,28 +6,37 @@ nav_order: 8
 published: false
 ---
 
-# 📚 Introduction à Lombok pour Java
+# Librairie Lombok
 
 ## Qu'est-ce que Lombok ?
 
-[Lombok](https://projectlombok.org/) est une bibliothèque Java qui permet de **réduire le code boilerplate** (code répétitif et souvent inutilement verbeux) en utilisant des **annotations**. Elle s'intègre facilement dans les projets Java via Maven ou Gradle et fonctionne avec la plupart des IDE modernes comme IntelliJ IDEA et Eclipse.
+[Lombok](https://projectlombok.org/) est une bibliothèque Java qui permet de **réduire le code *boilerplate*** (code répétitif et souvent inutilement verbeux) en utilisant des **annotations**. Elle s'intègre facilement dans les projets Java via Maven ou Gradle et fonctionne avec la plupart des IDE modernes comme IntelliJ IDEA, Visual Studio Code et Eclipse
 
 ---
 
-## 🚀 Pourquoi utiliser Lombok ?
+## Pourquoi utiliser Lombok ?
 
-En Java "vanilla" (sans Lombok), il est courant d'écrire manuellement des méthodes comme :
+En Java traditionnel (sans Lombok), les développeurs écrivent couramment des méthodes assez répétitives, comme :
 
 - `getters` et `setters`
 - `constructeurs`
 - `toString()`
 - `equals()` et `hashCode()`
 
-Cela peut rendre le code long, difficile à lire et à maintenir. Lombok automatise ces tâches grâce à des annotations simples.
+De plus, les **exceptions gérées** (*checked exceptions*) entraînent parfois beaucoup de code redondant simplement pour propager une exception jusqu'au niveau où l'on veut la gérer.
+
+Toutes ces situations peuvent bénéficier de l'utilisation de Lombok, qui automatise ces tâches grâce à des annotations simples.
+
+{: .warning}
+
+>Bien que **Lombok** apporte plusieurs avantages, il faut aussi être conscient de quelques inconvénients possibles:
+>- **Dépendance à une bibliothèque externe** : peut poser problème dans certains environnements de build.
+>- **Moins de visibilité** sur le code généré automatiquement.
+>- **Debugging plus complexe** : les méthodes générées ne sont pas visibles dans le code source.
 
 ---
 
-## ✅ Annotations les plus utiles
+## Annotations principales
 
 ### `@Getter` / `@Setter`
 Génère automatiquement les accesseurs et mutateurs.
@@ -39,18 +48,19 @@ public class Student {
 }
 ```
 
-### `@Data`
-Combine `@Getter`, `@Setter`, `@ToString`, `@EqualsAndHashCode`, etc.
+### `@NonNull`
+Ajoute une vérification de nullité.
 ```java
-@Data
-public class Book {
-    private String title;
-    private String author;
+public class Account {
+    public Account(@NonNull String id) {
+        this.id = id;
+    }
+    private String id;
 }
 ```
 
 ### `@NoArgsConstructor` / `@AllArgsConstructor`
-Génère des constructeurs sans et avec tous les arguments.
+Génère le constructeurs par défaut (vide) et/ou un constructeur permettant de définir tous les champs.
 ```java
 @NoArgsConstructor
 @AllArgsConstructor
@@ -90,6 +100,16 @@ public class Employee {
 }
 ```
 
+### `@Data`
+Combine `@Getter`, `@Setter`, `@ToString`, `@EqualsAndHashCode`, etc.
+```java
+@Data
+public class Book {
+    private String title;
+    private String author;
+}
+```
+
 ### `@Builder`
 Implémente le pattern Builder.
 ```java
@@ -109,47 +129,22 @@ public void readFile(String path) {
 }
 ```
 
-### `@NonNull`
-Ajoute une vérification de nullité.
-```java
-public class Account {
-    public Account(@NonNull String id) {
-        this.id = id;
-    }
-    private String id;
-}
-```
-
 ---
 
-## 📦 Installation avec Maven
+## Installation avec Maven
 
 ```xml
 <dependency>
     <groupId>org.projectlombok</groupId>
     <artifactId>lombok</artifactId>
-    <version>1.18.30</version>
-    <scope>provided</scope>
+    <version>1.18.42</version>
 </dependency>
 ```
 
 ---
 
-## 🔗 Ressources utiles
+## Ressources utiles
 
 - [Documentation officielle](https://projectlombok.org/features/all)
-- [Tutoriel vidéo YouTube](https://www.youtube.com/results?search_query=lombok+java+tutorial)
-- [Exemples sur GitHub](https://github.com/search?q=lombok+java+examples)
 
 ---
-
-## ⚠️ Inconvénients et points à surveiller
-
-- **Dépendance à une bibliothèque externe** : peut poser problème dans certains environnements de build.
-- **Moins de visibilité** sur le code généré automatiquement.
-- **Problèmes de compatibilité** avec certains outils ou IDE.
-- **Debugging plus complexe** : les méthodes générées ne sont pas visibles dans le code source.
-
----
-
-*Notes de cours préparées par Olivier Phénix, Enseignant aux adultes.*

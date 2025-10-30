@@ -5,6 +5,7 @@ parent: "Introduction à Java et ses outils"
 nav_order: 3
 published: false
 ---
+
 # Type `record` en Java
 
 Depuis Java 16, le mot-clé `record` permet de définir des **classes de données immuables** de manière concise. Il est particulièrement utile pour les objets qui servent principalement à **stocker des données**.
@@ -42,15 +43,15 @@ System.out.println(v1);               // Affiche: Vehicule[marque=Toyota, annee=
 
 ## Pourquoi utiliser les `records` ?
 
-- ✅ Moins de code à écrire
-- ✅ Encapsulation automatique
-- ✅ Immuabilité par défaut
-- ✅ Idéal pour les DTOs, les clés de map, les résultats de requêtes, etc.
+- Moins de code à écrire
+- Encapsulation automatique
+- Immuabilité par défaut
+- Idéal pour les DTOs, les clés de map, les résultats de requêtes, etc.
 
 ---
 
 ## Limitations
 
-- Les `records` ne peuvent pas étendre une autre classe (ils étendent implicitement `java.lang.Record`)
+- Les `record` ne peuvent pas étendre une autre classe (ils étendent implicitement `java.lang.Record`)
 - Tous les champs sont **final** (non modifiables)
-- Pas adaptés aux entités complexes avec logique métier
+- Mal adaptés aux entités complexes avec logique métier
