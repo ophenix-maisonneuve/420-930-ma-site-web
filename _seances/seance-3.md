@@ -2,7 +2,7 @@
 layout: default
 title: "2025-11-03"
 nav_order: 3
-published: false
+published: true
 ---
 
 # Séance 3 : Programmation orientée objet en Java (partie 1)
