@@ -5,7 +5,7 @@ nav_order: 3
 published: true
 ---
 
-# Séance 3 : Programmation orientée objet en Java (partie 1)
+# Séance 3 : Programmation orientée objet en Java (partie 2)
 
 ##  3 novembre 2025
 
