@@ -26,7 +26,7 @@ published: true
    * [Exception vérifiées](../notes/exceptions) (*checked exceptions*)
    * [Exceptions non vérifiées](../notes/exceptions) (*unchecked exceptions*)
 6. Annotations
-   * Brève introduction aux annotations
+   * Brève introduction aux [annotations](../notes/annotations)
 
 ### Exercice(s) complémentaire(s)
 * Terminer [Personnages de dessins animés](../exercices/polymorphisme-dessins-animes)
