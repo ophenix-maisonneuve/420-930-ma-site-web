@@ -18,8 +18,8 @@ published: false
    * [Interfaces](../notes/interface)
    * [Classes abstraites](../notes/classe-abstraite)
 5. Gestion des exceptions
-   * Exception gérées (*checked exceptions*)
-   * Exceptions non-gérées (*unchecked exceptions*)
+   * [Exception vérifiées](../notes/exceptions) (*checked exceptions*)
+   * [Exceptions non vérifiées](../notes/exceptions) (*unchecked exceptions*)
 6. Annotations
    * Brève introduction aux annotations
 
