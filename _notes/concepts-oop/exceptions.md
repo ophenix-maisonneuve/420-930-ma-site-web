@@ -110,7 +110,7 @@ try {
 
 ### Multi-catch
 
-Depuis Java 7, il est possible de capturer plusieurs types d'exceptions dans un seul bloc `catch`** en les séparant par le symbole `|`. Lorsque l'on désire traiter plusieurs types d'exceptions de la même manière, cela permet de **réduire la duplication de code**.
+Depuis Java 7, il est possible de capturer plusieurs types d'exceptions dans un seul bloc `catch` en les séparant par le symbole `|`. Lorsque l'on désire traiter plusieurs types d'exceptions de la même manière, cela permet de **réduire la duplication de code**.
 
 #### Exemple :
 
