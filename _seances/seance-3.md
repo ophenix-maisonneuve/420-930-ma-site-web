@@ -7,6 +7,10 @@ published: false
 
 # Séance 3 : Programmation orientée objet en Java (partie 1)
 
+##  3 novembre 2025
+
+### Ordre du jour
+
 1. Informations générales
 2. Récapitulation
 3. Git/GitHub (révision)
@@ -17,6 +21,7 @@ published: false
    * [Polymorphisme dynamique](../notes/polymorphisme) (redéfinition de méthode)
    * [Interfaces](../notes/interface)
    * [Classes abstraites](../notes/classe-abstraite)
+5. Exercice: [Personnages de dessins animés](../exercices/polymorphisme-dessins-animes)
 5. Gestion des exceptions
    * [Exception vérifiées](../notes/exceptions) (*checked exceptions*)
    * [Exceptions non vérifiées](../notes/exceptions) (*unchecked exceptions*)
