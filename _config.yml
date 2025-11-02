@@ -42,7 +42,7 @@ just_the_docs:
       name: Exercices
       nav_fold: true
     travaux:
-      name: Travaux
+      name: Travaux Pratiques
       nav_fold: true
 
 
