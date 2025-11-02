@@ -36,15 +36,15 @@ void supprimer(int duree);
 
 - `ajouter(chanson)` : Ajoute une chanson en fin de liste
 - `rechercher(duree)` : Retourne la première chanson correspondant à la durée de façon séquentielle.
-- `afficher(duree)` : Tri (vous devrez choisir le type de tri)
-- `supprimer(duree)` : Supprime toutes les chansons correspondant à la durée.
+- `afficher(duree)` : Trie (vous devrez choisir le type de tri) et affiche dans l'ordre demandé.
+- `supprimer(duree)` : Supprime **la première** chanson trouvée qui correspond à la durée.
 
 ### Arbre binaire de recherche (BST) `CatalogueBST`
 
 - `ajouter(chanson)` : Ajoute une chanson selon les règles d'un arbre BST.
 - `rechercher(duree)` : Retourne la première chanson correspondant à la durée demandée.
-- `afficher(duree)` : Tri naturel via parcours in-order (et ordre inverse)
-- `supprimer(duree)` : Supprime toutes les chansons correspondant à la durée.
+- `afficher(duree)` : Tri naturel via parcours in-order (et ordre inverse) et affiche dans l'ordre demandé.
+- `supprimer(duree)` : Supprimer **la première** chanson trouvée qui correspond à la durée.
 
 ## Analyse de complexité
 
