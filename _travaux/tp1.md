@@ -72,7 +72,7 @@ Dans la section **Journal de développement** du fichier `README.md` (ou, si vou
 
 ## Code fourni
 
-Le code de base est disponible dans le dépôt Git suivant: [https://github.com/ophenix-420-930-ma-24636/tp1-gestionnaire-musical]
+Le code de base est disponible dans le dépôt Git suivant: [tp1-gestionnaire-musical](https://github.com/ophenix-420-930-ma-24636/tp1-gestionnaire-musical)
 
 ### `Chanson.java`
 
