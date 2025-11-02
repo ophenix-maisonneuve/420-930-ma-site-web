@@ -23,11 +23,13 @@ Vous avez obtenu le poste de DJ au Centre Bell pour les matchs des Canadiens de 
 - Ajout en fin de liste
 - Recherche séquentielle
 - Tri (vous devrez choisir le type de tri)
+- Suppression
 
 ### 2. Arbre binaire de recherche (BST)
 - Ajout selon les règles d'un arbre BST
 - Recherche dans l'arbre
 - Tri naturel via parcours in-order (et ordre inverse)
+- Suppression
 
 ## Fonctionnalités à développer
 
