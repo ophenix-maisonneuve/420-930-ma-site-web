@@ -20,35 +20,31 @@ Vous avez obtenu le poste de DJ au Centre Bell pour les matchs des Canadiens de 
 
 ## Structures à implémenter
 
-### 1. Liste chaînée
-
-- Ajout en fin de liste
-- Recherche séquentielle
-- Tri (vous devrez choisir le type de tri)
-- Suppression
-
-### 2. Arbre binaire de recherche (BST)
-
-- Ajout selon les règles d'un arbre BST
-- Recherche dans l'arbre
-- Tri naturel via parcours in-order (et ordre inverse)
-- Suppression
 
 ## Fonctionnalités à développer
 
-### Interface commune : `Catalogue`
+### Interface commune (fournie): `Catalogue`
 
 ```java
 void ajouter(Chanson chanson);
 Chanson rechercher(int duree);
-void supprimer(int duree);
 void afficher(Ordre ordre);
+void supprimer(int duree);
 ```
 
-### Implémentations :
+### Liste doublement chaînée `CatalogueListeDoublementChainee`
 
-- `CatalogueListeDoublementChainee` : basée sur une liste doublement chaînée
-- `CatalogueBST` : basée sur un arbre binaire de recherche
+- `ajouter(chanson)` : Ajoute une chanson en fin de liste
+- `rechercher(duree)` : Retourne la première chanson correspondant à la durée de façon séquentielle.
+- `afficher(duree)` : Tri (vous devrez choisir le type de tri)
+- `supprimer(duree)` : Supprime toutes les chansons correspondant à la durée.
+
+### Arbre binaire de recherche (BST) `CatalogueBST`
+
+- `ajouter(chanson)` : Ajoute une chanson selon les règles d'un arbre BST.
+- `rechercher(duree)` : Retourne la première chanson correspondant à la durée demandée.
+- `afficher(duree)` : Tri naturel via parcours in-order (et ordre inverse)
+- `supprimer(duree)` : Supprime toutes les chansons correspondant à la durée.
 
 ## Analyse de complexité
 
@@ -69,6 +65,8 @@ Dans la section **Journal de développement** du fichier `README.md` (ou, si vou
 - Les décisions prises, en particulier par rapport aux choix d'algorithmes (ex.: tri dans la liste)
 - Les difficultés rencontrées
 - Les tests effectués
+
+---
 
 ## Code fourni
 
