@@ -121,6 +121,7 @@ Classe principale qui vous fournit un menu simple permettant d'interagir avec l'
   - Le journal de développement (dans le fichier `README.md` ou un document Word ou PDF dans le sous-répertoire `docs`)
 - Le travail est à remettre sur Léa (Omnivox) dans la section "Travaux - Énoncés et remises"
 - Le travail peut être fait en équipes de **deux** ou **trois** personnes (une seule remise pour l'équipe)
+- Le travail est à remettre au plus tard le **24 novembre en fin de journée**.
 - Le projet doit pouvoir être exécuté de la façon suivante:
 
 ```bash
