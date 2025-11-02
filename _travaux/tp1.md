@@ -55,10 +55,10 @@ void afficher(Ordre ordre);
 Dans la section **Analyse de la complexité** du fichier `README.md` (ou, si vous préférez, dans un fichier Word ou PDF), vous devez :
 
 - Pour chacune des deux structures (liste doublement chaînée et arbre de recherche binaire), comparer la complexité des algorithmes utilisés pour l'implémentation des méthodes suivantes:
-- `ajouter(chanson)` : Algorithmes d'ajout/insertion
-- `recherche(duree)` : Algorithmes de recherche
-- `afficher(ordre)` : Algorithmes de tri ou de parcours (dans le cas d'un arbre déjà trié)
-- `supprimer(duree)` : Algorithmes de suppression
+  - `ajouter(chanson)` : Algorithmes d'ajout/insertion
+  - `recherche(duree)` : Algorithmes de recherche
+  - `afficher(ordre)` : Algorithmes de tri ou de parcours (dans le cas d'un arbre déjà trié)
+  - `supprimer(duree)` : Algorithmes de suppression
 - En fonction de l'analyse de la complexité ci-haut, justifier quelle structure devrait être privilégiée pour l'application de gestionnaire musical.
 
 ## Journal de développement
@@ -103,14 +103,15 @@ Classe principale qui vous fournit un menu simple permettant d'interagir avec l'
 ## Évaluation
 
 
-| Critère                                                                        | Points |
-| --------------------------------------------------------------------------------- | -------- |
+| Critère                                                                       | Points |
+| ------------------------------------------------------------------------------|--------|
 | Implémentation et bon fonctionnement de la méthode`ajouter(chanson)`          | 3      |
 | Implémentation et bon fonctionnement de la méthode`rechercher(duree)`         | 3      |
 | Implémentation et bon fonctionnement de la méthode`afficher(ordre)`           | 4      |
 | Implémentation et bon fonctionnement de la méthode`supprimer(duree)`          | 4      |
-| Analyse de la complexité et choix des algorithmes                              | 3      |
-| Journal de réflexion (documentation des étapes, décisions, tests effectués) | 3      |
+| Analyse de la complexité et choix des algorithmes                             | 3      |
+| Journal de réflexion (documentation des étapes, décisions, tests effectués)   | 3      |
+| **Total**                                                                     | 20     |
 
 ---
 
