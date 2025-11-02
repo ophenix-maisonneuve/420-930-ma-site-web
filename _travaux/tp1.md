@@ -111,7 +111,7 @@ Classe principale qui vous fournit un menu simple permettant d'interagir avec l'
 | Implémentation et bon fonctionnement de la méthode`supprimer(duree)`          | 4      |
 | Analyse de la complexité et choix des algorithmes                             | 3      |
 | Journal de réflexion (documentation des étapes, décisions, tests effectués)   | 3      |
-| **Total**                                                                     | 20     |
+| **Total**                                                                     | **20** |
 
 ---
 
