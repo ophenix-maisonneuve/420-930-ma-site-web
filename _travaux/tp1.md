@@ -70,18 +70,6 @@ Dans la section **Journal de développement** du fichier `README.md` (ou, si vou
 - Les difficultés rencontrées
 - Les tests effectués
 
-## Évaluation
-
-
-| Critère                                                                        | Points |
-| --------------------------------------------------------------------------------- | -------- |
-| Implémentation et bon fonctionnement de la méthode`ajouter(chanson)`          | 3      |
-| Implémentation et bon fonctionnement de la méthode`rechercher(duree)`         | 3      |
-| Implémentation et bon fonctionnement de la méthode`afficher(ordre)`           | 4      |
-| Implémentation et bon fonctionnement de la méthode`supprimer(duree)`          | 4      |
-| Analyse de la complexité et choix des algorithmes                              | 3      |
-| Journal de réflexion (documentation des étapes, décisions, tests effectués) | 3      |
-
 ## Code fourni
 
 Le code de base est disponible dans le dépôt Git suivant: [https://github.com/ophenix-420-930-ma-24636/tp1-gestionnaire-musical]
@@ -109,6 +97,20 @@ Classe à compléter pour l’implémentation du BST.
 ### `Main.java`
 
 Classe principale qui vous fournit un menu simple permettant d'interagir avec l'application. Lorsque votre càde sera complété, tout devrait fonctionner à partir de cette classe.
+
+---
+
+## Évaluation
+
+
+| Critère                                                                        | Points |
+| --------------------------------------------------------------------------------- | -------- |
+| Implémentation et bon fonctionnement de la méthode`ajouter(chanson)`          | 3      |
+| Implémentation et bon fonctionnement de la méthode`rechercher(duree)`         | 3      |
+| Implémentation et bon fonctionnement de la méthode`afficher(ordre)`           | 4      |
+| Implémentation et bon fonctionnement de la méthode`supprimer(duree)`          | 4      |
+| Analyse de la complexité et choix des algorithmes                              | 3      |
+| Journal de réflexion (documentation des étapes, décisions, tests effectués) | 3      |
 
 ---
 
