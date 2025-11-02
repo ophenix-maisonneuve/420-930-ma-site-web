@@ -2,7 +2,7 @@
 layout: default
 title: "Travail pratique 1"
 nav_order: 1
-published: false
+published: true
 ---
 
 # Travail pratique 1 : Gestion de chansons par durée avec deux structures de données
