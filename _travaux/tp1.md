@@ -44,15 +44,16 @@ void afficher(Ordre ordre);
 - `CatalogueBST` : basée sur un arbre binaire de recherche
 
 ## Analyse de complexité
-Dans la section **Analyse de la complexité** du fichier `README.md`, vous devez :
+Dans la section **Analyse de la complexité** du fichier `README.md` (ou, si vous préférez, dans un fichier Word ou PDF), vous devez :
 - Pour chacune des deux structures (liste doublement chaînée et arbre de recherche binaire), comparer la complexité des algorithmes utilisés pour l'implémentation des méthodes suivantes:
  - `ajouter(chanson)` : Algorithmes d'ajout/insertion
  - `recherche(duree)` : Algorithmes de recherche
  - `afficher(ordre)` : Algorithmes de tri ou de parcours (dans le cas d'un arbre déjà trié)
+ - `supprimer(duree)` : Algorithmes de suppression
 - En fonction de l'analyse de la complexité ci-haut, justifier quelle structure devrait être privilégiée pour l'application de gestionnaire musical.
 
 ## Journal de développement
-Dans la section **Journal de développement** du fichier `README.md`, vous devez décrire :
+Dans la section **Journal de développement** du fichier `README.md` (ou, si vous préférez, dans un fichier Word ou PDF), vous devez décrire :
 - Les étapes de votre travail
 - Les décisions prises, en particulier par rapport aux choix d'algorithmes (ex.: tri dans la liste)
 - Les difficultés rencontrées
@@ -61,12 +62,13 @@ Dans la section **Journal de développement** du fichier `README.md`, vous devez
 ## Évaluation
 | Critère | Points |
 |--------|--------|
-| Implémentation de la méthode `ajouter(chanson)` | 3 |
-| Implémentation de la méthode `rechercher(duree)` | 3 |
-| Implémentation de la méthode `afficher(ordre)` | 4 |
-| Implémentation de la méthode `supprimer(duree)` | 4 |
+| Implémentation et bon fonctionnement de la méthode `ajouter(chanson)` | 3 |
+| Implémentation et bon fonctionnement de la méthode `rechercher(duree)` | 3 |
+| Implémentation et bon fonctionnement de la méthode `afficher(ordre)` | 4 |
+| Implémentation et bon fonctionnement de la méthode `supprimer(duree)` | 4 |
 | Analyse de la complexité et choix des algorithmes | 3 |
-| Qualité du code et documentation | 3 |
+| Journal de réflexion (documentation des étapes, décisions, tests effectués) | 3 |
+ 
 
 ## Code fourni
 
@@ -89,5 +91,18 @@ Classe à compléter pour l’implémentation du BST.
 Classe principale qui vous fournit un menu simple permettant d'interagir avec l'application. Lorsque votre càde sera complété, tout devrait fonctionner à partir de cette classe.
 
 ---
+
+## À remettre
+
+- Le travail est à remettre sur Léa (Omnivox) dans la section "Travaux - Énoncés et remises"
+- Un fichier **.zip** de votre projet, comprenant:
+ - Tout le projet Java (code, fichier pom.xml, etc).
+ - L'analyse de la complexité (dans le fichier `README.md` ou un document Word ou PDF dans le répertoire `docs`)
+ - Le journal de développement (dans le fichier `README.md` ou un document Word ou PDF dans le répertoire `docs`)
+- Le projet doit pourvoir être exécuté de la façon suivante:
+```bash
+mvn clean package
+java -jar <nom du fichier>.jar
+```
 
 À vous de jouer ! 🎧
