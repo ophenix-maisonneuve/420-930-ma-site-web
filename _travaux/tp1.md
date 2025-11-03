@@ -94,7 +94,7 @@ Classe à compléter pour l’implémentation du BST.
 
 ### `Main.java`
 
-Classe principale qui vous fournit un menu simple permettant d'interagir avec l'application. Lorsque votre càde sera complété, tout devrait fonctionner à partir de cette classe.
+Classe principale qui vous fournit un menu simple permettant d'interagir avec l'application. Lorsque votre code sera complété, tout devrait fonctionner à partir de cette classe.
 
 ---
 
