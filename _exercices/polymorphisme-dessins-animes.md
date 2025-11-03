@@ -31,7 +31,7 @@ git clone https://github.com/ophenix-420-930-ma-24636/poly-dessins-animes.git
 
 - Ajoutez un champ `nom` privé.
 - Ajoutez un constructeur qui prend en paramètre le nom du personnage (`String`)
-- Implémentez la méthode `getNom()` dans la classe abstraite.
+- Implémentez la méthode `getName()` dans la classe abstraite.
   - Cette méthode doit retourner le nom du personnage.
 - Implémentez la méthode `parler()` dans la classe abstraite.
   - Cette méthode doit écrire sur la console `Bonjour, je suis {nom du personnage}!`
