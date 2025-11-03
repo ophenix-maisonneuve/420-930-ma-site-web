@@ -59,7 +59,7 @@ Le code doit:
 - Appeler la méthode `afficherGraphique(int[] tailleEntree, long[] tempsExecution)`
 
 
-### 5. Amélioration des résultats
+### 5. Améliorez les résultats
 
 Il est possible que vous remarquiez des anomalies dans vos graphiques, rendant l'identification plus difficile. Comment pourriez-vous modifier votre code pour:
 - Recueillir un temps d'exécution moyen pour chaque taille d'entrée?
