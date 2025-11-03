@@ -49,5 +49,3 @@ Voici comment certaines structures influencent généralement la complexité d�
 - **Appels récursifs** :
   - Peuvent rapidement augmenter la complexité.
   - Exemple : une fonction récursive qui appelle deux fois elle-même à chaque étape peut être O(2ⁿ).
-
-Ces éléments permettent de raisonner sur la structure d’un algorithme sans exécuter le code, en se concentrant sur les parties dominantes qui influencent le temps d’exécution.
