@@ -7,7 +7,7 @@ nav_order: 5
 
 # Égalité en Java
 
-## 1. La méthode `equals()`
+## La méthode `equals()`
 
 La méthode `equals()` permet de comparer deux objets Java pour vérifier s'ils sont **logiquement équivalents**. Contrairement à l'opérateur `==`, qui compare les **références mémoire**, `equals()` compare le **contenu** des objets.
 
@@ -40,7 +40,7 @@ public boolean equals(Object obj) {
 }
 ```
 
-## 2. La méthode `hashCode()`
+## La méthode `hashCode()`
 
 La méthode `hashCode()` retourne un entier représentant le **code de hachage** de l'objet. Elle est utilisée dans les structures de données comme `HashMap`, `HashSet`, etc.
 
@@ -58,7 +58,7 @@ public int hashCode() {
 }
 ```
 
-## 3. Exemple complet
+## Exemple complet
 
 ```java
 public class Personne {
@@ -85,7 +85,7 @@ public class Personne {
 }
 ```
 
-## 4. Utilisation dans une collection
+## Utilisation dans une collection
 
 ```java
 Set<Personne> personnes = new HashSet<>();
@@ -95,7 +95,7 @@ personnes.add(new Personne("Alice", 30)); // Ne sera pas ajouté si equals() et 
 System.out.println(personnes.size()); // Affiche 1
 ```
 
-## 5. Bonnes pratiques
+## Bonnes pratiques
 
 - Toujours redéfinir `equals()` et `hashCode()` ensemble.
 - Utiliser `Objects.equals()` et `Objects.hash()` pour simplifier le code.
