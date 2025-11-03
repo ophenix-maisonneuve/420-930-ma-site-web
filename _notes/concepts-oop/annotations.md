@@ -1,3 +1,9 @@
+---
+layout: default
+title: "Annotations"
+parent: "Concepts de programmation orientée objet"
+nav_order: 10
+---
 
 # Annotations
 
@@ -39,7 +45,7 @@ Lorsqu'elles sont traitées **à la compilation**, c’est généralement pour *
 Ces processors utilisent l’API `javax.annotation.processing` et sont à la base d’outils populaires comme **Lombok**, **MapStruct**, ou encore des générateurs de code personnalisés.
 
 
-### Exemple d'annotation processor :
+### Exemple de processeur d'annotations (*annotation processor*) :
 ```java
 @SupportedAnnotationTypes("com.exemple.MaAnnotation")
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
@@ -62,16 +68,4 @@ public class MonProcessor extends AbstractProcessor {
 | `@Entity`, `@Table`, `@Id` | Utilisées en JPA pour la persistance des données |
 | `@Autowired`, `@Component`, `@Service` | Utilisées dans Spring pour l'injection de dépendances |
 
----
-
-## Exemple personnalisé
-
-```java
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
-public @interface LogExecutionTime {
-}
-```
-
-Cette annotation peut être utilisée pour mesurer le temps d'exécution d'une méthode via un aspect ou un proxy.
 

@@ -2,7 +2,7 @@
 layout: default
 title: "Classe abstraite"
 parent: "Concepts de programmation orientée objet"
-nav_order: 7
+nav_order: 8
 ---
 
 # Classe abstraite

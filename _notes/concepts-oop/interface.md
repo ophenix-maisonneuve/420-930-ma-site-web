@@ -2,7 +2,7 @@
 layout: default
 title: "Interface"
 parent: "Concepts de programmation orientée objet"
-nav_order: 6
+nav_order: 7
 ---
 
 # Interface
