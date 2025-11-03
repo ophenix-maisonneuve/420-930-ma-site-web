@@ -3,7 +3,7 @@ layout: default
 title: "Notation Grand O"
 nav_order: 4
 has_toc: false
-published: true
+published: false
 ---
 # Exercice : Notation Grand O
 
