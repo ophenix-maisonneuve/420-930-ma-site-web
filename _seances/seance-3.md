@@ -27,6 +27,7 @@ published: true
    * [Exceptions non vérifiées](../notes/exceptions) (*unchecked exceptions*)
 6. Annotations
    * Brève introduction aux [annotations](../notes/annotations)
+7. Présentation du [travail pratique 1](../travaux/tp1)
 
 ### Exercice(s) complémentaire(s)
 * Terminer [Personnages de dessins animés](../exercices/polymorphisme-dessins-animes)
