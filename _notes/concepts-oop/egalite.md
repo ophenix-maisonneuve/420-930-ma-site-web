@@ -1,3 +1,9 @@
+---
+layout: default
+title: "Égalité"
+parent: "Concepts de programmation orientée objet"
+nav_order: 5
+---
 
 # Égalité en Java
 
