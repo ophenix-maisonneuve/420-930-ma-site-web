@@ -24,14 +24,26 @@ public class ExempleOnlogn {
 
     public static void merge(int[] array, int left, int mid, int right) {
         int[] temp = new int[right - left + 1];
-        int i = left, j = mid + 1, k = 0;
+        int i = left;
+        int j = mid + 1;
+        int k = 0;
+
         while (i <= mid && j <= right) {
-            if (array[i] <= array[j]) temp[k++] = array[i++];
-            else temp[k++] = array[j++];
+            if (array[i] <= array[j]) {
+                temp[k++] = array[i++];
+            } else {
+                temp[k++] = array[j++];
+            }
         }
-        while (i <= mid) temp[k++] = array[i++];
-        while (j <= right) temp[k++] = array[j++];
-        for (i = left, k = 0; i <= right; i++, k++) array[i] = temp[k];
+        while (i <= mid) {
+            temp[k++] = array[i++];
+        } 
+        while (j <= right) {
+            temp[k++] = array[j++];
+        } 
+        for (i = left, k = 0; i <= right; i++, k++) {
+            array[i] = temp[k];
+        } 
     }
 }
 ```
