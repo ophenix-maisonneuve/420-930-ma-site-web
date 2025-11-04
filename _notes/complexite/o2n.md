@@ -8,7 +8,7 @@ published: true
 
 # Complexité O(2<sup>n</sup>) - Exponentielle
 
-Les algorithmes en O(2<sup>n</sup>) doublent le nombre d'opérations à chaque ajout d'entrée. Exemple : génération de tous les sous-ensembles.
+Un algorithme en O(2<sup>n</sup>) devient rapidement impraticable. Chaque ajout d’élément double le nombre d’opérations. On retrouve cette complexité dans des algorithmes récursifs qui explorent toutes les combinaisons possibles, comme la génération de sous-ensembles ou la résolution naïve du problème du voyageur.
 
 ## Exemple
 ```java

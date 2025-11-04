@@ -8,7 +8,7 @@ published: true
 
 # Complexité O(n) - Linéaire
 
-Un algorithme en O(n) parcourt tous les éléments une seule fois.
+Un algorithme en O(n) parcourt tous les éléments une fois. Le temps d’exécution augmente proportionnellement à la taille des données. Par exemple, rechercher un élément dans un tableau non trié : si le tableau double de taille, le temps double aussi.
 
 ## Exemple
 ```java

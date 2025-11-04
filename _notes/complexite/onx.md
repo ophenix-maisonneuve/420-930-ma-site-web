@@ -13,7 +13,7 @@ Chaque boucle imbriquée ajoute un degré la la complexité. Par exemple, 3 bouc
 
 ## Cas spécifique: O(n<sup>2</sup>) - Quadratique
 
-Un exemple courant d'algorithme en O(n<sup>2</sup>) est une comparaison de chaque élément d'un ensemble avec tous les autres.
+Un exemple courant d'algorithme en O(n<sup>2</sup>) est une comparaison de chaque élément d'un ensemble avec tous les autres. Cela se produit souvent avec deux boucles imbriquées. Par exemple, vérifier les doublons dans un tableau en comparant chaque paire. Si la taille des données double, le temps est multiplié par quatre.
 
 ### Exemple
 ```java

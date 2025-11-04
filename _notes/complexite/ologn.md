@@ -8,7 +8,7 @@ published: true
 
 # Complexité O(log n) - Logarithmique
 
-Un algorithme en O(log n) divise le problème à chaque étape. Exemple typique : recherche dichotomique.
+Un algorithme en O(log n) réduit le problème à chaque étape, généralement en le divisant par deux. Plus la taille des données augmente, plus la croissance est lente. Un exemple classique est la recherche dichotomique dans un tableau trié : à chaque comparaison, on élimine la moitié des éléments.
 
 ## Exemple
 ```java

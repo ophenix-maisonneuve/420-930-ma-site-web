@@ -8,7 +8,7 @@ published: true
 
 # Complexité O(n log n) - Linéarithmique
 
-Souvent rencontrée dans les algorithmes de tri efficaces comme le tri fusion.
+Cette complexité apparaît souvent dans les algorithmes de tri efficaces comme le tri fusion ou le tri rapide. L’algorithme effectue une opération linéaire (parcourir les éléments) combinée à une division répétée (log n). Cela croît plus vite que O(n), mais beaucoup moins que O(n<sup>2</sup>).
 
 ## Exemple (tri fusion simplifié)
 ```java
