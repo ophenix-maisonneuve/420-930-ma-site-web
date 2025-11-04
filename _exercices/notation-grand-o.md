@@ -10,16 +10,16 @@ published: truea
 ## Les algorithmes mystère!
 
 Votre mission, si toutefois vous l'acceptez, consiste à démasquer quatre (4) algorithmes mystère et à identifier correctement:
-- L'algorithme de complexité O(1)
-- L'algorithme de complexité O(log n)
-- L'algorithme de complexité O(n)
-- L'algorithme de complexité O(n<sup>2</sup>)
+- L'algorithme de complexité **O(1)**
+- L'algorithme de complexité **O(log n)**
+- L'algorithme de complexité **O(n)**
+- L'algorithme de complexité **O(n<sup>2</sup>)**
 
 ## Objectifs
 
-- Inspecter et exécuter différents algorithmes
-- Afficher les temps d'exécution en fonction de la taille de l'entrée dans un graphique
-- Analyser les graphiques afin d'identifier correctement la complexité de chaque algorithme
+- Inspecter et exécuter différents algorithmes.
+- Afficher les temps d'exécution en fonction de la taille de l'entrée dans un graphique.
+- Analyser les graphiques afin d'identifier correctement la complexité de chaque algorithme.
 
 ## Contexte
 
