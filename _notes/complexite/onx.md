@@ -9,7 +9,7 @@ published: true
 
 ## Cas général
 
-Chaque boucle imbriquée ajoute un degré la la complexité. Par exemple, 3 boucles imbriquées impliqueront une complexité **O(n<sup>3</sup>).
+Chaque boucle imbriquée ajoute un degré la la complexité. Par exemple, 3 boucles imbriquées impliqueront une complexité **O(n<sup>3</sup>)**.
 
 ## Cas spécifique: O(n<sup>2</sup>) - Quadratique
 
@@ -21,7 +21,9 @@ public class ExempleOn2 {
     public static boolean hasDuplicates(int[] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = i + 1; j < array.length; j++) {
-                if (array[i] == array[j]) return true;
+                if (array[i] == array[j]) {
+                    return true;
+                }
             }
         }
         return false;
