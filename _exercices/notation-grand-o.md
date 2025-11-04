@@ -90,5 +90,37 @@ En exécutant l'algorithme plusieurs fois pour chaque taille d'entrée, et en re
 - Quel algorithme a une complexité O(n<sup>2</sup>) ?
 - Quelles opérations contribuent à cette complexité ?
 
+### 7. Bonus: Ajout d'un nouvel algorithme
 
+Ajoutez maintenant un nouvel algorithme qui implémentera lui aussi l'interface `Algorithme`. Cet algorithme sera une implémentation du jeu classique de la **Tour de Hanoï**.
 
+#### Problème de la Tour de Hanoï
+
+1. Il y a **trois tours** : `source`, `auxiliaire`, `destination`.
+2. Il y a **n disques**, identifiés par des entiers : `1` (le plus petit) à `n` (le plus grand).
+3. On ne peut déplacer **qu’un seul disque à la fois**.
+4. Un disque ne peut être placé **que sur un disque plus grand** ou sur une tour vide.
+
+##### État initial
+![Hanoï initial](../assets/images/hanoi-start.png)
+
+##### But du jeu
+![Hanoï initial](../assets/images/hanoi-end.png)
+
+---
+
+#### Instructions pour l'algorithme
+
+1. La méthode `executer(int tailleTableau)` prendra en paramètre le nombre de disques à utiliser pour la partie.
+2. Elle appellera ensuite une fonction récursive `private void hanoi(int n, String source, String destination, String auxiliaire)` :
+   - `n` est le **nombre total de disques**.
+   - `source`, `destination`, `auxiliaire` sont les trois tiges du jeu (elles peuvent prendre le nom que vous souhaitez).
+   - La fonction doit déplacer les disques du plus grand au plus petit, en respectant les règles.
+2. La fonction doit afficher chaque mouvement sous la forme :
+   ```
+   Déplacer le disque [numéro] de [source] vers [destination]
+   ```
+
+#### Complexité de l'algorithme
+- Quelle est, selon vous, la complexité Grand O de cet algorithme?
+- Avez-vous dû modifier les tailles d'entrées dans la fonction `main()` ? Pourquoi ?
