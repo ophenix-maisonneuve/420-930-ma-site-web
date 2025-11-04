@@ -3,7 +3,7 @@ layout: default
 title: "Type record"
 parent: "Introduction à Java et ses outils"
 nav_order: 3
-published: false
+published: true
 ---
 
 # Type `record` en Java

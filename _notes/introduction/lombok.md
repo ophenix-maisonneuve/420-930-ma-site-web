@@ -2,7 +2,7 @@
 layout: default
 title: "Librairie Lombok"
 parent: "Introduction à Java et ses outils"
-nav_order: 8
+nav_order: 4
 published: false
 ---
 
@@ -10,7 +10,7 @@ published: false
 
 ## Qu'est-ce que Lombok ?
 
-[Lombok](https://projectlombok.org/) est une bibliothèque Java qui permet de **réduire le code *boilerplate*** (code répétitif et souvent inutilement verbeux) en utilisant des **annotations**. Elle s'intègre facilement dans les projets Java via Maven ou Gradle et fonctionne avec la plupart des IDE modernes comme IntelliJ IDEA, Visual Studio Code et Eclipse
+[Lombok](https://projectlombok.org/) est une bibliothèque Java qui permet de **réduire le code *boilerplate*** (code répétitif et souvent verbeux) en utilisant des **annotations**. Elle s'intègre facilement dans les projets Java via Maven ou Gradle et fonctionne avec la plupart des IDE modernes comme IntelliJ IDEA, Visual Studio Code et Eclipse
 
 ---
 
