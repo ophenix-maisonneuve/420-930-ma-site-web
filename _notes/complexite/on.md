@@ -21,3 +21,7 @@ public class ExempleOn {
     }
 }
 ```
+
+## Allure de la courbe
+
+![Complexité O(n)](../assets/images/complexite-on.png)
