@@ -114,7 +114,7 @@ Ajoutez maintenant un nouvel algorithme qui implémentera lui aussi l'interface 
 1. La méthode `executer(int tailleTableau)` prendra en paramètre le nombre de disques à utiliser pour la partie.
 2. Elle appellera ensuite une fonction récursive `private void hanoi(int n, String source, String destination, String auxiliaire)` :
    - `n` est le **nombre total de disques**.
-   - `source`, `destination`, `auxiliaire` sont les trois tiges du jeu (elles peuvent prendre le nom que vous souhaitez).
+   - `source`, `destination`, `auxiliaire` sont les trois tiges du jeu (elles peuvent prendre le nom que vous souhaitez, comme **A**, **B** et **C** dans les diagrammes ci-haut).
    - La fonction doit déplacer les disques du plus grand au plus petit, en respectant les règles.
 2. La fonction doit afficher chaque mouvement sous la forme :
    ```
