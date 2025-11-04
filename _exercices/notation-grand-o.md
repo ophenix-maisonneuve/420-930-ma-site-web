@@ -32,11 +32,11 @@ On vous fournit 4 algorithmes à identifier, ainsi qu'une classe `Main` dans laq
 ### 1. Clonez le dépôt de l'exercice
 
 ```bash
-git clone <>
+git clone git@github.com:ophenix-420-930-ma-24636/algorithmes-mystere.git
 ```
 ou
 ```bash
-git clone <>
+git clone https://github.com/ophenix-420-930-ma-24636/algorithmes-mystere.git
 ```
 
 ### 2. Étudiez la méthode `main()` de la classe `Main`. 
