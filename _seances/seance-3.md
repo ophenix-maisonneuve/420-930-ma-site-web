@@ -22,12 +22,7 @@ published: true
    * [Interfaces](../notes/interface)
    * [Classes abstraites](../notes/classe-abstraite)
 5. Exercice: [Personnages de dessins animés](../exercices/polymorphisme-dessins-animes)
-5. Gestion des exceptions
-   * [Exception vérifiées](../notes/exceptions) (*checked exceptions*)
-   * [Exceptions non vérifiées](../notes/exceptions) (*unchecked exceptions*)
-6. Annotations
-   * Brève introduction aux [annotations](../notes/annotations)
-7. Présentation du [travail pratique 1](../travaux/tp1)
+6. Présentation du [travail pratique 1](../travaux/tp1)
 
 ### Exercice(s) complémentaire(s)
 * Terminer [Personnages de dessins animés](../exercices/polymorphisme-dessins-animes)
