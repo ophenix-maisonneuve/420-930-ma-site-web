@@ -7,7 +7,7 @@ published: true
 
 # Séance 4 : Complexité des algorithmes (partie 1)
 
-##  3 novembre 2025
+##  4 novembre 2025
 
 ### Ordre du jour
 
