@@ -1,7 +1,7 @@
 ---
 layout: default
+title: "Complexité O(n log n) - Linéarithmique"
 parent: "Complexité des algorithmes"
-title: "Complexité O(n log n) - Linéarithmique
 nav_order: 1
 published: true
 ---

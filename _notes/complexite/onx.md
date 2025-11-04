@@ -1,7 +1,7 @@
 ---
 layout: default
 parent: "Complexité des algorithmes"
-title: "Complexité O(n<sup>x</sup>) - Polynomiale
+title: "Complexité O(n<sup>x</sup>) - Polynomiale"
 nav_order: 4
 published: true
 ---

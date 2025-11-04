@@ -1,7 +1,7 @@
 ---
 layout: default
 parent: "Complexité des algorithmes"
-title: "Complexité O(2<sup>n</sup>) - Exponentielle
+title: "Complexité O(2<sup>n</sup>) - Exponentielle"
 nav_order: 5
 published: true
 ---
