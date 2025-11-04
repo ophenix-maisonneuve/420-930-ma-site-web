@@ -70,7 +70,7 @@ En exécutant l'algorithme plusieurs fois pour chaque taille d'entrée, et en re
 {: .highlight}
 >Les anomalies observées peuvent être dues à plusieurs facteurs, notamment:
 >- Des optimisations *just in time* du compilateur Java
->- Le facteur chance: il est possible qu'un algorithme de recherche tombe rapidement sur la valeur cherchée 
+>- Le facteur chance: il est possible qu'un algorithme de recherche tombe rapidement sur la valeur cherchée. Il tombe ainsi plus près du *meilleur cas* plutôt que du *pire cas*.
 
 ### 6. Identifiez chaque algorithme
 
