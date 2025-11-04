@@ -47,7 +47,7 @@ Ces processors utilisent l’API `javax.annotation.processing` et sont à la bas
 
 ### Exemple de processeur d'annotations (*annotation processor*) :
 ```java
-@SupportedAnnotationTypes("com.exemple.MaAnnotation")
+@SupportedAnnotationTypes("com.exemple.MonAnnotation")
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
 public class MonProcessor extends AbstractProcessor {
     // traitement personnalisé
