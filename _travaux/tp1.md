@@ -18,7 +18,6 @@ Vous avez obtenu le poste de DJ au Centre Bell pour les matchs des Canadiens de 
 - Comprendre la complexité algorithmique (notation Grand O)
 - Documenter les étapes de développement
 
-
 ## Fonctionnalités à développer
 
 ### Interface commune (fournie): `Catalogue`
@@ -45,10 +44,12 @@ void supprimer(int duree);
 - `supprimer(duree)` : Supprimer **la première** chanson trouvée qui correspond à la durée.
 
 {: .warning}
+
 > Le but du travail consiste à implémenter vous-mêmes une structure de données à partir d'éléments de base (classes fournies, classes de base du langage Java, primitives, tableaux, etc), ainsi que d'implémenter vous-mêmes certains algorithmes (recherche, tri, etc). Ainsi, votre solution **ne devra pas utiliser** les éléments suivants:
->- Collections Java (`List` et ses implémentations, `Set` et ses implémentations, `Map` et ses implémentations, etc)
->- Librairies ou classes utilitaires fournissant déjà des algorithmes de tri et de recherche prêts à utiliser (`java.util.Arrays.*`, `java.util.Collections.*` Apache Commons, etc)
->- Toute autre méthode ou utilitaire qui implémente déjà les structures de données que vous avez à créer ou effectue l'une ou l'autre des méthodes que vous devez implémenter (recherche, suppression, tri, parcours).
+>
+> - Collections Java (`List` et ses implémentations, `Set` et ses implémentations, `Map` et ses implémentations, etc)
+> - Librairies ou classes utilitaires fournissant déjà des algorithmes de tri et de recherche prêts à utiliser (`java.util.Arrays.*`, `java.util.Collections.*`, Apache Commons, etc)
+> - Toute autre méthode ou utilitaire qui implémente déjà les structures de données que vous avez à créer ou effectue l'une ou l'autre des méthodes que vous devez implémenter (recherche, suppression, tri, parcours).
 >
 > Nous utiliserons ces utilitaires et ces librairies plus tard dans le cours, mais pour l'instant, le but est justement de comprendre comment ils fonctionnent!
 
@@ -107,15 +108,15 @@ Classe principale qui vous fournit un menu simple permettant d'interagir avec l'
 ## Évaluation
 
 
-| Critère                                                                       | Points |
-| ------------------------------------------------------------------------------|--------|
+| Critère                                                                        | Points |
+| --------------------------------------------------------------------------------- | -------- |
 | Implémentation et bon fonctionnement de la méthode`ajouter(chanson)`          | 3      |
 | Implémentation et bon fonctionnement de la méthode`rechercher(duree)`         | 3      |
 | Implémentation et bon fonctionnement de la méthode`afficher(ordre)`           | 4      |
 | Implémentation et bon fonctionnement de la méthode`supprimer(duree)`          | 4      |
-| Analyse de la complexité et choix des algorithmes                             | 3      |
-| Journal de réflexion (documentation des étapes, décisions, tests effectués)   | 3      |
-| **Total**                                                                     | **20** |
+| Analyse de la complexité et choix des algorithmes                              | 3      |
+| Journal de réflexion (documentation des étapes, décisions, tests effectués) | 3      |
+| **Total**                                                                       | **20** |
 
 ---
 
@@ -135,4 +136,5 @@ mvn clean package
 java -jar <nom du fichier>.jar
 ```
 
-**À vous de jouer !** 🎧
+
+****À vous de jouer !** 🎧**
