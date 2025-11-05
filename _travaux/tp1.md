@@ -123,7 +123,7 @@ Classe principale qui vous fournit un menu simple permettant d'interagir avec l'
 ## À remettre
 
 - Un fichier **.zip** de votre projet, comprenant:
-  - Tout le projet Java (code, fichier pom.xml, etc).
+  - Tout le projet Java (code implémentant les 2 structures, fichier pom.xml, etc).
   - L'analyse de la complexité (dans le fichier `README.md` ou un document Word ou PDF dans le sous-répertoire `docs`)
   - Le journal de développement (dans le fichier `README.md` ou un document Word ou PDF dans le sous-répertoire `docs`)
 - Le travail est à remettre sur Léa (Omnivox) dans la section "Travaux - Énoncés et remises"
