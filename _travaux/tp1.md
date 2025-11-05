@@ -18,8 +18,6 @@ Vous avez obtenu le poste de DJ au Centre Bell pour les matchs des Canadiens de 
 - Comprendre la complexité algorithmique (notation Grand O)
 - Documenter les étapes de développement
 
-## Structures à implémenter
-
 
 ## Fonctionnalités à développer
 
@@ -46,6 +44,14 @@ void supprimer(int duree);
 - `afficher(ordre)` : Tri naturel via parcours in-order (pour l'ordre croissant) et son inverse (pour l'ordre décroissant).
 - `supprimer(duree)` : Supprimer **la première** chanson trouvée qui correspond à la durée.
 
+{: .warning}
+> Le but du travail consiste à implémenter vous-mêmes une structure de données à partir d'éléments de base (classes fournies, classes de base du langage Java, primitives, tableaux, etc), ainsi que d'implémenter vous-mêmes certains algorithmes (recherche, tri, etc). Ainsi, votre solution **ne devra pas utiliser** les éléments suivants:
+>- Collections Java (`List` et ses implémentations, `Set` et ses implémentations, `Map` et ses implémentations, etc)
+>- Librairies ou classes utilitaires fournissant déjà des algorithmes de tri et de recherche prêts à utiliser (`java.util.Arrays.*`, `java.util.Collections.*` Apache Commons, etc)
+>- Toute autre méthode ou utilitaire implémente déjà les structures de données que vous avez à créer ou effectue l'une ou l'autre des méthodes que vous devez implémenter (recherche, suppression, tri, parcours).
+
+> Nous utiliserons ces utilitaires et ces librairies plus tard dans le cours, mais pour l'instant, le but est justement de comprendre comment ils fonctionnent!
+
 ## Analyse de complexité
 
 Dans la section **Analyse de la complexité** du fichier `README.md` (ou, si vous préférez, dans un fichier Word ou PDF), vous devez :
@@ -66,13 +72,6 @@ Dans la section **Journal de développement** du fichier `README.md` (ou, si vou
 - Les difficultés rencontrées
 - Les tests effectués
 
-{: .warning}
-> Le but du travail consiste à implémenter vous-mêmes une structure de données à partir d'éléments de base (classes fournies, classes de base du langage Java, primitives, tableaux, etc), ainsi que d'implémenter vous-mêmes certains algorithmes (recherche, tri, etc). Ainsi, votre solution **ne devra pas utiliser** les éléments suivants:
->- Collections Java (`List` et ses implémentations, `Set` et ses implémentations, `Map` et ses implémentations, etc)
->- Librairies ou classes utilitaires fournissant déjà des algorithmes de tri et de recherche prêts à utiliser (`java.util.Arrays.*`, `java.util.Collections.*` Apache Commons, etc)
->- Toute autre méthode ou utilitaire implémente déjà les structures de données que vous avez à créer ou effectue l'une ou l'autre des méthodes que vous devez implémenter (recherche, suppression, tri, parcours).
-
-> Nous utiliserons ces utilitaires et ces librairies plus tard dans le cours, mais pour l'instant, le but est justement de comprendre comment ils fonctionnent!
 ---
 
 ## Code fourni
