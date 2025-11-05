@@ -137,4 +137,4 @@ java -jar <nom du fichier>.jar
 ```
 
 
-****À vous de jouer !** 🎧**
+**À vous de jouer !** 🎧
