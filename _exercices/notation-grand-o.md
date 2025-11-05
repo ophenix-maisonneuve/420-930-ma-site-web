@@ -107,6 +107,11 @@ Ajoutez maintenant un nouvel algorithme qui implémentera lui aussi l'interface 
 ##### But du jeu
 ![Hanoï initial](../assets/images/hanoi-end.png)
 
+#### Liens utiles
+- [Jeu interactif de la tour de Hanoï](https://www.mathsisfun.com/games/towerofhanoi.html)
+- [Explications des règles](https://www.youtube.com/watch?v=_bWLwz_PquI&t=35s) (en anglais)
+- [Comment résoudre le jeu](https://www.youtube.com/watch?v=JqQFf775wZU)
+
 ---
 
 #### Instructions pour l'algorithme
