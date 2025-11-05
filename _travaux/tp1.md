@@ -49,7 +49,7 @@ void supprimer(int duree);
 >- Collections Java (`List` et ses implémentations, `Set` et ses implémentations, `Map` et ses implémentations, etc)
 >- Librairies ou classes utilitaires fournissant déjà des algorithmes de tri et de recherche prêts à utiliser (`java.util.Arrays.*`, `java.util.Collections.*` Apache Commons, etc)
 >- Toute autre méthode ou utilitaire qui implémente déjà les structures de données que vous avez à créer ou effectue l'une ou l'autre des méthodes que vous devez implémenter (recherche, suppression, tri, parcours).
-
+>
 > Nous utiliserons ces utilitaires et ces librairies plus tard dans le cours, mais pour l'instant, le but est justement de comprendre comment ils fonctionnent!
 
 ## Analyse de complexité
