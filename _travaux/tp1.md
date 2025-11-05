@@ -48,7 +48,7 @@ void supprimer(int duree);
 > Le but du travail consiste à implémenter vous-mêmes une structure de données à partir d'éléments de base (classes fournies, classes de base du langage Java, primitives, tableaux, etc), ainsi que d'implémenter vous-mêmes certains algorithmes (recherche, tri, etc). Ainsi, votre solution **ne devra pas utiliser** les éléments suivants:
 >- Collections Java (`List` et ses implémentations, `Set` et ses implémentations, `Map` et ses implémentations, etc)
 >- Librairies ou classes utilitaires fournissant déjà des algorithmes de tri et de recherche prêts à utiliser (`java.util.Arrays.*`, `java.util.Collections.*` Apache Commons, etc)
->- Toute autre méthode ou utilitaire implémente déjà les structures de données que vous avez à créer ou effectue l'une ou l'autre des méthodes que vous devez implémenter (recherche, suppression, tri, parcours).
+>- Toute autre méthode ou utilitaire qui implémente déjà les structures de données que vous avez à créer ou effectue l'une ou l'autre des méthodes que vous devez implémenter (recherche, suppression, tri, parcours).
 
 > Nous utiliserons ces utilitaires et ces librairies plus tard dans le cours, mais pour l'instant, le but est justement de comprendre comment ils fonctionnent!
 
