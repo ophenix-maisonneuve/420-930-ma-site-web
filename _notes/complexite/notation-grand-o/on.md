@@ -1,6 +1,6 @@
 ---
 layout: default
-parent: "Complexité des algorithmes"
+parent: "Notation Grand O"
 title: "Complexité O(n) - Linéaire"
 nav_order: 3
 published: true
@@ -15,7 +15,9 @@ Un algorithme en O(n) parcourt tous les éléments une fois. Le temps d’exécu
 public class ExempleOn {
     public static boolean contains(int[] array, int target) {
         for (int i = 0; i < array.length; i++) {
-            if (array[i] == target) return true;
+            if (array[i] == target) {
+                return true;
+            } 
         }
         return false;
     }

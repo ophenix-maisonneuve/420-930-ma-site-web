@@ -1,6 +1,6 @@
 ---
 layout: default
-parent: "Complexité des algorithmes"
+parent: "Notation Grand O"
 title: "Complexité O(log n) - Logarithmique"
 nav_order: 2
 published: true

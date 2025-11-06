@@ -1,6 +1,6 @@
 ---
 layout: default
-parent: "Complexité des algorithmes"
+parent: "Notation Grand O"
 title: "Complexité O(2<sup>n</sup>) - Exponentielle"
 nav_order: 5
 published: true

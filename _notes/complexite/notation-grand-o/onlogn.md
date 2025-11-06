@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Complexité O(n log n) - Linéarithmique"
+parent: "Notation Grand O"
 parent: "Complexité des algorithmes"
 nav_order: 1
 published: true

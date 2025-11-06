@@ -1,6 +1,6 @@
 ---
 layout: default
-parent: "Complexité des algorithmes"
+parent: "Notation Grand O"
 title: "Complexité O(n<sup>x</sup>) - Polynomiale"
 nav_order: 4
 published: true
