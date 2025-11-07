@@ -5,6 +5,7 @@ parent: "Complexité des algorithmes"
 nav_order: 2
 published: false
 ---
+
 # Optimisation algorithmique
 
 ## Objectif

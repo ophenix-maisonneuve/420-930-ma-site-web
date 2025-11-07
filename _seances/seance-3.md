@@ -25,4 +25,4 @@ published: true
 6. Présentation du [travail pratique 1](../travaux/tp1)
 
 ### Exercice(s) complémentaire(s)
-* Terminer [Personnages de dessins animés](../exercices/polymorphisme-dessins-animes)
+* Continuer [Personnages de dessins animés](../exercices/polymorphisme-dessins-animes)
