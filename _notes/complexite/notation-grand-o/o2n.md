@@ -19,7 +19,6 @@ public class ExempleO2n {
             for (int i = 0; i < subset.length; i++) {
                 System.out.print(subset[i] + " ");
             }
-            System.out.println();
             return;
         }
         subset[index] = 0;
