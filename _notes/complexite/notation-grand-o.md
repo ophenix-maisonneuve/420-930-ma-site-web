@@ -18,7 +18,7 @@ Contrairement à une mesure exacte, la notation Grand O ne cherche pas à fourni
 >En bref, on cherche à:
 >- **Anticiper la croissance** : La notation Grand O sert à estimer, avant même d’exécuter le programme, comment le temps d’exécution (ou la mémoire utilisée) évolue lorsque la taille des données d’entrée, souvent notée n, augmente. Cela nous aide à prévoir si un algorithme restera rapide ou deviendra très coûteux avec des données plus grandes.
 >- **Ignorer les détails secondaires** : On ne tient pas compte des constantes ou des petits ajustements. Par exemple, un algorithme qui fait **3n** opérations et un autre qui en fait **5n** sont tous les deux considérés comme **O(n)**, car ce qui compte, c’est la tendance générale, pas la différence de quelques opérations.
->- **Caractériser la tendance** : L’objectif est de décrire le comportement global : est-ce que l’algorithme reste constant (O(1)), croît proportionnellement (O(n)), très rapidement (O(n²)), ou explose de manière exponentielle (O(2<sup>n</sup>)) ? Cette classification permet de comparer les algorithmes et de choisir les plus adaptés pour des volumes de données importants.
+>- **Caractériser la tendance** : L’objectif est de décrire le comportement global : est-ce que l’algorithme reste constant (O(1)), croît proportionnellement (O(n)), très rapidement (O(n<sup>2</sup>)), ou explose de manière exponentielle (O(2<sup>n</sup>)) ? Cette classification permet de comparer les algorithmes et de choisir les plus adaptés pour des volumes de données importants.
 
 ## Principales complexités
 
