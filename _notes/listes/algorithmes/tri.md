@@ -188,42 +188,55 @@ Le tri par fusion divise la liste en deux moitiés, trie chaque moitié récursi
 
 ### Exemple sur un tableau
 ```java
-public void mergeSort(int[] arr, int l, int r) {
-    if (l < r) {
-        int m = (l + r) / 2;
-        mergeSort(arr, l, m);
-        mergeSort(arr, m + 1, r);
-        merge(arr, l, m, r);
+public void mergeSort(int[] array, int left, int right) {
+    if (left < right) {
+        int middle = (left + right) / 2;
+
+        // Recursively sort first and second halves
+        mergeSort(array, left, middle);
+        mergeSort(array, middle + 1, right);
+
+        // Merge the sorted halves
+        merge(array, left, middle, right);
     }
 }
 
-private void merge(int[] arr, int l, int m, int r) {
-    int n1 = m - l + 1;
-    int n2 = r - m;
-    int[] L = new int[n1];
-    int[] R = new int[n2];
-    for (int i = 0; i < n1; i++) {
-        L[i] = arr[l + i];
+private void merge(int[] array, int left, int middle, int right) {
+    int leftSize = middle - left + 1;
+    int rightSize = right - middle;
+
+    int[] leftArray = new int[leftSize];
+    int[] rightArray = new int[rightSize];
+
+    // Copy data to temporary arrays
+    for (int i = 0; i < leftSize; i++) {
+        leftArray[i] = array[left + i];
     }
-    for (int j = 0; j < n2; j++) {
-        R[j] = arr[m + 1 + j];
+    for (int j = 0; j < rightSize; j++) {
+        rightArray[j] = array[middle + 1 + j];
     }
-    int i = 0;
-    int j = 0;
-    int k = l;
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]){
-            arr[k++] = L[i++];
+
+    int i = 0, j = 0;
+    int k = left;
+
+    // Merge the temporary arrays
+    while (i < leftSize && j < rightSize) {
+        if (leftArray[i] <= rightArray[j]) {
+            array[k++] = leftArray[i++];
         } else {
-            arr[k++] = R[j++];
+            array[k++] = rightArray[j++];
         }
     }
-    while (i < n1) {
-        arr[k++] = L[i++];
+
+    // Copy remaining elements of leftArray
+    while (i < leftSize) {
+        array[k++] = leftArray[i++];
     }
-    while (j < n2) {
-        arr[k++] = R[j++];
-    } 
+
+    // Copy remaining elements of rightArray
+    while (j < rightSize) {
+        array[k++] = rightArray[j++];
+    }
 }
 ```
 
