@@ -8,25 +8,45 @@ published: false
 
 # Listes
 
+En programmation orientée objet (POO), une **liste** est une structure de données qui permet de stocker une collection ordonnée d'objets. Chaque élément de la liste peut être accédé par son index, et la liste peut parfois, selon les implémentations, contenir des objets de types différents. Cependant, dans la pratique, les éléments sont très souvent du même type.
+
+## Caractéristiques principales
+- **Ordonnée** : les éléments sont stockés dans un ordre précis.
+- **Indexée** : chaque élément peut être accédé via son index.
+- **Mutable** : les listes peuvent être modifiées après leur création.
+
 ## Types de listes
 
-Les listes sont des structures de données linéaires permettant de stocker des collections d'éléments. Elles sont fondamentales en programmation et existent sous plusieurs formes : tableaux, listes dynamiques (ArrayList), et listes chaînées.
+Dans sa version la plus simple, une liste peut être représentée par un tableau
 
 | Type de liste            | Taille dynamique | Accès direct | Insertion rapide | Suppression rapide | Complexité mémoire |
 |--------------------------|------------------|--------------|------------------|--------------------|--------------------|
 | Tableau (Array)          | ❌               | ✅           | ❌               | ❌                 | Faible             |
-| ArrayList                | ✅               | ✅           | ⚠️               | ⚠️                 | Moyenne            |
-| Liste chaînée (simple)   | ✅               | ❌           | ✅               | ✅                 | Élevée             |
-| Liste chaînée (double)   | ✅               | ❌           | ✅               | ✅                 | Élevée             |
+| Liste chaînée            | ✅               | ❌           | ✅               | ✅                 | Élevée             |
 
 
-## Algorithmes sur les listes
+## Algorithmes sur les listes  et les tableaux
 
 Les algorithmes fondamentaux sur les listes incluent l'ajout, la suppression, la recherche et le tri. Leur efficacité dépend du type de liste utilisé.
 
-| Algorithme  | Array | ArrayList | LinkedList Simple | LinkedList Double |
-|------------|-------|-----------|--------------------|--------------------|
-| Ajout      | ⚠️    | ✅        | ✅                 | ✅                 |
-| Suppression| ⚠️    | ✅        | ✅                 | ✅                 |
-| Recherche  | ✅    | ✅        | ✅ (linéaire)      | ✅ (linéaire)      |
-| Tri        | ✅    | ✅        | ⚠️ (complexe)      | ⚠️ (complexe)      |
+| Algorithme | Tableau | Liste Chaînée |
+|------------|---------|---------------|
+| Ajout      | ⚠️      | ✅            |
+| Suppression| ⚠️      | ✅            |
+| Recherche  | ✅      | ✅ (linéaire) |
+| Tri        | ✅      | ⚠️ (complexe) |
+
+### Exemples d'opérations courantes
+
+| **Algorithme** | **Fonctionnalité**            | **Python**               | **Java**                     | **Description** |
+|---------------|-------------------------------|--------------------------|------------------------------|-----------------|
+| Ajout         | Ajouter un élément            | `append(objet)`          | `add(objet)`                 | Ajoute un élément à la fin de la liste. |
+| Ajout         | Insérer à une position        | `insert(index, objet)`   | `add(index, objet)`          | Insère un élément à une position donnée. |
+| Suppression   | Supprimer par index           | `pop(index)`             | `remove(index)`              | Supprime l’élément à l’index spécifié. |
+| Tri           | Trier la liste                | `sort()`                 | `Collections.sort(liste)`    | Trie les éléments de la liste. |
+| Recherche     | Vérifier la présence          | `objet in liste`         | `contains(objet)`            | Vérifie si un élément est présent dans la liste. |
+| Recherche     | Trouver l’index d’un élément  | `index(objet)`           | `indexOf(objet)`             | Retourne l’index de la première occurrence. |
+| Recherche & suppression   | Supprimer par valeur          | `remove(objet)`          | `remove(Object)`             | Supprime la première occurrence d’un élément. |
+| Accès direct ou rehcherche <sup>1</sup>    | Accéder par index             | `list[index]`         | `get(index)`            | Accède à l'élément à une position donnée sans effectuer de recherche. |
+
+<sup>1</sup> *Cela dépend du type de liste. Pour une liste indexée, c'est-à-dire une liste où l'on peut accéder à un élément car son index (un tableau, par exemple), l'accès est direct. Pour une liste sans index, comme une liste chaînée classique, l'opération s'apparente plutôt à une opération de recherche linéaire, car on doit itérer sur tous les éléments de la liste jusqu'à l'index désiré.*

@@ -42,15 +42,6 @@ for (int i = insertIndex; i < original.length; i++) {
 }
 ```
 
-## Ajout dans une ArrayList
-L'ArrayList permet un ajout dynamique sans gestion manuelle de la taille. Une ArrayList est simplement une liste qui utilise un tableau simple en arrière-plan et qui gère dynamiquement la croissance du tableau.
-```java
-ArrayList<Integer> list = new ArrayList<>();
-list.add(0, 10); // début
-list.add(1, 20); // milieu
-list.add(30);    // fin
-```
-
 ## Ajout dans une liste chaînée
 On crée un nouveau nœud et on ajuste les pointeurs.
 ```java

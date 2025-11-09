@@ -19,14 +19,6 @@ for (int i = 1; i < array.length - 1; i++) {
 }
 ```
 
-## Suppression dans une ArrayList
-```java
-ArrayList<Integer> list = new ArrayList<>(Arrays.asList(10, 20, 30));
-list.remove(0); // début
-list.remove(1); // milieu
-list.remove(list.size() - 1); // fin
-```
-
 ## Suppression dans une liste chaînée
 ```java
 void deleteFront() {
