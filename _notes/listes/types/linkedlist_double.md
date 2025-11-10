@@ -6,9 +6,9 @@ nav_order: 4
 published: false
 ---
 
-# LinkedList Double
+# Liste doublement chaînée
 
-Une liste chaînée double permet de naviguer dans les deux sens grâce à des pointeurs vers le nœud précédent et suivant.
+Une liste doublement chaînér (ou liste chaînée double) permet de naviguer dans les deux sens grâce à des références vers le nœud précédent et suivant.
 
 ```java
 private class Node {

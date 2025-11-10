@@ -8,7 +8,7 @@ published: false
 
 # Liste chaînée
 
-Une liste chaînée simple est composée de nœuds où chaque nœud pointe vers le suivant. Elle permet des insertions et suppressions rapides.
+Une liste chaînée (aussi appelée liste chaînée simple) est composée de nœuds où chaque nœud pointe vers le suivant. Elle permet des insertions et suppressions rapides.
 
 ```java
 class Node {
