@@ -3,7 +3,7 @@ layout: default
 title: "Listes et tableaux"
 parent: "Structures de données"
 nav_order: 1
-published: false
+published: true
 ---
 
 # Listes

@@ -3,7 +3,7 @@ layout: default
 parent: "Algorithmes"
 title: "Ajout"
 nav_order: 1
-published: false
+published: true
 ---
 
 # Ajout dans les listes

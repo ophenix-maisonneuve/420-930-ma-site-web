@@ -3,7 +3,7 @@ layout: default
 title: "Types"
 parent: "Listes et tableaux"
 nav_order: 1
-published: false
+published: true
 has_toc: true
 ---
 

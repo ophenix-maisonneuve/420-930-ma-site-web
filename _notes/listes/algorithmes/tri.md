@@ -3,7 +3,7 @@ layout: default
 parent: "Algorithmes"
 title: "Tri"
 nav_order: 3
-published: false
+published: true
 ---
 
 # Tri dans les structures de données

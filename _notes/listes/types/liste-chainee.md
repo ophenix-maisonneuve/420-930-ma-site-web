@@ -3,7 +3,7 @@ layout: default
 parent: "Types"
 title: "Liste chaînée"
 nav_order: 3
-published: false
+published: true
 ---
 
 # Liste chaînée

@@ -3,7 +3,7 @@ layout: default
 parent: "Algorithmes"
 title: "Recherche"
 nav_order: 4
-published: false
+published: true
 ---
 
 # Recherche dans les listes

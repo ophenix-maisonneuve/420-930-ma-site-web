@@ -3,7 +3,7 @@ layout: default
 parent: "Algorithmes"
 title: "Suppression"
 nav_order: 2
-published: false
+published: true
 ---
 
 # Suppression dans les listes

@@ -3,7 +3,7 @@ layout: default
 parent: "Types"
 title: "Tableau"
 nav_order: 1
-published: false
+published: true
 ---
 
 # Tableau (Array)
