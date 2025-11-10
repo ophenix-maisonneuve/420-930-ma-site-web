@@ -99,7 +99,9 @@ public class DoublyLinkedList {
 
 ### Ajout
 
-#### Ajout dans une liste chaînée
+<details markdown="1">
+<summary markdown="span">**Ajout dans une liste chaînée**</summary>
+
 On crée un nouveau nœud et on ajuste les pointeurs.
 ```java
 public void addFront(int data) {
@@ -121,9 +123,12 @@ public void addEnd(int data) {
     current.setNext(newNode);
 }
 ```
+</details>
 
-#### Ajout dans une liste doublement chaînée
+<details markdown="1">
+<summary markdown="span">**Ajout dans une liste doublement chaînée**</summary>
 Permet d'insérer dans les deux directions.
+
 ```java
 public void addFront(int data) {
     Node newNode = new Node(data);
@@ -148,10 +153,13 @@ public void addEnd(int data) {
     newNode.setPrev(current);
 }
 ```
+</details>
 
 ### Suppression
 
-#### Suppression dans une liste chaînée
+<details markdown="1">
+<summary markdown="span">**Suppression dans une liste chaînée**</summary>
+
 ```java
 void deleteFront() {
     if (head != null) {
@@ -172,8 +180,11 @@ void deleteEnd() {
     current.setNext(null);
 }
 ```
+</details>
 
-#### Suppression dans une liste doublement chaînée
+<details markdown="1">
+<summary markdown="span">**Suppression dans une liste doublement chaînée**</summary>
+
 ```java
 void deleteFront() {
     if (head == null) {
@@ -202,10 +213,12 @@ void deleteEnd() {
     }
 }
 ```
+</details>
 
 ### Tri
 
-#### Tri par insertion
+<details markdown="1">
+<summary markdown="span">**Tri par insertion**</summary>
 
 Le tri par insertion fonctionne en construisant progressivement une liste triée en insérant chaque nouvel élément à sa position correcte.
 
@@ -235,7 +248,10 @@ private Node sortedInsert(Node head, Node newNode) {
     return head;
 }
 ```
-#### Tri à bulles
+</details>
+
+<details markdown="1">
+<summary markdown="span">**Tri à bulles**</summary>
 
 Le tri à bulles compare chaque paire d'éléments adjacents et les échange si nécessaire, répétant ce processus jusqu'à ce que la liste soit triée.
 
@@ -260,8 +276,10 @@ public void bubbleSort(Node head) {
     } while (swapped);
 }
 ```
+</details>
 
-#### Tri rapide (*Quick Sort*)
+<details markdown="1">
+<summary markdown="span">**Tri rapide (*Quick Sort*)**</summary>
 
 Le tri rapide est un algorithme de tri efficace basé sur le principe du diviser pour régner. Il choisit un pivot et partitionne le tableau autour de ce pivot.
 
@@ -305,8 +323,10 @@ private Node concatenate(Node lesser, Node pivot, Node greater) {
     return head;
 }
 ```
+</details>
 
-#### Tri par fusion (*Merge Sort*)
+<details markdown="1">
+<summary markdown="span">**Tri à fusion (*Merge Sort*)**</summary>
 
 Le tri par fusion divise la liste en deux moitiés, trie chaque moitié récursivement, puis fusionne les deux listes triées.
 
@@ -362,11 +382,13 @@ private Node sortedMerge(Node a, Node b) {
     return result;
 }
 ```
+</details>
 
 
 ### Recherche
 
-#### Recherche linéaire
+<details markdown="1">
+<summary markdown="span">**Recherche linéaire**</summary>
 Applicable à toutes les structures.
 
 ```java
@@ -382,3 +404,4 @@ return false;
 {: .warning}
 >Dans une liste chaînée ou doublement chaînée, la recherche binaire n'offre pas d'avantage de performance et n'est donc pas applicable. En effet, la recherche binaire nécessite un accès direct à l’élément du milieu, ce qui est inefficace dans une liste chaînée (accès linéaire), car cela impliquerait de toujours itérer sur la liste jusqu'au centre. La recherche linéaire reste donc la méthode la plus adaptée pour les listes chaînées.
 
+</details>

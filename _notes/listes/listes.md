@@ -67,10 +67,10 @@ Voici une comparaison sommaire de la complexité des opérations fondamentales (
 {: .highlight}
 > Dans un tableau, l’ajout en fin est O(1) si la capacité est suffisante. Sinon, il faut créer un nouveau tableau plus grand et copier les éléments, ce qui donne une complexité O(n).
 > Dans une liste chaînée (simple ou double), l'ajout en fin est O(n), à moins qu'une référence vers le dernier nœud (*tail*) soit conservée.
-
 </details>
 
-### Suppression
+<details markdown="1">
+<summary markdown="span">**Suppression**</summary>
 
 | Structure              | Suppression en tête | Suppression en fin                  | Suppression à une position |
 |------------------------|----------------------|-------------------------------------|-----------------------------|
@@ -81,8 +81,10 @@ Voici une comparaison sommaire de la complexité des opérations fondamentales (
 {: .highlight}
 > Dans une liste chaînée simple, même avec une référence à *tail*, la suppression en fin reste O(n) car il faut accéder à l’avant-dernier nœud.
 > Dans une liste doublement chaînée avec *tail*, on peut accéder directement au prédécesseur du dernier nœud, ce qui permet une suppression en O(1).
+</details>
 
-### Recherche
+<details markdown="1">
+<summary markdown="span">**Recherche**</summary>
 
 | Méthode             | Complexité moyenne | Complexité pire cas | Structure requise               | Avantages                          | Limitations                          |
 |---------------------|--------------------|----------------------|----------------------------------|-------------------------------------|--------------------------------------|
@@ -91,8 +93,10 @@ Voici une comparaison sommaire de la complexité des opérations fondamentales (
 
 {: .highlight}
 > La recherche binaire nécessite un accès direct aux éléments par leur index, ce qui n’est pas possible dans une liste chaînée. La recherche linéaire reste donc la méthode la plus adaptée pour les listes chaînées.
+</details>
 
-### Tri
+<details markdown="1">
+<summary markdown="span">**Tri**</summary>
 
 | Algorithme de tri   | Complexité moyenne | Complexité pire cas | Stable | In-place | Remarques                         |
 |---------------------|--------------------|----------------------|--------|----------|----------------------------------|
@@ -100,3 +104,4 @@ Voici une comparaison sommaire de la complexité des opérations fondamentales (
 | Tri à bulles        | O(n²)              | O(n²)                | Oui    | Oui      | Simple mais peu performant       |
 | Tri rapide (quicksort)| O(n log n)       | O(n²)                | Non    | Oui      | Très rapide en pratique          |
 | Tri fusion          | O(n log n)         | O(n log n)           | Oui    | Non      | Nécessite espace supplémentaire  |
+</details>
