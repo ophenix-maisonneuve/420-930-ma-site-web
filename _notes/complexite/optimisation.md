@@ -27,9 +27,9 @@ La méthode proposée comporte 5 étapes:
 
 Cette étape est sans doute la plus cruciale — et pourtant, souvent négligée. Avant de se lancer dans une tâche d’optimisation, il faut se poser une question simple mais essentielle :  
 
-**Avons-nous réellement un problème à résoudre?**
+> **Avons-nous réellement un problème à résoudre?**
 
-Il peut être tentant de vouloir optimiser dès qu’on voit un algorithme de complexité polynomial ($$O(n^x)$$) ou exponentiel ($$O(2^n)$$). Mais si cet algorithme ne traite qu’un petit volume de données, il se peut qu’il soit **parfaitement adapté** à la situation.
+Il peut être tentant de vouloir optimiser dès qu’on voit un algorithme de complexité polynomial (O(n<sup>x</sup>)) ou exponentiel (O(2<sup>n</sup>)). Mais si cet algorithme ne traite qu’un petit volume de données, il se peut qu’il soit **parfaitement adapté** à la situation.
 
 {: .warning}
 > Bien que l’optimisation puisse être bénéfique, elle peut aussi avoir des effets négatifs :
