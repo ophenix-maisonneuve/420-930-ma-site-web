@@ -69,4 +69,19 @@ void deleteEnd() {
         head = null;
     }
 }
+
 ```
+## Complexité
+
+| Structure              | Suppression en tête | Suppression en fin | Suppression à une position |
+|------------------------|---------------------|---------------------|-----------------------------|
+| Tableau                | O(n)                | O(1) ou O(n)        | O(n)                        |
+| Liste chaînée simple   | O(1)                | O(n)                | O(n)                        |
+| Liste chaînée double   | O(1)                | O(1) ou O(n)        | O(n)                        |
+
+{: .highlight}
+>La complexité de la suppression en fin dépend de l’implémentation.
+>
+>Dans un tableau, si on ne fait que remplacer le dernier élément sans réduire la taille du tableau, la complexité est O(1). Toutefois, si on veut réduire la taille du tableau pour n'avoir aucun élément vide, on devra recopier le tableau, entraînant une complexité O(n).
+>Dans une liste chaînée simple, même si une référence au dernier nœud (tail) est maintenue, il est nécessaire de retrouver l’avant-dernier nœud pour mettre à jour son pointeur, ce qui implique un parcours complet de la liste (O(n)).
+>Dans une liste chaînée double, si une référence au dernier nœud est maintenue, on peut accéder directement à son prédécesseur et le détacher sans parcourir la liste (O(1)).

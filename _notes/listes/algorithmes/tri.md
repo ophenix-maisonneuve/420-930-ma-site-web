@@ -293,3 +293,12 @@ private Node sortedMerge(Node a, Node b) {
     return result;
 }
 ```
+
+## Complexité
+
+| Algorithme de tri | Complexité moyenne | Complexité pire cas |
+|-------------------|--------------------|----------------------|
+| Tri par insertion | O(n²)              | O(n²)                |
+| Tri à bulles      | O(n²)              | O(n²)                |
+| Tri rapide        | O(n log n)         | O(n²)                |
+| Tri fusion        | O(n log n)         | O(n log n)           |

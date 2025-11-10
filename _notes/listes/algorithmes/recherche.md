@@ -49,6 +49,13 @@ while (left <= right) {
 }
 ```
 
+## Comparaison des méthodes de recherche
+
+| Méthode             | Complexité moyenne | Complexité pire cas | Structure requise               | Avantages                          | Limitations                          |
+|---------------------|--------------------|----------------------|----------------------------------|-------------------------------------|--------------------------------------|
+| Recherche linéaire  | O(n)               | O(n)                 | Toutes                          | Simple, universelle                | Peu efficace sur grandes structures  |
+| Recherche binaire   | O(log n)           | O(log n)             | Liste triée avec accès direct   | Très rapide sur grands ensembles   | Nécessite tri et accès par index     |
+
 {: .warning}
 Dans une liste chaînée ou doublement chaînée, la recherche binaire n'offre pas d'avantage de performance. En effet, la recherche binaire nécessite un accès direct à l’élément du milieu, ce qui est inefficace dans une liste chaînée (accès linéaire), car cela impliquerait de toujours itérer sur la liste jusqu'au centre. La recherche linéaire reste donc la méthode la plus adaptée pour les listes chaînées.
 
