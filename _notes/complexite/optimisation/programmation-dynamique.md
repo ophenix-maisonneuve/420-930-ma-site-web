@@ -38,10 +38,10 @@ La programmation dynamique est utile lorsque le problème peut être décomposé
 
 ## Problème du sac à dos (*Knapsack*)
 
-> **Énoncé** :  
-> On dispose d’un sac à dos pouvant contenir un poids maximal `W`.  
-> On a `n` objets, chacun avec un poids `w[i]` et une valeur `v[i]`.  
-> Le but est de **maximiser la valeur totale** des objets placés dans le sac **sans dépasser le poids `W`**.
+### Énoncé  
+- On dispose d’un sac à dos pouvant contenir un poids maximal `W`.  
+- On a `n` objets, chacun avec un poids `w[i]` et une valeur `v[i]`.  
+- Le but est de **maximiser la valeur totale** des objets placés dans le sac **sans dépasser le poids `W`**.
 
 ### Solution naïve (récursive)
 On peut essayer toutes les combinaisons possibles d’objets, ce qui donne une complexité exponentielle $$O(2^n)$$.
@@ -83,8 +83,8 @@ De nombreux sous-problèmes sont recalculés : par exemple, la meilleure combina
 
 ### Optimisation par programmation dynamique
 
-- **Mémoïsation (top-down)** :  
-  On utilise une fonction récursive avec un cache pour mémoriser les résultats déjà calculés pour `(i, w)`.
+#### Mémoïsation (top-down)  
+On utilise une fonction récursive avec un cache pour mémoriser les résultats déjà calculés pour `(i, w)`.
 
 <details markdown="1">
 <summary markdown="span">Code Java</summary>
@@ -129,8 +129,8 @@ public class KnapsackMemo {
 ```
 </details>
 
-- **Tabulation (bottom-up)** :  
-  On construit une table `dp[i][w]` où chaque cellule contient la valeur maximale atteignable avec les `i` premiers objets et un poids `w`.
+#### Tabulation (bottom-up)  
+On construit une table `dp[i][w]` où chaque cellule contient la valeur maximale atteignable avec les `i` premiers objets et un poids `w`.
 
 <details markdown="1">
 <summary markdown="span">Code Java</summary>
@@ -187,13 +187,13 @@ public class KnapsackTabulation {
 
 ## Suite de Fibonacci
 
-> **Énoncé** :  
-> La suite de Fibonacci est définie par :  
-> `fib(0) = 0`, `fib(1) = 1`, et `fib(n) = fib(n-1) + fib(n-2)` pour `n >= 2`.  
-> Le but est de calculer `fib(n)` efficacement.
+### Énoncé 
+La suite de Fibonacci est définie par :  
+- `fib(0) = 0`, `fib(1) = 1`, et `fib(n) = fib(n-1) + fib(n-2)` pour `n >= 2`.  
+- Le but est de calculer `fib(n)` efficacement.
 
 ### Solution naïve (récursive)
-La solution récursive simple recalculera plusieurs fois les mêmes valeurs, ce qui donne une complexité exponentielle $$O(2^n)$$.
+La solution récursive simple recalculera plusieurs fois les mêmes valeurs, ce qui donne une complexité exponentielle O(2<sup>n</sup>).
 
 <details markdown="1">
 <summary markdown="span">Code Java</summary>
@@ -216,12 +216,12 @@ public class Fibonacci {
 </details>
 
 ### Indice de répétition
-Les appels récursifs à `F(n-1)` et `F(n-2)` se chevauchent énormément, ce qui entraîne des recalculs inutiles.
+Les appels récursifs à `fib(n-1)` et `fib(n-2)` se chevauchent énormément, ce qui entraîne des recalculs inutiles.
 
 ### Optimisation par programmation dynamique
 
-- **Mémoïsation (top-down)** :  
-  On utilise une fonction récursive avec un cache pour mémoriser les résultats déjà calculés.
+#### Mémoïsation (top-down) 
+On utilise une fonction récursive avec un cache pour mémoriser les résultats déjà calculés.
 
 <details markdown="1">
 <summary markdown="span">Code Java</summary>
@@ -253,8 +253,8 @@ public class Fibonacci {
 ```
 </details>
 
-- **Tabulation (bottom-up)** :  
-  On construit un tableau `fib[]` en partant des cas de base et en calculant chaque valeur jusqu’à `n`.
+#### Tabulation (bottom-up) 
+On construit un tableau `fib[]` en partant des cas de base et en calculant chaque valeur jusqu’à `n`.
 
 <details markdown="1">
 <summary markdown="span">Code Java</summary>
