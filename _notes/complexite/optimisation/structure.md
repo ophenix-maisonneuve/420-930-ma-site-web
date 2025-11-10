@@ -3,7 +3,7 @@ layout: default
 parent: "Optimisation"
 parent: "Structure de données"
 nav_order: 1
-published: false
+published: true
 ---
 
 # Structure de données

@@ -1,3 +1,11 @@
+---
+layout: default
+parent: "Optimisation d'algorithmes"
+title: "Exercice 1 - Solution"
+nav_order: 1
+has_toc: false
+---
+
 # Solution 1: Recherche par tableau indexé par valeur
 
 ## Description

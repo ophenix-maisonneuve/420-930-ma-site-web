@@ -1,3 +1,11 @@
+---
+layout: default
+parent: "Optimisation d'algorithmes"
+title: "Exercice 1 - Solution"
+nav_order: 1
+has_toc: false
+---
+
 # Solution 1: mémoïsation
 
 ## Principe
@@ -21,7 +29,9 @@ public class FibonacciMemo {
     public static void main(String[] args) {
         int n = 10;
         int[] memo = new int[n + 1];
-        for (int i = 0; i <= n; i++) memo[i] = -1;
+        for (int i = 0; i <= n; i++) {
+            memo[i] = -1;
+        } 
         System.out.println("Fibonacci(" + n + ") = " + fib(n, memo));
     }
 }
@@ -45,7 +55,9 @@ On construit la solution **de bas en haut**, en remplissant un tableau avec les 
 ```java
 public class FibonacciTab {
     public static int fib(int n) {
-        if (n <= 1) return n;
+        if (n <= 1) {
+            return n;
+        }
         int[] dp = new int[n + 1];
         dp[0] = 0;
         dp[1] = 1;
@@ -64,8 +76,8 @@ public class FibonacciTab {
 
 ## Avantages
 - Temps d’exécution O(n)
-- Pas de récursion → pas de pile d’appels
+- Pas de récursion, donc pas de pile d’appels
 
 ## Inconvénients
 - Utilise un tableau de taille n
-- Moins intuitif pour certains étudiants
+- Possiblement moins intuitif

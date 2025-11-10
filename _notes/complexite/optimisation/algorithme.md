@@ -3,7 +3,7 @@ layout: default
 parent: "Optimisation"
 title: "Algorithme plus efficace"
 nav_order: 2
-published: false
+published: true
 ---
 
 # Algorithme plus efficace

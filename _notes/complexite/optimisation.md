@@ -3,7 +3,7 @@ layout: default
 title: "Optimisation"
 parent: "Complexité des algorithmes"
 nav_order: 2
-published: false
+published: true
 ---
 
 # Optimisation algorithmique
@@ -14,7 +14,7 @@ L’optimisation algorithmique vise à améliorer les performances d’un logici
 
 ## Méthode 
 
-### 1. Identifier le problème
+### 1. Caractérisation du problème
 
 Cette étape est sans doute la plus cruciale — et pourtant, souvent négligée. Avant de se lancer dans une tâche d’optimisation, il faut se poser une question simple mais essentielle :  
 
@@ -31,6 +31,9 @@ Il peut être tentant de vouloir optimiser dès qu’on voit un algorithme de co
 > - Complexification des tests unitaires
 
 #### Identifier la nature du problème
+{: .astuce}
+> Observer les opérations les plus fréquentes (lecture, écriture, recherche, suppression) peut révéler des inefficacités liées à la structure de données ou à l’algorithme utilisé.
+
 
 Si un **véritable problème** est identifié, il faut ensuite en déterminer la nature :
 
@@ -49,7 +52,14 @@ La **complexité algorithmique** est une **mesure théorique** du coût d’un a
 
 ### 2. Structures de données
 
-Choisir ou adapter une structure de données appropriée peut transformer un algorithme inefficace en une solution performante. Une structure bien choisie permet d’**accélérer l’accès aux données**, de **réduire le nombre d’opérations**, et parfois même de **simplifier la logique du programme**.
+#### Adapter la structure aux opérations dominantes
+Avant de choisir une structure, il est essentiel d’analyser les opérations les plus fréquentes :
+- **Lectures fréquentes** : privilégier les structures avec accès rapide (ex. tableau, dictionnaire).
+- **Écritures fréquentes** : choisir des structures avec insertion efficace (ex. liste chaînée, arbre équilibré).
+- **Recherches fréquentes** : utiliser des structures avec recherche optimisée (ex. arbre binaire de recherche, table de hachage).
+- **Suppressions fréquentes** : opter pour des structures avec suppression rapide (ex. file de priorité, liste doublement chaînée).
+
+Cette analyse permet de **maximiser les performances là où ça compte le plus**. Une structure de données appropriée peut transformer un algorithme inefficace en une solution performante. Une structure bien choisie permet d’**accélérer l’accès aux données**, de **réduire le nombre d’opérations**, et parfois même de **simplifier la logique du programme**.
 
 {: .highlight}
 > Par exemple, utiliser un tableau pour un accès indexé rapide, une pile pour gérer des appels imbriqués, ou une matrice pour représenter des relations entre éléments.
@@ -74,7 +84,7 @@ Cette décomposition permet souvent de :
 - **appliquer des optimisations ciblées** à chaque sous-problème.
 
 {: .highlight}
-> Par exemple, une fois le problème réduit, il devient plus facile de voir où une structure spécifique (comme une matrice, un arbre ou une pile) ou un algorithme particulier (comme un tri différent ou une recherche gloutonne (*greedy*)) pourrait s’appliquer.
+> Par exemple, une fois le problème réduit, il devient plus facile de voir où une structure spécifique (comme un arbre ou une pile) ou un algorithme particulier (comme un tri différent ou une recherche mieux adaptée) pourrait s’appliquer.
 
 ### 5. Programmation dynamique
 
@@ -88,10 +98,10 @@ La programmation dynamique est une technique qui consiste à **mémoriser les r�
 
 ## Résumé
 
-
-| Étape | Nom                      | Description                                          | Avantages                                    | Inconvénients                                 | Quand l’appliquer                                       |
-| -------- | -------------------------- | ------------------------------------------------------ | ---------------------------------------------- | ------------------------------------------------ | ---------------------------------------------------------- |
-| S      | Structure de données    | Choisir une structure adaptée au problème          | Accès rapide, gain de performance immédiat | Peut nécessiter une refonte du code           | Dès le début, selon les données                       |
-| A      | Algorithme plus efficace | Remplacer l’algorithme par un plus performant       | Réduction directe de la complexité         | Nécessite de connaître plusieurs algos       | Dès qu’un algorithme est identifié comme sous-optimal |
-| R      | Réduction du problème  | Décomposer en sous-problèmes plus simples          | Clarifie la logique, prépare pour P         | Peut être abstrait ou difficile à modéliser | Quand le problème semble trop complexe                  |
-| P      | Programmation dynamique  | Mémoriser les résultats pour éviter les recalculs | Réduction drastique du temps d’exécution  | Peut augmenter l’utilisation mémoire         | Quand des sous-problèmes se répètent                  |
+| Nom                      | Description                                          | Avantages                                    | Inconvénients                                 | Quand l’appliquer                                       |
+| -------------------------- | ------------------------------------------------------ | ---------------------------------------------- | ------------------------------------------------ | ---------------------------------------------------------- |
+| Opérations dominantes     | Identifier les opérations les plus fréquentes         | Choix plus pertinent des structures et algorighmes     | Peut nécessiter une analyse fine du comportement | Toujours, dès l’analyse du problème                  |
+| Structure de données    | Choisir une structure adaptée au problème          | Accès rapide, gain de performance immédiat | Peut nécessiter une refonte du code           | Dès le début, selon les données                       |
+| Algorithme plus efficace | Remplacer l’algorithme par un plus performant       | Réduction directe de la complexité         | Nécessite de connaître plusieurs algos       | Dès qu’un algorithme est identifié comme sous-optimal |
+| Réduction du problème  | Décomposer en sous-problèmes plus simples          | Clarifie la logique, prépare pour P         | Peut être abstrait ou difficile à modéliser | Quand le problème semble trop complexe                  |
+| Programmation dynamique  | Mémoriser les résultats pour éviter les recalculs | Réduction drastique du temps d’exécution  | Peut augmenter l’utilisation mémoire         | Quand des sous-problèmes se répètent                  |

@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Optimisation d'algorithmes"
+nav_order: 5
+has_toc: false
+published: true
+---
+
 # Exercices : Optimisation d'algorithmes
 
 ## Exercice 1
@@ -65,7 +73,9 @@ Vous devez calculer le n-ième terme de la suite de Fibonacci. Cette opération 
 ### Algorithme actuel
 ```java
 public static int fib(int n) {
-    if (n <= 1) return n;
+    if (n <= 1) {
+        return n;
+    }
     return fib(n - 1) + fib(n - 2);
 }
 ```
