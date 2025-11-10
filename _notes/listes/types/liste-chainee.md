@@ -326,7 +326,7 @@ private Node concatenate(Node lesser, Node pivot, Node greater) {
 </details>
 
 <details markdown="1">
-<summary markdown="span">**Tri à fusion (*Merge Sort*)**</summary>
+<summary markdown="span">**Tri par fusion (*Merge Sort*)**</summary>
 
 Le tri par fusion divise la liste en deux moitiés, trie chaque moitié récursivement, puis fusionne les deux listes triées.
 

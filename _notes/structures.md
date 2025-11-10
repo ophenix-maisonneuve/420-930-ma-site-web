@@ -2,6 +2,6 @@
 layout: default
 title: "Structures de données"
 nav_order: 7
-published: false
+published: true
 has_toc: true
 ---

@@ -28,6 +28,9 @@ public class MonTableau {
 
 ### Ajout
 
+<details markdown="1">
+<summary markdown="span">**Ajout simple (écrasement)**</summary>
+
 Voici une insertion simple, où l'on écrase potentiellement l'élément qui était déjà présent à l'index donné.Dans un tableau, l'ajout nécessite souvent de décaler les éléments ou de recréer le tableau si sa taille est fixe.
 ```java
 int[] array = new int[5];
@@ -35,8 +38,12 @@ array[0] = 10; // ajout en début
 array[2] = 30; // ajout au milieu
 array[4] = 50; // ajout en fin
 ```
+</details>
 
-Dans bien des cas, on veut plutôt ajouter aux éléments déjà existants, ce qui demande plusôt de décaler les éléments ou même de recréer le tableau
+<details markdown="1">
+<summary markdown="span">**Ajout avec redimensionnement**</summary>
+Dans bien des cas, on veut plutôt ajouter aux éléments déjà existants, ce qui demande plutôt de décaler les éléments ou même de recréer le tableau
+
 ```java
 int[] original = {10, 20, 30, 40, 50};
 int newValue = 25;
@@ -58,8 +65,12 @@ for (int i = insertIndex; i < original.length; i++) {
     resized[i + 1] = original[i];
 }
 ```
+</details>
 
 ### Suppression
+
+<details markdown="1">
+<summary markdown="span">**Suppression simple (sans redimensionnement)**</summary>
 
 ```java
 int[] array = {10, 20, 30, 40};
@@ -68,10 +79,38 @@ for (int i = 1; i < array.length - 1; i++) {
     array[i] = array[i + 1];
 }
 ```
+</details>
+
+<details markdown="1">
+<summary markdown="span">**Suppression avec redimensionnement**</summary>
+
+```java
+int[] original = {10, 20, 30, 40};
+int newValue = 25;
+int deleteIndex = 3;
+
+// Création d'un nouveau tableau avec une taille réduite
+int[] resized = new int[original.length - 1];
+
+// Copier les éléments avant l'index à supprimer
+for (int i = 0; i < deleteIndex; i++) {
+    resized[i] = original[i];
+}
+
+// Décaler les éléments restants
+for (int i = deleteIndex + 1; i < original.length; i++) {
+    resized[i - 1] = original[i];
+}
+```
+</details>
+
 
 ### Tri
 
-#### Tri par insertion
+</details>
+
+<details markdown="1">
+<summary markdown="span">**Tri par insertion**</summary>
 
 Le tri par insertion fonctionne en construisant progressivement une liste triée en insérant chaque nouvel élément à sa position correcte.
 
@@ -88,8 +127,12 @@ public void insertionSort(int[] arr) {
     }
 }
 ```
+</details>
 
-#### Tri à bulles
+</details>
+
+<details markdown="1">
+<summary markdown="span">**Tri à bulles**</summary>
 
 Le tri à bulles compare chaque paire d'éléments adjacents et les échange si nécessaire, répétant ce processus jusqu'à ce que la liste soit triée.
 
@@ -107,8 +150,12 @@ public void bubbleSort(int[] arr) {
     }
 }
 ```
+</details>
 
-#### Tri rapide (*Quick Sort*)
+</details>
+
+<details markdown="1">
+<summary markdown="span">**Tri rapide (*Quick Sort*)**</summary>
 
 Le tri rapide est un algorithme de tri efficace basé sur le principe du diviser pour régner. Il choisit un pivot et partitionne le tableau autour de ce pivot.
 
@@ -138,8 +185,12 @@ private int partition(int[] arr, int low, int high) {
     return i + 1;
 }
 ```
+</details>
 
-#### Tri par fusion (*Merge Sort*)
+</details>
+
+<details markdown="1">
+<summary markdown="span">**Tri par fusion (*Merge Sort*)**</summary>
 
 Le tri par fusion divise la liste en deux moitiés, trie chaque moitié récursivement, puis fusionne les deux listes triées.
 
@@ -195,12 +246,15 @@ private void merge(int[] array, int left, int middle, int right) {
     }
 }
 ```
-
+</details>
 
 
 ### Recherche
 
-#### Recherche linéaire
+</details>
+
+<details markdown="1">
+<summary markdown="span">**Recherche linéaire**</summary>
 ```java
 for (int i = 0; i < array.length; i++) {
     if (array[i] == target) {
@@ -208,7 +262,12 @@ for (int i = 0; i < array.length; i++) {
     }
 }
 ```
-#### Recherche binaire
+</deatils>
+
+</details>
+
+<details markdown="1">
+<summary markdown="span">**Recherche binaire**</summary>
 
 ```java
 int left = 0, right = array.length - 1;
@@ -223,3 +282,4 @@ while (left <= right) {
     }
 }
 ```
+</details>
