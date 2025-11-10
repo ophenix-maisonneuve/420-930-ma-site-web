@@ -41,14 +41,14 @@ public static boolean contains(int[] arr, int target) {
 Proposez une amélioration possible sur la **structure de données** (le tableau)
  - Comment cette amélioration permet (ou permettra) une meilleure optimisation de la recherche?
 
-{.: highlight}
+{: .highlight}
 > Il est possible que le changement de structure lui-même n'apporte pas d'amélioration, mais permette l'utilisation d'un algorithme différent dans la section suivante...
 
 ### Optimisation de l'algorithme de recherche
 Proposez une amélioration possible sur **l'algorithme de recherche**.
 - Quelle est la nouvelle complexité de l'algorithme de recherche après votre modification?
 
-{.: highlight}
+{: .highlight}
 > Votre solution dépendra très probablement du changement que vous aurez apporté à la structure de données de la question précédente.
 
 
@@ -80,11 +80,11 @@ public static int fib(int n) {
 }
 ```
 
-- Complexité : O(2^n)
+- Complexité : O(2<sup>n</sup>)
 - Problème : recalculs redondants, pile d’appels récursifs
 
 ### Réduction du problème
-Identifier que `fib(n)` dépend uniquement de `fib(n-1)` et `fib(n-2)` → sous-problèmes réutilisables.
+Identifier que `fib(n)` dépend uniquement de `fib(n-1)` et `fib(n-2)`, donc sous-problèmes réutilisables.
 
 ### Programmation dynamique
 Implémenter une version optimisée avec mémoïsation ou tabulation.
