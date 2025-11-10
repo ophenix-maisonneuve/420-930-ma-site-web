@@ -50,6 +50,8 @@ La **complexité algorithmique** est une **mesure théorique** du coût d’un a
 {: .highlight}
 > Autrement dit, **la complexité est un outil d’analyse**, tandis que **le temps et la mémoire sont les symptômes observables**. 
 
+---
+
 ### 2. Structures de données
 
 #### Adapter la structure aux opérations dominantes
@@ -64,6 +66,7 @@ Cette analyse permet de **maximiser les performances là où ça compte le plus*
 {: .highlight}
 > Par exemple, utiliser un tableau pour un accès indexé rapide, une pile pour gérer des appels imbriqués, ou une matrice pour représenter des relations entre éléments.
 
+---
 
 ### 3. Algorithmes plus efficace
 
@@ -72,6 +75,7 @@ Remplacer un algorithme par un autre qui résout le même problème avec une **m
 {: .highlight}
 > Par exemple, utiliser le tri rapide `O(n log n)` au lieu du tri par insertion `O(n^2)`, ou une recherche binaire `O(log n)` au lieu d’une recherche linéaire `O(n)`.
 
+---
 
 ### 4. Réduction du problème
 
@@ -86,6 +90,8 @@ Cette décomposition permet souvent de :
 {: .highlight}
 > Par exemple, une fois le problème réduit, il devient plus facile de voir où une structure spécifique (comme un arbre ou une pile) ou un algorithme particulier (comme un tri différent ou une recherche mieux adaptée) pourrait s’appliquer.
 
+--
+
 ### 5. Programmation dynamique
 
 La programmation dynamique est une technique qui consiste à **mémoriser les résultats intermédiaires** pour éviter de recalculer plusieurs fois les mêmes sous-problèmes. Elle est particulièrement utile lorsque le problème présente une **structure récursive avec des répétitions**.
@@ -95,6 +101,7 @@ La programmation dynamique est une technique qui consiste à **mémoriser les r�
 > - **Mémoïsation** (top-down) : on stocke les résultats au fur et à mesure des appels récursifs.
 > - **Tabulation** (bottom-up) : on construit une table de résultats à partir des cas de base.
 
+---
 
 ## Résumé
 
