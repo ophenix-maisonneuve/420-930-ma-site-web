@@ -40,9 +40,6 @@ Il peut être tentant de vouloir optimiser dès qu’on voit un algorithme de co
 > - Complexification des tests unitaires
 
 ### Identifier la nature du problème
-{: .astuce}
-> Observer les opérations les plus fréquentes (lecture, écriture, recherche, suppression) peut révéler des inefficacités liées à la structure de données ou à l’algorithme utilisé.
-
 
 Si un **véritable problème** est identifié, il faut ensuite en déterminer la nature :
 
@@ -50,14 +47,19 @@ Si un **véritable problème** est identifié, il faut ensuite en déterminer la
 - Est-il principalement lié à **l’utilisation de la mémoire**?
 - Est-il lié aux **deux** 😨?
 
-### Et la complexité dans tout ça?
+{: .astuce}
+> Observer les opérations les plus fréquentes (lecture, écriture, recherche, suppression) peut révéler des inefficacités liées à la structure de données ou à l’algorithme utilisé.
+
+### Mesurer la complexité de l'algorithme
 
 La **complexité algorithmique** est une **mesure théorique** du coût d’un algorithme selon la taille de l’entrée. Elle se traduit **concrètement** par :
 - du **temps d’exécution** (complexité temporelle),
 - ou de la **consommation mémoire** (complexité spatiale).
 
+On la mesure généralement à l'aide de la [notation Grand O](../notes/notation-grand-o).
+
 {: .highlight}
-> Autrement dit, **la complexité est un outil d’analyse**, tandis que **le temps et la mémoire sont les symptômes observables**. 
+> Autrement dit, **la complexité est une mesure**, tandis que **le temps et la mémoire sont les symptômes observables**. 
 
 ---
 
