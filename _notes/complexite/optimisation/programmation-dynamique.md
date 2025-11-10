@@ -152,7 +152,7 @@ public class Fibonacci {
 - Le but est de **maximiser la valeur totale** des objets placés dans le sac **sans dépasser le poids `W`**.
 
 ### Solution récursive de base
-On peut essayer toutes les combinaisons possibles d’objets, ce qui donne une complexité exponentielle $$O(2^n)$$.
+On peut essayer toutes les combinaisons possibles d’objets, ce qui donne une complexité exponentielle O(2<sup>n</sup>).
 
 <details markdown="1">
 <summary markdown="span">Code Java</summary>

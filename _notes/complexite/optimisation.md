@@ -86,7 +86,7 @@ Une structure de données appropriée peut transformer un algorithme inefficace 
 Remplacer un algorithme par un autre qui résout le même problème avec une **meilleure complexité** est souvent l’optimisation la plus directe. Cela implique de **comparer plusieurs stratégies** et de **choisir celle qui convient le mieux** au contexte et aux données.
 
 {: .highlight}
-> Par exemple, utiliser le tri rapide `O(n log n)` au lieu du tri par insertion `O(n^2)`, ou une recherche binaire `O(log n)` au lieu d’une recherche linéaire `O(n)`.
+> Par exemple, utiliser le tri rapide `O(n log n)` au lieu du tri par insertion `O(n<sup>2</sup>)`, ou une recherche binaire `O(log n)` au lieu d’une recherche linéaire `O(n)`.
 
 ---
 
