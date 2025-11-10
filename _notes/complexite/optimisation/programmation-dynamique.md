@@ -31,7 +31,7 @@ La programmation dynamique est utile lorsque le problème peut être décomposé
 >- recalcule les mêmes choses plusieurs fois,
 >- cherche à optimiser une valeur sous contrainte,
 >- ou utilise une structure comme un tableau pour stocker des résultats,
-
+>
 >... alors la programmation dynamique (mémoïsation ou tabulation) pourrait considérablement améliorer ses performances.
 
 ---
