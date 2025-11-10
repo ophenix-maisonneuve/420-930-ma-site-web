@@ -61,7 +61,7 @@ La **complexité algorithmique** est une **mesure théorique** du coût d’un a
 
 ---
 
-## 2. Structures de données
+## 2. Structure de données
 
 ### Adapter la structure aux opérations dominantes
 Avant de choisir une structure, il est essentiel d’analyser les opérations les plus fréquentes :
@@ -77,7 +77,7 @@ Cette analyse permet de **maximiser les performances là où ça compte le plus*
 
 ---
 
-## 3. Algorithmes plus efficace
+## 3. Algorithme
 
 Remplacer un algorithme par un autre qui résout le même problème avec une **meilleure complexité** est souvent l’optimisation la plus directe. Cela implique de **comparer plusieurs stratégies** et de **choisir celle qui convient le mieux** au contexte et aux données.
 
@@ -116,8 +116,8 @@ La programmation dynamique est une technique qui consiste à **mémoriser les r�
 
 | Nom                      | Description                                          | Avantages                                    | Inconvénients                                 | Quand l’appliquer                                       |
 | -------------------------- | ------------------------------------------------------ | ---------------------------------------------- | ------------------------------------------------ | ---------------------------------------------------------- |
-| Opérations dominantes     | Identifier les opérations les plus fréquentes         | Choix plus pertinent des structures et algorighmes     | Peut nécessiter une analyse fine du comportement | Toujours, dès l’analyse du problème                  |
+| Caractérisation du problème     | Identifier les opérations les plus fréquentes         | Choix plus pertinent des structures et algorighmes     | Peut nécessiter une analyse fine du comportement | Toujours, dès l’analyse du problème                  |
 | Structure de données    | Choisir une structure adaptée au problème          | Accès rapide, gain de performance immédiat | Peut nécessiter une refonte du code           | Dès le début, selon les données                       |
-| Algorithme plus efficace | Remplacer l’algorithme par un plus performant       | Réduction directe de la complexité         | Nécessite de connaître plusieurs algos       | Dès qu’un algorithme est identifié comme sous-optimal |
+| Algorithme | Remplacer l’algorithme par un plus performant       | Réduction directe de la complexité         | Nécessite de connaître plusieurs algos       | Dès qu’un algorithme est identifié comme sous-optimal |
 | Réduction du problème  | Décomposer en sous-problèmes plus simples          | Clarifie la logique, prépare pour P         | Peut être abstrait ou difficile à modéliser | Quand le problème semble trop complexe                  |
 | Programmation dynamique  | Mémoriser les résultats pour éviter les recalculs | Réduction drastique du temps d’exécution  | Peut augmenter l’utilisation mémoire         | Quand des sous-problèmes se répètent                  |
