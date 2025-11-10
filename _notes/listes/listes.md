@@ -56,7 +56,7 @@ Une liste peut, dans sa forme la plus simple, être représentée par un tableau
 Voici une comparaison sommaire de la complexité des opérations fondamentales (ajout, suppression, recherche, tri) selon les principales structures de données linéaires : tableau, liste chaînée simple et liste chaînée double.
 
 <details markdown="1">
-<summary markdown="span">### Ajout</summary>
+<summary markdown="span">**Ajout**</summary>
 
 | Structure              | Ajout en tête | Ajout en fin                        | Ajout à une position |
 |------------------------|---------------|-------------------------------------|-----------------------|
