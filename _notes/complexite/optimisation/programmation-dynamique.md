@@ -36,16 +36,14 @@ La programmation dynamique est utile lorsque le problème peut être décomposé
 
 ---
 
-## Exemples
-
-### Problème du sac à dos (*Knapsack*)
+## Problème du sac à dos (*Knapsack*)
 
 > **Énoncé** :  
 > On dispose d’un sac à dos pouvant contenir un poids maximal `W`.  
 > On a `n` objets, chacun avec un poids `w[i]` et une valeur `v[i]`.  
 > Le but est de **maximiser la valeur totale** des objets placés dans le sac **sans dépasser le poids `W`**.
 
-#### Solution naïve (récursive)
+### Solution naïve (récursive)
 On peut essayer toutes les combinaisons possibles d’objets, ce qui donne une complexité exponentielle $$O(2^n)$$.
 
 <details markdown="1">
@@ -80,10 +78,10 @@ public class KnapsackNaive {
 ```
 </details>
 
-#### Indice de répétition
+### Indice de répétition
 De nombreux sous-problèmes sont recalculés : par exemple, la meilleure combinaison pour un poids `W'` avec les `i` premiers objets.
 
-#### Optimisation par programmation dynamique
+### Optimisation par programmation dynamique
 
 - **Mémoïsation (top-down)** :  
   On utilise une fonction récursive avec un cache pour mémoriser les résultats déjà calculés pour `(i, w)`.
@@ -175,9 +173,9 @@ public class KnapsackTabulation {
 ```
 </details>
 
-#### Complexité optimisée
-- Temps : $$O(n \cdot W)$$
-- Espace : $$O(n \cdot W)$$ (ou $$O(W)$$ avec optimisation)
+### Complexité optimisée
+- Temps : O(n \* W)
+- Espace : O(n \* W) (ou O(W) avec optimisation)
 
 {: .highlight}
 > Ce problème est un excellent exemple de programmation dynamique car :
@@ -185,14 +183,16 @@ public class KnapsackTabulation {
 > - Il présente des sous-problèmes qui se répètent.
 > - Il cherche à optimiser une valeur sous contrainte.
 
-### Suite de Fibonacci
+---
+
+## Suite de Fibonacci
 
 > **Énoncé** :  
 > La suite de Fibonacci est définie par :  
 > `fib(0) = 0`, `fib(1) = 1`, et `fib(n) = fib(n-1) + fib(n-2)` pour `n >= 2`.  
 > Le but est de calculer `fib(n)` efficacement.
 
-#### Solution naïve (récursive)
+### Solution naïve (récursive)
 La solution récursive simple recalculera plusieurs fois les mêmes valeurs, ce qui donne une complexité exponentielle $$O(2^n)$$.
 
 <details markdown="1">
@@ -215,10 +215,10 @@ public class Fibonacci {
 ```
 </details>
 
-#### Indice de répétition
+### Indice de répétition
 Les appels récursifs à `F(n-1)` et `F(n-2)` se chevauchent énormément, ce qui entraîne des recalculs inutiles.
 
-#### Optimisation par programmation dynamique
+### Optimisation par programmation dynamique
 
 - **Mémoïsation (top-down)** :  
   On utilise une fonction récursive avec un cache pour mémoriser les résultats déjà calculés.
@@ -279,9 +279,9 @@ public class Fibonacci {
 ```
 </details>
 
-#### Complexité optimisée
-- Temps : $$O(n)$$
-- Espace : $$O(n)$$ (ou $$O(1)$$ avec optimisation)
+### Complexité optimisée
+- Temps : O(n)
+- Espace : O(n) (ou O(1) avec optimisation)
 
 > Ce problème est un excellent exemple de programmation dynamique car :
 > - Il est naturellement récursif.
