@@ -137,6 +137,7 @@ public class Fibonacci {
 - Temps : O(n)
 - Espace : O(n) (ou O(1) avec optimisation)
 
+{: .highlight}
 > Ce problème est un excellent candidat pour la programmation dynamique car :
 > - Il est naturellement récursif.
 > - Il présente des sous-problèmes qui se répètent.
