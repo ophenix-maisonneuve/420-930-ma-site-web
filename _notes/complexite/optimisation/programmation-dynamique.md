@@ -41,7 +41,7 @@ La programmation dynamique est utile lorsque le problème peut être décomposé
 - On a `n` objets, chacun avec un poids `w[i]` et une valeur `v[i]`.  
 - Le but est de **maximiser la valeur totale** des objets placés dans le sac **sans dépasser le poids `W`**.
 
-### Solution naïve (récursive)
+### Solution récursive de base
 On peut essayer toutes les combinaisons possibles d’objets, ce qui donne une complexité exponentielle $$O(2^n)$$.
 
 <details markdown="1">
@@ -191,7 +191,7 @@ La suite de Fibonacci est définie par :
 - `fib(0) = 0`, `fib(1) = 1`, et `fib(n) = fib(n-1) + fib(n-2)` pour `n >= 2`.  
 - Le but est de calculer `fib(n)` efficacement.
 
-### Solution naïve (récursive)
+### Solution récursive de base
 La solution récursive simple recalculera plusieurs fois les mêmes valeurs, ce qui donne une complexité exponentielle O(2<sup>n</sup>).
 
 <details markdown="1">
