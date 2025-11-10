@@ -1,0 +1,48 @@
+---
+layout: default
+title: "Arbres"
+parent: "Structures de données"
+nav_order: 2
+published: false
+---
+
+# Arbres
+
+Une **structure d'arbre** est une structure de données hiérarchique dans laquelle chaque élément (appelé **noeud**) est relié à un ou plusieurs noeuds enfants, sauf le noeud racine qui est unique. Cette structure est utilisée pour représenter des relations hiérarchiques comme les systèmes de fichiers, les arbres syntaxiques, ou les arbres de décision.
+
+## Caractéristiques principales
+- **Hiérarchique** : chaque noeud peut avoir plusieurs enfants mais un seul parent.
+- **Racine** : point de départ de l'arbre.
+- **Feuilles** : noeuds sans enfants.
+- **Sous-arbres** : chaque noeud peut être la racine d'un sous-arbre.
+
+## Types d'opérations principales
+- **Insertion** : ajouter un noeud à une position spécifique.
+- **Suppression** : retirer un noeud et réorganiser l'arbre.
+- **Recherche** : localiser un noeud selon une valeur.
+- **Parcours** : visiter les noeuds selon un ordre défini (préfixe, infixe, suffixe).
+
+---
+
+## Type d'arbre : Arbre binaire de recherche (Binary Search Tree)
+
+Un arbre binaire de recherche (BST) est un type particulier d'arbre binaire où chaque noeud a au plus deux enfants, et où les valeurs sont organisées de manière à faciliter la recherche :
+- Le sous-arbre gauche contient des valeurs inférieures à la racine.
+- Le sous-arbre droit contient des valeurs supérieures à la racine.
+- Si l'arbre permet les doublons, une valeur égale peut être insérée dans le sous-arbre gauche ou droit. **L'important est de demeurer constant partout dans l'implémentation**.
+
+| Type d'arbre            | Nombre d'enfants max | Organisation des données | Recherche rapide | Insertion/Suppression efficace |
+|-------------------------|----------------------|---------------------------|------------------|-------------------------------|
+| Arbre binaire de recherche | 2                    | Oui                       | Oui              | Oui                           |
+
+---
+
+## Complexité des opérations sur les arbres
+
+| Opération     | Complexité moyenne | Complexité pire cas | Remarques |
+|---------------|--------------------|----------------------|-----------|
+| Insertion     | O(log n)           | O(n)                 | Si l'arbre est équilibré |
+| Suppression   | O(log n)           | O(n)                 | Nécessite parfois rééquilibrage |
+| Recherche     | O(log n)           | O(n)                 | Dépend de la forme de l'arbre |
+| Parcours      | O(n)               | O(n)                 | Tous les noeuds sont visités |
+
