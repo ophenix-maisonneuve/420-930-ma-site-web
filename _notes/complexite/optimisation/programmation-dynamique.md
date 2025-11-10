@@ -12,12 +12,10 @@ published: true
 Optimiser les calculs en évitant les répétitions grâce à la mémorisation des résultats intermédiaires.
 
 ## Explication
-La programmation dynamique est utile lorsque le problème peut être décomposé en sous-problèmes qui se répètent. Elle permet de réduire la complexité en stockant les résultats déjà calculés.
+La programmation dynamique est utile lorsque le problème peut être décomposé en sous-problèmes qui se répètent. Elle permet de réduire la complexité en stockant les résultats déjà calculés. Les deux méthodes les plus souvent utilisées sont:
 
-{: .highlight}
-> Par exemple, dans le calcul de la suite de Fibonacci, on peut utiliser :
-> - **Mémoïsation** (*top-down*) : on stocke les résultats au fur et à mesure des appels récursifs.
-> - **Tabulation** (*bottom-up*) : on construit une table de résultats à partir des cas de base.
+- **Mémoïsation** (*top-down*) : on stocke les résultats au fur et à mesure des appels récursifs.
+- **Tabulation** (*bottom-up*) : on construit une table de résultats à partir des cas de base.
 
 ## Pourquoi c’est utile
 - Réduction drastique du temps d’exécution
