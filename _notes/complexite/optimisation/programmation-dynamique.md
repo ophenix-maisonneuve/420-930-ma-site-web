@@ -98,21 +98,21 @@ import java.util.Map;
 public class KnapsackMemo {
     static Map<String, Integer> memo = new HashMap<>();
 
-    public static int knapsack(int[] weights, int[] values, int w, int n) {
+    public static int knapsack(int[] weights, int[] values, int W, int n) {
         if (n == 0 || w == 0) {
              return 0;
         }
 
-        String key = n + "-" + w;
+        String key = n + "-" + W;
         if (memo.containsKey(key)) {
             return memo.get(key);
         } 
 
-        if (weights[n - 1] > w) {
-            memo.put(key, knapsack(weights, values, w, n - 1));
+        if (weights[n - 1] > W) {
+            memo.put(key, knapsack(weights, values, W, n - 1));
         } else {
-            int include = values[n - 1] + knapsack(weights, values, w - weights[n - 1], n - 1);
-            int exclude = knapsack(weights, values, w, n - 1);
+            int include = values[n - 1] + knapsack(weights, values, W - weights[n - 1], n - 1);
+            int exclude = knapsack(weights, values, W, n - 1);
             memo.put(key, Math.max(include, exclude));
         }
 
