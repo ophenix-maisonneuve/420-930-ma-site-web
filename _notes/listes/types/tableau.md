@@ -1,6 +1,6 @@
 ---
 layout: default
-parent: "Listes"
+parent: "Listes et tableaux"
 title: "Tableau"
 nav_order: 1
 published: true

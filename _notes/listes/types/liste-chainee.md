@@ -1,6 +1,6 @@
 ---
 layout: default
-parent: "Listes"
+parent: "Listes et tableaux"
 title: "Liste chaînée"
 nav_order: 3
 published: true
