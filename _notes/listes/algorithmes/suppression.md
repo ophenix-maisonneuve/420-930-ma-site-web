@@ -10,14 +10,7 @@ published: true
 
 La suppression consiste à retirer un élément d'une structure de données. Elle peut se faire au début, au milieu ou à la fin. Selon la structure, cela implique des décalages ou des mises à jour de références.
 
-## Suppression dans un tableau
-```java
-int[] array = {10, 20, 30, 40};
-// Suppression au milieu (index 1)
-for (int i = 1; i < array.length - 1; i++) {
-    array[i] = array[i + 1];
-}
-```
+
 
 ## Suppression dans une liste chaînée
 ```java

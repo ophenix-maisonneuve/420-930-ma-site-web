@@ -15,6 +15,12 @@ En programmation orientée objet (POO), une **liste** est une structure de donn�
 - **Indexée** : chaque élément peut être accédé via son index.
 - **Mutable** : les listes peuvent être modifiées après leur création.
 
+## Types d'opérations principales
+- **Ajout** : insérer un élément à une position donnée.
+- **Suppression** : retirer un élément spécifique ou à une position donnée.
+- **Recherche** : localiser un élément dans la structure.
+- **Tri** : organiser les éléments selon un ordre défini.
+
 ## Types de listes
 
 Une liste peut, dans sa forme la plus simple, être représentée par un tableau. Il existe aussi des versions plus dynamiques appelées listes chaînées, qui peuvent être simples (chaînées dans un seul sens) ou doublement chaînées (navigables dans les deux sens).
@@ -27,15 +33,62 @@ Une liste peut, dans sa forme la plus simple, être représentée par un tableau
 
 ## Opérations courantes sur les listes
 
-| **Algorithme** | **Fonctionnalité**            | **Python**               | **Java**                     | **Description** |
-|---------------|-------------------------------|--------------------------|------------------------------|-----------------|
-| Ajout         | Ajouter un élément            | `append(objet)`          | `add(objet)`                 | Ajoute un élément à la fin de la liste. |
-| Ajout         | Insérer à une position        | `insert(index, objet)`   | `add(index, objet)`          | Insère un élément à une position donnée. |
-| Suppression   | Supprimer par index           | `pop(index)`             | `remove(index)`              | Supprime l’élément à l’index spécifié. |
-| Tri           | Trier la liste                | `sort()`                 | `Collections.sort(liste)`    | Trie les éléments de la liste. |
-| Recherche     | Vérifier la présence          | `objet in liste`         | `contains(objet)`            | Vérifie si un élément est présent dans la liste. |
-| Recherche     | Trouver l’index d’un élément  | `index(objet)`           | `indexOf(objet)`             | Retourne l’index de la première occurrence. |
-| Recherche & suppression   | Supprimer par valeur          | `remove(objet)`          | `remove(Object)`             | Supprime la première occurrence d’un élément. |
-| Accès direct ou rehcherche <sup>1</sup>    | Accéder par index             | `list[index]`         | `get(index)`            | Accède à l'élément à une position donnée sans effectuer de recherche. |
+| **Algorithme** | **Fonctionnalité**            | **Java**                     | **Python**               | **Description** |
+|----------------|-------------------------------|------------------------------|--------------------------|-----------------|
+| Ajout          | Ajouter un élément            | `add(objet)`                 | `append(objet)`          | Ajoute un élément à la fin de la liste. |
+| Ajout          | Insérer à une position        | `add(index, objet)`          | `insert(index, objet)`   | Insère un élément à une position donnée. |
+| Suppression    | Supprimer par index           | `remove(index)`              | `pop(index)`             | Supprime l’élément à l’index spécifié. |
+| Tri            | Trier la liste                | `Collections.sort(liste)`    | `sort()`                 | Trie les éléments de la liste. |
+| Recherche      | Vérifier la présence          | `contains(objet)`            | `objet in liste`         | Vérifie si un élément est présent dans la liste. |
+| Recherche      | Trouver l’index d’un élément  | `indexOf(objet)`             | `index(objet)`           | Retourne l’index de la première occurrence. |
+| Recherche & suppression | Supprimer par valeur          | `remove(Object)`             | `remove(objet)`          | Supprime la première occurrence d’un élément. |
+| Accès direct ou recherche <sup>1</sup> | Accéder par index             | `get(index)`              | `list[index]`             | Accède à l'élément à une position donnée sans effectuer de recherche. |
 
 <sup>1</sup> *Cela dépend du type de liste. Pour une liste indexée, c'est-à-dire une liste où l'on peut accéder à un élément car son index (un tableau, par exemple), l'accès est direct. Pour une liste sans index, comme une liste chaînée classique, l'opération s'apparente plutôt à une opération de recherche linéaire, car on doit itérer sur tous les éléments de la liste jusqu'à l'index désiré.*
+
+## Complexité des algorithmes sur les listes
+
+Voici une comparaison sommaire de la complexité des opérations fondamentales (ajout, suppression, recherche, tri) selon les principales structures de données linéaires : tableau, liste chaînée simple et liste chaînée double.
+
+### Ajout
+
+| Structure              | Ajout en tête | Ajout en fin                        | Ajout à une position |
+|------------------------|---------------|-------------------------------------|-----------------------|
+| Tableau                | O(n)          | O(1) ou O(n) si tableau plein       | O(n)                  |
+| Liste chaînée simple   | O(1)          | O(n) ou O(1) si *tail* maintenu     | O(n)                  |
+| Liste chaînée double   | O(1)          | O(n) ou O(1) si *tail* maintenu     | O(n)                  |
+
+{: .highlight}
+> Dans un tableau, l’ajout en fin est O(1) si la capacité est suffisante. Sinon, il faut créer un nouveau tableau plus grand et copier les éléments, ce qui donne une complexité O(n).
+> Dans une liste chaînée (simple ou double), l'ajout en fin est O(n), à moins qu'une référence vers le dernier nœud (*tail*) soit conservée.
+
+### Suppression
+
+| Structure              | Suppression en tête | Suppression en fin                  | Suppression à une position |
+|------------------------|----------------------|-------------------------------------|-----------------------------|
+| Tableau                | O(n)                 | O(1) ou O(n) selon l’implémentation | O(n)                        |
+| Liste chaînée simple   | O(1)                 | O(n)                                | O(n)                        |
+| Liste chaînée double   | O(1)                 | O(1) si *tail* maintenu             | O(n)                        |
+
+{: .highlight}
+> Dans une liste chaînée simple, même avec une référence à *tail*, la suppression en fin reste O(n) car il faut accéder à l’avant-dernier nœud.
+> Dans une liste doublement chaînée avec *tail*, on peut accéder directement au prédécesseur du dernier nœud, ce qui permet une suppression en O(1).
+
+### Recherche
+
+| Méthode             | Complexité moyenne | Complexité pire cas | Structure requise               | Avantages                          | Limitations                          |
+|---------------------|--------------------|----------------------|----------------------------------|-------------------------------------|--------------------------------------|
+| Recherche linéaire  | O(n)               | O(n)                 | Toutes                          | Simple, universelle                | Peu efficace sur grandes structures  |
+| Recherche binaire   | O(log n)           | O(log n)             | Liste triée avec accès direct   | Très rapide sur grands ensembles   | Nécessite tri et accès par index     |
+
+{: .highlight}
+> La recherche binaire nécessite un accès direct aux éléments par leur index, ce qui n’est pas possible dans une liste chaînée. La recherche linéaire reste donc la méthode la plus adaptée pour les listes chaînées.
+
+### Tri
+
+| Algorithme de tri   | Complexité moyenne | Complexité pire cas | Stable | In-place | Remarques                         |
+|---------------------|--------------------|----------------------|--------|----------|----------------------------------|
+| Tri par insertion   | O(n²)              | O(n²)                | Oui    | Oui      | Efficace sur petites listes      |
+| Tri à bulles        | O(n²)              | O(n²)                | Oui    | Oui      | Simple mais peu performant       |
+| Tri rapide (quicksort)| O(n log n)       | O(n²)                | Non    | Oui      | Très rapide en pratique          |
+| Tri fusion          | O(n log n)         | O(n log n)           | Oui    | Non      | Nécessite espace supplémentaire  |

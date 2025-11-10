@@ -13,14 +13,6 @@ La recherche permet de localiser un élément dans une structure. La recherche l
 ## Recherche linéaire
 Applicable à toutes les structures.
 
-### Dans un tableau
-```java
-for (int i = 0; i < array.length; i++) {
-    if (array[i] == target) {
-        return i;
-    }
-}
-```
 ### Dans une liste chaînée
 ```java
 Node current = head;
@@ -33,21 +25,7 @@ while (current != null) {
 return false;
 ```
 
-## Recherche binaire
-Fonctionne uniquement sur une liste triée, et n'offre un avantage de performance que pour les types de listes fournissant un accès direct par index.
-```java
-int left = 0, right = array.length - 1;
-while (left <= right) {
-    int mid = (left + right) / 2;
-    if (array[mid] == target) {
-        return mid;
-    } else if (array[mid] < target) {
-        left = mid + 1;
-    } else {
-        right = mid - 1;
-    }
-}
-```
+
 
 ## Comparaison des méthodes de recherche
 
