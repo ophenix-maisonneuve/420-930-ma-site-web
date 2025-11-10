@@ -14,7 +14,7 @@ Optimiser les calculs en évitant les répétitions grâce à la mémorisation d
 ## Explication
 La programmation dynamique est utile lorsque le problème peut être décomposé en sous-problèmes qui se répètent. Elle permet de réduire la complexité en stockant les résultats déjà calculés. Les deux méthodes les plus souvent utilisées sont:
 
-- **Mémoïsation** (*top-down*) : on stocke les résultats au fur et à mesure des appels récursifs.
+- **Mémoïsation** (*top-down*) : on stocke les résultats dans un cache au fur et à mesure des appels récursifs.
 - **Tabulation** (*bottom-up*) : on construit une table de résultats à partir des cas de base.
 
 ## Pourquoi c’est utile
@@ -39,10 +39,11 @@ La programmation dynamique est utile lorsque le problème peut être décomposé
 
 ### Énoncé 
 La suite de Fibonacci est définie par :  
-- `fib(0) = 0`, `fib(1) = 1`, et `fib(n) = fib(n-1) + fib(n-2)` pour `n >= 2`.  
+- `fib(0) = 0`, `fib(1) = 1`, et `fib(n) = fib(n-1) + fib(n-2)` pour `n >= 2`.
+- Les premières valeurs de cette suite sont: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
 - Le but est de calculer `fib(n)` efficacement.
 
-### Solution récursive de base
+### Solution récursive simple
 La solution récursive simple recalculera plusieurs fois les mêmes valeurs, ce qui donne une complexité exponentielle O(2<sup>n</sup>).
 
 <details markdown="1">
@@ -112,7 +113,10 @@ On construit un tableau `fib[]` en partant des cas de base et en calculant chaqu
 ```java
 public class Fibonacci {
     public static int fib(int n) {
-        if (n <= 1) return n;
+        if (n <= 1) {
+            return n;
+        }
+
         int[] dp = new int[n + 1];
         dp[0] = 0;
         dp[1] = 1;
@@ -133,7 +137,7 @@ public class Fibonacci {
 - Temps : O(n)
 - Espace : O(n) (ou O(1) avec optimisation)
 
-> Ce problème est un excellent exemple de programmation dynamique car :
+> Ce problème est un excellent candidat pour la programmation dynamique car :
 > - Il est naturellement récursif.
 > - Il présente des sous-problèmes qui se répètent.
 > - Il peut être résolu efficacement en mémorisant les résultats intermédiaires.
@@ -157,7 +161,9 @@ On peut essayer toutes les combinaisons possibles d’objets, ce qui donne une c
 public class KnapsackNaive {
     public static int knapsack(int[] weights, int[] values, int W, int n) {
         // Cas de base : plus d'objets ou plus de capacité
-        if (n == 0 || W == 0) return 0;
+        if (n == 0 || W == 0) {
+             return 0;
+        }
 
         // Si le poids de l'objet est trop grand, on ne peut pas le prendre
         if (weights[n - 1] > W) {
