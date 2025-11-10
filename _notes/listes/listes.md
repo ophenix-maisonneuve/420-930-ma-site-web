@@ -17,7 +17,7 @@ En programmation orientée objet (POO), une **liste** est une structure de donn�
 
 ## Types de listes
 
-Dans sa version la plus simple, une liste peut être représentée par un tableau
+Une liste peut, dans sa forme la plus simple, être représentée par un tableau. Il existe aussi des versions plus dynamiques appelées listes chaînées, qui peuvent être simples (chaînées dans un seul sens) ou doublement chaînées (navigables dans les deux sens).
 
 | Type de liste            | Taille dynamique | Accès direct | Insertion rapide | Suppression rapide | Complexité mémoire |
 |--------------------------|------------------|--------------|------------------|--------------------|--------------------|
@@ -25,18 +25,7 @@ Dans sa version la plus simple, une liste peut être représentée par un tablea
 | Liste chaînée            | ✅               | ❌           | ✅               | ✅                 | Élevée             |
 
 
-## Algorithmes sur les listes  et les tableaux
-
-Les algorithmes fondamentaux sur les listes incluent l'ajout, la suppression, la recherche et le tri. Leur efficacité dépend du type de liste utilisé.
-
-| Algorithme | Tableau | Liste Chaînée |
-|------------|---------|---------------|
-| Ajout      | ⚠️      | ✅            |
-| Suppression| ⚠️      | ✅            |
-| Recherche  | ✅      | ✅ (linéaire) |
-| Tri        | ✅      | ⚠️ (complexe) |
-
-### Exemples d'opérations courantes
+## Opérations courantes sur les listes
 
 | **Algorithme** | **Fonctionnalité**            | **Python**               | **Java**                     | **Description** |
 |---------------|-------------------------------|--------------------------|------------------------------|-----------------|
