@@ -1,7 +1,7 @@
 ---
 layout: default
 parent: "Optimisation d'algorithmes"
-title: "Exercice 1 - Solution"
+title: "Exercice 2 - Solution"
 nav_order: 1
 has_toc: false
 ---
