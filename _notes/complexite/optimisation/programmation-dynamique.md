@@ -36,7 +36,7 @@ La programmation dynamique est utile lorsque le problème peut être décomposé
 
 ---
 
-## Problème du sac à dos (*Knapsack*)
+## Exemple 1 : Problème du sac à dos (*Knapsack*)
 
 ### Énoncé  
 - On dispose d’un sac à dos pouvant contenir un poids maximal `W`.  
@@ -78,8 +78,9 @@ public class KnapsackNaive {
 ```
 </details>
 
-### Indice de répétition
-De nombreux sous-problèmes sont recalculés : par exemple, la meilleure combinaison pour un poids `W'` avec les `i` premiers objets.
+{: .highlight}
+> De nombreux sous-problèmes sont recalculés : par exemple, la meilleure combinaison pour un poids `W'` avec les `i` premiers objets. Ceci est un indice que la programmation dynamique pourrait être utile...
+
 
 ### Optimisation par programmation dynamique
 
@@ -185,7 +186,7 @@ public class KnapsackTabulation {
 
 ---
 
-## Suite de Fibonacci
+## Exemple 2 : Suite de Fibonacci
 
 ### Énoncé 
 La suite de Fibonacci est définie par :  
@@ -215,8 +216,8 @@ public class Fibonacci {
 ```
 </details>
 
-### Indice de répétition
-Les appels récursifs à `fib(n-1)` et `fib(n-2)` se chevauchent énormément, ce qui entraîne des recalculs inutiles.
+{: .highlight}
+> Les appels récursifs à `fib(n-1)` et `fib(n-2)` se chevauchent énormément, ce qui entraîne des recalculs inutiles. Ceci est un indice que la programmation dynamique pourrait être bénéfique...
 
 ### Optimisation par programmation dynamique
 

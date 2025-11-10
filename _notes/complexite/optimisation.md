@@ -14,7 +14,16 @@ L’optimisation algorithmique vise à améliorer les performances d’un logici
 
 ## Méthode 
 
-### 1. Caractérisation du problème
+La méthode proposée comporte 5 étapes:
+1. Caractérisation du problème
+1. Évaluation de la structure de données utilisée
+1. Évaluation de l'algorithme utilisé
+1. Réduction du problème en sous-problèmes
+1. Utilisation de programmation dynamique
+
+---
+
+## 1. Caractérisation du problème
 
 Cette étape est sans doute la plus cruciale — et pourtant, souvent négligée. Avant de se lancer dans une tâche d’optimisation, il faut se poser une question simple mais essentielle :  
 
@@ -30,7 +39,7 @@ Il peut être tentant de vouloir optimiser dès qu’on voit un algorithme de co
 > - Ré-exécution de tests d’intégration
 > - Complexification des tests unitaires
 
-#### Identifier la nature du problème
+### Identifier la nature du problème
 {: .astuce}
 > Observer les opérations les plus fréquentes (lecture, écriture, recherche, suppression) peut révéler des inefficacités liées à la structure de données ou à l’algorithme utilisé.
 
@@ -41,7 +50,7 @@ Si un **véritable problème** est identifié, il faut ensuite en déterminer la
 - Est-il principalement lié à **l’utilisation de la mémoire**?
 - Est-il lié aux **deux** 😨?
 
-#### Et la complexité dans tout ça?
+### Et la complexité dans tout ça?
 
 La **complexité algorithmique** est une **mesure théorique** du coût d’un algorithme selon la taille de l’entrée. Elle se traduit **concrètement** par :
 - du **temps d’exécution** (complexité temporelle),
@@ -52,9 +61,9 @@ La **complexité algorithmique** est une **mesure théorique** du coût d’un a
 
 ---
 
-### 2. Structures de données
+## 2. Structures de données
 
-#### Adapter la structure aux opérations dominantes
+### Adapter la structure aux opérations dominantes
 Avant de choisir une structure, il est essentiel d’analyser les opérations les plus fréquentes :
 - **Lectures fréquentes** : privilégier les structures avec accès rapide (ex. tableau, dictionnaire).
 - **Écritures fréquentes** : choisir des structures avec insertion efficace (ex. liste chaînée, arbre équilibré).
@@ -68,7 +77,7 @@ Cette analyse permet de **maximiser les performances là où ça compte le plus*
 
 ---
 
-### 3. Algorithmes plus efficace
+## 3. Algorithmes plus efficace
 
 Remplacer un algorithme par un autre qui résout le même problème avec une **meilleure complexité** est souvent l’optimisation la plus directe. Cela implique de **comparer plusieurs stratégies** et de **choisir celle qui convient le mieux** au contexte et aux données.
 
@@ -77,7 +86,7 @@ Remplacer un algorithme par un autre qui résout le même problème avec une **m
 
 ---
 
-### 4. Réduction du problème
+## 4. Réduction du problème
 
 Reformuler le problème en une série de **sous-problèmes plus simples ou mieux structurés**.  
 Si le problème ne semble pas provenir d’une structure de données ou d’un algorithme inadapté, il peut être utile de **le diviser en étapes ou en cas particuliers**.
@@ -90,9 +99,9 @@ Cette décomposition permet souvent de :
 {: .highlight}
 > Par exemple, une fois le problème réduit, il devient plus facile de voir où une structure spécifique (comme un arbre ou une pile) ou un algorithme particulier (comme un tri différent ou une recherche mieux adaptée) pourrait s’appliquer.
 
---
+---
 
-### 5. Programmation dynamique
+## 5. Programmation dynamique
 
 La programmation dynamique est une technique qui consiste à **mémoriser les résultats intermédiaires** pour éviter de recalculer plusieurs fois les mêmes sous-problèmes. Elle est particulièrement utile lorsque le problème présente une **structure récursive avec des répétitions**.
 
