@@ -107,8 +107,6 @@ for (int i = deleteIndex + 1; i < original.length; i++) {
 
 ### Tri
 
-</details>
-
 <details markdown="1">
 <summary markdown="span">**Tri par insertion**</summary>
 
@@ -127,8 +125,6 @@ public void insertionSort(int[] arr) {
     }
 }
 ```
-</details>
-
 </details>
 
 <details markdown="1">
@@ -150,8 +146,6 @@ public void bubbleSort(int[] arr) {
     }
 }
 ```
-</details>
-
 </details>
 
 <details markdown="1">
@@ -185,8 +179,6 @@ private int partition(int[] arr, int low, int high) {
     return i + 1;
 }
 ```
-</details>
-
 </details>
 
 <details markdown="1">
@@ -251,8 +243,6 @@ private void merge(int[] array, int left, int middle, int right) {
 
 ### Recherche
 
-</details>
-
 <details markdown="1">
 <summary markdown="span">**Recherche linéaire**</summary>
 ```java
@@ -262,8 +252,6 @@ for (int i = 0; i < array.length; i++) {
     }
 }
 ```
-</deatils>
-
 </details>
 
 <details markdown="1">
