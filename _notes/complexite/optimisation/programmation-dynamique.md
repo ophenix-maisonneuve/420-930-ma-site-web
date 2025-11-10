@@ -1,7 +1,7 @@
 ---
 layout: default
 parent: "Optimisation"
-parent: "Programmation dynamique"
+title: "Programmation dynamique"
 nav_order: 4
 published: true
 ---
