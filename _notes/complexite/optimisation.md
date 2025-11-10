@@ -72,7 +72,9 @@ Avant de choisir une structure, il est essentiel d’analyser les opérations le
 - **Recherches fréquentes** : utiliser des structures avec recherche optimisée (ex. arbre binaire de recherche, table de hachage).
 - **Suppressions fréquentes** : opter pour des structures avec suppression rapide (ex. file de priorité, liste doublement chaînée).
 
-Cette analyse permet de **maximiser les performances là où ça compte le plus**. Une structure de données appropriée peut transformer un algorithme inefficace en une solution performante. Elle permet d’**accélérer l’accès aux données**, de **réduire le nombre d’opérations**, et parfois même de **simplifier la logique du programme**.
+Cette analyse permet de **maximiser les performances là où ça compte le plus**. 
+
+Une structure de données appropriée peut transformer un algorithme inefficace en une solution performante. Elle permet d’**accélérer l’accès aux données**, de **réduire le nombre d’opérations**, et parfois même de **simplifier la logique du programme**.
 
 {: .highlight}
 > Par exemple, utiliser un tableau pour un accès indexé rapide, une pile pour gérer des appels imbriqués, ou une matrice pour représenter des relations entre éléments.
