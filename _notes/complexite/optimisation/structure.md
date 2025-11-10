@@ -1,7 +1,7 @@
 ---
 layout: default
 parent: "Optimisation"
-parent: "Structure de données"
+title: "Structure de données"
 nav_order: 1
 published: true
 ---

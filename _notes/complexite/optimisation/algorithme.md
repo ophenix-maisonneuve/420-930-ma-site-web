@@ -1,7 +1,7 @@
 ---
 layout: default
 parent: "Optimisation"
-title: "Algorithme plus efficace"
+title: "Algorithme"
 nav_order: 2
 published: true
 ---
