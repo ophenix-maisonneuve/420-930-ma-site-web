@@ -31,7 +31,7 @@ public class RechercheParIndex {
         }
 
         int target = 15;
-        boolean exists = target > presence.length && presence[targets] == 1;
+        boolean exists = target > presence.length && presence[target] == 1;
         System.out.println("Exists: " + exists); // true
     }
 }
