@@ -1,147 +1,164 @@
 ---
 layout: default
-parent: "Arbres"
 title: "Arbre binaire de recherche"
-nav_order: 3
+parent: "Arbres"
+nav_order: 2
 published: true
 ---
 
-# Arbre binaire de recherche
+# Arbre binaire de recherche (Binary Search Tree)
 
 ## Structure
 
-Un arbre binaire de recherche est composé de nœuds contenant une valeur, un pointeur vers le nœud gauche et un pointeur vers le nœud droit.
+Un **arbre binaire de recherche (BST)** est une structure de données dans laquelle chaque nœud possède au plus deux enfants : un enfant gauche et un enfant droit. Les valeurs dans l'arbre sont organisées de manière à ce que pour chaque nœud :
+
+- Les valeurs dans le sous-arbre gauche sont inférieures à la valeur du nœud.
+- Les valeurs dans le sous-arbre droit sont supérieures à la valeur du nœud.
 
 ```java
 class Node {
-    int value;
-    Node left, right;
+    private int value;
+    private Node left;
+    private Node right;
 
     public Node(int value) {
         this.value = value;
-        left = right = null;
-    }
-}
-
-class BinarySearchTree {
-    Node root;
-
-    public BinarySearchTree() {
-        root = null;
+        this.left = null;
+        this.right = null;
     }
 
-    // Les méthodes seront ajoutées ici
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    public Node getLeft() {
+        return left;
+    }
+
+    public void setLeft(Node left) {
+        this.left = left;
+    }
+
+    public Node getRight() {
+        return right;
+    }
+
+    public void setRight(Node right) {
+        this.right = right;
+    }
 }
-```
 ```
 
 ## Opérations sur les arbres binaires
 
 ### Insertion
 
-<details markdown="1">
-<summary markdown="span">**Insertion récursive**</summary>
-
 ```java
-Node insert(Node root, int value) {
+public Node insert(Node root, int value) {
     if (root == null) {
         return new Node(value);
     }
-    if (value < root.value) {
-        root.left = insert(root.left, value);
-    } else if (value > root.value) {
-        root.right = insert(root.right, value);
+    if (value < root.getValue()) {
+        root.setLeft(insert(root.getLeft(), value));
+    } else if (value > root.getValue()) {
+        root.setRight(insert(root.getRight(), value));
     }
     return root;
 }
 ```
-</details>
-
-### Suppression
-
-<details markdown="1">
-<summary markdown="span">**Suppression d'un nœud**</summary>
-
-```java
-Node delete(Node root, int value) {
-    if (root == null) return root;
-    if (value < root.value) {
-        root.left = delete(root.left, value);
-    } else if (value > root.value) {
-        root.right = delete(root.right, value);
-    } else {
-        if (root.left == null) return root.right;
-        else if (root.right == null) return root.left;
-
-        Node minNode = findMin(root.right);
-        root.value = minNode.value;
-        root.right = delete(root.right, minNode.value);
-    }
-    return root;
-}
-
-Node findMin(Node node) {
-    while (node.left != null) node = node.left;
-    return node;
-}
-```
-</details>
 
 ### Recherche
 
-<details markdown="1">
-<summary markdown="span">**Recherche récursive**</summary>
-
 ```java
-boolean search(Node root, int value) {
-    if (root == null) return false;
-    if (value == root.value) return true;
-    if (value < root.value) return search(root.left, value);
-    else return search(root.right, value);
+public boolean search(Node root, int value) {
+    if (root == null) {
+        return false;
+    }
+    if (value == root.getValue()) {
+        return true;
+    }
+    if (value < root.getValue()) {
+        return search(root.getLeft(), value);
+    } else {
+        return search(root.getRight(), value);
+    }
 }
 ```
-</details>
+
+### Suppression
+
+```java
+public Node delete(Node root, int value) {
+    if (root == null) {
+        return null;
+    }
+    if (value < root.getValue()) {
+        root.setLeft(delete(root.getLeft(), value));
+    } else if (value > root.getValue()) {
+        root.setRight(delete(root.getRight(), value));
+    } else {
+        if (root.getLeft() == null) {
+            return root.getRight();
+        } else if (root.getRight() == null) {
+            return root.getLeft();
+        }
+        Node minNode = findMin(root.getRight());
+        root.setValue(minNode.getValue());
+        root.setRight(delete(root.getRight(), minNode.getValue()));
+    }
+    return root;
+}
+
+private Node findMin(Node node) {
+    while (node.getLeft() != null) {
+        node = node.getLeft();
+    }
+    return node;
+}
+```
 
 ### Parcours
 
-<details markdown="1">
-<summary markdown="span">**Parcours infixe (in-order)**</summary>
-
 ```java
-void inOrder(Node root) {
+public void inorder(Node root) {
     if (root != null) {
-        inOrder(root.left);
-        System.out.print(root.value + " ");
-        inOrder(root.right);
+        inorder(root.getLeft());
+        System.out.print(root.getValue() + " ");
+        inorder(root.getRight());
+    }
+}
+
+public void preorder(Node root) {
+    if (root != null) {
+        System.out.print(root.getValue() + " ");
+        preorder(root.getLeft());
+        preorder(root.getRight());
+    }
+}
+
+public void postorder(Node root) {
+    if (root != null) {
+        postorder(root.getLeft());
+        postorder(root.getRight());
+        System.out.print(root.getValue() + " ");
     }
 }
 ```
-</details>
 
-<details markdown="1">
-<summary markdown="span">**Parcours préfixe (pre-order)**</summary>
+---
 
-```java
-void preOrder(Node root) {
-    if (root != null) {
-        System.out.print(root.value + " ");
-        preOrder(root.left);
-        preOrder(root.right);
-    }
-}
-```
-</details>
+## Complexité des opérations
 
-<details markdown="1">
-<summary markdown="span">**Parcours suffixe (post-order)**</summary>
+| Opération   | Complexité moyenne | Complexité pire cas |
+|-------------|---------------------|----------------------|
+| Insertion   | O(log n)            | O(n)                 |
+| Recherche   | O(log n)            | O(n)                 |
+| Suppression | O(log n)            | O(n)                 |
+| Parcours    | O(n)                | O(n)                 |
 
-```java
-void postOrder(Node root) {
-    if (root != null) {
-        postOrder(root.left);
-        postOrder(root.right);
-        System.out.print(root.value + " ");
-    }
-}
-```
-</details>
+{: .highlight}
+> La complexité dépend de l'équilibre de l'arbre. Un arbre parfaitement équilibré permet des opérations en O(log n), tandis qu'un arbre dégénéré (ressemblant à une liste) entraîne des performances en O(n).

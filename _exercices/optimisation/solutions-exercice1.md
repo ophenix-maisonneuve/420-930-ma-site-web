@@ -31,7 +31,7 @@ public class RechercheParIndex {
         }
 
         int target = 24015;
-        boolean exists = presence[target - 24000] == 1;
+        boolean exists = target - 24000 > presence.length && presence[target - 24000] == 1;
         System.out.println("Exists: " + exists); // true
     }
 }
@@ -55,7 +55,7 @@ La recherche binaire est une méthode efficace pour trouver une valeur dans un t
 ```java
 public class RechercheBinaire {
     public static boolean search(int[] data, int cible) {
-        int gauche = 0,
+        int gauche = 0;
         int droite = data.length - 1;
         while (gauche <= droite) {
             int milieu = (gauche + droite) / 2;

@@ -25,7 +25,9 @@ Réduire un problème permet de mieux structurer la solution et de préparer l�
 ```java
 public class GridPaths {
     public static int countPaths(int m, int n) {
-        if (m == 1 || n == 1) return 1;
+        if (m == 1 || n == 1) {
+             return 1;
+        }
         return countPaths(m - 1, n) + countPaths(m, n - 1);
     }
 }
