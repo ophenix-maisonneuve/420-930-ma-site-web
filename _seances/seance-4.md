@@ -25,6 +25,6 @@ published: true
 1. Retour et conclusion
 
 ### Exercice(s) complémentaire(s)
-* Terminer [Optimisation: Exercice 1](../exercices/optimisation)
+* Terminer [Optimisation: Exercice 1](../exercices/optimisation) (au besoin)
 * Essayer [Optimisation: Exercice 2](../exercices/optimisation)
   * Nous le corrigerons ensemble dans la séance 5 (12 novembre)
