@@ -11,8 +11,8 @@ published: true
 ## Exercice 1
 
 ### Objectif
-- Comprendre l’impact du choix de structure (S) sur les performances.
-- Appliquer un algorithme plus efficace (A) une fois la structure adaptée.
+- Comprendre l’impact du choix de structure sur les performances.
+- Appliquer un algorithme plus efficace une fois la structure adaptée.
 - Comparer les performances entre deux approches.
 
 ### Contexte
@@ -30,11 +30,16 @@ Un logiciel utilise ce tableau pour faire des recherches sur les identifiants. *
 ```java
 public static boolean contains(int[] arr, int target) {
     for (int i = 0; i < arr.length; i++) {
-        if (arr[i] == target) return true;
+        if (arr[i] == target) {
+             return true;
+        }
     }
     return false;
 }
 ```
+
+** Question **
+> Quelle est la complexité grand O de l'algorithme ci-dessus?
 
 ### Optimisation de la structure de données
 
