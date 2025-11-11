@@ -31,7 +31,7 @@ public class RechercheParIndex {
         }
 
         int target = 24015;
-        boolean exists = presence[target] == 1;
+        boolean exists = presence[target - 24000] == 1;
         System.out.println("Exists: " + exists); // true
     }
 }
