@@ -23,15 +23,15 @@ Cette méthode consiste à utiliser un tableau où chaque index représente une 
 ```java
 public class RechercheParIndex {
     public static void main(String[] args) {
-        int[] ids = { 24042, 24017, 24008, 24023, 24004, 24016, 24015, 24009, 24030, 24002 };
+        int[] ids = { 42, 17, 8, 23, 4, 16, 15, 9, 30, 2 };
         int[] presence = new int[43];
 
         for (int i = 0; i < data.length; i++) {
-            presence[data[i] - 24000] = 1;
+            presence[data[i]] = 1;
         }
 
-        int target = 24015;
-        boolean exists = target - 24000 > presence.length && presence[target - 24000] == 1;
+        int target = 15;
+        boolean exists = target > presence.length && presence[targets] == 1;
         System.out.println("Exists: " + exists); // true
     }
 }
