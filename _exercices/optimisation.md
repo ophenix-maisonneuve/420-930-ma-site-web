@@ -38,20 +38,24 @@ public static boolean contains(int[] arr, int target) {
 }
 ```
 
-** Question **
+**Question**
 > Quelle est la complexité grand O de l'algorithme ci-dessus?
 
 ### Optimisation de la structure de données
 
 Proposez une amélioration possible sur la **structure de données** (le tableau)
- - Comment cette amélioration permet (ou permettra) une meilleure optimisation de la recherche?
+
+**Question**
+> Comment cette amélioration permet (ou permettra) une meilleure optimisation de la recherche?
 
 {: .highlight}
 > Il est possible que le changement de structure lui-même n'apporte pas d'amélioration, mais permette l'utilisation d'un algorithme différent dans la section suivante...
 
 ### Optimisation de l'algorithme de recherche
 Proposez une amélioration possible sur **l'algorithme de recherche**.
-- Quelle est la nouvelle complexité de l'algorithme de recherche après votre modification?
+
+**Question**
+> Quelle est la nouvelle complexité de l'algorithme de recherche après votre modification?
 
 {: .highlight}
 > Votre solution dépendra très probablement du changement que vous aurez apporté à la structure de données de la question précédente.
