@@ -20,7 +20,7 @@ published: true
 Vous avez un tableau d’entiers non trié représentant des identifiants d’étudiants :
 
 ```java
-int[] ids = { 24042, 24017, 24008, 24023, 24004, 24016, 24015, 24009, 24030, 24002 };
+int[] ids = { 42, 17, 8, 23, 4, 16, 15, 9, 30, 2 };
 ```
 
 Un logiciel utilise ce tableau pour faire des recherches sur les identifiants. **Cette opération de recherche est effectuée très fréquemment**, il est donc crucial de l’optimiser.
