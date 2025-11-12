@@ -27,11 +27,11 @@ On vous fournit également une classe `Main` contenant un menu utilitaire permet
 ### 1. Clonez le dépôt de l'exercice
 
 ```bash
-git clone <>
+git clone git@github.com:ophenix-420-930-ma-24636/liste-chainee.git
 ```
 ou
 ```bash
-git clone <>
+git clone https://github.com/ophenix-420-930-ma-24636/liste-chainee.git
 ```
 
 ### 2. Lancez le projet Java
