@@ -304,32 +304,28 @@ Dans le cours, nous étudierons plus en détails le tri à bulles pour sa simpli
 
 Le tri à bulles compare chaque paire d'éléments adjacents et les échange si nécessaire, répétant ce processus jusqu'à ce que la liste soit triée.
 
+Video sur YouTube: [Bubble Sort in 2](https://www.youtube.com/watch?v=xli_FI7CuzA)
+
 ```java
 public void bubbleSort(Node head) {
     if (head == null) {
         return;
     } 
 
-    boolean swapped;
-    Node lastSorted = null;
-    do {
-        swapped = false;
-        Node current = head;
+    Node current;
+    Node index;
 
-        while (current.getNext() != lastSorted) {
-            if (current.getData() > current.getNext().getData()) {
-                // Échange des valeurs via getters/setters
-                int temp = current.getData();
-                current.setData(current.getNext().getData());
-                current.getNext().setData(temp);
-                swapped = true;
+    // Parcourt toute la liste pour chaque élément
+    for (current = head; current != null; current = current.getNext()) {
+        for (index = head; index.getNext() != null; index = index.getNext()) {
+            if (index.getData() > index.getNext().getData()) {
+                // Échange des valeurs
+                int temp = index.getData();
+                index.setData(index.getNext().getData());
+                index.getNext().setData(temp);
             }
-            current = current.getNext();
         }
-
-        // Réduit la zone à trier, on avance de la gauche vers la droite dans le tableau
-        lastSorted = current; 
-    } while (swapped);
+    }
 }
 ```
 </details>
@@ -338,6 +334,8 @@ public void bubbleSort(Node head) {
 <summary markdown="span">**Tri par fusion (*Merge Sort*)**</summary>
 
 Le tri par fusion divise la liste en deux moitiés, trie chaque moitié récursivement, puis fusionne les deux listes triées.
+
+Video sur YouTube: [Merge Sort in 3](https://www.youtube.com/watch?v=4VqmGXwpLqc)
 
 ```java
 public Node mergeSort(Node head) {

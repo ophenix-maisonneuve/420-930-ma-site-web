@@ -120,6 +120,8 @@ Dans le cours, nous étudierons plus en détails le tri à bulles pour sa simpli
 
 Le tri à bulles compare chaque paire d'éléments adjacents et les échange si nécessaire, répétant ce processus jusqu'à ce que la liste soit triée.
 
+Video sur YouTube: [Bubble Sort in 2](https://www.youtube.com/watch?v=xli_FI7CuzA)
+
 ```java
 public void bubbleSort(int[] arr) {
     int n = arr.length;
@@ -141,16 +143,18 @@ public void bubbleSort(int[] arr) {
 
 Le tri par fusion divise la liste en deux moitiés, trie chaque moitié récursivement, puis fusionne les deux listes triées.
 
+Video sur YouTube: [Merge Sort in 3](https://www.youtube.com/watch?v=4VqmGXwpLqc)
+
 ```java
 public void mergeSort(int[] array, int left, int right) {
     if (left < right) {
         int middle = (left + right) / 2;
 
-        // Recursively sort first and second halves
+        // Tri récursif des deux moitiés de tableau
         mergeSort(array, left, middle);
         mergeSort(array, middle + 1, right);
 
-        // Merge the sorted halves
+        // Fusion des moitiés triées
         merge(array, left, middle, right);
     }
 }
@@ -162,7 +166,7 @@ private void merge(int[] array, int left, int middle, int right) {
     int[] leftArray = new int[leftSize];
     int[] rightArray = new int[rightSize];
 
-    // Copy data to temporary arrays
+    // Copie des données dans des tableaux temporaires
     for (int i = 0; i < leftSize; i++) {
         leftArray[i] = array[left + i];
     }
@@ -173,7 +177,7 @@ private void merge(int[] array, int left, int middle, int right) {
     int i = 0, j = 0;
     int k = left;
 
-    // Merge the temporary arrays
+    // Fusion des tableaux temporaires
     while (i < leftSize && j < rightSize) {
         if (leftArray[i] <= rightArray[j]) {
             array[k++] = leftArray[i++];
@@ -182,12 +186,12 @@ private void merge(int[] array, int left, int middle, int right) {
         }
     }
 
-    // Copy remaining elements of leftArray
+    // Copie des éléments restants du tableau de gauche
     while (i < leftSize) {
         array[k++] = leftArray[i++];
     }
 
-    // Copy remaining elements of rightArray
+    // Copie des éléments restants du tableau de droite
     while (j < rightSize) {
         array[k++] = rightArray[j++];
     }
