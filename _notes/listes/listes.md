@@ -105,4 +105,5 @@ Voici une comparaison sommaire de la complexité des opérations fondamentales (
 | Tri à bulles        | O(n²)              | O(n²)               | Simple mais peu performant       |
 | Tri rapide (quicksort)| O(n log n)       | O(n²)               | Très rapide en pratique          |
 | Tri fusion (merge sort)         | O(n log n)         | O(n log n)          | Souvent préféré sur les listes chaînées  |
+
 </details>
