@@ -339,21 +339,6 @@ Video sur YouTube: [Merge Sort in 3](https://www.youtube.com/watch?v=4VqmGXwpLqc
 
 ```java
 public Node mergeSort(Node head) {
-    if (head == null || head.getNext() == null) {
-         return head;
-    }
-
-    Node middle = getMiddle(head);
-    Node nextOfMiddle = middle.getNext();
-    middle.setNext(null);
-
-    Node left = mergeSort(head);
-    Node right = mergeSort(nextOfMiddle);
-
-    return sortedMerge(left, right);
-}
-
-public Node mergeSort(Node head) {
     // Cas de base : liste vide ou un seul élément (déjà triée)
     if (head == null || head.getNext() == null) {
          return head;
@@ -436,6 +421,7 @@ while (current != null) {
 }
 return false;
 ```
+
 {: .warning}
 >Dans une liste chaînée ou doublement chaînée, la recherche binaire n'offre pas d'avantage de performance et n'est donc pas applicable. En effet, la recherche binaire nécessite un accès direct à l’élément du milieu, ce qui est inefficace dans une liste chaînée (accès linéaire), car cela impliquerait de toujours itérer sur la liste jusqu'au centre. La recherche linéaire reste donc la méthode la plus adaptée pour les listes chaînées.
 
