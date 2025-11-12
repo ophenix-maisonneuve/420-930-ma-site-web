@@ -7,7 +7,7 @@ published: true
 
 # Séance 2 : Programmation orientée objet en Java (partie 1)
 
-## 27 octobre 2025
+## 28 octobre 2025
 
 ### Ordre du jour
 
