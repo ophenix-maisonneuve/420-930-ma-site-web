@@ -73,10 +73,16 @@ Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des éléments 
 - Quelle est la complexité grand O de cette opération dans le pire cas ?
 - La complexité peut-elle être optimisée ? Comment ?
 
+{: .astuce}
+> Petit lien utile (YouTube) : [Bubble Sort in 2](https://www.youtube.com/watch?v=xli_FI7CuzA)
+
 ### 6. Exercice Bonus: Implémentez un tri par fusion dans la liste.
 - Implémentez la méthode `triParFusion()` pour trier la liste.
 - Quelle est la complexité grand O de cette opération dans le pire cas ?
 - La complexité peut-elle être optimisée ? Comment ?
+
+{: .astuce}
+> Petit lien utile (YouTube) : [Merge Sort in 3](https://www.youtube.com/watch?v=4VqmGXwpLqc)
 
 ## Pistes de réflexion
 - Comment pouvez-vous réutiliser cet exercice dans la réalisation du travail pratique 1 ? 
