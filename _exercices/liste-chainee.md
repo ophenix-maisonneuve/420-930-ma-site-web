@@ -54,7 +54,7 @@ Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des éléments 
 - Qu'est-ce qui vous a permis de l'identifier ? 
 
 ### 2. Étudiez la classe `Liste`.
-- Pourquoi l'application vous permet déjà d'ajouter des éléments dans la liste ?
+- De quelle manière l'application vous permet déjà d'ajouter des éléments dans la liste ?
 - Dans quel(s) cas l'ajout est-il le plus rapide ? Pourquoi ?
 - Quelle est la complexité grand O de l'ajout dans le pire cas ?
 
