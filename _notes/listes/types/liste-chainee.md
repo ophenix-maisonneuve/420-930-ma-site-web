@@ -12,7 +12,10 @@ published: true
 
 ### Simple
 
-Une liste chaînée (aussi appelée liste chaînée simple) est composée de nœuds où chaque nœud pointe vers le suivant. Elle permet des insertions et suppressions rapides, surtout en début et en fin de liste (si on garde une référence au dernier noeud).
+Une liste chaînée (aussi appelée liste chaînée simple) est composée de noeuds où chaque noeud pointe vers le suivant. Elle permet des insertions et suppressions rapides, surtout en début et en fin de liste (si on garde une référence au dernier noeud).
+
+[!Liste chaînée simple](../assets/singly-linked-list.webp)
+*Image tirée de geeksforgeeks.org*
 
 ```java
 class Node {
@@ -50,7 +53,10 @@ class LinkedList {
 
 ### Double
 
-Une liste doublement chaînée(ou liste chaînée double) permet de naviguer dans les deux sens grâce à des références vers le nœud précédent et suivant. En d'autres mots, elle permet aussi d'itérer à reculons dans la liste.
+Une liste doublement chaînée(ou liste chaînée double) permet de naviguer dans les deux sens grâce à des références vers le noeud précédent et suivant. En d'autres mots, elle permet aussi d'itérer à reculons dans la liste.
+
+[!Liste chaînée double](../assets/doubly-linked-list.webp)
+*Image tirée de geeksforgeeks.org*
 
 ```java
 private class Node {
@@ -102,7 +108,7 @@ public class DoublyLinkedList {
 <details markdown="1">
 <summary markdown="span">**Ajout dans une liste chaînée**</summary>
 
-On crée un nouveau nœud et on ajuste les pointeurs.
+On crée un nouveau noeud et on ajuste les pointeurs.
 ```java
 // Ajoute à la position demandée, 0 = début de liste
 public void add(int position, int data) {
