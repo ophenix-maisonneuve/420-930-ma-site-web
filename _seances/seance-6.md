@@ -9,6 +9,8 @@ published: true
 
 ## 12 novembre 2025
 
+### Ordre du jour
+
 1. Informations générales
 1. Récapitulation
    1. Rappel des étapes de la méthode
