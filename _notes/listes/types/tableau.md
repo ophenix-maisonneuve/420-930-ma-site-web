@@ -1,6 +1,6 @@
 ---
 layout: default
-parent: "Listes et tableaux"
+parent: "Structures linéaires"
 title: "Tableau"
 nav_order: 1
 published: true
@@ -107,25 +107,13 @@ for (int i = deleteIndex + 1; i < original.length; i++) {
 
 ### Tri
 
-<details markdown="1">
-<summary markdown="span">**Tri par insertion**</summary>
+Il existe un très grand nombre d'algorithmes de tri sur les tableaux, dont les principaux sont:
+- Tri à bulles
+- Tri par insertion
+- Tri rapide (*quick sort*)
+- Tri par fusion (*merge sort*)
 
-Le tri par insertion fonctionne en construisant progressivement une liste triée en insérant chaque nouvel élément à sa position correcte.
-
-```java
-public void insertionSort(int[] arr) {
-    for (int i = 1; i < arr.length; i++) {
-        int key = arr[i];
-        int j = i - 1;
-        while (j >= 0 && arr[j] > key) {
-            arr[j + 1] = arr[j];
-            j--;
-        }
-        arr[j + 1] = key;
-    }
-}
-```
-</details>
+Dans le cours, nous étudierons plus en détails le tri à bulles pour sa simplicité (même s'il est moins performant) ainsi que le tri par fusion, qui offre une bonne performance constante.
 
 <details markdown="1">
 <summary markdown="span">**Tri à bulles**</summary>
@@ -144,39 +132,6 @@ public void bubbleSort(int[] arr) {
             }
         }
     }
-}
-```
-</details>
-
-<details markdown="1">
-<summary markdown="span">**Tri rapide (*Quick Sort*)**</summary>
-
-Le tri rapide est un algorithme de tri efficace basé sur le principe du diviser pour régner. Il choisit un pivot et partitionne le tableau autour de ce pivot.
-
-```java
-public void quickSort(int[] arr, int low, int high) {
-    if (low < high) {
-        int pi = partition(arr, low, high);
-        quickSort(arr, low, pi - 1);
-        quickSort(arr, pi + 1, high);
-    }
-}
-
-private int partition(int[] arr, int low, int high) {
-    int pivot = arr[high];
-    int i = (low - 1);
-    for (int j = low; j < high; j++) {
-        if (arr[j] < pivot) {
-            i++;
-            int temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-        }
-    }
-    int temp = arr[i + 1];
-    arr[i + 1] = arr[high];
-    arr[high] = temp;
-    return i + 1;
 }
 ```
 </details>

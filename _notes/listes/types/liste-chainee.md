@@ -1,6 +1,6 @@
 ---
 layout: default
-parent: "Listes et tableaux"
+parent: "Structures linéaires"
 title: "Liste chaînée"
 nav_order: 3
 published: true
@@ -12,7 +12,7 @@ published: true
 
 ### Simple
 
-Une liste chaînée (aussi appelée liste chaînée simple) est composée de nœuds où chaque nœud pointe vers le suivant. Elle permet des insertions et suppressions rapides.
+Une liste chaînée (aussi appelée liste chaînée simple) est composée de nœuds où chaque nœud pointe vers le suivant. Elle permet des insertions et suppressions rapides, surtout en début et en fin de liste (si on garde une référence au dernier noeud).
 
 ```java
 class Node {
@@ -43,14 +43,14 @@ class Node {
 class LinkedList {
     private Node head;
 
-    // les méthodes pour les opérations seront ajoutées ici
+    // les méthodes pour les opérations seront ajoutées ici, voir prochaine sections...
     // ...
 }
 ```
 
 ### Double
 
-Une liste doublement chaînée(ou liste chaînée double) permet de naviguer dans les deux sens grâce à des références vers le nœud précédent et suivant.
+Une liste doublement chaînée(ou liste chaînée double) permet de naviguer dans les deux sens grâce à des références vers le nœud précédent et suivant. En d'autres mots, elle permet aussi d'itérer à reculons dans la liste.
 
 ```java
 private class Node {
@@ -90,7 +90,7 @@ private class Node {
 public class DoublyLinkedList {
     private Node head;
 
-    // les méthodes pour les opérations seront ajoutées ici
+    // les méthodes pour les opérations seront ajoutées ici, voir prochaine section...
     // ...
 }
 ```
@@ -104,13 +104,35 @@ public class DoublyLinkedList {
 
 On crée un nouveau nœud et on ajuste les pointeurs.
 ```java
-public void addFront(int data) {
+// Ajoute à la position demandée, 0 = début de liste
+public void add(int position, int data) {
     Node newNode = new Node(data);
-    newNode.setNext(head);
-    head = newNode;
+
+    // Cas optimal : insertion en tête
+    if (position == 0) {
+        newNode.setNext(head);
+        head = newNode;
+        return;
+    }
+
+    // Parcours jusqu'au noeud précédent la position
+    Node current = head;
+    for (int i = 0; i < position - 1 && current != null; i++) {
+        current = current.getNext();
+    }
+
+    if (current == null) {
+        throw new IndexOutOfBoundsException("Position invalide");
+    }
+
+    // Insertion
+    newNode.setNext(current.getNext());
+    current.setNext(newNode);
 }
 
-public void addEnd(int data) {
+
+// Ajoute à la fin de la liste
+public void add(int data) {
     Node newNode = new Node(data);
     if (head == null) {
         head = newNode;
@@ -130,16 +152,39 @@ public void addEnd(int data) {
 Permet d'insérer dans les deux directions.
 
 ```java
-public void addFront(int data) {
+// Ajoute à la position demandée, 0 = début de la liste
+public void add(int position, int data) {
     Node newNode = new Node(data);
-    newNode.setNext(head);
-    if (head != null) {
-        head.setPrev(newNode);
+
+    // Cas optimal : insertion en tête
+    if (position == 0) {
+        newNode.setNext(head);
+        if (head != null) {
+            head.setPrev(newNode);
+        }
+        head = newNode;
+        return;
     }
-    head = newNode;
+
+    Node current = head;
+    for (int i = 0; i < position - 1 && current != null; i++) {
+        current = current.getNext();
+    }
+
+    if (current == null) {
+        throw new IndexOutOfBoundsException("Position invalide");
+    }
+
+    newNode.setNext(current.getNext());
+    newNode.setPrev(current);
+    if (current.getNext() != null) {
+        current.getNext().setPrev(newNode);
+    }
+    current.setNext(newNode);
 }
 
-public void addEnd(int data) {
+// Ajoute à la fin
+public void add(int data) {
     Node newNode = new Node(data);
     if (head == null) {
         head = newNode;
@@ -161,24 +206,34 @@ public void addEnd(int data) {
 <summary markdown="span">**Suppression dans une liste chaînée**</summary>
 
 ```java
-void deleteFront() {
-    if (head != null) {
-        head = head.getNext();
-    }
-}
+public void remove(int position) {
 
-void deleteEnd() {
-    if (head == null || head.getNext() == null) {
-        head = null;
+    if (head == null) {
+        throw new IndexOutOfBoundsException("Liste vide");
+    }
+
+    // Cas optimal : suppression en tête
+    if (position == 0) {
+        head = head.getNext();
         return;
     }
 
+    // Itération sur la liste pour trouver l'élément qui précède celui à supprimer
     Node current = head;
-    while (current.getNext().getNext() != null) {
-         current = current.getNext();
+    for (int i = 0; i < position - 1 && current != null; i++) {
+        current = current.getNext();
     }
-    current.setNext(null);
+
+    // Vérification si la position est invalide
+    if (current == null || current.getNext() == null) {
+        throw new IndexOutOfBoundsException("Position invalide");
+    }
+
+    // Supprimer le noeud désiré en changeant la référence du précédent vers le suivant.
+    // Le noeud à supprimer ne sera donc plus référencé dans la liste.
+    current.setNext(current.getNext().getNext());
 }
+
 ```
 </details>
 
@@ -186,69 +241,57 @@ void deleteEnd() {
 <summary markdown="span">**Suppression dans une liste doublement chaînée**</summary>
 
 ```java
-void deleteFront() {
+
+public void remove(int position) {
     if (head == null) {
+        throw new IndexOutOfBoundsException("Liste vide");
+    }
+
+    // Cas optimal : suppression en tête
+    if (position == 0) {
+        head = head.getNext();
+        if (head != null) {
+            head.setPrev(null);
+        }
         return;
     }
 
-    head = head.getNext();
-    if (head != null) {
-            head.setPrev(null);
-    }
-}
-
-void deleteEnd() {
-    if (head == null) {
-          return;
-    }
-
+    // Itération sur la liste pour trouver l'élément à supprimer
     Node current = head;
-    while (current.getNext() != null) {
-         current = current.getNext();
+    for (int i = 0; i < position && current != null; i++) {
+        current = current.getNext();
     }
-    if (current.getPrev() != null) {
-         current.getPrev().setNext(null);
-    } else {
-        head = null;
+
+    if (current == null) {
+        throw new IndexOutOfBoundsException("Position invalide");
+    }
+
+    // Supprimer le noeud désiré en procédant de la manière suivante:
+    // 1 - Assigner comme "next" au noeud précédent le noeud suivant (on saute le noeud à supprimer)
+    // 2 - Assigner comme "prev" au noeud suivant le noeud précédent (on saute le noeud à supprimer)
+    // Le noeud à supprimer ne sera donc plus référencé dans la liste.
+    Node prevNode = current.getPrev();
+    Node nextNode = current.getNext();
+
+    if (prevNode != null) {
+        prevNode.setNext(nextNode);
+    }
+    if (nextNode != null) {
+        nextNode.setPrev(prevNode);
     }
 }
+
 ```
 </details>
 
 ### Tri
+Il existe un très grand nombre d'algorithmes de tri sur les structures linéaires, dont les principaux sont:
+- Tri à bulles
+- Tri par insertion
+- Tri rapide (*quick sort*)
+- Tri par fusion (*merge sort*)
 
-<details markdown="1">
-<summary markdown="span">**Tri par insertion**</summary>
-
-Le tri par insertion fonctionne en construisant progressivement une liste triée en insérant chaque nouvel élément à sa position correcte.
-
-```java
-public Node insertionSort(Node head) {
-    Node sorted = null;
-    Node current = head;
-    while (current != null) {
-        Node next = current.next;
-        sorted = sortedInsert(sorted, current);
-        current = next;
-    }
-    return sorted;
-}
-
-private Node sortedInsert(Node head, Node newNode) {
-    if (head == null || head.getData() >= newNode.getData()) {
-        newNode.next = head;
-        return newNode;
-    }
-    Node current = head;
-    while (current.getNext() != null && current.getNext().getData() < newNode.getData()) {
-        current = current.next;
-    }
-    newNode.next = current.next;
-    current.next = newNode;
-    return head;
-}
-```
-</details>
+Dans le cours, nous étudierons plus en détails le tri à bulles pour sa simplicité (même s'il est moins performant) ainsi que le tri par fusion, qui offre une bonne performance constante.
 
 <details markdown="1">
 <summary markdown="span">**Tri à bulles**</summary>
@@ -257,70 +300,30 @@ Le tri à bulles compare chaque paire d'éléments adjacents et les échange si 
 
 ```java
 public void bubbleSort(Node head) {
+    if (head == null) {
+        return;
+    } 
+
     boolean swapped;
-    Node ptr1;
-    Node lptr = null;
+    Node lastSorted = null;
     do {
         swapped = false;
-        ptr1 = head;
-        while (ptr1.next != lptr) {
-            if (ptr1.data > ptr1.next.data) {
-                int temp = ptr1.data;
-                ptr1.data = ptr1.next.data;
-                ptr1.next.data = temp;
+        Node current = head;
+
+        while (current.getNext() != lastSorted) {
+            if (current.getData() > current.getNext().getData()) {
+                // Échange des valeurs via getters/setters
+                int temp = current.getData();
+                current.setData(current.getNext().getData());
+                current.getNext().setData(temp);
                 swapped = true;
             }
-            ptr1 = ptr1.next;
+            current = current.getNext();
         }
-        lptr = ptr1;
+
+        // Réduit la zone à trier, on avance de la gauche vers la droite dans le tableau
+        lastSorted = current; 
     } while (swapped);
-}
-```
-</details>
-
-<details markdown="1">
-<summary markdown="span">**Tri rapide (*Quick Sort*)**</summary>
-
-Le tri rapide est un algorithme de tri efficace basé sur le principe du diviser pour régner. Il choisit un pivot et partitionne le tableau autour de ce pivot.
-
-```java
-class Node {
-    int data;
-    Node next;
-    Node(int d) { data = d; next = null; }
-}
-
-public Node quickSort(Node head) {
-    if (head == null || head.next == null) return head;
-    Node pivot = head;
-    Node lesser = null, greater = null;
-    Node current = head.next;
-    while (current != null) {
-        Node next = current.next;
-        if (current.data < pivot.data) {
-            current.next = lesser;
-            lesser = current;
-        } else {
-            current.next = greater;
-            greater = current;
-        }
-        current = next;
-    }
-    lesser = quickSort(lesser);
-    greater = quickSort(greater);
-    return concatenate(lesser, pivot, greater);
-}
-
-private Node concatenate(Node lesser, Node pivot, Node greater) {
-    Node head = lesser;
-    if (lesser == null) head = pivot;
-    else {
-        Node temp = lesser;
-        while (temp.next != null) temp = temp.next;
-        temp.next = pivot;
-    }
-    pivot.next = greater;
-    return head;
 }
 ```
 </details>
@@ -389,7 +392,7 @@ private Node sortedMerge(Node a, Node b) {
 
 <details markdown="1">
 <summary markdown="span">**Recherche linéaire**</summary>
-Applicable à toutes les structures.
+Il s'agit du seul algorithme de recherche valable pour les listes chaînées. Une recherche binaire est théoriquement possible, mais n'offre aucun avantage.
 
 ```java
 Node current = head;

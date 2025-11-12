@@ -1,18 +1,18 @@
 ---
 layout: default
-title: "Listes et tableaux"
+title: "Structures linéaires"
 parent: "Structures de données"
 nav_order: 1
 published: true
 ---
 
-# Listes
+# Structures linéaires
 
-En programmation orientée objet (POO), une **liste** est une structure de données qui permet de stocker une collection ordonnée d'objets. Chaque élément de la liste peut être accédé par son index, et la liste peut parfois, selon les implémentations, contenir des objets de types différents. Cependant, dans la pratique, les éléments sont très souvent du même type.
+En programmation orientée objet (POO), une **structure linéaire** est une structure de données qui permet de stocker une collection séquentielle et ordonnée d'objets. Chaque élément de la liste peut être accédé par son index, et la liste peut parfois, selon les implémentations, contenir des objets de types différents. Cependant, dans la pratique, les éléments sont très souvent du même type.
 
 ## Caractéristiques principales
 - **Ordonnée** : les éléments sont stockés dans un ordre précis.
-- **Indexée** : chaque élément peut être accédé via son index.
+- **Indexée** : chaque élément peut être accédé via son index (même si l'accès n'est pas toujours direct)
 - **Mutable** : les listes peuvent être modifiées après leur création.
 
 ## Types d'opérations principales
@@ -23,9 +23,9 @@ En programmation orientée objet (POO), une **liste** est une structure de donn�
 
 --- 
 
-## Types de listes
+## Types de structures linéaires
 
-Une liste peut, dans sa forme la plus simple, être représentée par un tableau. Il existe aussi des versions plus dynamiques appelées listes chaînées, qui peuvent être simples (chaînées dans un seul sens) ou doublement chaînées (navigables dans les deux sens).
+Une structure linéaire peut, dans sa forme la plus simple, être représentée par un tableau. Il existe aussi des versions plus dynamiques appelées listes chaînées, qui peuvent être simples (chaînées dans un seul sens) ou doublement chaînées (navigables dans les deux sens).
 
 | Type de liste            | Taille dynamique | Accès direct | Insertion rapide | Suppression rapide | Complexité mémoire |
 |--------------------------|------------------|--------------|------------------|--------------------|--------------------|
@@ -34,7 +34,7 @@ Une liste peut, dans sa forme la plus simple, être représentée par un tableau
 
 ---
 
-## Opérations courantes sur les listes
+## Opérations courantes sur les structures linéaires
 
 | **Algorithme** | **Fonctionnalité**            | **Java**                     | **Python**               | **Description** |
 |----------------|-------------------------------|------------------------------|--------------------------|-----------------|
@@ -66,7 +66,7 @@ Voici une comparaison sommaire de la complexité des opérations fondamentales (
 
 {: .highlight}
 > Dans un tableau, l’ajout en fin est O(1) si la capacité est suffisante. Sinon, il faut créer un nouveau tableau plus grand et copier les éléments, ce qui donne une complexité O(n).
-> Dans une liste chaînée (simple ou double), l'ajout en fin est O(n), à moins qu'une référence vers le dernier nœud (*tail*) soit conservée.
+> Dans une liste chaînée (simple ou double), l'ajout en fin est O(n), à moins qu'une référence vers le dernier noeud (*tail*) soit conservée.
 </details>
 
 <details markdown="1">
@@ -79,8 +79,9 @@ Voici une comparaison sommaire de la complexité des opérations fondamentales (
 | Liste chaînée double   | O(1)                 | O(1) si *tail* maintenu             | O(n)                        |
 
 {: .highlight}
-> Dans une liste chaînée simple, même avec une référence à *tail*, la suppression en fin reste O(n) car il faut accéder à l’avant-dernier nœud.
-> Dans une liste doublement chaînée avec *tail*, on peut accéder directement au prédécesseur du dernier nœud, ce qui permet une suppression en O(1).
+> Dans un tableau, cela dépend de si on accepte d'avoir des éléments vides, sans quoi il faut recopier le tableau (O(n))
+> Dans une liste chaînée simple, même avec une référence à *tail*, la suppression en fin reste O(n) car il faut accéder à l’avant-dernier noeud.
+> Dans une liste doublement chaînée avec *tail*, on peut accéder directement au prédécesseur du dernier noeud, ce qui permet une suppression en O(1).
 </details>
 
 <details markdown="1">
@@ -98,10 +99,10 @@ Voici une comparaison sommaire de la complexité des opérations fondamentales (
 <details markdown="1">
 <summary markdown="span">**Tri**</summary>
 
-| Algorithme de tri   | Complexité moyenne | Complexité pire cas | Stable | In-place | Remarques                         |
-|---------------------|--------------------|----------------------|--------|----------|----------------------------------|
-| Tri par insertion   | O(n²)              | O(n²)                | Oui    | Oui      | Efficace sur petites listes      |
-| Tri à bulles        | O(n²)              | O(n²)                | Oui    | Oui      | Simple mais peu performant       |
-| Tri rapide (quicksort)| O(n log n)       | O(n²)                | Non    | Oui      | Très rapide en pratique          |
-| Tri fusion          | O(n log n)         | O(n log n)           | Oui    | Non      | Nécessite espace supplémentaire  |
+| Algorithme de tri   | Complexité moyenne | Complexité pire cas | Remarques                         |
+|---------------------|--------------------|---------------------|----------------------------------|
+| Tri par insertion   | O(n²)              | O(n²)               | Efficace sur petites listes      |
+| Tri à bulles        | O(n²)              | O(n²)               | Simple mais peu performant       |
+| Tri rapide (quicksort)| O(n log n)       | O(n²)               | Très rapide en pratique          |
+| Tri fusion (merge sort)         | O(n log n)         | O(n log n)          | Souvent préféré sur les listes chaînées  |
 </details>
