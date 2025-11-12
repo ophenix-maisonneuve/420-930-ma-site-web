@@ -25,9 +25,9 @@ published: true
    1. Suppression
       1. [Exercice](../exercices/liste-chainee) question 4
    1. Tri
-     1. Tri à bulle (*bubble sort*)
-       1. [Exercice](../exercices/liste-chainee) question 5
-     1. Tri par fusion (*merge sort*)
+      1. Tri à bulle (*bubble sort*)
+        1. [Exercice](../exercices/liste-chainee) question 5
+      1. Tri par fusion (*merge sort*)
 
 ### Exercice(s) complémentaire(s)
 - [Exercice](../exercices/liste-chainee) question 6 et questions de réflexion
