@@ -349,23 +349,48 @@ public Node mergeSort(Node head) {
     return sortedMerge(left, right);
 }
 
+public Node mergeSort(Node head) {
+    // Cas de base : liste vide ou un seul élément (déjà triée)
+    if (head == null || head.getNext() == null) {
+         return head;
+    }
+
+    // Trouver le milieu de la liste pour la diviser en deux
+    Node middle = getMiddle(head);
+    Node nextOfMiddle = middle.getNext();
+
+    // Couper la liste en deux sous-listes
+    middle.setNext(null);
+
+    // Tri récursif des deux moitiés
+    Node left = mergeSort(head);
+    Node right = mergeSort(nextOfMiddle);
+
+    // Fusion des deux sous-listes triées
+    return sortedMerge(left, right);
+}
+
 private Node getMiddle(Node head) {
     if (head == null) {
         return head;
     }
 
+    // Utilisation de la technique slow/fast pour trouver le milieu
     Node slow = head;
     Node fast = head.getNext();
 
+    // Avancer fast de 2 pas et slow de 1 pas
     while (fast != null && fast.getNext() != null) {
         slow = slow.getNext();
         fast = fast.getNext().getNext();
     }
 
+    // slow pointe sur le milieu
     return slow;
 }
 
 private Node sortedMerge(Node a, Node b) {
+    // Si une des listes est vide, retourner l'autre
     if (a == null) {
          return b;
     }
@@ -374,8 +399,11 @@ private Node sortedMerge(Node a, Node b) {
     } 
 
     Node result;
+
+    // Comparer les têtes des deux listes et choisir la plus petite
     if (a.getData() <= b.getData()) {
         result = a;
+        // Fusionner le reste récursivement
         result.setNext(sortedMerge(a.getNext(), b));
     } else {
         result = b;

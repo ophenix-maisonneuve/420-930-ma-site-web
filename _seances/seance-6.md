@@ -2,7 +2,7 @@
 layout: default
 title: "2025-11-12"
 nav_order: 6
-published: false
+published: true
 ---
 
 # Séance 6 : Bases des structures de données - Structures linéaires (tableaux, listes)
@@ -16,14 +16,20 @@ published: false
 1. [Structures linéaires](../notes/listes)
    1. [Tableau (*array*)](../notes/tableau)
    1. [Liste chaînée](../notes/liste-chainee)
+      1. [Exercice](../exercices/liste-chainee) - préparation
+      1. [Exercice](../exercices/liste-chainee) questions 1 et 2
 1. Algorithmes
+   1. Recherche
+      1. [Exercice](../exercices/liste-chainee) question 3 
    1. Ajout
    1. Suppression
-   1. Recherche
+      1. [Exercice](../exercices/liste-chainee) question 4
    1. Tri
      1. Tri à bulle (*bubble sort*)
+       1. [Exercice](../exercices/liste-chainee) question 5
      1. Tri par fusion (*merge sort*)
 
 ### Exercice(s) complémentaire(s)
+- [Exercice](../exercices/liste-chainee) question 6 et questions de réflexion
 
 

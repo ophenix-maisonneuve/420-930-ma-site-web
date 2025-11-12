@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "2025-11-11"
-nav_order: 4
+nav_order: 5
 published: true
 ---
 
@@ -27,4 +27,4 @@ published: true
 ### Exercice(s) complémentaire(s)
 * Terminer [Optimisation: Exercice 1](../exercices/optimisation) (au besoin)
 * Essayer [Optimisation: Exercice 2](../exercices/optimisation)
-  * Nous le corrigerons ensemble dans la séance 6 (12 novembre)
+  * Nous le corrigerons ensemble dans la séance 5 (12 novembre)
