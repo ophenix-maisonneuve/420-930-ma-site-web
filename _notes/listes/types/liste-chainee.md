@@ -14,7 +14,7 @@ published: true
 
 Une liste chaînée (aussi appelée liste chaînée simple) est composée de noeuds où chaque noeud pointe vers le suivant. Elle permet des insertions et suppressions rapides, surtout en début et en fin de liste (si on garde une référence au dernier noeud).
 
-[!Liste chaînée simple](../assets/singly-linked-list.webp)
+![Liste chaînée simple](../assets/images/singly-linked-list.webp)
 *Image tirée de geeksforgeeks.org*
 
 ```java
@@ -55,7 +55,7 @@ class LinkedList {
 
 Une liste doublement chaînée(ou liste chaînée double) permet de naviguer dans les deux sens grâce à des références vers le noeud précédent et suivant. En d'autres mots, elle permet aussi d'itérer à reculons dans la liste.
 
-[!Liste chaînée double](../assets/doubly-linked-list.webp)
+![Liste chaînée double](../assets/images/doubly-linked-list.webp)
 *Image tirée de geeksforgeeks.org*
 
 ```java
