@@ -104,6 +104,7 @@ public class DoublyLinkedList {
 ## Opérations sur les listes chaînées
 
 ### Ajout
+Dans une liste chaînée ou doublement chaînée classique qui ne maintient que la référence vers le premier noeud de la liste (*head*), l'insertion en tête de liste est optimale (**O(1)**), car il suffit de remplacer la tête par le nouveau noeud et d'ajuster ses références. Pour tous les autres cas, on considère l'ajout **O(n)**, car au pire cas, on devra itérer sur toute la liste. Cependant, si la liste maintient également une référence vers le dernier noeud de la liste (*tail*), l'insertion en fin de liste sera également **O(1)**.
 
 <details markdown="1">
 <summary markdown="span">**Ajout dans une liste chaînée**</summary>
@@ -207,6 +208,7 @@ public void add(int data) {
 </details>
 
 ### Suppression
+Dans une liste chaînée ou doublement chaînée classique qui ne maintient que la référence vers le premier noeud de la liste (*head*), la suppression du premier noeud est optimale (**O(1)**), car il suffit de remplacer la tête par le deuxième noeud et, dans le cas d'une liste doublement chaînée, d'ajuster la référence arrière de celui-ci. Pour tous les autres cas, on considère la suppression **O(n)**, car au pire cas, on devra itérer sur toute la liste. Cependant, si la liste maintient également une référence vers le dernier noeud de la liste (*tail*), la suppression du dernier noeud est également **O(1)**.
 
 <details markdown="1">
 <summary markdown="span">**Suppression dans une liste chaînée**</summary>
@@ -297,7 +299,7 @@ Il existe un très grand nombre d'algorithmes de tri sur les structures linéair
 - Tri rapide (*quick sort*)
 - Tri par fusion (*merge sort*)
 
-Dans le cours, nous étudierons plus en détails le tri à bulles pour sa simplicité (même s'il est moins performant) ainsi que le tri par fusion, qui offre une bonne performance constante.
+Dans le cours, nous étudierons plus en détails le tri à bulles pour sa simplicité (même s'il est moins performant - O(n<sup>2</sup>)) ainsi que le tri par fusion, qui offre une bonne performance constante (**O(n log n)**).
 
 <details markdown="1">
 <summary markdown="span">**Tri à bulles**</summary>
@@ -406,6 +408,7 @@ private Node sortedMerge(Node a, Node b) {
 
 
 ### Recherche
+Dans une liste chaînée ou doublement chaînée, la recherche binaire n'offre pas d'avantage de performance et n'est donc pas applicable. En effet, la recherche binaire nécessite un accès direct à l’élément du milieu, ce qui est inefficace dans une liste chaînée (accès linéaire), car cela impliquerait de toujours itérer sur la liste jusqu'au centre (donc **O(n)**). La recherche linéaire reste donc la méthode la plus adaptée pour les listes chaînées, malgré sa complexité **O(n)**.
 
 <details markdown="1">
 <summary markdown="span">**Recherche linéaire**</summary>
@@ -421,8 +424,5 @@ while (current != null) {
 }
 return false;
 ```
-
-{: .warning}
->Dans une liste chaînée ou doublement chaînée, la recherche binaire n'offre pas d'avantage de performance et n'est donc pas applicable. En effet, la recherche binaire nécessite un accès direct à l’élément du milieu, ce qui est inefficace dans une liste chaînée (accès linéaire), car cela impliquerait de toujours itérer sur la liste jusqu'au centre. La recherche linéaire reste donc la méthode la plus adaptée pour les listes chaînées.
 
 </details>
