@@ -22,6 +22,8 @@ Une **structure d'arbre** est une structure de données hiérarchique dans laque
 - **Recherche** : localiser un noeud selon une valeur.
 - **Parcours** : visiter les noeuds selon un ordre défini (préfixe, infixe, suffixe).
 
+![Illustration d'un arbre](https://upload.wikimedia.org/wikipedia/commons/f/f7/Binary_tree.svg)
+
 ---
 
 ## Type d'arbre : Arbre binaire de recherche (Binary Search Tree)
@@ -37,7 +39,7 @@ Un arbre binaire de recherche (BST) est un type particulier d'arbre binaire où 
 
 ---
 
-## Complexité des opérations sur les arbres
+## Opérations sur les arbres
 
 | Opération     | Complexité moyenne | Complexité pire cas | Remarques |
 |---------------|--------------------|----------------------|-----------|
@@ -46,3 +48,9 @@ Un arbre binaire de recherche (BST) est un type particulier d'arbre binaire où 
 | Recherche     | O(log n)           | O(n)                 | Dépend de la forme de l'arbre |
 | Parcours      | O(n)               | O(n)                 | Tous les noeuds sont visités |
 
+---
+
+## Exemples de cas d'utilisation
+- Systèmes de fichiers
+- Arbres de décision
+- Arbres syntaxiques pour compilateurs

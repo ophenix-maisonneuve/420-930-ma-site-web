@@ -6,113 +6,121 @@ nav_order: 2
 published: true
 ---
 
-# Arbre binaire de recherche (Binary Search Tree)
+# Arbre binaire de recherche (BST)
 
 ## Structure
 
-Un **arbre binaire de recherche (BST)** est une structure de données dans laquelle chaque nœud possède au plus deux enfants : un enfant gauche et un enfant droit. Les valeurs dans l'arbre sont organisées de manière à ce que pour chaque nœud :
+Un **arbre binaire de recherche (*binary search tree - BST*)** est un arbre binaire dans lequel chaque noeud possède au plus deux enfants : un enfant gauche et un enfant droit. Les valeurs dans l'arbre sont organisées de manière à ce que pour chaque noeud :
 
-- Les valeurs dans le sous-arbre gauche sont inférieures à la valeur du nœud.
-- Les valeurs dans le sous-arbre droit sont supérieures à la valeur du nœud.
+- Les valeurs dans le sous-arbre gauche sont inférieures à la valeur du noeud.
+- Les valeurs dans le sous-arbre droit sont supérieures à la valeur du noeud.
+
+![Illustration BST](https://upload.wikimedia.org/wikipedia/commons/d/da/Binary_search_tree.svg)
+
+{: .highlight}
+> Si l'arbre accepte les doublons, les valeurs égales peuvent être placées dans le sous-arbre de gauche ou de droite. L'important est de demeurer constant (toujours à droite ou toujours à gauche). Pour les exemples sur cette page, nous assumerons toujours que les doublons sont insérés dans le sous-arbre de **gauche**.
 
 ```java
 class Node {
-    private int value;
+    private int data;
     private Node left;
     private Node right;
 
-    public Node(int value) {
-        this.value = value;
-        this.left = null;
-        this.right = null;
+    public Node(int data) {
+        this.data = data;
     }
 
-    public int getValue() {
-        return value;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
+    public int getData() {
+        return data;
     }
 
     public Node getLeft() {
         return left;
     }
 
-    public void setLeft(Node left) {
-        this.left = left;
-    }
-
     public Node getRight() {
         return right;
+    }
+
+    public void setData(int data) {
+        this.data = data;
+    }
+
+    public void setLeft(Node left) {
+        this.left = left;
     }
 
     public void setRight(Node right) {
         this.right = right;
     }
 }
+
+class BinarySearchTree {
+    
+    // Noeud situé à la racine de l'arbre
+    private Node root;
+
+    // les méthodes pour les opérations seront ajoutées ici, voir prochaine sections...
+    // ...
+}
+
 ```
 
-## Opérations sur les arbres binaires
+## Opérations principales
 
-### Insertion
+### Insertion (ajout)
+La complexité moyenne pour l'insertion est **O(log n)** si l'arbre est équilibré, mais peut atteindre **O(n)** dans le pire cas (arbre dégénéré).
+<details>
+<summary>Insertion dans un BST</summary>
 
 ```java
 public Node insert(Node root, int value) {
     if (root == null) {
         return new Node(value);
-    }
-    if (value < root.getValue()) {
+    } 
+    if (value <= root.getValue()) {
         root.setLeft(insert(root.getLeft(), value));
     } else if (value > root.getValue()) {
         root.setRight(insert(root.getRight(), value));
-    }
+    } 
     return root;
 }
 ```
-
-### Recherche
-
-```java
-public boolean search(Node root, int value) {
-    if (root == null) {
-        return false;
-    }
-    if (value == root.getValue()) {
-        return true;
-    }
-    if (value < root.getValue()) {
-        return search(root.getLeft(), value);
-    } else {
-        return search(root.getRight(), value);
-    }
-}
-```
+</details>
 
 ### Suppression
+La suppression a une complexité moyenne de **O(log n)**, mais peut être **O(n)** si l'arbre est très déséquilibré. Elle nécessite parfois un rééquilibrage.
+<details>
+<summary>Suppression dans un BST</summary>
 
 ```java
 public Node delete(Node root, int value) {
+    // Cas trivial : arbre vide
     if (root == null) {
         return null;
     }
-    if (value < root.getValue()) {
+
+    // Parcours récursif
+    if (value <= root.getValue()) {
         root.setLeft(delete(root.getLeft(), value));
     } else if (value > root.getValue()) {
         root.setRight(delete(root.getRight(), value));
     } else {
+        // Cas où le noeud à supprimer est trouvé
         if (root.getLeft() == null) {
             return root.getRight();
         } else if (root.getRight() == null) {
             return root.getLeft();
         }
+
+        // Cas avec deux enfants : remplacer par le minimum du sous-arbre droit
         Node minNode = findMin(root.getRight());
         root.setValue(minNode.getValue());
         root.setRight(delete(root.getRight(), minNode.getValue()));
     }
-    return root;
 }
 
+// Méthode utilitaire pour trouver la plus petite valeur dans un sous-arbre.
 private Node findMin(Node node) {
     while (node.getLeft() != null) {
         node = node.getLeft();
@@ -120,9 +128,48 @@ private Node findMin(Node node) {
     return node;
 }
 ```
+</details>
+
+### Recherche
+La recherche dans un BST est en moyenne **O(log n)**, mais peut être **O(n)** si l'arbre est très déséquilibré.
+<details>
+<summary>Recherche dans un BST</summary>
+
+```java
+public boolean search(Node root, int value) {
+    // Cas trivial : arbre vide
+    if (root == null) {
+        return false;
+    }
+
+    // Cas de base : la valeur est trouvée
+    if (value == root.getValue()) {
+        return true;
+    }
+
+    // Recherche récursive : si la valeur est plus petite que la racine, on va à gauche, sinon à droite
+    if (value <= root.getValue()) {
+        return search(root.getLeft(), value);
+    } else {
+        return search(root.getRight(), value);
+    }
+}
+```
+</details>
 
 ### Parcours
+Le parcours (infixe, préfixe, suffixe) visite tous les noeuds, donc la complexité est **O(n)**.
 
+| Parcours    | Ordre des visites         | Usage principal                     |
+|-------------|---------------------------|-------------------------------------|
+| Infixe      | Gauche → Racine → Droite | Affichage trié (ordre croissant)   |
+| Préfixe     | Racine → Gauche → Droite | Reconstruction, sérialisation      |
+| Suffixe     | Gauche → Droite → Racine | Suppression, libération mémoire    |
+
+<details>
+<summary>Parcours infixe</summary>
+
+Le parcours **infixe** (*in-order*) parcourt l'arbre dans son ordre naturel. Il visite dans l'ordre le sous-arbre de gauche, la racine, puis le sous-arbre de droite (ou l'inverse si on veut un ordre décroissant). Il récupère et affiche donc les valeurs triées en ordre croissant (gauche, racine, droite) ou décroissant (droite, racine, gauche).
 ```java
 public void inorder(Node root) {
     if (root != null) {
@@ -131,7 +178,14 @@ public void inorder(Node root) {
         inorder(root.getRight());
     }
 }
+```
+</details>
 
+<details>
+<summary>Parcours préfixe</summary>
+
+Le parcours **préfixe** récupère d'abord la racine, puis visite le sous-arbre de gauche et celui de droite. Ce type de parcours est généralement utile pour afficher l'arbre sous forme de texte ou le reconstruire à partir de sa forme sérialisée : on construit tous les noeuds de haut en bas.
+```java
 public void preorder(Node root) {
     if (root != null) {
         System.out.print(root.getValue() + " ");
@@ -139,7 +193,13 @@ public void preorder(Node root) {
         preorder(root.getRight());
     }
 }
+```
+</details>
+<details>
+<summary>Parcours suffixe</summary>
 
+Le parcours **suffixe** récupère d'abord le sous-arbre de gauche, puis le sous-arbre de droite, et finalement la racine. Ce type de parcours est généralement utile pour des opérations de suppression de sous-arbres complets où l'on veut supprimer les feuilles avant les noeuds, en remontant ainsi jusqu'à la racine.
+```java
 public void postorder(Node root) {
     if (root != null) {
         postorder(root.getLeft());
@@ -148,8 +208,27 @@ public void postorder(Node root) {
     }
 }
 ```
+</details>
 
----
+### Liens utiles
+- [Vidéo explicative sur BST](https://www.youtube.com/watch?v=9Jry5-82I68)
+
+## Complexité
+| Opération   | Moyenne | Pire cas |
+|-------------|---------|----------|
+| Insertion   | O(log n)| O(n)     |
+| Recherche   | O(log n)| O(n)     |
+| Suppression | O(log n)| O(n)     |
+| Parcours    | O(n)    | O(n)     |
+
+> **Remarque** : Un arbre équilibré est essentiel pour de bonnes performances.
+
+## Applications
+- Indexation en base de données
+- Moteurs de recherche
+- Dictionnaires
+
+
 
 ## Complexité des opérations
 
@@ -161,4 +240,4 @@ public void postorder(Node root) {
 | Parcours    | O(n)                | O(n)                 |
 
 {: .highlight}
-> La complexité dépend de l'équilibre de l'arbre. Un arbre parfaitement équilibré permet des opérations en O(log n), tandis qu'un arbre dégénéré (ressemblant à une liste) entraîne des performances en O(n).
+> La complexité dépend de l'équilibre de l'arbre. Un arbre parfaitement équilibré permet des opérations en O(log n), tandis qu'un arbre dégénéré (ressemblant à une liste) entraîne des performances en O(n). Il existe des types d'arbres binaires qui s'assurent que l'arbre demeure bien équilibré, garantissant toujours une complexité **(log n)** pour l'insertion, la suppression et la recherche.
