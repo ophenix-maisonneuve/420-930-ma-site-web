@@ -79,7 +79,6 @@ Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des éléments 
 ### 6. Exercice Bonus: Implémentez un tri par fusion dans la liste.
 - Implémentez la méthode `triParFusion()` pour trier la liste.
 - Quelle est la complexité grand O de cette opération dans le pire cas ?
-- La complexité peut-elle être optimisée ? Comment ?
 
 {: .astuce}
 > Petit lien utile (YouTube) : [Merge Sort in 3](https://www.youtube.com/watch?v=4VqmGXwpLqc)
