@@ -26,16 +26,15 @@ Une **structure d'arbre** est une structure de données hiérarchique dans laque
 
 ---
 
-## Type d'arbre : Arbre binaire de recherche (Binary Search Tree)
-
-Un arbre binaire de recherche (BST) est un type particulier d'arbre binaire où chaque noeud a au plus deux enfants, et où les valeurs sont organisées de manière à faciliter la recherche :
-- Le sous-arbre gauche contient des valeurs inférieures à la racine.
-- Le sous-arbre droit contient des valeurs supérieures à la racine.
-- Si l'arbre permet les doublons, une valeur égale peut être insérée dans le sous-arbre gauche ou droit. **L'important est de demeurer constant partout dans l'implémentation**.
+## Types d'arbres
 
 | Type d'arbre            | Nombre d'enfants max | Organisation des données | Recherche rapide | Insertion/Suppression efficace |
 |-------------------------|----------------------|---------------------------|------------------|-------------------------------|
 | Arbre binaire de recherche | 2                    | Oui                       | Oui              | Oui                           |
+
+
+{: .highlight}
+> D'autres types d'arbres seront ajoutés ici dans les prochaines semaines...
 
 ---
 

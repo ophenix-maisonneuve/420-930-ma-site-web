@@ -32,6 +32,9 @@ Une structure linéaire peut, dans sa forme la plus simple, être représentée 
 | Tableau                  | ❌               | ✅           | ❌               | ❌                 | Faible             |
 | Liste chaînée            | ✅               | ❌           | ✅               | ✅                 | Élevée             |
 
+{: .highlight}
+> D'autres types de structures linéaires seront ajoutés ici dans les prochaines semaines...
+
 ---
 
 ## Opérations courantes sur les structures linéaires
@@ -51,9 +54,9 @@ Une structure linéaire peut, dans sa forme la plus simple, être représentée 
 
 ---
 
-## Complexité des algorithmes sur les listes
+## Complexité des algorithmes sur les structures linéaires
 
-Voici une comparaison sommaire de la complexité des opérations fondamentales (ajout, suppression, recherche, tri) selon les principales structures de données linéaires : tableau, liste chaînée simple et liste chaînée double.
+Voici une comparaison sommaire de la complexité des opérations fondamentales (ajout, suppression, recherche, tri) selon les principales structures de données linéaires.
 
 <details markdown="1">
 <summary markdown="span">**Ajout**</summary>
