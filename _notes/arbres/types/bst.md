@@ -75,6 +75,7 @@ La complexité moyenne pour l'insertion est **O(log n)** si l'arbre est équilib
 
 ```java
 public Node insert(Node root, int value) {
+    // Cas de base : on crée un nouveau noeud avec la valeur et on le retourne
     if (root == null) {
         return new Node(value);
     } 
@@ -95,29 +96,38 @@ La suppression a une complexité moyenne de **O(log n)**, mais peut être **O(n)
 
 ```java
 public Node delete(Node root, int value) {
-    // Cas trivial : arbre vide
+    // Cas de base : arbre vide : rien à supprimer
     if (root == null) {
         return null;
     }
 
-    // Parcours récursif
-    if (value <= root.getValue()) {
+    // Parcours récursif : on cherche le nœud à supprimer
+    if (value < root.getValue()) {
+        // La valeur est plus petite : descendre à gauche
         root.setLeft(delete(root.getLeft(), value));
     } else if (value > root.getValue()) {
+        // La valeur est plus grande : descendre à droite
         root.setRight(delete(root.getRight(), value));
     } else {
-        // Cas où le noeud à supprimer est trouvé
+        // Nœud trouvé : appliquer la logique de suppression
+
+        // Cas 0 ou 1 enfant : remplacer par l'enfant (ou null)
         if (root.getLeft() == null) {
             return root.getRight();
         } else if (root.getRight() == null) {
             return root.getLeft();
         }
 
-        // Cas avec deux enfants : remplacer par le minimum du sous-arbre droit
+        // Cas 2 enfants : remplacer la valeur par le successeur (minimum du sous-arbre droit)
         Node minNode = findMin(root.getRight());
         root.setValue(minNode.getValue());
+
+        // Supprimer le successeur dans le sous-arbre droit
         root.setRight(delete(root.getRight(), minNode.getValue()));
     }
+
+    // Retourner la racine mise à jour
+    return root;
 }
 
 // Méthode utilitaire pour trouver la plus petite valeur dans un sous-arbre.
@@ -211,9 +221,11 @@ public void postorder(Node root) {
 </details>
 
 ### Liens utiles
+
 - [Vidéo explicative sur BST](https://www.youtube.com/watch?v=9Jry5-82I68)
 
 ## Complexité
+
 | Opération   | Moyenne | Pire cas |
 |-------------|---------|----------|
 | Insertion   | O(log n)| O(n)     |
@@ -221,9 +233,11 @@ public void postorder(Node root) {
 | Suppression | O(log n)| O(n)     |
 | Parcours    | O(n)    | O(n)     |
 
-> **Remarque** : Un arbre équilibré est essentiel pour de bonnes performances.
+{: .highlight}
+> Un arbre équilibré est essentiel pour de bonnes performances.
 
 ## Applications
+
 - Indexation en base de données
 - Moteurs de recherche
 - Dictionnaires
