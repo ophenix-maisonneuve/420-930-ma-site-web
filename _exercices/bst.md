@@ -67,9 +67,9 @@ Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des éléments 
 - Quelle est la complexité grand O de cette opération dans le pire cas ?
 - Comment pourrait-on améliorer cette complexité ?
 
-### 5. Implémentez les parcours de l'arbre.
-- Implémentez les méthodes `parcoursInfixe()`, `parcoursPrefixe()`, et `parcoursSuffixe()`.
-- Quelle est la complexité grand O de ces opérations ?
+### 5. Implémentez le parcours de l'arbre.
+- Implémentez la méthode `parcoursInfixe()`.
+- Quelle est la complexité grand O de cette opération ?
 - Ajoutez une méthode `parcoursInfixeInverse()` pour afficher les valeurs en ordre décroissant.
 
 ### 6. Exercice Bonus : Implémentation des parcours préfixe et suffixe
