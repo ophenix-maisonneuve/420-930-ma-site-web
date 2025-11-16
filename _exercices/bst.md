@@ -26,17 +26,17 @@ On vous fournit également une classe `Main` contenant un menu utilitaire permet
 
 ### 1. Clonez le dépôt de l'exercice
 ```bash
-git clone git@github.com:ophenix-420-930-ma-24636/arbre-binaire.git
+git clone git@github.com:ophenix-420-930-ma-24636/arbre-binaire-recherche.git
 ```
 ou
 ```bash
-git clone https://github.com/ophenix-420-930-ma-24636/arbre-binaire.git
+git clone https://github.com/ophenix-420-930-ma-24636/arbre-binaire-recherche.git
 ```
 
 ### 2. Lancez le projet Java
 ```bash
 mvn clean package
-java -jar target/arbre-binaire-1.0-SNAPSHOT.jar
+java -jar target/arbre-binaire-recherche-1.0-SNAPSHOT.jar
 ```
 ou
 ```bash
