@@ -230,14 +230,6 @@ public void postorder(Node root) {
 
 ---
 
-## Applications
-
-- Indexation en base de données
-- Moteurs de recherche
-- Dictionnaires
-
-
-
 ## Complexité des opérations
 
 | Opération   | Complexité moyenne | Complexité pire cas |
@@ -249,6 +241,14 @@ public void postorder(Node root) {
 
 {: .highlight}
 > La complexité dépend de l'équilibre de l'arbre. Un arbre parfaitement équilibré permet des opérations en O(log n), tandis qu'un arbre dégénéré (ressemblant à une liste) entraîne des performances en O(n). Il existe des types d'arbres binaires qui s'assurent que l'arbre demeure bien équilibré, garantissant toujours une complexité **(log n)** pour l'insertion, la suppression et la recherche.
+
+---
+
+## Applications
+
+- Indexation en base de données
+- Moteurs de recherche
+- Dictionnaires
 
 ---
 
