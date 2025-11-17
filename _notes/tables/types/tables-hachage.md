@@ -9,8 +9,8 @@ published: true
 # Tables de hachage
 Une **table de hachage** est une **table associative** qui utilise une **fonction de hachage** pour transformer les **clés** en index. Lorsqu'une collision survient (deux clés produisent le même index), plusieurs stratégies sont possibles :
 
-- **Chaînage séparé** : chaque case contient une liste chaînée des entrées qui partagent le même index
-- **Sondage linéaire** : on cherche la prochaine case libre dans le tableau
+- **Chaînage séparé** : chaque case (*bucket*) contient une liste chaînée des paire clé-valeur qui partagent le même index
+- **Sondage linéaire** : on cherche la prochaine case (*bucket*) libre dans le tableau
 - **Double hachage** : on applique une seconde fonction de hachage pour calculer le pas de recherche
 - D'autres variantes existent (ex. sondage quadratique).
 
@@ -18,12 +18,12 @@ Les tables de hachage sont l'une des deux implémentations les plus fréquentes 
 
 Dans cette page, nous illustrons une implémentation pédagogique basée sur le **chaînage séparé**, nommée **`TableHachage`**, avec :
 
-- **Chaînage séparé** (chaque seau est une **liste simplement chaînée** d’entrées),
-- **Facteur de charge** `0,75`,
-- **Redimensionnement ×2** quand `taille / capacité > 0,75`,
-- **Clé `null` interdite**, **valeur `null` autorisée**.
+- **Chaînage séparé** : chaque case (*bucket*) est une **liste simplement chaînée** de paires clé-valeur
+- **Facteur de charge** `0,75`
+- **Redimensionnement ×2** quand `taille / capacité > 0,75`
+- **Clé `null` interdite**, **valeur `null` autorisée**
 
-![Table de hachage avec chaînage séparé — Princeton Algorithms](https://algs4.cs.princeton.edu/34hash/images/separate-chaining.png)
+![Table de hachage avec chaînage séparé](https://en.wikipedia.org/wiki/Hash_table#/media/File:Hash_table_5_0_1_1_1_1_0_LL.svg)
 
 
 > **Complexités (moyenne)** : `put/get/remove` en **`O(1)` amorti**  
@@ -64,7 +64,7 @@ class Entry {
 }
 
 class TableHachage {
-    private Entry[] table; // tableau de seaux
+    private Entry[] table; // tableau de cases (*buckets*)
     private int size; // nombre de paires (clé, valeur)
     private final float loadFactor; // ex. 0.75f
 }
@@ -76,10 +76,10 @@ class TableHachage {
 ## Fonctions utilitaires
 
 <details>
-<summary><strong>indexFor(key) — transformer le hash en index de seau</strong></summary>
+<summary><strong>indexFor(key) — transformer le hash en index de case (*bucket*)</strong></summary>
 
 ```java
-/** Calcule l'index de seau pour une clé donnée. */
+/** Calcule l'index de case (*bucket*) pour une clé donnée. */
 private int indexFor(String key) {
     int h = key.hashCode();
     // Masque le bit de signe pour éviter les indices négatifs puis modulo capacité
@@ -89,10 +89,10 @@ private int indexFor(String key) {
 </details>
 
 <details>
-<summary><strong>findEntry(key) — retrouver le maillon (si présent)</strong></summary>
+<summary><strong>findEntry(key) — retrouver le paire clé-valeur (si présent)</strong></summary>
 
 ```java
-/** Retourne l'entrée (maillon) associée à la clé, ou null si absente. */
+/** Retourne la paire clé-valeur (paire clé-valeur) associée à la clé, ou null si absente. */
 private Entry findEntry(String key) {
     if (key == null) {
         throw new NullPointerException("La clé ne peut pas être nulle");
@@ -119,7 +119,7 @@ private Entry findEntry(String key) {
 ```java
 /**
  * Insère la paire (key, value) ou met à jour si la clé existe déjà.
- * @return l'ancienne valeur si mise à jour, sinon null (nouvelle entrée).
+ * @return l'ancienne valeur si mise à jour, sinon null (nouvelle paire clé-valeur).
  */
 public Object put(String key, Object value) {
     if (key == null) {
@@ -131,10 +131,10 @@ public Object put(String key, Object value) {
         resize();
     }
 
-    // 2) Index du seau
+    // 2) Index de la case (*bucket*)
     int index = indexFor(key);
 
-    // 3) Parcourir la chaîne : si la clé existe → mise à jour
+    // 3) Parcourir la liste chaînée : si la clé existe → mise à jour
     for (Entry e = table[index]; e != null; e = e.getNext()) {
         if (key.equals(e.getKey())) {
             Object old = e.getValue();
@@ -143,7 +143,7 @@ public Object put(String key, Object value) {
         }
     }
 
-    // 4) Sinon, insertion en tête de chaîne (O(1))
+    // 4) Sinon, insertion en tête de liste chaînée (O(1))
     table[index] = new Entry(key, value, table[index]);
     size++;
     return null;
@@ -177,7 +177,7 @@ public Object remove(String key) {
 
     while (curr != null) {
         if (key.equals(curr.key)) {
-            // D'un coup de pointeur, on "saute" le maillon courant
+            // D'un coup de pointeur, on "saute" la paire clé-valeur courante
             if (prev == null) {
                 table[index] = curr.getNext(); // suppression en tête
             } else {
@@ -226,23 +226,23 @@ public boolean containsKey(String key) {
 ## Redimensionnement
 
 <details markdown="1">
-<summary markdown="span">resize() — doubler la capacité et re‑hacher toutes les entrées (O(n))**</summary>
+<summary markdown="span">resize() — doubler la capacité et re‑hacher toutes les paire clé-valeur (O(n))**</summary>
 
 ```java
-/** Double la capacité et re-hache toutes les entrées. Coût linéaire, mais rare. */
+/** Double la capacité et re-hache toutes les paire clé-valeur. Coût linéaire, mais rare. */
 private void resize() {
-    Entry[] old = this.table;
-    Entry[] neu = new Entry[old.length * 2];
-    this.table = neu;
+    Entry[] oldTable = this.table;
+    Entry[] newTable = new Entry[oldTable.length * 2];
+    this.table = newTable;
 
-    // Ré-insertion de tous les maillons dans le nouveau tableau de seaux
-    for (Entry head : old) {
+    // Ré-insertion de toutes les paires clé-valeur dans le nouveau tableau de cases (*buckets*)
+    for (Entry head : oldTable) {
         Entry e = head;
         while (e != null) {
             Entry next = e.getNext(); // préserver la suite avant de relinker
-            int idx = (e.getKey().hashCode() & 0x7fffffff) % neu.length;
-            e.setNext(neu[idx]);
-            neu[idx] = e;
+            int idx = (e.getKey().hashCode() & 0x7fffffff) % newTable.length;
+            e.setNext(newTable[idx]);
+            newTable[idx] = e;
             e = next;
         }
     }
@@ -255,7 +255,7 @@ private void resize() {
 ## Parcours
 
 <details markdown="1">
-<summary markdown="span">**toString() — parcourir toutes les entrées pour afficher (O(n))**</summary>
+<summary markdown="span">**toString() — parcourir toutes les paire clé-valeur pour afficher (O(n))**</summary>
 
 ```java
 @Override
@@ -266,8 +266,8 @@ public String toString() {
     for (Entry bucket : table) {
         for (Entry e = bucket; e != null; e = e.getNext()) {
             if (!first) {
-        sb.append(", ");
-    }
+                sb.append(", ");
+            }
             first = false;
             sb.append(e.getKey()).append("=").append(String.valueOf(e.getValue()));
         }
@@ -291,4 +291,4 @@ public String toString() {
 | Parcours complet               | `O(n)`          | `O(n)` |
 
 {: .highlight}
-> Les performances moyennes reposent sur un **bon hachage** des clés et un **facteur de charge maîtrisé** (ex. `0,75`) qui limite la longueur moyenne des chaînes.
+> Les performances moyennes reposent sur un **bon hachage** des clés et un **facteur de charge maîtrisé** (ex. `0,75`) qui limite la longueur moyenne des liste chaînées.

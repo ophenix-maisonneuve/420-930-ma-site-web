@@ -64,7 +64,14 @@ Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des éléments 
 ### 2. Étudiez la classe `TableHachage`
 - Expliquez comment `ajouter` distingue **mise à jour** vs **insertion**.
 
-### 3. Implémentez la suppression dans la table.
+### 3. Implémentez la recherche dans la table.
+- Implémentez la méthode  `findEntry()` :
+- Validez depuis le menu : cas présent/absent et valeur `null`.
+
+{: .highlight}
+> Cette méthode permet ensuite l'implémentation facile de `containsKey` et `get`.
+
+### 4. Implémentez la suppression dans la table.
 - Implémentez `Object supprimer(String cle)` qui **retourne l’ancienne valeur** si supprimée, sinon `null`.
    - Gérez les cas : **tête**, **milieu/fin** de chaîne, **clé absente**.
 - Quelle est la complexité grand O de la suppression dans la majorité des cas ? Dans le pire cas ?
@@ -72,18 +79,11 @@ Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des éléments 
 {: .astuce}
 > Pour l'implémentation, utilisez deux pointeurs `prev` / `curr` et mettez à jour le lien avec `setNext`.
 
-### 4. Implémentez la recherche dans la table.
-- Implémentez la méthode  `boolean contient(String cle)` :
-- Validez depuis le menu : cas présent/absent et valeur `null`.
-
-{: .astuce}
-> Avant de vous lancer dans une implémentation compliquée, observez bien les méthodes déjà fournies. L'une d'elles peut être réutilisée ici...
-
 ### 5. Exercice Bonus: Redimensionnement
 - Ajoutez `resize()` (×2 quand `size > table.length * loadFactor`) et appelez‑le dans `ajouter`.
 
 ---
 
 ## Ressources
-- Diagramme de **chaînage séparé** : https://algs4.cs.princeton.edu/34hash/images/separate-chaining.png
+- Diagramme de **chaînage séparé** : https://en.wikipedia.org/wiki/Hash_table#/media/File:Hash_table_5_0_1_1_1_1_0_LL.svg
 - Synthèse **Hash table** (définitions, complexités) : https://en.wikipedia.org/wiki/Hash_table
