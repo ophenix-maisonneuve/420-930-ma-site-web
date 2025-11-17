@@ -57,20 +57,20 @@ Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des éléments 
 - Quelle est la complexité grand O de l'insertion dans le meilleur cas et dans le pire cas ?
 - Que se passe-t-il si l'arbre est très déséquilibré ?
 
-### 3. Implémentez la suppression dans l'arbre.
-- Implémentez la méthode `supprimer(int valeur)` pour supprimer un nœud dans l'arbre.
-- Quels sont les cas particuliers à gérer (nœud sans enfant, avec un enfant, avec deux enfants) ?
-- Quelle est la complexité grand O de cette opération dans le pire cas ?
-
-### 4. Implémentez la recherche dans l'arbre.
+### 3. Implémentez la recherche dans l'arbre.
 - Implémentez la méthode `contient(int valeur)` pour déterminer si une valeur est présente ou non dans l'arbre.
 - Quelle est la complexité grand O de cette opération dans le pire cas ?
-- Comment pourrait-on améliorer cette complexité ?
+- Comment peut-on s'assurer que la complexité n'augmente pas significativement ?
 
-### 5. Implémentez le parcours de l'arbre.
+### 4. Implémentez le parcours de l'arbre.
 - Implémentez la méthode `parcoursInfixe()`.
 - Quelle est la complexité grand O de cette opération ?
 - Ajoutez une méthode `parcoursInfixeInverse()` pour afficher les valeurs en ordre décroissant.
+
+### 5. Implémentez la suppression dans l'arbre.
+- Implémentez la méthode `supprimer(int valeur)` pour supprimer un nœud dans l'arbre.
+- Quels sont les cas particuliers à gérer (noeud sans enfant, avec un enfant, avec deux enfants) ?
+- Quelle est la complexité grand O de cette opération dans le pire cas ?
 
 ### 6. Exercice Bonus : Implémentation des parcours préfixe et suffixe
 - Implémentez les méthodes `parcoursPrefixe()`, et `parcoursSuffixe()`.
@@ -78,7 +78,7 @@ Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des éléments 
 - À quoi servent les parcours préfixe et suffixe ?
 
 {: .astuce}
-> Petit lien utile (YouTube) : [Binary Search Tree Explained](https://www.youtube.com/watch?v=9Jry5-82I68)
+> Petit lien utile (YouTube) : [Binary Search Tree Explained](https://www.youtube.com/watch?v=mtvbVLK5xDQ)
 
 ## Pistes de réflexion
 - Comment pouvez-vous réutiliser cet exercice dans la réalisation du travail pratique 1 ?
