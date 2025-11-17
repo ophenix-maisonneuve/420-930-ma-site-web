@@ -65,8 +65,9 @@ Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des éléments 
 - Expliquez comment `ajouter` distingue **mise à jour** vs **insertion**.
 
 ### 3. Implémentez la recherche dans la table.
-- Implémentez la méthode  `findEntry()` :
-- Validez depuis le menu : cas présent/absent et valeur `null`.
+- Implémentez la méthode  `findEntry(String cle)` :
+- Validez depuis le menu : l'implémentation de cette méthode aura rendu les méthodes `get(String cle)` et `contient(String cle)` disponibles
+   - Tester les cas présent/absent et valeur `null`.
 
 {: .highlight}
 > Cette méthode permet ensuite l'implémentation facile de `containsKey` et `get`.
