@@ -3,7 +3,7 @@ layout: default
 title: "Arbre binaire de recherche (BST)"
 nav_order: 7
 has_toc: false
-published: false
+published: true
 ---
 
 # Exercice : Implémentation d'un arbre binaire de recherche (BST)

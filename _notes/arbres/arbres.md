@@ -3,7 +3,7 @@ layout: default
 title: "Arbres"
 parent: "Structures de données"
 nav_order: 2
-published: false
+published: true
 ---
 
 # Arbres
