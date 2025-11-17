@@ -223,7 +223,7 @@ public void postorder(Node root) {
 
 ### Liens utiles
 
-- [Vidéo explicative sur BST](https://www.youtube.com/watch?v=9Jry5-82I68)
+- [Vidéo explicative sur BST](https://www.youtube.com/watch?v=mtvbVLK5xDQ)
 
 ## Complexité
 
