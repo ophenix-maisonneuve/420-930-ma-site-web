@@ -97,7 +97,7 @@ La suppression a une complexité moyenne de **O(log n)**, mais peut être **O(n)
    - On trouve le **successeur** du noeud à supprimer (la prochaine valeur en ordre croissant, ce qui équivaut à la plus petite valeur du sous-arbre de droite).
    - On remplace la **valeur** du noeud à supprimer par la **valeur** du successeur (autrement dit, le noeud n'est pas vraiment supprimé, mais sa valeur change).
    - On supprime le noeud du successeur dans le sous-arbre de droite.
-   
+
 <details markdown="1">
 <summary markdown="span">Suppression dans un BST</summary>
 
@@ -228,22 +228,7 @@ public void postorder(Node root) {
 ```
 </details>
 
-### Liens utiles
-
-- [Vidéo explicative sur BST](https://www.youtube.com/watch?v=mtvbVLK5xDQ)
-- [BST interactif](https://www.cs.usfca.edu/~galles/visualization/BST.html)
-
-## Complexité
-
-| Opération   | Moyenne | Pire cas |
-|-------------|---------|----------|
-| Insertion   | O(log n)| O(n)     |
-| Recherche   | O(log n)| O(n)     |
-| Suppression | O(log n)| O(n)     |
-| Parcours    | O(n)    | O(n)     |
-
-{: .highlight}
-> Un arbre équilibré est essentiel pour de bonnes performances.
+---
 
 ## Applications
 
@@ -264,3 +249,10 @@ public void postorder(Node root) {
 
 {: .highlight}
 > La complexité dépend de l'équilibre de l'arbre. Un arbre parfaitement équilibré permet des opérations en O(log n), tandis qu'un arbre dégénéré (ressemblant à une liste) entraîne des performances en O(n). Il existe des types d'arbres binaires qui s'assurent que l'arbre demeure bien équilibré, garantissant toujours une complexité **(log n)** pour l'insertion, la suppression et la recherche.
+
+---
+
+## Liens utiles
+
+- [Vidéo explicative sur BST](https://www.youtube.com/watch?v=mtvbVLK5xDQ)
+- [BST interactif](https://www.cs.usfca.edu/~galles/visualization/BST.html)
