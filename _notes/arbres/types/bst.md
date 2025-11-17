@@ -114,7 +114,8 @@ public Node delete(Node root, int value) {
         // Cas 0 ou 1 enfant : remplacer par l'enfant (ou null)
         if (root.getLeft() == null) {
             return root.getRight();
-        } else if (root.getRight() == null) {
+        }
+        if (root.getRight() == null) {
             return root.getLeft();
         }
 
