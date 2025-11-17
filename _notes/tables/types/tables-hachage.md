@@ -7,7 +7,16 @@ published: true
 ---
 
 # Tables de hachage
-Une **table de hachage** est une **table associative** qui utilise une **fonction de hachage** pour transformer les **clés** en indices. Dans cette page, nous présentons une implémentation pédagogique nommée **`TableHachage`** avec :
+Une **table de hachage** est une **table associative** qui utilise une **fonction de hachage** pour transformer les **clés** en index. Lorsqu'une collision survient (deux clés produisent le même index), plusieurs stratégies sont possibles :
+
+- **Chaînage séparé** : chaque case contient une liste chaînée des entrées qui partagent le même index
+- **Sondage linéaire** : on cherche la prochaine case libre dans le tableau
+- **Double hachage** : on applique une seconde fonction de hachage pour calculer le pas de recherche
+- D'autres variantes existent (ex. sondage quadratique).
+
+Les tables de hachage sont l'une des deux implémentations les plus fréquentes des tables associatives, l'autre étant les **tables basées sur des arbres** (*tree-based maps*), qui maintiennent les clés triées sans collisions mais avec des opérations en O(log n).
+
+Dans cette page, nous illustrons une implémentation pédagogique basée sur le **chaînage séparé**, nommée **`TableHachage`**, avec :
 
 - **Chaînage séparé** (chaque seau est une **liste simplement chaînée** d’entrées),
 - **Facteur de charge** `0,75`,
@@ -22,11 +31,11 @@ Une **table de hachage** est une **table associative** qui utilise une **fonctio
 
 ---
 
-## Structure (rappel)
+## Structure
 
 ```java
 // Schéma simplifié utilisé dans tous les extraits ci-dessous.
-private static class Entry {
+class Entry {
     private final String key;
     private Object value;
     private Entry next;
@@ -37,15 +46,29 @@ private static class Entry {
         this.next = next;
     }
 
-    public String getKey() { return key; }
-    public Object getValue() { return value; }
-    public void setValue(Object value) { this.value = value; }
-    public Entry getNext() { return next; }
-    public void setNext(Entry next) { this.next = next; }
+    public String getKey() {
+        return key;
+    }
+    public Object getValue() {
+        return value;
+    }
+    public void setValue(Object value) {
+        this.value = value;
+    }
+    public Entry getNext() {
+        return next;
+    }
+    public void setNext(Entry next) {
+        this.next = next;
+    }
 }
-private Entry[] table; // tableau de seaux
-private int size; // nombre de paires (clé, valeur)
-private final float loadFactor; // ex. 0.75f
+
+class TableHachage {
+    private Entry[] table; // tableau de seaux
+    private int size; // nombre de paires (clé, valeur)
+    private final float loadFactor; // ex. 0.75f
+}
+
 ```
 
 ---
@@ -90,8 +113,8 @@ private Entry findEntry(String key) {
 
 ## Ajout / Mise à jour
 
-<details>
-<summary><strong>put(key, value) — insérer ou mettre à jour (O(1) amorti)</strong></summary>
+<details markdown="1">
+<summary markdown="span">**put(key, value) — insérer ou mettre à jour (O(1) amorti)**</summary>
 
 ```java
 /**
@@ -137,8 +160,8 @@ private boolean needsResize() {
 
 ## Suppression
 
-<details>
-<summary><strong>remove(key) — retirer une paire (O(1) amorti)</strong></summary>
+<details markdown="1">
+<summary markdown="span">**remove(key) — retirer une paire (O(1) amorti)**</summary>
 
 ```java
 /**
@@ -175,8 +198,8 @@ public Object remove(String key) {
 
 ## Recherche par clé
 
-<details>
-<summary><strong>get(key) — retrouver la valeur (O(1) amorti)</strong></summary>
+<details markdown="1">
+<summary markdown="span">get(key) — retrouver la valeur (O(1) amorti)</summary>
 
 ```java
 /** Retourne la valeur associée à la clé, ou null si absente. */
@@ -200,10 +223,10 @@ public boolean containsKey(String key) {
 
 ---
 
-# Tables de hachage
+## Redimensionnement
 
-<details>
-<summary><strong>resize() — doubler la capacité et re‑hacher toutes les entrées (O(n))</strong></summary>
+<details markdown="1">
+<summary markdown="span">resize() — doubler la capacité et re‑hacher toutes les entrées (O(n))**</summary>
 
 ```java
 /** Double la capacité et re-hache toutes les entrées. Coût linéaire, mais rare. */
@@ -229,10 +252,10 @@ private void resize() {
 
 ---
 
-## Parcours (exposition minimale)
+## Parcours
 
-<details>
-<summary><strong>toString() — parcourir toutes les entrées pour afficher (O(n))</strong></summary>
+<details markdown="1">
+<summary markdown="span">**toString() — parcourir toutes les entrées pour afficher (O(n))**</summary>
 
 ```java
 @Override
@@ -264,7 +287,7 @@ public String toString() {
 | `put(key, value)`              | `O(1)` amorti   | `O(n)` |
 | `get(key)` / `containsKey(key)`| `O(1)` amorti   | `O(n)` |
 | `remove(key)`                  | `O(1)` amorti   | `O(n)` |
-| `resize()` (re‑hachage)        | —               | `O(n)` |
+| `resize()` (re‑hachage)        | `O(n)`               | `O(n)` |
 | Parcours complet               | `O(n)`          | `O(n)` |
 
 {: .highlight}

@@ -8,7 +8,12 @@ published: false
 
 # Tables associatives
 
-Une **table associative** (aussi appelée **map** ou **dictionnaire**) est une structure de données qui associe des **clés uniques** à des **valeurs**. Elle permet des accès rapides aux données via une clé. Il existe plusieurs implémentations possibles : certaines utilisent des **arbres** pour maintenir un ordre, tandis que d'autres, appelées **tables de hachage**, s'appuient sur une **fonction de hachage** pour calculer la position des clés. 
+Une **table associative** (aussi appelée **map** ou **dictionnaire**) est une structure de données qui associe des **clés uniques** à des **valeurs**. Elle permet des accès rapides aux données via une clé. Les deux implémentations les plus fréquentes sont :
+
+- **Tables de hachage** : utilisent une fonction de hachage pour calculer un index à partir de la clé. Elles offrent des performances moyennes proches de O(1) pour l'insertion, la recherche et la suppression, mais nécessitent une **gestion des collisions** (ex. chaînage séparé, sondage linéaire, double hachage).
+- **Tables basées sur des arbres (*tree-based maps*)** : utilisent des arbres équilibrés (ex. rouge-noir) pour maintenir les clés triées, avec des opérations en O(log n). Elles ne nécessitent pas de gestion des collisions.
+
+D'autres approches existent, mais ces deux familles couvrent la majorité des cas d'utilisation. : certaines utilisent des **arbres** pour maintenir un ordre, tandis que d'autres, appelées **tables de hachage**, s'appuient sur une **fonction de hachage** pour calculer la position des clés. 
 
 ## Caractéristiques principales
 - **Clés uniques** : chaque clé est associée à une seule valeur.
@@ -33,15 +38,10 @@ L'association entre une clé et une valeur peut être réalisée de plusieurs fa
   - Avantages : accès en temps moyen O(1).
   - Inconvénients : collisions possibles, nécessite une bonne fonction de hachage.
 
-- **Arbres (*Tree-based Maps*)** :
+- **Tables basées sur des arbres (*tree-based maps*)** :
   - Utilise des structures d'arbres (par exemple, arbres binaires de recherche, arbres équilibrés comme AVL ou Rouge-Noir).
   - Avantages : maintien des clés triées, complexité O(log n).
   - Inconvénients : plus complexe à implémenter.
-
-- **Listes chaînées ou tableaux (Structures linéaires)** :
-  - Stocke les paires clé-valeur dans une liste ou un tableau.
-  - Avantages : simple à implémenter.
-  - Inconvénients : recherche en O(n), peu efficace pour de grandes tailles.
 
 - **Structures hybrides** :
   - Combinaison de hachage et d'arbres pour optimiser les performances (ex. : HashMap avec arbres pour gérer les collisions).
@@ -60,11 +60,16 @@ Chaque méthode présente des compromis entre vitesse, mémoire et complexité d
 ---
 
 ## Opérations et complexité
-| Opération   | Complexité moyenne | Complexité pire cas |
-|-------------|---------------------|----------------------|
-| Insertion (*put*)         | O(1)               | O(n) (si redimensionnement nécessaire)               |
-| Recherche (*get* et *containsKey*)         | O(1)               | O(n)                |
-| Suppression (*remove*)     | O(1)               | O(n)                |
+
+| Opération   | Table de hachage (moyenne / pire cas) | Table basée sur un arbre (Tree-based Map) |
+|-------------|----------------------------------------|--------------------------------------------|
+| Insertion (*put*)         | O(1) / O(n) (si collisions ou redimensionnement) | O(log n) |
+| Recherche (*get*, *containsKey*) | O(1) / O(n) (si collisions nombreuses)         | O(log n) |
+| Suppression (*remove*)     | O(1) / O(n) (si collisions nombreuses)             | O(log n) |
+
+{: .highlight}
+> Les tables de hachage sont plus rapides en moyenne, mais ne garantissent pas d’ordre sur les clés.  
+> Les tables basées sur des arbres maintiennent les clés triées, avec des performances logarithmiques garanties.
 
 ---
 
