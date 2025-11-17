@@ -91,7 +91,7 @@ public Node insert(Node root, int value) {
 
 ### Suppression
 La suppression a une complexité moyenne de **O(log n)**, mais peut être **O(n)** si l'arbre est très déséquilibré. Elle nécessite parfois un rééquilibrage. La suppression fonctionne selon la logique suivante:
-- Si le noeud à supprimer n'a aucun enfant (feuille), on supprime simplement la feuille. Du point de vue du parent, la feuille est remplacée par `null`).
+- Si le noeud à supprimer n'a aucun enfant (feuille), on supprime simplement la feuille. Du point de vue du parent, la feuille est remplacée par `null`.
 - Si le noeud à supprimer a un seul enfant, on remplace ce noeud par son enfant. Du point de vue du parent, sous petit-enfant devient son enfant direct.
 - Si le noeud à supprimer a deux enfants:
    - On trouve le **successeur** du noeud à supprimer (la prochaine valeur en ordre croissant, ce qui équivaut à la plus petite valeur du sous-arbre de droite).
