@@ -90,18 +90,25 @@ public Node insert(Node root, int value) {
 </details>
 
 ### Suppression
-La suppression a une complexité moyenne de **O(log n)**, mais peut être **O(n)** si l'arbre est très déséquilibré. Elle nécessite parfois un rééquilibrage.
+La suppression a une complexité moyenne de **O(log n)**, mais peut être **O(n)** si l'arbre est très déséquilibré. Elle nécessite parfois un rééquilibrage. La suppression fonctionne selon la logique suivante:
+- Si le noeud à supprimer n'a aucun enfant (feuille), on supprime simplement la feuille. Du point de vue du parent, la feuille est remplacée par `null`).
+- Si le noeud à supprimer a un seul enfant, on remplace ce noeud par son enfant. Du point de vue du parent, sous petit-enfant devient son enfant direct.
+- Si le noeud à supprimer a deux enfants:
+   - On trouve le **successeur** du noeud à supprimer (la prochaine valeur en ordre croissant, ce qui équivaut à la plus petite valeur du sous-arbre de droite).
+   - On remplace la **valeur** du noeud à supprimer par la **valeur** du successeur (autrement dit, le noeud n'est pas vraiment supprimé, mais sa valeur change).
+   - On supprime le noeud du successeur dans le sous-arbre de droite.
+   
 <details markdown="1">
 <summary markdown="span">Suppression dans un BST</summary>
 
 ```java
 public Node delete(Node root, int value) {
-    // Cas de base : arbre vide : rien à supprimer
+    // Cas de base : sous-arbre vide : on retourne un noeud vide
     if (root == null) {
         return null;
     }
 
-    // Parcours récursif : on cherche le nœud à supprimer
+    // Parcours récursif : on cherche le noeud à supprimer
     if (value < root.getValue()) {
         // La valeur est plus petite : descendre à gauche
         root.setLeft(delete(root.getLeft(), value));
@@ -109,9 +116,9 @@ public Node delete(Node root, int value) {
         // La valeur est plus grande : descendre à droite
         root.setRight(delete(root.getRight(), value));
     } else {
-        // Nœud trouvé : appliquer la logique de suppression
+        // Noeud trouvé : appliquer la logique de suppression
 
-        // Cas 0 ou 1 enfant : remplacer par l'enfant (ou null)
+        // Cas 0 ou 1 enfant : remplacer par l'enfant
         if (root.getLeft() == null) {
             return root.getRight();
         }
@@ -131,7 +138,7 @@ public Node delete(Node root, int value) {
     return root;
 }
 
-// Méthode utilitaire pour trouver la plus petite valeur dans un sous-arbre.
+// Méthode utilitaire pour trouver la plus petite valeur dans un sous-arbre (le successeur)
 private Node findMin(Node node) {
     while (node.getLeft() != null) {
         node = node.getLeft();
