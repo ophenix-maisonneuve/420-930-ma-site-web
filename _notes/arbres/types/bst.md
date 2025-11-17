@@ -224,6 +224,7 @@ public void postorder(Node root) {
 ### Liens utiles
 
 - [Vidéo explicative sur BST](https://www.youtube.com/watch?v=mtvbVLK5xDQ)
+- [BST interactif](https://www.cs.usfca.edu/~galles/visualization/BST.html)
 
 ## Complexité
 
