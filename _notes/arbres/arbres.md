@@ -22,8 +22,6 @@ Une **structure d'arbre** est une structure de données hiérarchique dans laque
 - **Recherche** : localiser un noeud selon une valeur.
 - **Parcours** : visiter les noeuds selon un ordre défini (préfixe, infixe, suffixe).
 
-![Illustration d'un arbre](https://upload.wikimedia.org/wikipedia/commons/f/f7/Binary_tree.svg)
-
 ---
 
 ## Types d'arbres

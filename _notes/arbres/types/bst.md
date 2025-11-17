@@ -70,8 +70,8 @@ class BinarySearchTree {
 
 ### Insertion (ajout)
 La complexité moyenne pour l'insertion est **O(log n)** si l'arbre est équilibré, mais peut atteindre **O(n)** dans le pire cas (arbre dégénéré).
-<details>
-<summary>Insertion dans un BST</summary>
+<details markdown="1">
+<summary markdown="span">Insertion dans un BST</summary>
 
 ```java
 public Node insert(Node root, int value) {
@@ -91,8 +91,8 @@ public Node insert(Node root, int value) {
 
 ### Suppression
 La suppression a une complexité moyenne de **O(log n)**, mais peut être **O(n)** si l'arbre est très déséquilibré. Elle nécessite parfois un rééquilibrage.
-<details>
-<summary>Suppression dans un BST</summary>
+<details markdown="1">
+<summary markdown="span">Suppression dans un BST</summary>
 
 ```java
 public Node delete(Node root, int value) {
@@ -143,8 +143,8 @@ private Node findMin(Node node) {
 
 ### Recherche
 La recherche dans un BST est en moyenne **O(log n)**, mais peut être **O(n)** si l'arbre est très déséquilibré.
-<details>
-<summary>Recherche dans un BST</summary>
+<details markdown="1">
+<summary markdown="span">Recherche dans un BST</summary>
 
 ```java
 public boolean search(Node root, int value) {
@@ -177,8 +177,8 @@ Le parcours (infixe, préfixe, suffixe) visite tous les noeuds, donc la complexi
 | Préfixe     | Racine → Gauche → Droite | Reconstruction, sérialisation      |
 | Suffixe     | Gauche → Droite → Racine | Suppression, libération mémoire    |
 
-<details>
-<summary>Parcours infixe</summary>
+<details markdown="1">
+<summary markdown="span">Parcours infixe</summary>
 
 Le parcours **infixe** (*in-order*) parcourt l'arbre dans son ordre naturel. Il visite dans l'ordre le sous-arbre de gauche, la racine, puis le sous-arbre de droite (ou l'inverse si on veut un ordre décroissant). Il récupère et affiche donc les valeurs triées en ordre croissant (gauche, racine, droite) ou décroissant (droite, racine, gauche).
 ```java
@@ -192,8 +192,8 @@ public void inorder(Node root) {
 ```
 </details>
 
-<details>
-<summary>Parcours préfixe</summary>
+<details markdown="1">
+<summary markdown="span">Parcours préfixe</summary>
 
 Le parcours **préfixe** récupère d'abord la racine, puis visite le sous-arbre de gauche et celui de droite. Ce type de parcours est généralement utile pour afficher l'arbre sous forme de texte ou le reconstruire à partir de sa forme sérialisée : on construit tous les noeuds de haut en bas.
 ```java
@@ -206,8 +206,8 @@ public void preorder(Node root) {
 }
 ```
 </details>
-<details>
-<summary>Parcours suffixe</summary>
+<details markdown="1">
+<summary markdown="span">Parcours suffixe</summary>
 
 Le parcours **suffixe** récupère d'abord le sous-arbre de gauche, puis le sous-arbre de droite, et finalement la racine. Ce type de parcours est généralement utile pour des opérations de suppression de sous-arbres complets où l'on veut supprimer les feuilles avant les noeuds, en remontant ainsi jusqu'à la racine.
 ```java
