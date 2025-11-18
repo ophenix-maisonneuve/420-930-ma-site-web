@@ -32,6 +32,7 @@ published: true
    1. Suppression
       1. Explications et cas spécifiques
       1. [Exercice](../exercices/table-hachage) question 4
+1. Temps pour avancer le travail pratique 1
 
 ### Exercice(s) complémentaire(s)
 - [Exercice](../exercices/table-hachage) question 5

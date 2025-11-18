@@ -23,8 +23,7 @@ Dans cette page, nous illustrons une implémentation pédagogique basée sur le 
 - **Redimensionnement ×2** quand `taille / capacité > 0,75`
 - **Clé `null` interdite**, **valeur `null` autorisée**
 
-![Table de hachage avec chaînage séparé](https://en.wikipedia.org/wiki/Hash_table#/media/File:Hash_table_5_0_1_1_1_1_0_LL.svg)
-*Image tirée de Wikipedia*
+![Table de hachage avec chaînage séparé](../assets/images/hash-table-chainage-simple.png)
 
 
 > **Complexités (moyenne)** : `put/get/remove` en **`O(1)` amorti**  
