@@ -9,7 +9,7 @@ published: true
 # Tables de hachage
 Une **table de hachage** est une **table associative** qui utilise une **fonction de hachage** pour transformer les **clés** en index. Lorsqu'une collision survient (deux clés produisent le même index), plusieurs stratégies sont possibles :
 
-- **Chaînage séparé** : chaque case (*bucket*) contient une liste chaînée des paire clé-valeur qui partagent le même index
+- **Chaînage séparé** : chaque case (*bucket*) contient une liste chaînée des paires clé-valeur qui partagent le même index
 - **Sondage linéaire** : on cherche la prochaine case (*bucket*) libre dans le tableau
 - **Double hachage** : on applique une seconde fonction de hachage pour calculer le pas de recherche
 - D'autres variantes existent (ex. sondage quadratique).

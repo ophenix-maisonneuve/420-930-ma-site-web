@@ -79,7 +79,7 @@ Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des éléments 
 - Quelle est la complexité grand O de la suppression dans la majorité des cas ? Dans le pire cas ?
 
 {: .astuce}
-> Pour l'implémentation, utilisez deux pointeurs `prev` / `curr` et mettez à jour le lien avec `setNext`.
+> Pour l'implémentation, utilisez deux références `prev` / `curr` et mettez à jour le lien avec `setNext`.
 
 ### 5. Exercice Bonus: Redimensionnement
 - Ajoutez et implémentez la méthode `resize()`.
@@ -89,5 +89,5 @@ Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des éléments 
 ---
 
 ## Ressources
-- Diagramme de **chaînage séparé** : (https://en.wikipedia.org/wiki/Hash_table#/media/File:Hash_table_5_0_1_1_1_1_0_LL.svg)
-- Synthèse **Hash table** (définitions, complexités) : (https://en.wikipedia.org/wiki/Hash_table)
+- Diagramme de **chaînage séparé** : [Hash Table](https://en.wikipedia.org/wiki/Hash_table#/media/File:Hash_table_5_0_1_1_1_1_0_LL.svg)
+- Synthèse **Hash table** (définitions, complexités) : [Hash Table](https://en.wikipedia.org/wiki/Hash_table)
