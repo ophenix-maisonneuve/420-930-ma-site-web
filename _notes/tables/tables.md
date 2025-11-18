@@ -13,7 +13,7 @@ Une **table associative** (aussi appelée **map** ou **dictionnaire**) est une s
 - **Tables de hachage** : utilisent une fonction de hachage pour calculer un index à partir de la clé. Elles offrent des performances moyennes proches de O(1) pour l'insertion, la recherche et la suppression, mais nécessitent une **gestion des collisions** (ex. chaînage séparé, sondage linéaire, double hachage).
 - **Tables basées sur des arbres (*tree-based maps*)** : utilisent des arbres équilibrés (ex. rouge-noir) pour maintenir les clés triées, avec des opérations en O(log n). Elles ne nécessitent pas de gestion des collisions.
 
-D'autres approches existent, mais ces deux familles couvrent la majorité des cas d'utilisation. : certaines utilisent des **arbres** pour maintenir un ordre, tandis que d'autres, appelées **tables de hachage**, s'appuient sur une **fonction de hachage** pour calculer la position des clés. 
+![Illustration d'une table associative](../assets/images/associative-array.png)
 
 ## Caractéristiques principales
 - **Clés uniques** : chaque clé est associée à une seule valeur.
@@ -25,8 +25,6 @@ D'autres approches existent, mais ces deux familles couvrent la majorité des ca
 - **Recherche (get)** : récupère la valeur associée à une clé.
 - **Suppression (remove)** : supprime une paire clé-valeur.
 - **Redimensionnement (resize)** : augmente la capacité pour réduire les collisions.
-
-![Illustration d'une table associative](../assets/images/associative-array.png)
 
 
 ## Types de tables associatives
@@ -51,6 +49,7 @@ Chaque méthode présente des compromis entre vitesse, mémoire et complexité d
 ---
 
 ## Tableau comparatif
+
 | Structure            | Accès direct | Insertion rapide | Gestion des doublons |
 |----------------------|--------------|------------------|-----------------------|
 | Tableau             | Oui          | Non              | Non                   |

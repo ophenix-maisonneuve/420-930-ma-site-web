@@ -22,8 +22,9 @@ published: true
 ## Contexte
 
 On vous fournit une classe `TableHachage` où :
-- `ajouter(String cle, Object valeur)` et `toString()` sont **déjà implémentées** ;
-- `contient(String cle)`, `afficherParSeau()` et `supprimer(String cle)` sont **à implémenter** et lèvent `UnsupportedOperationException`.
+- `ajouter(String cle, Object valeur)`, `contient(String cle)`, `get(String cle)` et `toString()` sont **déjà implémentées**
+- `findEntry(String cle)` et `supprimer(String cle)` sont **à implémenter** et lèvent `UnsupportedOperationException`
+- En bonus, `resize()` est **à implémenter** lorsque le facteur de charge de la table est dépassé.
 
 ---
 
@@ -88,5 +89,5 @@ Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des éléments 
 ---
 
 ## Ressources
-- Diagramme de **chaînage séparé** : https://en.wikipedia.org/wiki/Hash_table#/media/File:Hash_table_5_0_1_1_1_1_0_LL.svg
-- Synthèse **Hash table** (définitions, complexités) : https://en.wikipedia.org/wiki/Hash_table
+- Diagramme de **chaînage séparé** : (https://en.wikipedia.org/wiki/Hash_table#/media/File:Hash_table_5_0_1_1_1_1_0_LL.svg)
+- Synthèse **Hash table** (définitions, complexités) : (https://en.wikipedia.org/wiki/Hash_table)
