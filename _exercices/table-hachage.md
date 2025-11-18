@@ -3,7 +3,7 @@ layout: default
 title: "Table de hachage"
 nav_order: 8
 has_toc: false
-published: false
+published: true
 ---
 
 # Exercice : Implémentation d’une table de hachage
@@ -62,7 +62,7 @@ Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des éléments 
 - À quoi sert l'opérateur **modulo** avec la taille de la table
 
 ### 2. Étudiez la classe `TableHachage`
-- Expliquez comment `ajouter` distingue **mise à jour** vs **insertion**.
+- Expliquez comment `ajouter` distingue **mise à jour** d'un élément existant vs **insertion** d'un nouvel élément.
 
 ### 3. Implémentez la recherche dans la table.
 - Implémentez la méthode  `findEntry(String cle)` :
@@ -81,7 +81,9 @@ Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des éléments 
 > Pour l'implémentation, utilisez deux pointeurs `prev` / `curr` et mettez à jour le lien avec `setNext`.
 
 ### 5. Exercice Bonus: Redimensionnement
-- Ajoutez `resize()` (×2 quand `size > table.length * loadFactor`) et appelez‑le dans `ajouter`.
+- Ajoutez et implémentez la méthode `resize()`.
+- Cette méthode doit **doubler** la taille du tableau et *re-hasher*.
+- Appelez cette méthode dans `ajouter` lorsque `size > table.length * loadFactor`.
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 parent: "Tables associatives"
-title: "Tables de hachage"
+title: "Table de hachage"
 nav_order: 2
 published: true
 ---
@@ -24,6 +24,7 @@ Dans cette page, nous illustrons une implémentation pédagogique basée sur le 
 - **Clé `null` interdite**, **valeur `null` autorisée**
 
 ![Table de hachage avec chaînage séparé](https://en.wikipedia.org/wiki/Hash_table#/media/File:Hash_table_5_0_1_1_1_1_0_LL.svg)
+*Image tirée de Wikipedia*
 
 
 > **Complexités (moyenne)** : `put/get/remove` en **`O(1)` amorti**  
@@ -169,15 +170,17 @@ private boolean needsResize() {
  * @return l'ancienne valeur si supprimée, sinon null.
  */
 public Object remove(String key) {
-    if (key == null) throw new NullPointerException("La clé ne peut pas être nulle");
-    int index = indexFor(key);
+    if (key == null) {
+        throw new NullPointerException("La clé ne peut pas être nulle");
+    } 
 
+    int index = indexFor(key);
     Entry prev = null;
     Entry curr = table[index];
 
     while (curr != null) {
         if (key.equals(curr.key)) {
-            // D'un coup de pointeur, on "saute" la paire clé-valeur courante
+            // On "saute" la paire clé-valeur courante, supprimant ainsi l'entrée
             if (prev == null) {
                 table[index] = curr.getNext(); // suppression en tête
             } else {

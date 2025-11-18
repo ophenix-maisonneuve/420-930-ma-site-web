@@ -3,7 +3,7 @@ layout: default
 title: "Tables associatives"
 parent: "Structures de données"
 nav_order: 3
-published: false
+published: true
 ---
 
 # Tables associatives
@@ -26,7 +26,7 @@ D'autres approches existent, mais ces deux familles couvrent la majorité des ca
 - **Suppression (remove)** : supprime une paire clé-valeur.
 - **Redimensionnement (resize)** : augmente la capacité pour réduire les collisions.
 
-![Illustration d'une table associative](https://upload.wikimedia.org/wikipedia/commons/7/7d/Hash_table_3_1_1_0_1_0_0_SP.svg)
+![Illustration d'une table associative](../assets/images/associative-array.png)
 
 
 ## Types de tables associatives
