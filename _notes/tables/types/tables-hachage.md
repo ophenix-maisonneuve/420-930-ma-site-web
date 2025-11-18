@@ -77,7 +77,7 @@ class TableHachage {
 ## Fonctions utilitaires
 
 <details markdown="1">
-<summary markdown="span">**indexFor(key) — transformer le hash en index de case (*bucket*)**</summary>
+<summary markdown="span">**indexFor(key)** — transformer le hash en index de case (*bucket*)</summary>
 
 ```java
 /** Calcule l'index de case (*bucket*) pour une clé donnée. */
@@ -90,7 +90,7 @@ private int indexFor(String key) {
 </details>
 
 <details markdown="1">
-<summary markdown="span">**findEntry(key) — retrouver le paire clé-valeur (si présent)**</summary>
+<summary markdown="span">**findEntry(key)** — retrouver le paire clé-valeur (si présent)</summary>
 
 ```java
 /** Retourne la paire clé-valeur (paire clé-valeur) associée à la clé, ou null si absente. */
@@ -115,7 +115,7 @@ private Entry findEntry(String key) {
 ## Ajout / Mise à jour
 
 <details markdown="1">
-<summary markdown="span">**put(key, value) — insérer ou mettre à jour (O(1) amorti)**</summary>
+<summary markdown="span">**put(key, value)** — insérer ou mettre à jour (O(1) amorti)</summary>
 
 ```java
 /**
@@ -162,7 +162,7 @@ private boolean needsResize() {
 ## Suppression
 
 <details markdown="1">
-<summary markdown="span">**remove(key) — retirer une paire (O(1) amorti)**</summary>
+<summary markdown="span">**remove(key)** — retirer une paire (O(1) amorti)</summary>
 
 ```java
 /**
@@ -202,7 +202,7 @@ public Object remove(String key) {
 ## Recherche par clé
 
 <details markdown="1">
-<summary markdown="span">**get(key) — retrouver la valeur (O(1) amorti)**</summary>
+<summary markdown="span">**get(key)** — retrouver la valeur (O(1) amorti)</summary>
 
 ```java
 /** Retourne la valeur associée à la clé, ou null si absente. */
@@ -229,7 +229,7 @@ public boolean containsKey(String key) {
 ## Redimensionnement
 
 <details markdown="1">
-<summary markdown="span">**resize() — doubler la capacité et re‑hacher toutes les paire clé-valeur (O(n))**</summary>
+<summary markdown="span">**resize()** — doubler la capacité et re‑hacher toutes les paire clé-valeur (O(n))</summary>
 
 ```java
 /** Double la capacité et re-hache toutes les paire clé-valeur. Coût linéaire, mais rare. */
@@ -258,7 +258,7 @@ private void resize() {
 ## Parcours
 
 <details markdown="1">
-<summary markdown="span">**toString() — parcourir toutes les paire clé-valeur pour afficher (O(n))**</summary>
+<summary markdown="span">**toString()** — parcourir toutes les paire clé-valeur pour afficher (O(n))</summary>
 
 ```java
 @Override
