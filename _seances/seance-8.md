@@ -16,7 +16,7 @@ published: true
    1. Questions de récapitulation
    1. Revue de la suppression dans l'arbre binaire de recherche
    1. Parcours préfixe et suffixe dans l'arbre binaire de recherche
-1. [Tables associatives](../notes/tables-associatives)
+1. [Tables associatives](../notes/tables)
    1. Caractéristiques générales
    1. Variantes
    1. [Table de hachage](../notes/tables-hachage)
