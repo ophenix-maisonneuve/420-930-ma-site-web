@@ -41,7 +41,7 @@ java -jar target/liste-chainee-1.0-SNAPSHOT.jar
 ```
 ou
 ```bash
-mvn exec:java
+mvn clean compile exec:java
 ```
 ou directement à partir de votre IDE.
 

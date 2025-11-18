@@ -47,7 +47,7 @@ java -jar target/table-hachage-1.0-SNAPSHOT.jar
 ```
 ou
 ```bash
-mvn exec:java
+mvn clean compile exec:java
 ```
 ou directement à partir de votre IDE.
 
@@ -89,5 +89,5 @@ Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des éléments 
 ---
 
 ## Ressources
-- Diagramme de **chaînage séparé** : [Hash Table](https://en.wikipedia.org/wiki/Hash_table#/media/File:Hash_table_5_0_1_1_1_1_0_LL.svg)
+- Diagramme de **chaînage séparé** : [Hash Table](../assets/images/hash-table-chainage-simple.png)
 - Synthèse **Hash table** (définitions, complexités) : [Hash Table](https://en.wikipedia.org/wiki/Hash_table)
