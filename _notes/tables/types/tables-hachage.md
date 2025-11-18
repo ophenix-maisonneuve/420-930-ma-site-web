@@ -76,8 +76,8 @@ class TableHachage {
 
 ## Fonctions utilitaires
 
-<details>
-<summary><strong>indexFor(key) — transformer le hash en index de case (*bucket*)</strong></summary>
+<details markdown="1">
+<summary markdown="span">**indexFor(key) — transformer le hash en index de case (*bucket*)**</summary>
 
 ```java
 /** Calcule l'index de case (*bucket*) pour une clé donnée. */
@@ -89,8 +89,8 @@ private int indexFor(String key) {
 ```
 </details>
 
-<details>
-<summary><strong>findEntry(key) — retrouver le paire clé-valeur (si présent)</strong></summary>
+<details markdown="1">
+<summary markdown="span">**findEntry(key) — retrouver le paire clé-valeur (si présent)**</summary>
 
 ```java
 /** Retourne la paire clé-valeur (paire clé-valeur) associée à la clé, ou null si absente. */
@@ -202,7 +202,7 @@ public Object remove(String key) {
 ## Recherche par clé
 
 <details markdown="1">
-<summary markdown="span">get(key) — retrouver la valeur (O(1) amorti)</summary>
+<summary markdown="span">**get(key) — retrouver la valeur (O(1) amorti)**</summary>
 
 ```java
 /** Retourne la valeur associée à la clé, ou null si absente. */
@@ -213,8 +213,8 @@ public Object get(String key) {
 ```
 </details>
 
-<details>
-<summary><strong>containsKey(key) — la clé est‑elle présente ?</strong></summary>
+<details markdown="1">
+<summary markdown="span">**containsKey(key) — la clé est‑elle présente ?**</summary>
 
 ```java
 /** Vrai si la clé est présente, même si la valeur associée est null. */
@@ -229,7 +229,7 @@ public boolean containsKey(String key) {
 ## Redimensionnement
 
 <details markdown="1">
-<summary markdown="span">resize() — doubler la capacité et re‑hacher toutes les paire clé-valeur (O(n))**</summary>
+<summary markdown="span">**resize() — doubler la capacité et re‑hacher toutes les paire clé-valeur (O(n))**</summary>
 
 ```java
 /** Double la capacité et re-hache toutes les paire clé-valeur. Coût linéaire, mais rare. */
