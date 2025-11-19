@@ -11,12 +11,15 @@ nav_order: 1
 *Source: GeeksforGeeks*
 
 ## Description
+
 `ArrayList` est une implémentation basée sur un tableau dynamique. Lorsqu'on ajoute des éléments, la capacité initiale est augmentée automatiquement (généralement doublée) lorsque le tableau est plein. Cela permet un accès direct par index grâce à la structure contiguë en mémoire, ce qui rend les opérations de lecture très rapides (O(1)). Cependant, les insertions ou suppressions au milieu nécessitent un décalage des éléments, ce qui entraîne un coût O(n).
 
 ## Fonctionnement interne
+
 En interne, `ArrayList` utilise un tableau d'objets. Lorsqu'une redimension est nécessaire, un nouveau tableau est créé et les éléments existants sont copiés, ce qui peut être coûteux en termes de performance pour des listes très grandes. Cette implémentation est idéale pour des scénarios où les accès sont fréquents et les modifications rares.
 
 ## Complexité
+
 | Opération       | Complexité |
 |-----------------|------------|
 | Accès par index | O(1) |
@@ -26,18 +29,22 @@ En interne, `ArrayList` utilise un tableau d'objets. Lorsqu'une redimension est 
 | Suppression (fin)    | O(1) amorti |
 
 ## Forces
+
 - Accès rapide.
 - Bonne performance pour ajout et suppression en fin.
 
 ## Faiblesses
+
 - Coûteux pour insertion/suppression au début ou au milieu.
 
 ## Utilitaires
+
 - `Collections.sort(list)`
 - `Collections.reverse(list)`
 - `Collections.shuffle(list)`
 
 ## Exemple de code
+
 ```java
 import java.util.*;
 

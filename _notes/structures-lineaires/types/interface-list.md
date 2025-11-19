@@ -15,6 +15,7 @@ published: true
 L'interface **List** en Java définit une collection ordonnée qui peut contenir des éléments en double. Elle étend l'interface **Collection** et fournit des méthodes pour accéder aux éléments par index, insérer, supprimer et parcourir.
 
 ## Méthodes clés
+
 - `add(E e)` : ajoute un élément.
 - `get(int index)` : récupère un élément par index.
 - `remove(int index)` : supprime un élément.
@@ -22,6 +23,7 @@ L'interface **List** en Java définit une collection ordonnée qui peut contenir
 - `contains(Object o)` : vérifie la présence.
 
 ## Complexité générale
+
 | Opération       | Complexité |
 |-----------------|------------|
 | Accès par index | O(1) pour ArrayList, O(n) pour LinkedList |
@@ -33,6 +35,7 @@ L'interface **List** en Java définit une collection ordonnée qui peut contenir
 | Suppression milieu| O(n) pour ArrayList, O(n) pour LinkedList |
 
 ## Utilitaires
+
 - `Collections.sort(list)`
 - `Collections.reverse(list)`
 - `Collections.shuffle(list)`
@@ -40,6 +43,7 @@ L'interface **List** en Java définit une collection ordonnée qui peut contenir
 - `Arrays.asList(T... a)`
 
 ### Liens vers les implémentations
+
 - [ArrayList](../notes/arraylist)
 - [LinkedList](../notes/linkedlist)
 - [CopyOnWriteArrayList](../notes/cowarraylist)

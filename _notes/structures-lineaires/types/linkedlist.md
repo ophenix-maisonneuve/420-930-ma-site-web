@@ -11,12 +11,15 @@ nav_order: 2
 *Source: GeeksforGeeks*
 
 ## Description
+
 `LinkedList` est une implémentation basée sur une liste chaînée double. Chaque élément est stocké dans un noeud qui contient une référence vers l'élément précédent et suivant. Cette structure permet des insertions et suppressions rapides en tête ou en queue (O(1)), car il suffit de mettre à jour quelques références. Cependant, l'accès par index est coûteux (O(n)), car il faut parcourir la liste depuis le début ou la fin.
 
 ## Fonctionnement interne
+
 En interne, `LinkedList` consomme plus de mémoire qu'un tableau car chaque noeud stocke deux références supplémentaires. Elle est idéale pour des scénarios où les insertions et suppressions sont fréquentes, mais les accès aléatoires rares.
 
 ## Complexité
+
 | Opération       | Complexité |
 |-----------------|------------|
 | Accès par index | O(n) |
@@ -26,15 +29,19 @@ En interne, `LinkedList` consomme plus de mémoire qu'un tableau car chaque noeu
 | Suppression milieu     | O(n) |
 
 ## Forces
-- Insertions/suppressions rapides en tête.
+
+- Insertions/suppressions rapides en tête et en queue (début et fin de liste).
 
 ## Faiblesses
+
 - Accès par index lent.
 
 ## Utilitaires
+
 - `Collections.sort(list)`
 
 ## Exemple de code
+
 ```java
 import java.util.*;
 
