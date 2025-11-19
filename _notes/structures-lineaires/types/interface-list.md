@@ -4,7 +4,7 @@ parent: "Structures linéaires"
 layout: default
 nav_order: 3
 has_toc: false
-published: true
+published: false
 ---
 
 # Interface List
