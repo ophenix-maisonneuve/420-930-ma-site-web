@@ -2,7 +2,7 @@
 layout: default
 parent: "Structures linéaires"
 title: "Liste chaînée"
-nav_order: 3
+nav_order: 2
 published: true
 ---
 

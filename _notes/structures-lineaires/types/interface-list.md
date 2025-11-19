@@ -3,7 +3,7 @@ title: "Interface List"
 parent: "Structures linéaires"
 layout: default
 nav_order: 3
-has_children: true
+has_toc: false
 published: true
 ---
 
