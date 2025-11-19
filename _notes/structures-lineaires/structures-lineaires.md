@@ -21,19 +21,21 @@ En programmation orientée objet (POO), une **structure linéaire** est une stru
 - **Recherche** : localiser un élément dans la structure.
 - **Tri** : organiser les éléments selon un ordre défini.
 
+{: .highlight}
+> En Java, les structures linéaires (sauf le tableau simple) sont représentés via l'interface `List` et ses implémentations comme `ArrayList`, `LinkedList` et `CopyOnWriteArrayList`. Voir [Interface List](../notes/interface-list) pour plus de détails.
+
 --- 
 
 ## Types de structures linéaires
 
-Une structure linéaire peut, dans sa forme la plus simple, être représentée par un tableau. Il existe aussi des versions plus dynamiques appelées listes chaînées, qui peuvent être simples (chaînées dans un seul sens) ou doublement chaînées (navigables dans les deux sens).
+Une structure linéaire peut, dans sa forme la plus simple, être représentée par un tableau. Il existe aussi des versions plus dynamiques appelées listes chaînées, qui peuvent être simples (chaînées dans un seul sens) ou doublement chaînées (navigables dans les deux sens), ainsi que d'autres implémentations.
 
-| Type de liste            | Taille dynamique | Accès direct | Insertion rapide | Suppression rapide | Complexité mémoire |
+| Type de liste            | Taille dynamique | Accès direct | Insertion rapide | Suppression rapide | Complexité mémoire | Implémentation Java |
 |--------------------------|------------------|--------------|------------------|--------------------|--------------------|
-| Tableau                  | ❌               | ✅           | ❌               | ❌                 | Faible             |
-| Liste chaînée            | ✅               | ❌           | ✅               | ✅                 | Élevée             |
+| Tableau                  | ❌               | ✅           | ❌               | ❌                 | Faible             | int[] |
+| Liste chaînée            | ✅               | ❌           | ✅               | ✅                 | Élevée             | LinkedList |
+| ArrayList                | ✅ (redimensionnement automatique) | ✅  | ❌ | ❌ | Faible | ArrayList
 
-{: .highlight}
-> D'autres types de structures linéaires seront ajoutés ici dans les prochaines semaines...
 
 ---
 

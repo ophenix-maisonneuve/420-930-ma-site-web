@@ -426,3 +426,6 @@ return false;
 ```
 
 </details>
+
+{: .highlight}
+> Java fournit déjà une implémentation de liste chaînée double qui se nomme `LinkedList` (voir plus de détails [ici](../notes/linkedlist))
