@@ -17,8 +17,7 @@ Une **table associative** (aussi appelée **map** ou **dictionnaire**) est une s
 
 ## Caractéristiques principales
 - **Clés uniques** : chaque clé est associée à une seule valeur.
-- **Accès rapide** : en moyenne O(1) pour insertion, recherche et suppression.
-- **Fonction de hachage** : détermine la position de la clé dans la table.
+- **Accès rapide** : les tables associatives sont particulièrement rapides pour la recherche d'une valeur par sa clé.
 
 ## Types d'opérations principales
 - **Insertion (put)** : ajoute ou remplace une paire clé-valeur.
