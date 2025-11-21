@@ -20,7 +20,7 @@ Vous établissez ensemble l'échéancier suivant, échelonné sur quatre semaine
 - **Semaine 1** : Créer une liste dynamique des joueurs inscrits.
 - **Semaine 2** : Mettre en place une file d’attente pour les joueurs et une pile pour l’historique des parties.
 - **Semaine 3** : Ajouter un classement des joueurs dans une arborescence pour trier selon le score.
-- **Semaine 4** : Optimiser la gestion des profils avec une recherche rapide par pseudo grâce aux tables de hachage.
+- **Semaine 4** : Permettre l'envoi de messages instantanés par pseudo grâce aux tables de hachage.
 
 Chaque semaine, vous devrez d'abord considérer l'utilisation des implémentations les plus courantes (sans *thread safety*), puis une alternative qui permettrait la concurrence en cas de besoin.
 
