@@ -168,4 +168,4 @@ if (element instanceof T) { } // Interdit
 ## Ressources externes
 Pour aller plus loin :
 - [API Java SE 25 – Documentation officielle](https://docs.oracle.com/en/java/javase/25/docs/api/index.html)
-- [Tutoriel Oracle sur les génériques](https://docs.oracle.com/javase/tutorial/java/generics/)
+- [Tutoriel sur les génériques](https://dev.java/learn/generics/)
