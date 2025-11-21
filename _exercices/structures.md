@@ -3,7 +3,7 @@ layout: default
 title: "Structures de données"
 nav_order: 9
 has_toc: false
-published: false
+published: true
 ---
 # Exercice : Structures de données
 
