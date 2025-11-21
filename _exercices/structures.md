@@ -7,7 +7,7 @@ published: true
 ---
 # Exercice : Structures de données
 
-[!Le Lobby des Braves](../assets/images/lobby-braves.png)
+![Le Lobby des Braves](../assets/images/lobby-braves.png)
 
 ## Le Lobby des Braves
 
