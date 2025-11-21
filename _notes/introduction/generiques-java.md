@@ -3,7 +3,7 @@ title: "Génériques en Java"
 parent: "Introduction à Java et ses outils"
 layout: default
 nav_order: 4
-published: false
+published: true
 ---
 
 # Les génériques en Java
