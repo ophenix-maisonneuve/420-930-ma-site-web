@@ -3,13 +3,11 @@ layout: default
 title: "Structures de données"
 nav_order: 9
 has_toc: false
-published: true
+published: false
 ---
 # Exercice : Structures de données
 
 ![Le Lobby des Braves](../assets/images/lobby-braves.png)
-
-## Le Lobby des Braves
 
 Une ancienne camarade de classe vient de lancer un nouveau jeu de rôle en ligne de type *MMORPG (Massively Multiplayer Online Role-Playing Game)*. N'ayant pas anticipé le succès fulgurant de son nouveau jeu, elle avait concentré tous ses efforts sur un prototype fonctionnel du jeu, mais avait omis toutes les fonctionnalités de lobby (*hub*) qui accompagnent normalement ce type de jeu: gestion des profils de joueurs, salle d'attente, historique des parties, classements, etc.
 
