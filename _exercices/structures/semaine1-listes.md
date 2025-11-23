@@ -69,13 +69,14 @@ Cette méthode doit supprimer un `Joueur` s'il possède le même pseudo que l'in
 
 ### 1.4. Implémentez la méthode `afficher()` dans `GestionnaireJoueursLinkedList`
 Cette méthode doit parcourir la liste dans son ordre actuel (sans faire de tri) et afficher le joueur en utilisant `System.out.println(joueur)`
+- Utilisez un `Iterator` pour itérer sur la liste et afficher les informations de chaque joueur.
 - Est-ce que les informations sur les joueurs apparaissent dans un format lisible ?
 - Modifiez le code de la classe `Joueur` pour que l'information affichée soit lisible et utilisable.
   - ***Indice:** il s'agit d'une méthode à ré-implémenter dans la classe `Joueur`*
 - Dans quel ordre les joueurs sont-ils affichés ?
 
 
-### 1.5. Implémentez la méthode `trier()` dans `GestionnaireJoueursLinkedList`
+### 1.5. Implémentez la méthode `trier(Ordre)` dans `GestionnaireJoueursLinkedList`
 - Quel algorithme de tri est utilisé lors de l'appel à `List.sort()` ?
 - Est-il possible de forcer un algorithme différent ? Pourquoi ?
 - Comment la méthode `List.sort()` est-elle capable de déterminer sur quel(s) champ(s) de la classe `Joueur` se baser pour établir l'ordre?
