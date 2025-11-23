@@ -1,14 +1,11 @@
 ---
 title: "LinkedList"
 layout: default
-parent: "Interface List"
-nav_order: 2
+parent: "List en Java"
+nav_order: 1
 ---
 
 # LinkedList
-
-![Diagramme ArrayList vs LinkedList](https://media.geeksforgeeks.org/wp-content/uploads/20220817143838/ArrayList-vs-LinkedList.png)
-*Source: GeeksforGeeks*
 
 ## Description
 
@@ -20,36 +17,36 @@ En interne, `LinkedList` consomme plus de mémoire qu'un tableau car chaque noeu
 
 ---
 
+
 ## Forces et faiblesses
 
 ### Forces
-- **Insertion et suppression rapides en tête ou en milieu** : pas de décalage des éléments comme dans `ArrayList`.
-- **Structure chaînée** : idéale pour des réorganisations fréquentes ou des listes très dynamiques.
-- **Navigation bidirectionnelle** : grâce au double chaînage (avant/arrière).
+- **Insertions et suppressions rapides en tête ou en fin** : opérations en **O(1)** sans décalage des éléments, contrairement à `ArrayList`.
+- **Structure chaînée** : adaptée aux listes très dynamiques ou aux réorganisations fréquentes.
+- **Navigation bidirectionnelle** : grâce au double chaînage, possibilité de parcourir dans les deux sens.
 
 ### Faiblesses
-- **Accès par index lent** : nécessite un parcours séquentiel (complexité O(n)).
-- **Surcharge mémoire élevée** : chaque élément stocke des références supplémentaires (précédent et suivant).
-- **Moins efficace pour parcours pur** : moins rapide que `ArrayList` pour itérations simples.
-- **Non thread-safe** : nécessite une synchronisation explicite en contexte concurrent.
+- **Accès par index coûteux** : nécessite un parcours séquentiel (**O(n)**).
+- **Moins performant pour un parcours simple** : `ArrayList` est généralement plus rapide pour l’itération pure.
+- **Non thread-safe** : nécessite une synchronisation explicite en environnement concurrent.
 
 ---
 
-## Quand l'utiliser ?
+## Quand l’utiliser ?
 
-`LinkedList` est appropriée lorsque la liste subit des **insertions et suppressions fréquentes** à des positions variées, et que l’accès direct par index n’est pas une priorité. Elle est particulièrement utile pour des **collections dynamiques** où la structure évolue souvent.
+`LinkedList` est pertinente lorsque la liste subit des **insertions et suppressions fréquentes**, surtout en tête ou en fin, et que l’accès direct par index n’est pas essentiel. Elle convient bien aux **collections dynamiques** dont la structure évolue souvent.
 
-### Cas d’utilisation propices
-
-- **Insertions fréquentes en tête ou en milieu** : lorsque la structure change régulièrement.
-- **Collections très dynamiques** : ajout et suppression d’éléments à des positions variées.
-- **Scénarios où l’accès par index est rare** : la liste est parcourue séquentiellement plutôt qu’aléatoirement.
-- **Traitement par réorganisation** : lorsque les éléments doivent être déplacés ou réordonnés sans coût élevé de décalage.
+### Cas d’utilisation recommandés
+- **Ajouts et suppressions fréquents**, majoritairement en tête ou en fin.
+- **Collections très dynamiques** : modifications régulières à des positions variées.
+- **Parcours séquentiel privilégié** : accès aléatoire rare.
+- **Réorganisations internes** : déplacements d’éléments sans coût de décalage.
 
 ---
 
-✅ **À retenir** : Pour des insertions/suppressions rapides en tête ou en milieu, `LinkedList` est adaptée. Pour des accès rapides par index et des ajouts en fin, préférez `ArrayList`.  
-**Pour les files et piles**, utilisez plutôt l’interface `Deque` avec une implémentation comme `ArrayDeque`, qui est optimisée pour ces usages.
+{: .astuce}
+> Pour des insertions/suppressions rapides en tête ou en fin, `LinkedList` est adaptée. Pour des accès rapides par index et des ajouts en fin, préférez `ArrayList`. Pour implémenter des piles ou des files, `LinkedList` peut convenir, mais l’interface **`Deque`** avec une implémentation comme **`ArrayDeque`** est généralement plus performante.
+
 
 
 ## Complexité
@@ -62,11 +59,8 @@ En interne, `LinkedList` consomme plus de mémoire qu'un tableau car chaque noeu
 | Suppression début/fin     | O(1) |
 | Suppression milieu     | O(n) |
 
-## Utilitaires
 
-- `Collections.sort(list)`
-
-## Exemple de code
+## Exemple d'utilisation
 
 ```java
 import java.util.*;
@@ -83,3 +77,6 @@ public class DemoLinkedList {
     }
 }
 ```
+
+{: .highlight}
+> Comme toutes les autres Collections, `LinkedList` fonctionne principalement avec des types génériques. Pour plus d'information sur ce sujet, consultez la page suivante: [Génériques en Java](../notes/generiques-java)

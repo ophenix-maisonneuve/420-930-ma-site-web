@@ -2,7 +2,8 @@
 title: "ArrayList"
 layout: default
 parent: "Interface List"
-nav_order: 1
+nav_order: 2
+published: false
 ---
 
 # ArrayList
@@ -86,3 +87,6 @@ public class DemoArrayList {
     }
 }
 ```
+
+{: .highlight}
+> Comme toutes les autres Collections, `ArrayList` fonctionne principalement avec des types génériques. Pour plus d'information sur ce sujet, consultez la page suivante: [Génériques en Java](../notes/generiques-java)

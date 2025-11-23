@@ -12,10 +12,8 @@ published: true
 Bienvenue au **Lobby des Braves**! Vous devez créer une application qui gère les joueurs inscrits au jeu de rôle en ligne. Cette semaine, nous allons nous concentrer sur la gestion de la liste des joueurs inscrits.
 
 ## Objectifs
-Implémenter la gestion des joueurs dans une liste en utilisant le **pattern Strategy** pour permettre de changer d'implémentation (ArrayList, LinkedList) sans modifier la logique métier.
+Implémenter la gestion des joueurs dans plusieurs types de listes différentes afin de déterminer les forces et les faiblesses de chaque implémentation.
 
-![Diagramme Liste](https://media.geeksforgeeks.org/wp-content/uploads/20230703105736/ArrayList-in-Java.png)
-_Source: GeeksforGeeks_
 
 ## Étapes préparatoires
 
@@ -40,42 +38,50 @@ mvn clean compile exec:java
 ```
 ou directement à partir de votre IDE.
 
-Familiarisez-vous avec le menu, qui vous affichera toutes les opérations que nous devrons être en mesure d'exécuter lorsque l'application sera complétée. Pour l'instant, la plupart des options lanceront une `UnsupportedOperationException` ou ne feront simplement rien. Au fur et à mesure du développement, les options commenceront à fonctionner.
+Familiarisez-vous avec le menu, qui vous affichera les opérations que nous devrons être en mesure d'exécuter lorsque l'application sera complétée. Pour l'instant, la plupart des options lanceront une `UnsupportedOperationException` ou ne feront simplement rien. Au fur et à mesure du développement, les options commenceront à fonctionner.
 
-## Étapes
-
-### 1. Analysez l'interface `GestionnaireJoueurs` et son implémentation fournie `GestionnaireJoueursListeChainee`
+### 3. Analysez l'interface `GestionnaireJoueurs` et son implémentation fournie `GestionnaireJoueursListeChainee`
 - L'implémentation `GestionnaireJoueursListeChainee` fait-elle usage des structures fournies par Java ?
    - Si oui, lesquelles ?
    - Si non, comment gère-t-elle la liste ?
 
-### 2. Créez une autre implémentation de l'interface `GestionnaireJoueurs` appelée `GestionnaireJoueursLinkedList`
-- Cette implémentation doit utiliser une `LinkedList` pour gérer la liste au lieu d'une gestion manuelle.
+{: .highlight}
+> Certaines opérations ne sont pas implémentées de manière optimale dans cette version.
 
-### 3. Implémentez la méthode `ajouter` dans `GestionnaireJoueursLinkedList`
+## Étapes
 
-### 4. Implémentez la méthode `supprimer` dans `GestionnaireJoueursLinkedList`
+### 1. LinkedList
 
-### 5. Analysez la méthode `afficher` dans `GestionnaireJoueursLinkedList`
-Cette méthode doit parcourir la liste dans son ordre actuel (sans faire de tri).
-- Quelle méthode devriez-vous ré-implémenter dans la classe `Joueur` pour rendre l'affichage plus lisible ?
-   - Implémentez cette méthode.
+### 1.1. Créez une nouvelle implémentation de l'interface `GestionnaireJoueurs` appelée `GestionnaireJoueursLinkedList`
+Cette implémentation doit utiliser une `LinkedList` pour gérer la liste au lieu d'une gestion manuelle.
+- Gardez une référence vers une nouvelle `LinkedList` comme champ dans la classe.
+- Toutes les opérations des questions suivantes manipuleront cette liste.
+
+### 1.2. Implémentez la méthode `ajouter(Joueur)` dans `GestionnaireJoueursLinkedList`
+Le joueur doit être ajouté à la fin de la liste.
+- Quel est le comportement par défaut de la méthode `add()` sur une `List` ? 
+- Si vous aviez voulu insérer ailleurs qu'à la fin, comment auriez-vous pu faire ?
+
+### 1.3. Implémentez la méthode `supprimer(Joueur)` dans `GestionnaireJoueursLinkedList`
+Cette méthode doit supprimer un `Joueur` s'il possède le même pseudo que l'instance de `Joueur` passé en paramètre.
+- Est-ce qu'un appel à `List.remove(joueur)` fonctionne ? Pourquoi ?
+- Modifiez le code de la classe `Joueur` pour que l'appel à `List.remove(joueur)` fonctionne correctement
+  - ***Indice:** il s'agit d'une méthode à ré-implémenter dans la classe `Joueur`*
+
+
+### 1.4. Implémentez la méthode `afficher()` dans `GestionnaireJoueursLinkedList`
+Cette méthode doit parcourir la liste dans son ordre actuel (sans faire de tri) et afficher le joueur en utilisant `System.out.println(joueur)`
+- Est-ce que les informations sur les joueurs apparaissent dans un format lisible ?
+- Modifiez le code de la classe `Joueur` pour que l'information affichée soit lisible et utilisable.
+  - ***Indice:** il s'agit d'une méthode à ré-implémenter dans la classe `Joueur`*
 - Dans quel ordre les joueurs sont-ils affichés ?
-- Existe-t-il une façon simple d'inverser cet ordre ?
-   - Utiliser cette façon de faire pour permettre l'affichage en ordre inverse.
 
-### 6. Implémentez la méthode `trier` dans `GestionnaireJoueursLinkedList`
+
+### 1.5. Implémentez la méthode `trier()` dans `GestionnaireJoueursLinkedList`
 - Quel algorithme de tri est utilisé lors de l'appel à `List.sort()` ?
 - Est-il possible de forcer un algorithme différent ? Pourquoi ?
 - Comment la méthode `List.sort()` est-elle capable de déterminer sur quel(s) champ(s) de la classe `Joueur` se baser pour établir l'ordre?
-
-## Bonus
-- Ajoutez une **stratégie thread-safe** avec `CopyOnWriteArrayListStrategy`.
-- Expliquez les avantages et inconvénients.
-
-## Bonus
-- Ajouter un remove avec une regex
-
-## Bonus
-- Trier dans un ordre différent avec un Comparator
+- Existe-t-il une façon simple de trier la liste en ordre décroissant plutôt qu'en ordre croissant ?
+  - ***Indice:** il suffit d'appeler une méthode sur la liste après avoir fait le tri.*
+- Utiliser cette façon de faire pour implémenter le tri en ordre inverse lorsque le paramètre `Ordre.INVERSE` est passé à la méthode `trier`
 

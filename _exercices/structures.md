@@ -3,7 +3,7 @@ layout: default
 title: "Structures de données"
 nav_order: 9
 has_toc: false
-published: false
+published: true
 ---
 # Exercice : Structures de données
 
@@ -22,7 +22,7 @@ Vous établissez ensemble l'échéancier suivant, échelonné sur quatre semaine
 - **Semaine 3** : Ajouter un classement des joueurs dans une arborescence pour trier selon le score.
 - **Semaine 4** : Permettre l'envoi de messages instantanés par pseudo grâce aux tables de hachage.
 
-Chaque semaine, vous devrez d'abord considérer l'utilisation des implémentations les plus courantes (sans *thread safety*), puis une alternative qui permettrait la concurrence en cas de besoin.
+Chaque semaine, vous devrez d'abord considérer l'utilisation des structures les plus courantes (sans *thread safety*), puis une alternative qui permettrait la concurrence en cas de besoin. Vous devrez évaluer les forces et les faiblesses de chaque variante des structures afin de déterminer celle qui convient le mieux aux besoins.
 
 ## Objectifs
 
