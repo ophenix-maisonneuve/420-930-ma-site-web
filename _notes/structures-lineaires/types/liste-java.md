@@ -36,17 +36,17 @@ Une **List** est idéale lorsque l’ordre des éléments est important ou lorsq
 
 | **Méthode** | **Description** |
 |-------------|------------------|
-| [add(E e)](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html)) | Ajoute un élément à la fin de la liste. |
-| [add(int index, E element)](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html#add(int,Ee un élément à la position spécifiée (décale les éléments suivants). |
-| [set(int index, E element)](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html)) | Remplace l’élément à l’index donné par un nouvel élément. |
-| [remove(int index)](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html)) | Supprime l’élément à la position spécifiée. |
-| [remove(Object o)](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html#remove(java.langpremière occurrence de l’objet spécifié (si présent). |
-| [clear()](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html)) | Supprime tous les éléments de la liste. |
-| [get(int index)](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html#get(intourne l’élément à la position spécifiée. |
-| [contains(Object o)](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html#contains(javai la liste contient l’objet spécifié. |
-| [indexOf(Object o)](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html#indexOf(java.langdex de la première occurrence de l’objet (ou -1 si absent). |
-| [sort(Comparator<? super E> c)](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html)) | Trie la liste selon le comparateur fourni ; si `null`, utilise l’ordre naturel. |
-| [size()](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html)) | Retourne le nombre d’éléments dans la liste. |
+| [add(E e)]() | Ajoute un élément à la fin de la liste. |
+| [add(int index, E element)]() | Ajoute un élément à la position spécifiée (décale les éléments suivants). |
+| [set(int index, E element)]() | Remplace l’élément à l’index donné par un nouvel élément. |
+| [remove(int index)]() | Supprime l’élément à la position spécifiée. |
+| [remove(Object o)]() | Supprime la première occurrence de l’objet spécifié (si présent). |
+| [clear()]() | Supprime tous les éléments de la liste. |
+| [get(int index)]() | Retourne l’élément à la position spécifiée. |
+| [contains(Object o)]() | Retourne `true` si la liste contient l’objet spécifié. |
+| [indexOf(Object o)]() | Retourne l'index de la première occurrence de l’objet (ou -1 si absent). |
+| [sort(Comparator<? super E> c)]() | Trie la liste selon le comparateur fourni ; si `null`, utilise l’ordre naturel. |
+| [size()]() | Retourne le nombre d’éléments dans la liste. |
 
 
 ### En résumé
