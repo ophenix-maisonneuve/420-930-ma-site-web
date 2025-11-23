@@ -2,7 +2,7 @@
 layout: default
 title: "2025-11-24"
 nav_order: 9
-published: true
+published: false
 ---
 
 # Séance 9 : Structures de données - Listes
