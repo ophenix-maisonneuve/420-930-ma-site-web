@@ -48,9 +48,7 @@ Familiarisez-vous avec le menu, qui vous affichera les opérations que nous devr
 {: .highlight}
 > Certaines opérations ne sont pas implémentées de manière optimale dans cette version.
 
-## Étapes
-
-### 1. LinkedList
+## 1. LinkedList
 
 ### 1.1. Créez une nouvelle implémentation de l'interface `GestionnaireJoueurs` appelée `GestionnaireJoueursLinkedList`
 Cette implémentation doit utiliser une `LinkedList` pour gérer la liste au lieu d'une gestion manuelle.
