@@ -58,6 +58,7 @@ En interne, `LinkedList` consomme plus de mémoire qu'un tableau car chaque noeu
 | Insertion milieu| O(n) |
 | Suppression début/fin     | O(1) |
 | Suppression milieu     | O(n) |
+| Recherche (toujours linéaire) | O(n) |
 
 
 ## Exemple d'utilisation
