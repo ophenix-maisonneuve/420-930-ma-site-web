@@ -22,6 +22,6 @@ published: true
    1. Pratique
 1. Méthodes principales sur une `List`
 1. Itération sur une `List`
-1. [LinkedList)(../notes/linkedlist)
+1. [LinkedList](../notes/linkedlist)
    1. Forces, faiblesses et quand l'utiliser
    1. Début de l'excercice [Le lobby des braves](../exercices/structures)
