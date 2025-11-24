@@ -54,6 +54,10 @@ Familiarisez-vous avec le menu, qui vous affichera les opérations que nous devr
 Cette implémentation doit utiliser une `LinkedList` pour gérer la liste au lieu d'une gestion manuelle.
 - Gardez une référence vers une nouvelle `LinkedList` comme champ dans la classe.
 - Toutes les opérations des questions suivantes manipuleront cette liste.
+- Changez l'initialisation du champ `Lobby.gestionnaireJoueurs` pour qu'il utilise votre nouvelle implémentation.
+```java
+private GestionnaireJoueurs gestionnaireJoueurs = new GestionnaireJoueursLinkedList();
+```
 
 ### 1.2. Implémentez la méthode `ajouter(Joueur)` dans `GestionnaireJoueursLinkedList`
 Le joueur doit être ajouté à la fin de la liste.
@@ -81,6 +85,6 @@ Cette méthode doit parcourir la liste dans son ordre actuel (sans faire de tri)
 - Est-il possible de forcer un algorithme différent ? Pourquoi ?
 - Comment la méthode `List.sort()` est-elle capable de déterminer sur quel(s) champ(s) de la classe `Joueur` se baser pour établir l'ordre?
 - Existe-t-il une façon simple de trier la liste en ordre décroissant plutôt qu'en ordre croissant ?
-  - ***Indice:** il suffit d'appeler une méthode sur la liste après avoir fait le tri.*
+  - ***Indice:** il suffit d'appeler une méthode utilitaire `Collections.<quelque chose>` après avoir fait le tri.*
 - Utiliser cette façon de faire pour implémenter le tri en ordre inverse lorsque le paramètre `Ordre.INVERSE` est passé à la méthode `trier`
 

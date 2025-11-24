@@ -4,7 +4,7 @@ parent: "Structures linéaires"
 layout: default
 nav_order: 3
 has_toc: false
-published: false
+published: true
 ---
 
 # Interface `java.util.List`
@@ -36,17 +36,18 @@ Une **List** est idéale lorsque l’ordre des éléments est important ou lorsq
 
 | **Méthode** | **Description** |
 |-------------|------------------|
-| [add(E e)]() | Ajoute un élément à la fin de la liste. |
-| [add(int index, E element)]() | Ajoute un élément à la position spécifiée (décale les éléments suivants). |
-| [set(int index, E element)]() | Remplace l’élément à l’index donné par un nouvel élément. |
-| [remove(int index)]() | Supprime l’élément à la position spécifiée. |
-| [remove(Object o)]() | Supprime la première occurrence de l’objet spécifié (si présent). |
-| [clear()]() | Supprime tous les éléments de la liste. |
-| [get(int index)]() | Retourne l’élément à la position spécifiée. |
-| [contains(Object o)]() | Retourne `true` si la liste contient l’objet spécifié. |
-| [indexOf(Object o)]() | Retourne l'index de la première occurrence de l’objet (ou -1 si absent). |
-| [sort(Comparator<? super E> c)]() | Trie la liste selon le comparateur fourni ; si `null`, utilise l’ordre naturel. |
-| [size()]() | Retourne le nombre d’éléments dans la liste. |
+| [add(E e)](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html#add(E)) | Ajoute un élément à la fin de la liste. |
+| [add(int index, E element)](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html#add(int,E)) | Ajoute un élément à la position spécifiée (décale les éléments suivants). |
+| [set(int index, E element)](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html#set(int,E)) | Remplace l’élément à l’index donné par un nouvel élément. |
+| [remove(int index)](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html#remove(int)) | Supprime l’élément à la position spécifiée. |
+| [remove(Object o)](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html#remove(int)) | Supprime la première occurrence de l’objet spécifié (si présent). |
+| [clear()](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html#clear()) | Supprime tous les éléments de la liste. |
+| [get(int index)](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html#get(int)) | Retourne l’élément à la position spécifiée. |
+| [contains(Object o)](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html#contains(java.lang.Object)) | Effectue une recherche **linéaire** et retourne `true` si l'objet recherché a été trouvé. |
+| [indexOf(Object o)](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html#indexOf(java.lang.Object)) | Effectue une recherche **linéaire** et retourne l'index de la première occurrence de l’objet (ou -1 si absent). |
+| [sort(Comparator<? super E> c)](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html#sort(java.util.Comparator)) | Trie la liste selon le comparateur fourni ; si `null`, utilise l’ordre naturel. |
+| [reversed()](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html#reversed()) | Retourne une vue inversée de la liste. Cette méthode **n'inverse pas réellement la liste sous-jacente**. |
+| [size()](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html#size()) | Retourne le nombre d’éléments dans la liste. |
 
 
 ### En résumé
@@ -54,6 +55,7 @@ Une **List** est idéale lorsque l’ordre des éléments est important ou lorsq
 - Les méthodes `add`, `remove` et `set` modifient la liste.  
 - Les méthodes `get`, `contains`, `indexOf` et `size` sont des opérations de lecture.  
 - `sort` est utile pour organiser les éléments selon un ordre spécifique.
+- `reversed` fournit une vue (*view*) inversée de la collection.
 
 {: .highlight}
 > Afin de permettre une réutilisation maximale, les Collections Java font beaucoup usage des types génériques. Pour plus d'information sur ce sujet, consultez la page suivante: [Génériques en Java](../notes/generiques-java)
@@ -61,10 +63,11 @@ Une **List** est idéale lorsque l’ordre des éléments est important ou lorsq
 
 ## Utilitaires
 
-- `Collections.sort(list)`
 - `Collections.reverse(list)`
 - `Collections.shuffle(list)`
+- `Colletctions.binarySearch(List<? extends Comparable<? super T>> list, T key)`
 - `Collections.synchronizedList(list)`
+- `Collections.unmodifiableList(list)`
 - `Arrays.asList(T... a)`
 
 ### Liens vers les implémentations
