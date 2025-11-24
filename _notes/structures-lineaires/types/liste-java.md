@@ -11,9 +11,6 @@ published: true
 
 ## Description
 
-![Java Collections Framework](https://www.baeldung.com/wp-content/uploads/2020/04/java-collections-hierarchy.png)
-*Source: Baeldung*
-
 L'interface **List** en Java représente une collection ordonnée qui permet d’accéder aux éléments par leur position (index).Elle étend l'interface **Collection**, et plus spécifiquement l'interface **SequencedCollection**. Elle fournit des méthodes pour accéder aux éléments par index, insérer, supprimer, rechercher et parcourir.
 
 ## Quand l'utiliser ?
