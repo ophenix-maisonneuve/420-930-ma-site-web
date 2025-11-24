@@ -73,7 +73,7 @@ Cette méthode doit supprimer un `Joueur` s'il possède le même pseudo que l'in
 
 ### 1.4. Implémentez la méthode `afficher()` dans `GestionnaireJoueursLinkedList`
 Cette méthode doit parcourir la liste dans son ordre actuel (sans faire de tri) et afficher le joueur en utilisant `System.out.println(joueur)`
-- Utilisez un `Iterator` pour itérer sur la liste et afficher les informations de chaque joueur.
+- Utilisez un `Iterator` (ou une boucle `for-each`) pour itérer sur la liste et afficher les informations de chaque joueur.
 - Est-ce que les informations sur les joueurs apparaissent dans un format lisible ?
 - Modifiez le code de la classe `Joueur` pour que l'information affichée soit lisible et utilisable.
   - ***Indice:** il s'agit d'une méthode à ré-implémenter dans la classe `Joueur`*
