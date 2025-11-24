@@ -6,7 +6,7 @@ nav_order: 1
 published: true
 ---
 
-# LinkedList
+# java.util.LinkedList
 
 ![Liste chaînée simple](../assets/images/doubly-linked-list.webp)
 *Image tirée de geeksforgeeks.org*
