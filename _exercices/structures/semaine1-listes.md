@@ -41,7 +41,7 @@ ou directement à partir de votre IDE.
 Familiarisez-vous avec le menu, qui vous affichera les opérations que nous devrons être en mesure d'exécuter lorsque l'application sera complétée. Pour l'instant, la plupart des options lanceront une `UnsupportedOperationException` ou ne feront simplement rien. Au fur et à mesure du développement, les options commenceront à fonctionner.
 
 ### 3. Analysez l'interface `GestionnaireJoueurs` et son implémentation fournie `GestionnaireJoueursListeChainee`
-- L'implémentation `GestionnaireJoueursListeChainee` fait-elle usage des structures fournies par Java ?
+- L'implémentation `GestionnaireJoueursListeChainee` fait-elle usage des Collections fournies par Java ?
    - Si oui, lesquelles ?
    - Si non, comment gère-t-elle la liste ?
 
