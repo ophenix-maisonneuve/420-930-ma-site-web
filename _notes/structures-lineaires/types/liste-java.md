@@ -1,5 +1,5 @@
 ---
-title: "List en Java"
+title: "java.util.List"
 parent: "Structures linéaires"
 layout: default
 nav_order: 3

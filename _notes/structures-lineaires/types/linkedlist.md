@@ -1,7 +1,7 @@
 ---
-title: "LinkedList"
+title: "java.util.LinkedList"
 layout: default
-parent: "List en Java"
+parent: "java.util.List"
 nav_order: 1
 published: true
 ---
