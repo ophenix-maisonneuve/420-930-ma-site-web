@@ -24,6 +24,7 @@ En interne, `ArrayList` utilise un tableau d'objets. Lorsqu'une redimension est 
 
 ### Forces
 - **Accès rapide par index** : temps constant en moyenne pour `get(int index)` et `set(int index)`.
+- **Ajout et suppression rapide en fin de liste** : complexité O(1) pour l'ajout et la suppression du dernier élément.
 - **Bonne performance en lecture** : idéal pour parcourir ou lire des éléments séquentiellement.
 - **Souplesse de taille** : la capacité s’ajuste automatiquement (pas besoin de taille fixe).
 - **Compatibilité avec les API Java** : largement utilisée et bien intégrée dans les bibliothèques standard.
@@ -39,6 +40,9 @@ En interne, `ArrayList` utilise un tableau d'objets. Lorsqu'une redimension est 
 ## Quand l'utiliser ?
 
 `ArrayList` est le choix privilégié lorsque la priorité est la **rapidité d’accès par index** et la **performance en lecture**, plutôt que des insertions fréquentes en milieu ou en tête de liste. Elle est particulièrement adaptée aux scénarios où la liste est principalement **consultée** ou **modifiée en fin de liste**.
+
+{: .astuce}
+> En bref, une `ArrayList` est idéale pour les cas où l'on aurait normalement utilisé un tableau, mais où l'on désire bénéficier de la souplesse et de la facilité d'utilisation d'une liste. 
 
 ### Cas d’utilisation propices
 
