@@ -12,7 +12,7 @@ published: true
 
 ## Description
 
-`ArrayList` est une implémentation basée sur un tableau dynamique. Lorsqu'on ajoute des éléments, la capacité initiale est augmentée automatiquement (généralement doublée) lorsque le tableau est plein. Cela permet un accès direct par index grâce à la structure contiguë en mémoire, ce qui rend les opérations de lecture très rapides (O(1)). Cependant, les insertions ou suppressions au milieu nécessitent un décalage des éléments, ce qui entraîne un coût O(n).
+`ArrayList` est une implémentation basée sur un tableau dynamique. Lorsqu'on ajoute des éléments, la capacité initiale est augmentée automatiquement (entre 1,5 et 2 fois en général) lorsque le tableau est plein. Cela permet un accès direct par index grâce à la structure contiguë en mémoire, ce qui rend les opérations de lecture très rapides (O(1)). Cependant, les insertions ou suppressions au milieu nécessitent un décalage des éléments, ce qui entraîne un coût O(n).
 
 ## Fonctionnement interne
 
