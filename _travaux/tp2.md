@@ -30,22 +30,23 @@ Choisissez 7 structures de données parmi les suivantes :
 - [HashMap](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/HashMap.html)
 - [ConcurrentHashMap](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html)
 
-*** Il ne s'agit pas de trouver des cas d'utilisation différents pour chaque méthode de ces structures, mais bien des cas d'utilisation pour la structure elle-même. ***
+***Il ne s'agit pas de trouver des cas d'utilisation différents pour chaque méthode de ces structures, mais bien des cas d'utilisation pour la structure elle-même.***
 
 ---
 
 ## Évaluation
 
-- Exemples et justifications (80%)
+- Exemples et justifications (12 points)
   - Pour chaque structure : 2 exemples de cas où la structure est performante et 2 exemples de cas où elle est à éviter
   - Les exemples de cas d'utilisation fournis sont réalistes
   - Les exemples sont différents et variés
   - Les exemples sont énoncés de façon claire et précise
   - Les explications du niveau de performance de la structure sont justifiées par des concepts vus en classe et une analyse rigoureuse de la structure
-- Clarté et organisation du rapport (20%)
+- Clarté et organisation du rapport (3 points)
   - Idées présentées de façon structurée
   - Constance dans l'analyse de chaque structure
   - Si des extraits de code sont fournis, ils doivent être lisibles et dans un format correct
+- **Total : 15 points (15% de la note finale)**
 
 ---
 
@@ -54,6 +55,6 @@ Choisissez 7 structures de données parmi les suivantes :
 - Un seul fichier (Word, LibreOffice, PDF ou markdown) comprenant votre analyse des 7 structures de données
 - Le travail est à remettre sur Léa (Omnivox) dans la section "Travaux - Énoncés et remises"
 - Le travail est à réaliser **individuellement**
-- Le travail est à remettre au plus tard le **24 novembre en fin de journée**.
+- Le travail est à remettre au plus tard le **19 décembre en fin de journée**.
 
 

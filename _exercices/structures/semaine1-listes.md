@@ -89,7 +89,7 @@ Cette méthode doit parcourir la liste dans son ordre actuel (sans faire de tri)
 - Utiliser cette façon de faire pour implémenter le tri en ordre inverse lorsque le paramètre `Ordre.INVERSE` est passé à la méthode `trier`
 
 
-### 2. ArrayList
+## 2. ArrayList
 
 ### 2.1. Créez une nouvelle implémentation de l'interface `GestionnaireJoueurs` appelée `GestionnaireJoueursArrayList`
 Cette implémentation doit utiliser une `ArrayList` pour gérer la liste au lieu d'une gestion manuelle.
@@ -130,7 +130,7 @@ Cette implémentation doit utiliser une implémentation de `List` qui est *threa
 Les méthodes peuvent simplement déléguer l'opération à l'implémentation de liste sous-jacente que vous aurez choisie.
 - Avez-vous quelque chose de particulier à faire pour vous assurer que votre implémentation de `GestionnaireJoueursSynchronise` se comportera correctement en situation concurrente (*multi-thread*) ?
 
-### 4. Bonus
+## 4. Bonus
 
 ### 4.1. Modifiez le critère de comparaison pour la méthode `trier(Joueur)`
 Pour l'une de vos implémentations (`GestionnaireJoueursLinkedList`, `GestionnaireJoueursArrayList`, `GestionnaireJoueursSynchronise`), utilisez la méthode `List.sort(List<T>, Comparator<T>)` pour trier la liste selon le **score** du joueur plutôt que son **pseudo**.
