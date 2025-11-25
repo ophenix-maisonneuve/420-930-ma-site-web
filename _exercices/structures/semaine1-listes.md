@@ -133,7 +133,7 @@ Les méthodes peuvent simplement déléguer l'opération à l'implémentation de
 ## 4. Bonus
 
 ### 4.1. Modifiez le critère de comparaison pour la méthode `trier(Joueur)`
-Pour l'une de vos implémentations (`GestionnaireJoueursLinkedList`, `GestionnaireJoueursArrayList`, `GestionnaireJoueursSynchronise`), utilisez la méthode `List.sort(List<T>, Comparator<T>)` pour trier la liste selon le **score** du joueur plutôt que son **pseudo**.
+Pour l'une de vos implémentations (`GestionnaireJoueursLinkedList`, `GestionnaireJoueursArrayList`, `GestionnaireJoueursSynchronise`), utilisez la méthode `List.sort(Comparator<T>)` pour trier la liste selon le **score** du joueur plutôt que son **pseudo**.
 
 {: .astuce}
 > L'interface [Comparator<T>](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Comparator.html) peut être utilisée pour modifier la façon dont les objets sont comparés, et donc triés, dans une liste. 

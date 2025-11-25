@@ -24,3 +24,7 @@ published: true
    1. [CopyOnWriteArrayList](../notes/cowarraylist)
    1. 1. [Le lobby des braves](../exercices/semaine1-listes) : Question 3 (Accès concurrent aux listes)
 1. Présentation du [travail pratique 2](../travaux/tp2)
+
+### Exercices complémentaires
+1. [Le lobby des braves](../exercices/semaine1-listes) : terminer question 3 (Accès concurrent aux listes)
+1. [Le lobby des braves](../exercices/semaine1-listes) : question 4 (Bonus) (Comparaisons avec Comparator)
