@@ -60,12 +60,21 @@ Une **List** est idéale lorsque l’ordre des éléments est important ou lorsq
 
 ## Utilitaires
 
-- `Collections.reverse(list)`
-- `Collections.shuffle(list)`
-- `Colletctions.binarySearch(List<? extends Comparable<? super T>> list, T key)`
-- `Collections.synchronizedList(list)`
-- `Collections.unmodifiableList(list)`
-- `Arrays.asList(T... a)`
+
+## Utilitaires
+
+| Méthode | Description |
+|---------|-------------|
+| `Collections.reverse(list)` | Inverse l’ordre des éléments dans la liste spécifiée. |
+| `Collections.shuffle(list)` | Mélange aléatoirement les éléments de la liste. |
+| `Collections.binarySearch(List<? extends Comparable<? super T>> list, T key)` | Effectue une recherche dichotomique dans une liste triée pour trouver la position de `key`. |
+| `Collections.synchronizedList(list)` | Retourne une vue synchronisée (thread-safe) de la liste spécifiée en utilisant un verrou global. |
+| `Collections.unmodifiableList(list)` | Retourne une vue non modifiable de la liste spécifiée (toute tentative de modification déclenche une exception). |
+| `Arrays.asList(T... a)` | Crée une liste fixe (taille immuable) à partir d’un tableau ou d’éléments passés en paramètres. |
+
+{: .highlight}
+> Il ne s'agit pas d'une liste exhaustive des méthodes utilitaires disponibles. Pour tous les détails, consultez [java.util.Collections](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Collections.html).
+
 
 ### Liens vers les implémentations
 

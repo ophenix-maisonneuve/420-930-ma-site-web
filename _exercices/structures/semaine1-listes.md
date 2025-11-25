@@ -88,3 +88,72 @@ Cette méthode doit parcourir la liste dans son ordre actuel (sans faire de tri)
   - ***Indice:** il suffit d'appeler une méthode utilitaire `Collections.<quelque chose>` après avoir fait le tri.*
 - Utiliser cette façon de faire pour implémenter le tri en ordre inverse lorsque le paramètre `Ordre.INVERSE` est passé à la méthode `trier`
 
+
+### 2. ArrayList
+
+### 2.1. Créez une nouvelle implémentation de l'interface `GestionnaireJoueurs` appelée `GestionnaireJoueursArrayList`
+Cette implémentation doit utiliser une `ArrayList` pour gérer la liste au lieu d'une gestion manuelle.
+- Gardez une référence vers une nouvelle `ArrayList` comme champ dans la classe.
+- Toutes les opérations des questions suivantes manipuleront cette liste.
+
+### 2.2. Implémentez la méthode `ajouter(Joueur)` dans `GestionnaireJoueursArrayList`
+Le joueur doit être ajouté à la fin de la liste.
+- Comment la performance de l'ajout en fin de liste se compare-t-elle à celle de `GestionnaireJoueursLinkedList` ?
+- Qu'en est-il de l'ajout en début ou en milieu de liste ?
+
+### 2.3. Implémentez la méthode `trier(Joueur)` dans `GestionnaireJoueursArrayList`
+Le tri peut simplement être délégué à la méthode `List.sort()`.
+- Comment la performance théorique du tri se compare-t-elle à celle de `GestionnaireJoueursLinkedList` ? Pourquoi ?
+
+### 2.4. Implémentez la méthode `supprimer(Joueur)` dans `GestionnaireJoueursArrayList`
+Cette méthode doit supprimer un `Joueur` s'il possède le même pseudo que l'instance de `Joueur` passé en paramètre. Plutôt que de simplement appeler `List.remove(joueur)`, essayez les étapes suivantes:
+- Utilisez `Collections.binarySearch(liste, joueur)`.
+- Est-ce que cela fonctionne ?
+  - Si oui, pourquoi ?
+  - Sinon, effectuez le changement qui permettra à la recherche de fonctionner.
+- Aurait-il été efficace d'implémenter la suppression de cette manière avec `GestionnaireJoueursLinkedList` ? Pourquoi ?
+
+### 2.5. Implémentez la méthode `afficher()` dans `GestionnaireJoueursArrayList`
+Cette méthode doit parcourir la liste dans son ordre actuel (sans faire de tri) et afficher le joueur en utilisant `System.out.println(joueur)`
+- Utilisez une boucle `for` avec un index (`for (int i = 0; i < liste.size(); i++)`) pour itérer sur la liste et afficher les informations de chaque joueur.
+- La boucle ci-haut aurait-elle été plus performante, moins performante, ou de performance égale avec `GestionnaireJoueursLinkedList` ? Pourquoi ?
+
+## 3. Concurrence (*thread-safety*)
+
+### 3.1. Créez une nouvelle implémentation de l'interface `GestionnaireJoueurs` appelée `GestionnaireJoueursSynchronise`
+Cette implémentation doit utiliser une implémentation de `List` qui est *thread-safe* pour gérer la liste de joueurs.
+- Si on suppose que les profils des joueurs seront consultés très fréquemment, mais que les ajouts et suppressions seront relativement rares, quelle option parmi les suivantes serait préférable ? Pourquoi ?
+   - `Collections.synchronizedList(List)`
+   - `CopyOnWriteArrayList`
+
+### 3.2. Implémentez les méthodes `ajouter(Joueur)`, `supprimer(Joueur)`, `afficher()` et `trier(Joueur)`
+Les méthodes peuvent simplement déléguer l'opération à l'implémentation de liste sous-jacente que vous aurez choisie.
+- Avez-vous quelque chose de particulier à faire pour vous assurer que votre implémentation de `GestionnaireJoueursSynchronise` se comportera correctement en situation concurrente (*multi-thread*) ?
+
+### 4. Bonus
+
+### 4.1. Modifiez le critère de comparaison pour la méthode `trier(Joueur)`
+Pour l'une de vos implémentations (`GestionnaireJoueursLinkedList`, `GestionnaireJoueursArrayList`, `GestionnaireJoueursSynchronise`), utilisez la méthode `List.sort(List<T>, Comparator<T>)` pour trier la liste selon le **score** du joueur plutôt que son **pseudo**.
+
+{: .astuce}
+> L'interface [Comparator<T>](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Comparator.html) peut être utilisée pour modifier la façon dont les objets sont comparés, et donc triés, dans une liste. 
+
+Exemple en Java "classique" :
+```java
+
+// Comparator comme objet (classe anonyme)
+Comparator<String> comparateur = new Comparator<String>() {
+    @Override
+    public int compare(String s1, String s2) {
+        return Integer.compare(s1.length(), s2.length());
+    }
+};
+
+Collections.sort(liste, comparateur);
+```
+
+Exemple en Java moderne (avec expressions **lambda**)
+```java
+Collections.sort(liste, (s1, s2) -> Integer.compare(s1.length(), s2.length()));
+```
+

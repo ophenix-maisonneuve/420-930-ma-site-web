@@ -1,15 +1,14 @@
 ---
-title: "ArrayList"
+title: "java.util.ArrayList"
 layout: default
-parent: "Interface List"
+parent: "java.util.List"
 nav_order: 2
-published: false
+published: true
 ---
 
-# ArrayList
+# java.util.ArrayList
 
-![Diagramme ArrayList vs LinkedList](https://media.geeksforgeeks.org/wp-content/uploads/20220817143838/ArrayList-vs-LinkedList.png)
-*Source: GeeksforGeeks*
+![Diagramme ArrayList](../assets/images/arraylist.png)
 
 ## Description
 
@@ -64,12 +63,6 @@ En interne, `ArrayList` utilise un tableau d'objets. Lorsqu'une redimension est 
 | Suppression début/milieu    | O(n) |
 | Suppression fin    | O(1) amorti |
 
-## Utilitaires
-
-- `Collections.sort(list)`
-- `Collections.reverse(list)`
-- `Collections.shuffle(list)`
-
 ## Exemple de code
 
 ```java
@@ -87,6 +80,10 @@ public class DemoArrayList {
     }
 }
 ```
+
+## Voir aussi
+
+- [java.util.ArrayList](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ArrayList.html)
 
 {: .highlight}
 > Comme toutes les autres Collections, `ArrayList` fonctionne principalement avec des types génériques. Pour plus d'information sur ce sujet, consultez la page suivante: [Génériques en Java](../notes/generiques-java)
