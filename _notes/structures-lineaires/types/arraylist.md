@@ -27,7 +27,7 @@ En interne, `ArrayList` utilise un tableau d'objets. Lorsqu'une redimension est 
 - **Ajout et suppression rapide en fin de liste** : complexité O(1) pour l'ajout et la suppression du dernier élément.
 - **Bonne performance en lecture** : idéal pour parcourir ou lire des éléments séquentiellement, surtout par index.
 - **Souplesse de taille** : contrairement à un tableau standard, la capacité s’ajuste automatiquement (pas besoin de taille fixe).
-- **Adaptée à la recherche binaire** : l'accès par index permet la recherche binaire si la liste est triée.
+- **Adaptée à la recherche binaire** : l'accès rapide par index permet la recherche binaire si la liste est triée.
 
 ### Faiblesses
 - **Insertion/suppression coûteuse en milieu de liste** : nécessite un décalage des éléments (complexité O(n)).
