@@ -23,11 +23,11 @@ En interne, `ArrayList` utilise un tableau d'objets. Lorsqu'une redimension est 
 ## Forces et faiblesses
 
 ### Forces
-- **Accès rapide par index** : temps constant en moyenne pour `get(int index)` et `set(int index)`.
+- **Accès rapide par index** : temps constant O(1) en moyenne pour `get(int index)` et `set(int index)`.
 - **Ajout et suppression rapide en fin de liste** : complexité O(1) pour l'ajout et la suppression du dernier élément.
-- **Bonne performance en lecture** : idéal pour parcourir ou lire des éléments séquentiellement.
-- **Souplesse de taille** : la capacité s’ajuste automatiquement (pas besoin de taille fixe).
-- **Compatibilité avec les API Java** : largement utilisée et bien intégrée dans les bibliothèques standard.
+- **Bonne performance en lecture** : idéal pour parcourir ou lire des éléments séquentiellement, surtout par index.
+- **Souplesse de taille** : contrairement à un tableau standard, la capacité s’ajuste automatiquement (pas besoin de taille fixe).
+- **Adaptée à la recherche binaire** : l'accès par index permet la recherche binaire si la liste est triée.
 
 ### Faiblesses
 - **Insertion/suppression coûteuse en milieu de liste** : nécessite un décalage des éléments (complexité O(n)).
@@ -51,7 +51,7 @@ En interne, `ArrayList` utilise un tableau d'objets. Lorsqu'une redimension est 
 - **Ajouts en fin de liste** : opérations `add(E e)` fréquentes sans contraintes de position.
 - **Collections principalement en lecture** : peu de modifications après la construction initiale.
 - **Pré-tri et traitement ordonné** : lorsque la liste doit être triée ou manipulée avant affichage.
-- **Scénarios où la mémoire est acceptable** : lorsque la surcharge liée à la capacité n’est pas critique.
+- **Scénarios où la surcharge mémoire est acceptable** : lorsque la surcharge liée à la capacité n’est pas critique.
 
 {: .astuce}
 
