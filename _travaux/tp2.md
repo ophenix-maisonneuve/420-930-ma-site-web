@@ -34,6 +34,15 @@ Choisissez 7 structures de données parmi les suivantes :
 
 ---
 
+## Objectifs pédagogiques
+
+- Comprendre les différentes implémentations standard des principales structures de données
+- Analyser les forces et les faiblesses de chaque implémentation
+- Reconnaître les scénarios où chaque implémentation est recommandée ou à éviter
+- Mesurer de façon objective la performance des différentes structures selon le scénario
+
+---
+
 ## Évaluation
 
 - Exemples et justifications (12 points)
