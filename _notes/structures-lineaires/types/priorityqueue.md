@@ -55,4 +55,4 @@ System.out.println(pq.poll()); // 5
 ```
 
 ### À voir aussi
-[Documentation Oracle PriorityQueue](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/PriorityQueue.html)
+[Documentation Java PriorityQueue](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/PriorityQueue.html)

@@ -7,7 +7,10 @@ has_toc: false
 published: false
 ---
 
-# Classe `java.util.ArrayDeque`
+# java.util.ArrayDeque
+
+![Diagramme ArrayDeque](../assets/images/arraydeque.jpg)
+*Image tirée de baeldung.com*
 
 ## Description
 

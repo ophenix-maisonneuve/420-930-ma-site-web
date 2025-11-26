@@ -51,5 +51,5 @@ deque.add("B");
 System.out.println(deque.poll()); // A
 ```
 
-### Liens officiels
-[Documentation Oracle ConcurrentLinkedDeque](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ConcurrentLinkedDeque.html)
+### À voir aussi
+[Documentation Java ConcurrentLinkedDeque](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ConcurrentLinkedDeque.html)
