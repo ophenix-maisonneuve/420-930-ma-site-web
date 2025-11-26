@@ -75,12 +75,15 @@ import java.util.*;
 public class DemoArrayList {
     public static void main(String[] args) {
         List<String> noms = new ArrayList<>();
+        noms.add("Charlie");
         noms.add("Alice");
         noms.add("Bob");
-        noms.add("Charlie");
 
         Collections.sort(noms);
-        System.out.println("Tri naturel : " + noms);
+        System.out.println("Tri naturel : " + noms); // [Alice, Bob, Charlie]
+
+        // Si triée, une ArrayList est efficace pour une recherche binaire.
+        int index = Collections.binarySearch(noms, "Alice"); // index == 0
     }
 }
 ```
