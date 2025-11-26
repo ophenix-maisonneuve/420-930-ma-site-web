@@ -115,32 +115,8 @@ Voici une comparaison sommaire de la complexité des opérations fondamentales (
 
 ---
 
-## Ajout : Piles et files
-Les piles (LIFO) et les files (FIFO) sont également des structures linéaires. Elles s'appuient sur des tableaux ou des listes chaînées pour leur implémentation.
+## Piles et files
+Les piles (*LIFO : Last In First Out*) et les files (prioritaires ou *FIFO : First In First Out*) sont également des structures linéaires. Elles s'appuient sur des tableaux ou des listes chaînées pour leur implémentation mais, contrairement aux listes énumérées ci-haut, elles ne permettent généralement pas l'accès à tous les éléments. Elle permettent plutôt de récupérer le prochain élément à sortir de la pile ou de la file, ce qui varie selon la politique d'accès définie par l'implémentation (FIFO, LIFO, priorité).
 
 {: .highlight}
-> En Java, elles sont représentées par les interfaces `Queue` et `Deque`, avec des implémentations comme `ArrayDeque`, `PriorityQueue` et `ConcurrentLinkedDeque`.
-
-### Schéma hiérarchique des structures linéaires
-```
-Structures linéaires
-├── Tableaux (concept)
-├── Listes chaînées (concept)
-├── java.util.List
-│   ├── java.util.ArrayList
-│   ├── java.util.LinkedList
-│   └── java.util.concurrent.CopyOnWriteArrayList
-└── Piles et files
-    ├── java.util.Queue
-    ├── java.util.Deque
-    ├── java.util.ArrayDeque
-    ├── java.util.PriorityQueue
-    └── java.util.concurrent.ConcurrentLinkedDeque
-```
-
-### Liens vers les notes
-- [Queue](../notes/queue)
-- [Deque](../notes/deque)
-- [ArrayDeque](../notes/arraydeque)
-- [PriorityQueue](../notes/priorityqueue)
-- [ConcurrentLinkedDeque](../notes/concurrentlinkeddeque)
+> En Java, elles sont représentées par les interfaces `Queue` et `Deque`, avec des implémentations comme `ArrayDeque`, `PriorityQueue` et `ConcurrentLinkedDeque`. L'interface `Deque`, qui signifie *Double-Ended Queue*, permet d’ajouter et de retirer des éléments aux deux extrémités, ce qui la rend utilisable comme pile ou comme file.
