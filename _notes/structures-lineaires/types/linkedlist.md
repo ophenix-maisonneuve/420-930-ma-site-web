@@ -77,11 +77,27 @@ public class DemoLinkedList {
         noms.add("Bob");
         noms.add("Charlie");
 
+        // Avec une LinkedList, il est beaucoup plus efficace d'itérer avec un itérateur ou un for-each que par index.
+
+        // Relativement efficace - O(n)
+        for (String nom : noms) {
+            System.out.println(nom);
+        }
+
+        // Peu efficace - O(n^2), car l'accès par index demande une itération imbriquée
+        for (int i = 0; i < noms.size(); i++) {
+            System.out.println(noms.get(i));
+        }
+
         Collections.reverse(noms);
         System.out.println("Liste inversée : " + noms);
     }
 }
 ```
+
+## Voir aussi
+
+- [java.util.LinkedList](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/LinkedList.html)
 
 {: .highlight}
 > Comme toutes les autres Collections, `LinkedList` fonctionne principalement avec des types génériques. Pour plus d'information sur ce sujet, consultez la page suivante: [Génériques en Java](../notes/generiques-java)
