@@ -3,7 +3,7 @@ title: "java.util.List"
 parent: "Structures linéaires"
 layout: default
 nav_order: 3
-has_toc: false
+has_toc: true
 published: true
 ---
 
@@ -74,10 +74,3 @@ Une **List** est idéale lorsque l’ordre des éléments est important ou lorsq
 
 {: .highlight}
 > Il ne s'agit pas d'une liste exhaustive des méthodes utilitaires disponibles. Pour tous les détails, consultez [java.util.Collections](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Collections.html).
-
-
-### Liens vers les implémentations
-
-- [ArrayList](../notes/arraylist)
-- [LinkedList](../notes/linkedlist)
-- [CopyOnWriteArrayList](../notes/cowarraylist)
