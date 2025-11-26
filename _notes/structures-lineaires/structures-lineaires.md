@@ -112,3 +112,35 @@ Voici une comparaison sommaire de la complexité des opérations fondamentales (
 | Tri fusion (merge sort)         | O(n log n)         | O(n log n)          | Souvent préféré sur les listes chaînées  |
 
 </details>
+
+---
+
+## Ajout : Piles et files
+Les piles (LIFO) et les files (FIFO) sont également des structures linéaires. Elles s'appuient sur des tableaux ou des listes chaînées pour leur implémentation.
+
+{: .highlight}
+> En Java, elles sont représentées par les interfaces `Queue` et `Deque`, avec des implémentations comme `ArrayDeque`, `PriorityQueue` et `ConcurrentLinkedDeque`.
+
+### Schéma hiérarchique des structures linéaires
+```
+Structures linéaires
+├── Tableaux (concept)
+├── Listes chaînées (concept)
+├── java.util.List
+│   ├── java.util.ArrayList
+│   ├── java.util.LinkedList
+│   └── java.util.concurrent.CopyOnWriteArrayList
+└── Piles et files
+    ├── java.util.Queue
+    ├── java.util.Deque
+    ├── java.util.ArrayDeque
+    ├── java.util.PriorityQueue
+    └── java.util.concurrent.ConcurrentLinkedDeque
+```
+
+### Liens vers les notes
+- [Queue](../notes/queue)
+- [Deque](../notes/deque)
+- [ArrayDeque](../notes/arraydeque)
+- [PriorityQueue](../notes/priorityqueue)
+- [ConcurrentLinkedDeque](../notes/concurrentlinkeddeque)
