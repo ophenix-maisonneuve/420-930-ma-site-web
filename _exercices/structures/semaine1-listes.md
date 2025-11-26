@@ -107,8 +107,9 @@ Le tri peut simplement être délégué à la méthode `List.sort()`.
 
 ### 2.4. Implémentez la méthode `supprimer(Joueur)` dans `GestionnaireJoueursArrayList`
 Cette méthode doit supprimer un `Joueur` s'il possède le même pseudo que l'instance de `Joueur` passé en paramètre. Plutôt que de simplement appeler `List.remove(joueur)`, essayez les étapes suivantes:
-- Utilisez `Collections.binarySearch(liste, joueur)`.
-- Est-ce que cela fonctionne ?
+- Utilisez `Collections.binarySearch(liste, joueur)` pour récupérer l'index de l'élément à supprimer.
+- Supprimez l'élément trouvé à l'aide de `List.remove(int index)`
+- Est-ce que cela fonctionne directement ?
   - Si oui, pourquoi ?
   - Sinon, effectuez le changement qui permettra à la recherche de fonctionner.
 - Aurait-il été efficace d'implémenter la suppression de cette manière avec `GestionnaireJoueursLinkedList` ? Pourquoi ?
