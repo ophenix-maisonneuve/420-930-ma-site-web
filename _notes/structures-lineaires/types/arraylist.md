@@ -55,7 +55,7 @@ En interne, `ArrayList` utilise un tableau d'objets. Lorsqu'une redimension est 
 
 {: .astuce}
 
-> Si votre application nécessite des accès rapides et des ajouts en fin de liste, `ArrayList` est généralement le meilleur choix. Pour des insertions fréquentes en tête ou en milieu, préférez `LinkedList`.
+> Si votre application nécessite des accès rapides et des ajouts en fin de liste, `ArrayList` est généralement le meilleur choix. Pour des insertions fréquentes, surtout en tête de liste, préférez `LinkedList`.
 
 ## Complexité
 
