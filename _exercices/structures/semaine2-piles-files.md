@@ -54,18 +54,21 @@ git merge main
 - `GestionnaireParties` pour la pile des parties.
 - `GestionnaireAttente` pour les files.
 
-#### 4. Implémentez l'interface `Provider<Joueur>` dans chacune de vos implémentations de `GestionnaireJoueurs`
-Il existe plusieurs façons d'accomplir ceci, mais la plus simple est que `GestionnaireJoueurs` étende `Provider<Joueur>` comme ceci:
+#### 4. Implémentez la méthode `list()` dans chacune de vos implémentations de `GestionnaireJoueurs`
+Ceci est nécessaire afin de respecter la nouvelle interface étendue par `GestionnaireJoueurs`.
 
 ```java
 public interface GestionnaireJoueurs extends Provider<Joueur>
 ```
 
-Cela forcera ensuite l'implémentation de la méthode `list()` qui doit retourner la liste des joueurs disponibles.
+La méthode `list()` doit retourner la liste des joueurs disponibles.
 - Trouvez une façon de retourner une version **immuable** de la liste de joueurs.
 
 {: .astuce}
 > La classe utilitaire `Collections` a sûrement quelque chose d'utile pour cela...
+
+{: .highlight}
+> Il aurait été possible d'ajouter directement la méthode `list()` à l'interface `GestionnaireJoueurs`. Cependant, en l'ajoutant à une interface différente, on sépare les responsabilités. Ainsi, si on désire permettre qu'une classe récupère la liste des joueurs, sans toutefois lui permettre de faire des opérations de gestion, on pourrait lui passer un paramètre de type `Provider<Joueur>` au lieu de lui donner accès à toutes les méthodes de l'interface `GestionnaireJoueurs`.
 
 
 ---
@@ -160,7 +163,7 @@ Cette méthode doit **sortir de la file** (*dequeue*) le prochain joueur afin de
 
 
 ### 3.4 Ajoutez la gestion de l'inactivité à la méthode `prochain()` dans `GestionnaireAttenteDeque`
-Si le prochain joueur à **sortir de la file** (*dequeue*) est inactif depuis plus de 5 minutes, on doit le retourner à la fin de la file pour éviter de retarder davantage le début d'une prochaine partie. On doit procéder ainsi jusqu'à ce que l'on trouve le premier joueur qui n'est pas inactif.
+Si le prochain joueur à **sortir de la file** (*dequeue*) est inactif depuis plus de 5 minutes, on doit le retourner à la fin de la file pour éviter de retarder davantage le début d'une prochaine partie. On doit procéder ainsi jusqu'à ce que l'on trouve le premier joueur qui n'est pas inactif (utiliser le champ `Joueur.derniereActivite`)
 - Est-ce que ce nouveau critère a modifié la complexité grand O (pire cas) de la méthode `prochain()` ? Pourquoi ?
 
 ### 3.5. Implémentez la méthode `afficher` dans `GestionnaireAttenteDeque`
@@ -207,7 +210,7 @@ Cette méthode doit itérer sur la file et afficher chacun des joueurs dans l'or
 
 ### 4.6. Observez la différence entre l'ordre dans la file et l'ordre de retrait
 - À l'aide du menu principal :
-  - Ajoutez quelques joueurs
+  - Ajoutez quelques joueurs (idéalement une dizaine pour s'assurer que l'exemple soit éloquent)
   - Faites afficher la file d'attente
   - Retirez les joueurs de la file d'attente un par un
 - Comparez l'ordre d'affichage des joueurs avec l'ordre dans lequel ils ont été retirés. Qu'observez-vous ?
@@ -244,7 +247,7 @@ private final BlockingQueue<Joueur> file = new PriorityBlockingQueue<>();
 - À votre avis, pourquoi `PriorityBlockingQueue` est particulièrement adaptée pour un contexte multi-thread par rapport à `PriorityQueue` ?
 
 ### 7.2. Ajoutez un `Comparator` permettant d'accorder la priorité aux joueurs actifs
-Ce `Comparator` doit comparer le champ `inactivite` de deux joueurs afin d'accorder la priorité au joueurs ayant été inactif le moins longtemps (afin de prioriser des débuts de partie rapides).
+Ce `Comparator` doit comparer le champ `Joueur.derniereActivite` de deux joueurs afin d'accorder la priorité au joueurs ayant été inactif le moins longtemps (afin de prioriser des débuts de partie rapides).
 - Passez votre comparator au constructeur de `PriorityBlockingQueue` :
 ```java
 private final BlockingQueue<Joueur> file = new PriorityBlockingQueue<>(votreComparateur);
