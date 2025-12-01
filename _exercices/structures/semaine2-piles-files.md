@@ -121,14 +121,14 @@ Cette implémentation doit utiliser une `ConcurrentLinkedDeque` pour gérer la p
 L'implémentation sera identique à celle de `GestionnairePartiesArrayDeque`
 
 ### 2.3. Explorez les alternatives
-- Si on suppose un risque que deux administrateurs lancent une suppression simultanément, est-ce que l'utilisation de `ConcurrentLinkedDeque` offre une protection suffisante ?
+- Si on suppose un risque que deux administrateurs lancent une suppression simultanément, est-ce que l'utilisation de `ConcurrentLinkedDeque` offre une protection suffisante ? Pourquoi ?
 - Existe-t-il une méthode utilitaire dans `Collections` qui peut aider ?
   - Si oui, laquelle ?
   - Sinon, pourquoi les méthodes existantes ne le permettent pas ?
 - À quoi sert le mot-clé `synchronized` en Java ? Comment pourriez-vous l'utiliser pour ce scénario ?
 
 ### 2.4 Ajoutez la synchronisation nécessaire dans la classe `GestionnairePartiesConcurrent`
-Vous devez vous assurer que si une suppression est déjà en cours, un 2e administrateur ne peut pas supprimer de la pèle tant que la premire suppression n'est pas terminée.
+Vous devez vous assurer que si une suppression est déjà en cours, un 2e administrateur ne peut pas supprimer de la pile tant que la premire suppression n'est pas terminée.
 - Pourquoi ce mécanisme additionnnel est-il requis ici ?
 - Pourquoi `ConcurrentLinkedDeque` ne suffit pas pour garantir l’intégrité lors d’une suppression en cascade ?
 
