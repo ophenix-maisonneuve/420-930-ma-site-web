@@ -38,10 +38,11 @@ Chaque élément est encapsulé dans un noeud contenant des références vers le
     - Files de tâches dans des **serveurs applicatifs**.
 
 ## Complexité
+
 | Opération | Complexité |
 |-----------|------------|
-| insertion | O(1) |
-| suppression | O(1) |
+| addFirst / addLast | O(1) amorti |
+| removeFirst / removeLast | O(1) amorti |
 
 ## Exemple
 ```java
