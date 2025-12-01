@@ -71,7 +71,3 @@ Une **pile** est une structure linéaire où seule la manipulation de l’élém
 ### À voir aussi
 
 [Documentation Java Deque](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Deque.html)
-
-
-{: .highlight}
-> En Java, les piles et les files d'attente sont représentées principalement par l'interface `Deque`, qui signifie *Double-Ended Queue*. Elle permet d’ajouter et de retirer des éléments aux deux extrémités, ce qui la rend utilisable comme pile ou comme file. L'interface `Queue` parente de `Deque`, peut également être utilisée pour les files simples. La classe `Stack`, qui représente une pile plus primitive, existe encore dans Java. Cependant, elle est considérée comme obsolète et Oracle recommande d'utiliser `Deque` (par exemple `ArrayDeque`) pour implémenter des piles.
