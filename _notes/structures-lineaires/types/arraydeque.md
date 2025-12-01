@@ -63,5 +63,5 @@ file.add("B");
 System.out.println(file.remove()); // A
 ```
 
-### Liens officiels
-[Documentation Oracle ArrayDeque](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ArrayDeque.html)
+### À voir aussi
+[Documentation Java ArrayDeque](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ArrayDeque.html)
