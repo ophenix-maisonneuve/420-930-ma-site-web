@@ -4,7 +4,7 @@ parent: "java.util.Deque"
 layout: default
 nav_order: 2
 has_toc: false
-published: false
+published: true
 ---
 
 # Classe `java.util.ConcurrentLinkedDeque`

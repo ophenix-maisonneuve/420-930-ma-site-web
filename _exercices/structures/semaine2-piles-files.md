@@ -3,7 +3,7 @@ layout: default
 title: "Structures de données - semaine 2"
 parent: "Structures de données"
 nav_order: 2
-published: false
+published: true
 ---
 
 # Exercice : Structures de données – Piles et Files

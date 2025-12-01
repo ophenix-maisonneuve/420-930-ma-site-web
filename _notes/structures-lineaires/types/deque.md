@@ -4,7 +4,7 @@ parent: "Structures linéaires"
 layout: default
 nav_order: 4
 has_toc: true
-published: false
+published: true
 ---
 
 # Interface `java.util.Deque`
@@ -40,6 +40,9 @@ Il est possible d'utiliser `Deque` en tant que queue à deux extrémités, mais 
 
 ### Utilisation en tant que file (*queue*)
 
+Une **file** est une structure linéaire où seule la manipulation de l’élément **situé en tête** (défilement) et en **queue** (insertion) est possible. On l’appelle aussi souvent *queue* ou *FIFO (First In, First Out)* en anglais. Il existe également d'autres types de files comme la **file prioritaire**, qui ne respecte pas l'ordre d'arrivée mais modifie constamment l'ordre pour faire passer les éléments les plus prioritaires en tête de file.
+
+
 | Méthode | Description | Méthode équivalente |
 |---------|-------------| --------------------
 | add(E e) | Ajoute à la fin de la queue. | addLast(E e) |
@@ -53,6 +56,8 @@ Il est possible d'utiliser `Deque` en tant que queue à deux extrémités, mais 
 > ```
 
 ### Utilisation en tant que pile (*stack*)
+
+Une **pile** est une structure linéaire où seule la manipulation de l’élément situé au **sommet** est possible (index 0 ou *head*). On l’appelle aussi souvent *stack* ou *LIFO (Last In, First Out) en anglais*.
 
 | Méthode | Description | Méthode équivalente |
 |---------|-------------| --------------------
