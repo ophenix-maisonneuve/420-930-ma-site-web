@@ -148,27 +148,33 @@ private final Deque<Joueur> file = new LinkedList<>();
 ### 3.2 Implémentez la méthode `ajouter(Joueur joueur)` dans `GestionnaireAttenteDeque`
 Cette méthode doit ajouter un joueur dans la file d'attente selon les règles d'une file (donc à la fin).
 - Quelle méthode de l'interface `Deque` doit-on utiliser pour **mettre en file** (*enqueue*) un joueur ?
-- Quelle est la complexité grand O de cette méthode avec la structure utilisée (`LinkedList`) ?
+   - ***Indice***: consultez le tableau sur l'utilisation de la `Deque` en tant que file d'attente dans les [notes de cours](../notes/deque)
+- Quelle est la complexité grand O de votre implémentation avec la structure utilisée (`LinkedList`) ?
 - Quelle est la différence entre les méthodes `add` et `addLast` de l'interface `Deque` ?
 - Pourquoi l'instanciation suivante fonctionne aussi ?
 ```java
 private final Queue<Joueur> file = new LinkedList<>();
 ```
 - En lien avec vos réponses ci-haut, y aurait-il un avantage à utiliser l'interface `Queue` plutôt que l'interface `Deque` pour un usage strictement en tant que file ?
+  - Si oui, effectuez la modification dans votre code.
 
 ### 3.3 Implémentez la méthode `prochain()` dans `GestionnaireAttenteDeque`
 Cette méthode doit **sortir de la file** (*dequeue*) le prochain joueur afin de lui permettre de joindre une partie.
 - Quelle méthode de l'interface `Queue` doit-on utiliser pour **sortir de la file** (*dequeue*) un joueur ?
+  - ***Indice***: consultez le tableau sur l'utilisation de la `Deque` en tant que file d'attente dans les [notes de cours](../notes/deque)
 - Quelle est la complexité grand O de cette méthode avec la structure utilisée (`LinkedList`) ?
 
 
 ### 3.4 Ajoutez la gestion de l'inactivité à la méthode `prochain()` dans `GestionnaireAttenteDeque`
-Si le prochain joueur à **sortir de la file** (*dequeue*) est inactif depuis plus de 5 minutes, on doit le retourner à la fin de la file pour éviter de retarder davantage le début d'une prochaine partie. On doit procéder ainsi jusqu'à ce que l'on trouve le premier joueur qui n'est pas inactif (utiliser le champ `Joueur.derniereActivite`)
+Si le prochain joueur à **sortir de la file** (*dequeue*) est inactif depuis plus de 5 minutes, on doit le retourner à la fin de la file pour éviter de retarder davantage le début d'une prochaine partie. On doit procéder ainsi jusqu'à ce que l'on trouve le premier joueur qui n'est pas inactif depuis plus de 5 minutes. Vous pouvez utiliser le getter `Joueur.getDerniereActivite()` pour obtenir le moment de la dernière activité du joueur. Pour les fins de l'exercice, ce champ a une valeur aléatoire comprise entre 0 et 10 minutes pour un joueur donné.
+- Quelle méthode de l'interface `Queue` doit-on utiliser pour **inspecter** le prochain joueur ?
 - Est-ce que ce nouveau critère a modifié la complexité grand O (pire cas) de la méthode `prochain()` ? Pourquoi ?
 
 ### 3.5. Implémentez la méthode `afficher` dans `GestionnaireAttenteDeque`
 Cette méthode doit itérer sur la file et afficher chacun des joueurs dans l'ordre. Vous pouvez utiliser un `Iterator` ou une boucle `for-each`.
-- Quelle est la complexité grand O de cette méthode ?
+- Quelle est la complexité grand O de votre implémentation ?
+- Si, au lieu d'afficher la liste entière, on avait voulu afficher seulement le premier élément de la file, quelle méthode de l'interface `Queue` aurait-on pu utiliser ?
+- Dans ce cas, quelle aurait été la complexité grand O de la méthode `afficher` ?
 
 ### 3.6. Remplacez la `LinkedList` par une `ArrayDeque`
 Après l'implémentation, vous réalisez qu'une `ArrayDeque` aurait possiblement été légèrement plus performante qu'une `LinkedList` pour l'implémentation de `GestionnaireAttenteDeque`
