@@ -24,7 +24,7 @@ published: true
       1. Implémentations
          1. [LinkedList](../notes/linkedlist)
          1. [ArrayDeque](../notes/arraydeque)
-         1. Fonctionnement en mode file d'attente
+           1. Fonctionnement en mode file d'attente
 
 1. Files prioritaires
    1. [PriorityQueue](../notes/priorityqueue)
