@@ -77,6 +77,7 @@ Valeur:  1  3  2  7  6  4  5
   - etc.
 
 ## Complexité
+
 | Opération | Complexité |
 |-----------|------------|
 | insertion | O(log n) |
