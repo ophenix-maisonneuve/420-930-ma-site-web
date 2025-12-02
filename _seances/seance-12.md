@@ -14,16 +14,18 @@ published: true
 1. Informations générales
 1. Récapitulation
    1. [Le lobby des braves](../exercices/semaine2-piles-files) : retour sur la question 2
-1. Interfaces
-   1. Queue
-   1. [Deque](../notes/deque)
-     1. Méthodes utilisées pour une file d'attente
 1. Files FIFO (*first in first out*)
-   1. [LinkedList](../notes/linkedlist)
-   1. [ArrayDeque](../notes/arraydeque)
-     1. Fonctionnement en mode file d'attente
-     1. [Le lobby des braves](../exercices/semaine2-piles-files) : Question 3 (LinkedList et ArrayDeque en mode FIFO)
-     1. Correction en groupe de la question 3
+   1. [Le lobby des braves](../exercices/semaine2-piles-files) : Question 3 (LinkedList et ArrayDeque en mode FIFO)
+   1. Correction en groupe de la question 3
+      1. Interfaces
+         1. Queue
+         1. [Deque](../notes/deque)
+         1. Méthodes utilisées pour une file d'attente
+      1. Implémentations
+         1. [LinkedList](../notes/linkedlist)
+         1. [ArrayDeque](../notes/arraydeque)
+         1. Fonctionnement en mode file d'attente
+
 1. Files prioritaires
    1. [PriorityQueue](../notes/priorityqueue)
      1. Fonctionnement interne
