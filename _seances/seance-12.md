@@ -34,4 +34,4 @@ published: true
    1. Correction en groupe de la question 4
 
 ### Exercices complémentaires
-1. [Le lobby des braves](../exercices/semaine2-piles-files) : Question 5 (Files bloquantes et concurrentes)
+1. [Le lobby des braves](../exercices/semaine2-piles-files) : Question 5 (Bonus : Files bloquantes et concurrentes)
