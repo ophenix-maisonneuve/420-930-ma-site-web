@@ -181,7 +181,7 @@ Après l'implémentation, vous réalisez qu'une `ArrayDeque` aurait possiblement
 La file d'attente que vous avez mise en place donne de bons résultats. Cependant, certains joueurs parmi les plus anciens se disent frustrés de la situation, car il leur arrive d'attendre plus longtemps avant de pouvoir démarrer une partie. Afin de les remercier d'avoir largement contribué au succès fulgurant du jeu, vous décidez de modifier la file afin d'accorder la priorité par ancienneté plutôt qu'au premier arrivé (*first in first out*).
 
 ### 4.1. Créez une nouvelle implémentation de `GestionnaireAttente` nommée `GestionnaireAttentePrioritaire`
-Cette implémentation doit d'abord utiliser une `PriorityQueue` pour gérer la pile.
+Cette implémentation doit utiliser une `PriorityQueue` pour gérer la pile.
 - Déclarez un champ de type `Queue<Joueur>` dans la classe et instanciez-le en tant que `PriorityQueue<Joueur>`.
 ```java
 private final Queue<Joueur> file = new PriorityQueue<>();
@@ -204,7 +204,7 @@ Cette méthode doit ajouter un joueur dans la file d'attente selon les règles d
 Cette méthode doit **sortir de la file** (*dequeue*) le prochain joueur afin de lui permettre de joindre une partie.
 - Le **retrait de la file** (*dequeue*) d'un joueur est-il O(1) avec une file prioritaire ? Pourquoi ?
 
-### 4.5. Implémentez la méthode `afficher` dans `GestionnaireAttentePrioritaire`
+### 4.5. Implémentez la méthode `afficher()` dans `GestionnaireAttentePrioritaire`
 Cette méthode doit itérer sur la file et afficher chacun des joueurs dans l'ordre. Vous pouvez utiliser un `Iterator` ou une boucle `for-each`.
 - Quelle est la complexité grand O de cette méthode ?
 
@@ -218,7 +218,7 @@ Cette méthode doit itérer sur la file et afficher chacun des joueurs dans l'or
 
 ---
 
-## 5. File d'attente avec concurrence
+## 5. Bonus: File d'attente avec concurrence
 
 ### 5.1. File FIFO *thread-safe*
 - Selon vous, existe-t-il une structure que nous avons déjà étudiée qui serait aussi convenable pour une file d'attente FIFO en contexte *multi-thread*
@@ -232,44 +232,18 @@ Analysez la documentation de la classe `PriorityBlockingQueue`.
 - Cette structure pourrait-elle être utilisée à la place d'une `PriorityQueue` dans un contexte *multi-thread* ?
 - Quel est la performance de cette structure pour les opérations de **mise en file** et de **retrait de la file** ?
 
----
-
-## 7. Bonus: File d'attente prioritaire bloquante (thread-safe)
-
-Dans certains scénarios, il est nécessaire de gérer la concurrence tout en conservant la logique de priorité. Pour cela, vous allez implémenter une nouvelle version de `GestionnaireAttente` utilisant une `PriorityBlockingQueue`.
-
-### 7.1. Créez une nouvelle implémentation de `GestionnaireAttente` nommée `GestionnaireAttentePrioritaireBloquante`
-Cette implémentation doit utiliser une `PriorityBlockingQueue` pour gérer la file.
+### 5.3. Créez une nouvelle implémentation de `GestionnaireAttente` nommée `GestionnaireAttentePrioritaireConcurrent`
+Cette implémentation doit utiliser une `PriorityBlockingQueue` pour gérer la pile.
 - Déclarez un champ de type `BlockingQueue<Joueur>` dans la classe et instanciez-le en tant que `PriorityBlockingQueue<Joueur>`.
 ```java
 private final BlockingQueue<Joueur> file = new PriorityBlockingQueue<>();
 ```
-- À votre avis, pourquoi `PriorityBlockingQueue` est particulièrement adaptée pour un contexte multi-thread par rapport à `PriorityQueue` ?
+- Remarquez les nouvelles méthodes suivantes qui sont maintenant disponibles: `take()` et `put(Joueur j)`
+- Quelle est la différence entre ces méthodes et les méthodes `remove()` et `add(Joueur j)` d'une file standard ?
 
-### 7.2. Ajoutez un `Comparator` permettant d'accorder la priorité aux joueurs actifs
-Ce `Comparator` doit comparer le champ `Joueur.derniereActivite` de deux joueurs afin d'accorder la priorité au joueurs ayant été inactif le moins longtemps (afin de prioriser des débuts de partie rapides).
-- Passez votre comparator au constructeur de `PriorityBlockingQueue` :
-```java
-private final BlockingQueue<Joueur> file = new PriorityBlockingQueue<>(votreComparateur);
-```
-- Pourquoi est-il nécessaire de fournir un `Comparator` explicite dans ce cas ?
-
-### 7.3. Implémentez la méthode `ajouter(Joueur joueur)` dans `GestionnaireAttentePrioritaireBloquante`
-Cette méthode doit ajouter un joueur dans la file d'attente selon les règles d'une file prioritaire.
-- Quelle méthode utilisez-vous pour **mettre en file** (enqueue) un joueur dans une `PriorityBlockingQueue` ?
-- Quelle est la complexité grand O de cette opération ?
-
-
-### 7.4. Implémentez la méthode `prochain()` dans `GestionnaireAttentePrioritaireBloquante`
-Cette méthode doit **sortir de la file** (*dequeue*) le prochain joueur afin de lui permettre de joindre une partie.
-- Quelle méthode utilisez-vous pour **retirer** un joueur de la file de manière bloquante ?
-- Quelle est la différence entre `remove()` et `take()` dans ce contexte ?
-- Quelle est la complexité grand O de cette opération ?
-
-
-### 7.5. Analysez le comportement bloquant
-- Que se passe-t-il si la file est vide et qu'un thread appelle `take()` ?
-- Pourquoi ce comportement peut-il être utile dans un système multi-thread ?
-- Quels seraient les risques si vous utilisiez `remove()` à la place ?
+### 5.4. Implémentez les méthodes `ajouter(Joueur joueur)`, `prochain()` et `afficher()` de `GestionnaireAttentePrioritaireConcurrent`
+- L'implémentation de `afficher()` sera identique aux implémentations précédentes.
+- Comment pouvez-vous vous assurer qu'un appel à `prochain()` attendra qu'un élément soit disponible avant de retourner cet élément ?
+- Comment pouvez-vous vous assurer qu'un appel à `ajouter(Joueur j)` bloquera jusqu'à ce que la file soit accessible pour l'insertion ?
 
 
