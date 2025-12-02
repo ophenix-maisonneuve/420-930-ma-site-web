@@ -54,7 +54,7 @@ git merge main
 - `GestionnaireParties` pour la pile des parties.
 - `GestionnaireAttente` pour les files.
 
-#### 4. Implémentez la méthode `list()` dans chacune de vos implémentations de `GestionnaireJoueurs`
+### 4. Implémentez la méthode `list()` dans chacune de vos implémentations de `GestionnaireJoueurs`
 Ceci est nécessaire afin de respecter la nouvelle interface étendue par `GestionnaireJoueurs`.
 
 ```java
