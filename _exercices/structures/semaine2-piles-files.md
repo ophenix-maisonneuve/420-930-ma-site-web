@@ -166,7 +166,7 @@ Cette méthode doit **sortir de la file** (*dequeue*) le prochain joueur afin de
 
 
 ### 3.4 Ajoutez la gestion de l'inactivité à la méthode `prochain()` dans `GestionnaireAttenteDeque`
-Si le prochain joueur à **sortir de la file** (*dequeue*) est inactif depuis plus de 5 minutes, on doit le retourner à la fin de la file pour éviter de retarder davantage le début d'une prochaine partie. On doit procéder ainsi jusqu'à ce que l'on trouve le premier joueur qui n'est pas inactif depuis plus de 5 minutes. Vous pouvez utiliser le getter `Joueur.getDerniereActivite()` pour obtenir le moment de la dernière activité du joueur. Pour les fins de l'exercice, ce champ a une valeur aléatoire comprise entre 0 et 10 minutes pour un joueur donné.
+Si le prochain joueur à **sortir de la file** (*dequeue*) est inactif depuis plus de 5 minutes, on doit le retourner à la fin de la file pour éviter de retarder davantage le début d'une prochaine partie. On doit procéder ainsi jusqu'à ce que l'on trouve le premier joueur qui n'est pas inactif depuis plus de 5 minutes. Vous pouvez utiliser le getter `Joueur.getDerniereActivite()` pour obtenir le moment de la dernière activité du joueur. Pour les fins de l'exercice, ce champ a une valeur aléatoire comprise entre le moment de sa création et 10 minutes plus tôt.
 - Quelle méthode de l'interface `Queue` doit-on utiliser pour **inspecter** le prochain joueur ?
   - ***Indice***: consultez le tableau sur l'utilisation de la `Deque` en tant que file d'attente dans les [notes de cours](../notes/deque)
 - Est-ce que ce nouveau critère a modifié la complexité grand O (pire cas) de la méthode `prochain()` ? Pourquoi ?
