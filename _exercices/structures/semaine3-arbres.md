@@ -3,18 +3,18 @@ layout: default
 title: "Structures de données - semaine 3"
 parent: "Structures de données"
 nav_order: 3
-published: true
+published: false
 ---
 
-# Exercice : Structures de données – Arbres et classement des joueurs
+# Exercice : Structures de données – Arbres
 
 ## Contexte
 Bienvenue à nouveau dans **Le Lobby des Braves** ! Cette semaine, vous devez enrichir votre application en ajoutant un **classement des joueurs** basé sur leur **score**. Le classement doit être **trié automatiquement** et **sans doublons**. Pour y parvenir, vous utiliserez une structure en **arbre** : `TreeSet` (implémentation de `NavigableSet`).
 
 ## Objectifs
 Implémenter un classement des joueurs à l’aide d’un `TreeSet` et travailler avec l’API `NavigableSet` afin de :
-- Créer un **ordre naturel** (`Comparable`) pour `Joueur` : **score décroissant**, puis **pseudo croissant** (brise-égalité).
-- Écrire un **`Comparator`** personnalisé pour trier par **ancienneté d’inscription** puis **score**.
+- Modifier l'**ordre naturel** (`Comparable`) pour la classe `Joueur` : **score décroissant**, puis **pseudo croissant** (bris d'égalité).
+- Écrire un **`Comparator`** personnalisé pour trier plutôt par **score**, puis par **ancienneté d’inscription** en cas d'égalité.
 - Utiliser les opérations de **navigation** d’un `NavigableSet` (`first`, `last`, `higher`, `lower`, `subSet`, `headSet`, `tailSet`).
 - Comparer `TreeSet` et `TreeMap` lorsque de nombreux joueurs partagent le **même score**.
 
