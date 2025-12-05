@@ -3,27 +3,27 @@ layout: default
 parent: "Arbres"
 title: "Arbre rouge-noir"
 nav_order: 3
-published: true
+published: false
 ---
 
 # Arbre rouge-noir (*Red-Black Tree*)
 
 ## Structure
-Un **arbre rouge‑noir** est un arbre binaire de recherche **auto‑équilibré** qui garantit des opérations en **O(log n)** grâce au **coloriage des noeuds** (rouge/noir) et à des **rotations** qui maintiennent des invariants d’équilibre. Il respecte les règles du BST (valeurs plus petites à gauche, plus grandes à droite) et ajoute des **propriétés de couleur** pour éviter la dégénérescence.
+Un **arbre rouge‑noir** est un arbre binaire de recherche **auto‑équilibré** qui garantit des opérations en **O(log n)** grâce au **coloriage des noeuds** (rouge/noir) et à des **rotations** qui maintiennent des propriétés d’équilibre. Il respecte les règles du BST (valeurs plus petites à gauche, plus grandes à droite) et ajoute des **propriétés de couleur** pour éviter la dégénérescence.
 
 ![Illustration Red-Black Tree](../assets/images/red-black-tree.png)
 *Schéma indicatif d’un arbre rouge‑noir.*
 
 > **Doublons** : s’ils sont acceptés, il faut rester **constant** (toujours à gauche **ou** toujours à droite). Dans ces notes, les doublons sont placés dans le sous‑arbre **gauche**, comme dans la page BST.
 
-### Propriétés (invariants)
-- **P1 — Chaque noeud est rouge ou noir.**
-- **P2 — La racine est noire.**
-- **P3 — Toutes les feuilles sentinelles (`null`) sont noires.**
-- **P4 — Un noeud rouge n’a pas de parent rouge (pas deux rouges consécutifs).**
-- **P5 — Pour tout noeud, chaque chemin vers une feuille contient le même nombre de noeuds noirs (hauteur noire).**
+### Propriétés
+- **P1** : Chaque noeud est rouge ou noir.
+- **P2** : La racine est noire.
+- **P3** : Toutes les feuilles sentinelles (`null`) sont noires.
+- **P4** : Un noeud rouge n’a pas de parent rouge (pas deux rouges consécutifs).
+- **P5** : Pour tout noeud, chaque chemin vers une feuille contient le même nombre de noeuds noirs (hauteur noire).
 
-Ces invariants bornent la **hauteur** de l’arbre à ~**2·log₂(n+1)** et garantissent des **opérations logarithmiques**. (Le JDK utilise ces invariants pour `TreeMap` et certaines structures.) citeturn7search19
+Ces propriétés bornent la **hauteur** de l’arbre à ~**2·log₂(n+1)** et garantissent des **opérations logarithmiques**. (Le JDK utilise ces propriétés pour `TreeMap` et certaines structures.) citeturn7search19
 
 ```java
 /**
@@ -102,10 +102,10 @@ class RedBlackTree {
 ## Opérations principales
 
 ### Insertion
-L’insertion suit deux phases : (1) **insertion BST** classique, puis (2) **rééquilibrage** par recoloriage/rotations pour restaurer P2–P5. Les cas standard : **oncle rouge** (recoloriage) et **oncle noir** (rotations gauche/droite selon la forme). Complexité : **O(log n)**. citeturn4search1
+L’insertion suit deux phases : (1) **insertion BST** classique, puis (2) **rééquilibrage** par recoloriage/rotations pour restaurer P2–P5. Les cas standard : **oncle rouge** (recoloriage) et **oncle noir** (rotations gauche/droite selon la forme). Complexité : **O(log n)**.
 
 <details markdown="1">
-<summary markdown="span">Insertion et rééquilibrage</summary>
+<summary markdown="span">Code d'insertion et rééquilibrage</summary>
 
 ```java
 /**
@@ -162,7 +162,7 @@ private RBNode bstInsert(int value) {
 }
 
 /**
- * Rééquilibrage après insertion (fix-up) pour restaurer les invariants :
+ * Rééquilibrage après insertion (fix-up) pour restaurer les propriétés :
  * - P4 : pas de deux ROUGES consécutifs (le parent d’un noeud rouge ne peut pas
  * être rouge).
  * - P5 : même nombre de noeuds noirs sur tous les chemins (hauteur noire).
@@ -327,10 +327,10 @@ private void rotateRight(RBNode x) {
 </details>
 
 ### Suppression
-Suppression BST (feuille / un enfant / deux enfants avec **successeur**), puis **fix‑up** si un **noeud noir** est retiré pour restaurer la **hauteur noire**. La complexité reste **O(log n)** grâce aux invariants. (Organisation parallèle à la page BST.)
+Suppression BST (feuille / un enfant / deux enfants avec **successeur**), puis **fix‑up** si un **noeud noir** est retiré pour restaurer la **hauteur noire**. La complexité reste **O(log n)** grâce aux propriétés. (Organisation parallèle à la page BST.)
 
 <details markdown="1">
-<summary markdown="span">Suppression et rééquilibrage</summary>
+<summary markdown="span">Code de suppression et rééquilibrage</summary>
 
 ```java
 /**
@@ -602,7 +602,7 @@ La recherche suit le **BST** : **O(log n)**. Les parcours (**infixe**, **préfi
 
 
 {: .highlight}
-> Grâce aux invariants P1–P5, l’arbre rouge‑noir **évite la dégénérescence** des BST et garantit une **hauteur** de l’ordre de **log n**, ce que la JDK exploite dans `TreeMap`.
+> Grâce aux propriétés P1–P5, l’arbre rouge‑noir **évite la dégénérescence** des BST et garantit une **hauteur** de l’ordre de **log n**, ce que la JDK exploite dans `TreeMap`.
 
 ---
 
