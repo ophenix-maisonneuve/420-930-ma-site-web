@@ -21,6 +21,7 @@ Implémenter un classement des joueurs à l’aide d’un `TreeSet` et travaille
 ---
 
 ## Étapes préparatoires
+
 ### 1. Clonez (ou mettez à jour) le dépôt de l’exercice
 ```bash
 git clone git@github.com:ophenix-420-930-ma-24636/lobby-braves.git
@@ -28,6 +29,13 @@ git clone git@github.com:ophenix-420-930-ma-24636/lobby-braves.git
 Ou, si vous avez déjà cloné le dépôt :
 ```bash
 git pull
+```
+
+Si vous travaillez sur une autre branche:
+```bash
+git checkout <votre branche>
+git fetch
+git merge origin/main
 ```
 
 ### 2. Lancez le projet Java
@@ -41,247 +49,196 @@ mvn clean compile exec:java
 ```
 Ou directement à partir de votre IDE.
 
-### 3. Créez/inspectez l’interface `GestionnaireClassement`
-Créez une interface afin de définir les opérations indispensables au classement.
+### 3. Analysez l’interface `GestionnaireClassement`
+Cette interface définit plusieurs méthodes utiles pour les classements qu'il faudra implémenter :
 ```java
 public interface GestionnaireClassement {
     void ajouter(Joueur joueur);
     void supprimer(Joueur joueur);
-    Joueur meilleur();
-    Joueur pire();
+    //void rafraichir();
+    Set<Joueur> pires(int n);
+    Set<Joueur> meilleurs(int n);
+    Set<Joueur> trouverRivaux(Joueur joueur, int ecart);
+    Joueur trouverRival(Joueur joueur);
     void afficher();
 }
 ```
-{: .highlight}
-> Cette interface servira de **contrat** pour votre gestionnaire basé sur un arbre.
-
 ---
 
-## 1. Ordre naturel (`Comparable`) pour `Joueur`
-### 1.1. Créez/complétez la classe `Joueur` avec `Comparable<Joueur>`
-L’ordre naturel doit trier **d’abord par score décroissant**, puis **par pseudo croissant**.
-- Pourquoi la cohérence entre `compareTo` et `equals` est-elle importante dans un `TreeSet` ?
-- Que se passe-t-il si deux joueurs ont **le même score** et **le même pseudo** ?
+## 1. Interface `NavigableSet` et implémentation `TreeSet`
+Étant donné la nature hiérarchique d'un classement, vous décidez d'abord d'utiliser un `TreeSet` pour maintenir l'ordre dans le gestionnaire de classement. Cette structure utilise un arbre rouge-noir afin de s'assurer que l'arbre demeure équilibré, et garantit donc les opérations en O(log n).
 
+### 1.1. Créez une nouvelle implémentation de l'interface `GestionnaireClassement` appelée `GestionnaireJoueursTreeSet`
+Cette implémentation doit utiliser un `TreeSet` pour gérer l'arbre de classement.
+- Gardez une référence vers un nouveau `TreeSet<Joueur>` comme champ dans la classe.
+- Ne fournissez pas de `Comparator` lors de la création du `TreeSet`.
+
+### 1.2. Implémentez la méthode `ajouter(Joueur joueur)`
+Cette méthode doit ajouter le joueur à la bonne position dans le classement.
+- Quelle méthode de `TreeSet` doit être utilisée pour faire l'ajout ?
+- Pouvez-vous résumer les principales étapes effectuées par l'arbre rouge-noir sous-jacent lors de l'insertion ?
+  - ***Indice :** Vous pouvez consulter les [notes de cours](../notes/arbre-rouge-noir)
+- Quelle est la complexité grand O de l'ajout dans un `TreeSet` (donc dans un arbre rouge-noir) ? Pourquoi ?
+
+### 1.3. Implémentez la méthode `afficher()`
+Cette méthode doit afficher le classement tel qu'il est présentement stocké dans le `TreeSet`
+- Comment pouvez-vous itérer sur l'arbre ?
+- Quel est l'ordre d'itération que vous observez ?
+- Quelle interface permet aux objets de type `Joueur` d'être triés même en l'absence d'un `Comparator` ?
+- Quelle méthode de la classe `Joueur` définit l'ordre naturel de tri ?
+- Quelle est la complexité grand O de la méthode `afficher()` ? Pourquoi ?
+
+### 1.4. Modifiez l'ordre naturel de la classe `Joueur`
+L’ordre naturel doit maintenant trier **d’abord par score décroissant**, puis **par pseudo croissant** (ordre alphabétique).
+- Pourquoi l'ajout d'un deuxième critère de comparaison en plus du score (le pseudo) était-il nécessaire ?
+- Observez le changement de comportement de la méthode `afficher()` que vous avez implémentée précédemment.
+- Ce changement a-t-il modifié la complexité grand O de la méthode `afficher()` ? Pourquoi ?
+
+### 1.5. Modifiez le score d'un joueur qui est déjà présent dans le classement
+Observez ce qui se passe maintenant si on tente de modifier le score d'un joueur 
+Dans la méthode `afficher`, ajoutez le code temporaire suivant **avant** l'affichage (il sera enlevé par la suite):
 ```java
-public class Joueur implements Comparable<Joueur> {
-    private String pseudo;
-    private int score;
-    private java.time.Instant inscription;
-
-    public Joueur(String pseudo, int score, java.time.Instant inscription) {
-        this.pseudo = pseudo;
-        this.score = score;
-        this.inscription = inscription;
-    }
-
-    public String getPseudo() {
-        return this.pseudo;
-    }
-
-    public void setPseudo(String pseudo) {
-        this.pseudo = pseudo;
-    }
-
-    public int getScore() {
-        return this.score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-    public java.time.Instant getInscription() {
-        return this.inscription;
-    }
-
-    public void setInscription(java.time.Instant inscription) {
-        this.inscription = inscription;
-    }
-
-    @Override
-    public int compareTo(Joueur autre) {
-        int cmpScore = Integer.compare(autre.getScore(), this.getScore()); // décroissant
-        if (cmpScore != 0) {
-            return cmpScore;
-        }
-        return this.getPseudo().compareTo(autre.getPseudo()); // croissant
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        Joueur autre = (Joueur) obj;
-        return this.pseudo.equals(autre.pseudo);
-    }
-
-    @Override
-    public int hashCode() {
-        return java.util.Objects.hash(this.pseudo);
-    }
-
-    @Override
-    public String toString() {
-        return "Joueur{" +
-               "pseudo='" + this.pseudo + '\'' +
-               ", score=" + this.score +
-               ", inscription=" + this.inscription +
-               '}';
-    }
-}
+// remplacez ici le nom de la variable par le nom que vous avez donné à votre TreeMap
+this.classement.first().setScore(0);
 ```
-{: .astuce}
-> Si `compareTo` retourne **0**, l’élément est considéré **doublon** par le `TreeSet`.
+- Lancer à nouveau l'affichage. Qu'observez-vous ?
+- Que se passera-t-il si une classe appelante modifie le score des instances de `Joueur` qui sont traitées par `GestionnaireClassement`
+- Modifiez votre code de façon à le protéger de ce comportement
+  - *En d'autres mots, assurez-vous que les joueurs fournis à / retournés par `GestionnaireClassement` ne peuvent pas être modifiés à l'externe*
 
-### 1.2. Testez l’ajout et l’affichage
-Créez un `TreeSet<Joueur>`, ajoutez quelques joueurs et affichez-les.
-- Dans **quel ordre** les joueurs sont-ils affichés ?
-- Que se passe-t-il si vous modifiez le **score** d’un joueur **déjà présent** dans le set ?
+***N'oubliez pas d'enlever le code temporaire!***
 
----
-
-## 2. `GestionnaireClassementTreeSet`
-### 2.1. Créez la classe et stockez un `NavigableSet<Joueur>`
-La classe doit utiliser un `TreeSet`.
+### 1.6. Insérez un joueur qui est déjà présent dans le classement
+Observez ce qui se passe maintenant si l'on tente d'ajouter deux fois le même joueur (même pseudo) mais avec des scores différents.
+- Dans la méthode `ajouter(Joueur joueur)`, ajoutez du code temporaire qui effectue les opérations suivantes après l'ajout initial :
+  - Modifier le score du joueur
+  - Ajouter à nouveau le joueur dans le `TreeSet`
+- Par exemple :
 ```java
-public class GestionnaireClassementTreeSet implements GestionnaireClassement {
-    private final java.util.NavigableSet<Joueur> classement = new java.util.TreeSet<>();
+// implémentation initiale
+this.classement.add(joueur);
 
-    @Override
-    public void ajouter(Joueur joueur) {
-        this.classement.add(joueur);
-    }
-
-    @Override
-    public void supprimer(Joueur joueur) {
-        this.classement.remove(joueur);
-    }
-
-    @Override
-    public Joueur meilleur() {
-        return this.classement.first();
-    }
-
-    @Override
-    public Joueur pire() {
-        return this.classement.last();
-    }
-
-    @Override
-    public void afficher() {
-        for (Joueur j : this.classement) {
-            System.out.println(j);
-        }
-    }
-}
+// code temporaire à ajouter
+joueur.setScore(123456); // nouveau score
+this.classement.add(joueur);
 ```
-- Quelle est la **complexité grand O** de `add`, `remove` et `contains` dans un `TreeSet` ?
-- Pourquoi `first()` et `last()` sont-ils en général **O(1)** ?
+- Qu'observez-vous ? Pourquoi ?
+- Proposez une modification possible à la méthode `ajouter(Joueur)` qui permettrait d'éviter ce scénario et implémentez-la.
+- Ce changement a-t-il modifié la complexité grand O de la méthode `ajouter(Joueur)` ? Pourquoi ? 
 
-### 2.2. Ajoutez deux méthodes utilitaires
-Implémentez :
-- `topN(int n)` pour retourner les **n meilleurs**.
-- `entreScores(int minInclus, int maxInclus)` pour obtenir une **fenêtre de scores**.
+***N'oubliez pas d'enlever le code temporaire!***
 
-```java
-public java.util.Set<Joueur> topN(int n) {
-    java.util.Set<Joueur> resultat = new java.util.LinkedHashSet<>();
-    int compteur = 0;
-    for (Joueur j : this.classement) {
-        resultat.add(j);
-        compteur = compteur + 1;
-        if (compteur >= n) {
-            break;
-        }
-    }
-    return resultat;
-}
+### 1.7. Utilisez un `Comparator` plutôt que l'ordre naturel
+L'un des problèmes introduits par le changement d'ordre naturel de la classe `Joueur` et une incohérence entre une égalité logique (méthode `equals`) et la comparaison (méthode `compareTo`). Afin de demeurer cohérent, il est préférable que si `equals` entre deux instances retourne `true`, `compareTo` entre ces deux mêmes instances retourne `0`. Afin de régler ce problème:
+- Changez l'implémentation de `Joueur.compareTo(Joueur joueur)` pour qu'elle soit cohérente avec l'implémentation de `equals` (normalement, on compare `Joueur.pseudo`)
+- Ajoutez à votre `TreeSet` un `Comparator` qui trie de la façon suivante :
+  - D'abord, tri sur le score (du plus grand au plus petit)
+  - Ensuite, en cas d'égalité, donne priorité au joueur le plus ancien (champ `Joueur.inscription`)
 
-public java.util.Set<Joueur> entreScores(int minInclus, int maxInclus) {
-    Joueur borneHaute = new Joueur("__borne_haute__", maxInclus, java.time.Instant.EPOCH);
-    Joueur borneBasse = new Joueur("__borne_basse__", minInclus, java.time.Instant.EPOCH);
-    return this.classement.subSet(borneHaute, true, borneBasse, true);
-}
-```
-{: .astuce}
-> L’ordre est **décroissant** par score : la **borne haute** correspond au **score le plus élevé** et la **borne basse** au **score le plus faible**.
+### 1.8. Implémentez la méthode `supprimer(Joueur joueur)`
+Cette méthode doit supprimer un joueur du classement.
+- Quelle méthode de `TreeSet` doit être utilisée pour faire la suppression ?
+- Pouvez-vous résumer les principales étapes effectuées par l'arbre rouge-noir sous-jacent lors de la suppression ?
+  - ***Indice :** Vous pouvez consulter les [notes de cours](../notes/arbre-rouge-noir)
+- Quelle est la complexité grand O de la suppression dans un `TreeSet` (donc dans un arbre rouge-noir) ? Pourquoi ?
 
----
+### 1.9. Implémentez la méthode `trouverRival(Joueur joueur)`
+Cette méthode doit trouver le joueur ayant le score le plus rapproché du joueur passé en paramètre (soit plus haut ou plus bas).
+- Pouvez-vous implémenter cette méthode à l'aide d'un `for-each` ou d'un `Iterator` ? 
+  - Si oui, quelle serait alors la complexité grand O de votre implémentation ?
+  - Si non, pourquoi ?
+- Existe-t-il des méthodes de `TreeSet` (ou de son interface `NavigableSet`) qui peuvent être utilisées ici ?
+  - Si oui, lesquelles ?
+  - Si non, pourquoi ?
+- Implémentez la méthode de la façon la plus optimale
+  - Quelle est la complexité grand O de votre implémentation ?
 
-## 3. `Comparator` alternatif : ancienneté puis score
-### 3.1. Créez `ComparatorAnciennetePuisScore`
-Le tri doit privilégier l’**inscription la plus ancienne** en premier, puis le **score décroissant**, puis le **pseudo**.
-```java
-public class ComparatorAnciennetePuisScore implements java.util.Comparator<Joueur> {
-    @Override
-    public int compare(Joueur j1, Joueur j2) {
-        int cmpInscription = j1.getInscription().compareTo(j2.getInscription()); // plus ancien en premier
-        if (cmpInscription != 0) {
-            return cmpInscription;
-        }
-        int cmpScore = Integer.compare(j2.getScore(), j1.getScore()); // score décroissant
-        if (cmpScore != 0) {
-            return cmpScore;
-        }
-        return j1.getPseudo().compareTo(j2.getPseudo());
-    }
-}
-```
 
-### 3.2. Instanciez un `TreeSet` avec ce comparator
-```java
-java.util.NavigableSet<Joueur> classementParAnciennete = new java.util.TreeSet<>(new ComparatorAnciennetePuisScore());
-```
-- En présence d’un `Comparator`, pourquoi la notion de **doublon** dépend-elle de `compare` et non de `equals` ?
+### 1.10. Implémentez la méthode `trouverRivaux(Joueur joueur, int ecart)`
+Cette méthode doit trouver tous les joueurs se trouvant à l'intérieur de l'écart acceptable (soit au-dessus du joueur ou en-dessous).
+- Pouvez-vous implémenter cette méthode à l'aide d'un `for-each` ou d'un `Iterator` ? 
+  - Si oui, quelle serait alors la complexité grand O de votre implémentation ?
+  - Si non, pourquoi ?
+- Existe-t-il une méthode de `TreeSet` (ou de son interface `NavigableSet`) qui peut être utilisées ici ?
+  - Si oui, laquelle ?
+  - Si non, pourquoi ?
+- Implémentez la méthode de la façon la plus optimale
+  - Quelle est la complexité grand O de votre implémentation ?
 
----
+### 1.11. Implémentez les méthodes `meilleurs(int n)` et `pires(int n)`
+On veut maintenant mettre un place un *Wall of Fame* pour les meilleurs joueurs et un `*Wall of Shame* pour les pires joueurs (c'est de goût discutable, mais bon... Nous ne sommes pas les patrons!) Nous avons donc besoin de méthodes qui doivent, respectivement, retourner les n meilleurs ou pires joueurs.
+- Analysez les méthodes `headSet` et `tailSet` de `TreeSet`.
+  - Ces méthodes sont-elles utiles dans notre contexte? Pourquoi ?
+- Proposez une implémentation la plus optimale possible pour chacune des deux méthodes.
+  - Quelle est la complexité grand O de votre implémentation ?
 
-## 4. Navigation dans le classement (`NavigableSet`)
-### 4.1. Rival direct
-Pour un joueur donné, récupérez son **rival direct** au-dessus et en dessous.
-- Quelle méthode utiliser pour le joueur juste **au-dessus** ?
-- Quelle méthode utiliser pour le joueur juste **en dessous** ?
-- Quels sont les **cas limites** ?
+## 2. Interfaces `Map` / `NavigableMap` et implémentation `TreeMap`
+Votre implémentation du gestionnaire de classement fonctionne bien, mais vous regrettez de ne pas avoir de ***réelle** gestion des ex-aequo. En effet, dans votre implémentation précédente, deux joueurs ayant le même score ne partageront pas le même rang, car le comparateur doit forcément prioriser un joueur par rapport à l'autre.
 
-### 4.2. Top 5 et fenêtres
-- Extraire un **top 5** : vaut-il mieux **itérer** ou utiliser une **vue** du set (p. ex. `headSet`) ? Pourquoi ?
-- Extraire une **fenêtre de scores** (par ex. 1200–1500) avec `subSet` en conservant l’ordre **décroissant**.
+Vous décidez donc d'explorer une alternative : utiliser une implémentation table associative (`Map`) ordonnée utilisant un arbre rouge-noir en arrière-plan: `TreeMap`. Vous tentez d'évaluer si, pour votre scénario d'utilisation, cette structure pourrait mieux répondre au besoin.
 
----
+### 2.1. Créez une nouvelle implémentation de l'interface `GestionnaireClassement` appelée `GestionnaireJoueursTreeMap`
+Cette implémentation doit utiliser une `TreeMap` pour gérer le classement.
+- Gardez une référence vers un nouveau `TreeMap<Integer, Set<Joueur>>` comme champ dans la classe.
+  - La **clé** est le score du joueur
+  - La **valeur** est un ensemble d'instances de `Joueur` ayant le même score.
 
-## 5. Tests et validation
-### 5.1. Génération et vérifications
-- Générez **100 joueurs** (pseudos distincts), scores aléatoires **[800, 2000]**, inscriptions réparties sur **2 ans**.
-- Vérifiez : aucun **doublon**, ordre **décroissant** par score, **pseudo** en brise-égalité.
+### 2.2. Implémentez la méthode `ajouter(Joueur joueur)`
+Cette méthode doit ajouter le joueur à la bonne position dans le classement.
+- Quelle méthode de `TreeMap` doit être utilisée pour faire l'ajout ?
+- Quelle est la complexité grand O de l'ajout dans un `TreeMap` ?
+- Est-ce que la performance est meilleure qu'avec un `TreeSet` ? Pourquoi ?
 
-### 5.2. Mesures simples
-- Comparez le temps d’ajout dans `TreeSet` avec une approche `ArrayList` + `sort` après **chaque insertion**.
-- Discutez des résultats observés.
+### 2.3. Gérez le cas où on insère un nouveau score
+Il peut arriver qu'aucun joueur n'ait le score à insérer. Dans ces cas, il faudra d'abord créer un nouveau `Set`, puis y insérer le joueur, et ensuite ajouter le score (clé) et le nouveau `Set` (valeur).
+- Analysez les méthodes `computeIfAbsent` et `merge` de l'interface `Map`.
+- Ces méthodes peuvent-elles vous être utiles ?
+- Modifiez votre implémentation de la méthode `ajouter(Joueur joueur)` 
+- Votre modifications change-t-elle la complexité grand O de cette méthode ?
 
----
+### 2.3. Implémentez la méthode `afficher()`
+Cette méthode doit afficher le classement tel qu'il est présentement stocké dans le `TreeMap`
+- Comment pouvez-vous itérer sur la map ?
+- Quel est l'ordre d'itération que vous observez ?
+- Avez-vous besoin de modifier l'ordre naturel de `Joueur` ou d'utiliser un `Comparator` ? Pourquoi ?
+- Quelle est la complexité grand O de la méthode `afficher()` ? Pourquoi ?
 
-## 6. Bonus
-### 6.1. Deux classements simultanés
-Maintenez **deux** `TreeSet` :
-- Un par **score** (ordre naturel).
-- Un par **ancienneté** (via `ComparatorAnciennetePuisScore`).
+### 2.4. Implémentez la méthode `supprimer(Joueur joueur)`
+Cette méthode doit supprimer un joueur du classement.
+- Quelle méthode de `TreeMap` doit être utilisée pour faire la suppression ?
+- Quelle est la complexité grand O de la suppression dans un `TreeMap` ?
+- Est-ce que la performance est meilleure qu'avec un `TreeSet` ? Pourquoi ?
 
-Comment éviter la **duplication** coûteuse de données ?
+### 2.5. Implémentez la méthode `trouverRival(Joueur joueur)`
+Cette méthode doit trouver le joueur ayant le score le plus rapproché du joueur passé en paramètre (soit plus haut ou plus bas).
+- Pouvez-vous utiliser une méthode similaire à votre implémentation dans `GestionnaireClassementTreeSet` ?
+- Implémentez la méthode de la façon la plus optimale
+  - Quelle est la complexité grand O de votre implémentation ?
 
-### 6.2. Vue immuable
-Exposez le classement via `Collections.unmodifiableNavigableSet(...)`.
 
-### 6.3. Export CSV
-Exportez le **top 100** en CSV pour intégration à un tableau de bord.
+### 2.6. Implémentez la méthode `trouverRivaux(Joueur joueur, int ecart)`
+Cette méthode doit trouver tous les joueurs se trouvant à l'intérieur de l'écart acceptable (soit au-dessus du joueur ou en-dessous).
+- Pouvez-vous utiliser une méthode similaire à votre implémentation dans `GestionnaireClassementTreeSet` ?
+- Implémentez la méthode de la façon la plus optimale
+  - Quelle est la complexité grand O de votre implémentation ?
 
----
+### 2.7. Implémentez les méthodes `meilleurs(int n)` et `pires(int n)`
+Ces méthodes doivent respectivement retourner les n meilleurs ou pires joueurs.
+- Analysez les méthodes `headSet` et `tailSet` de `TreeSet`.
+  - Ces méthodes sont-elles utiles dans notre contexte? Pourquoi ?
+- Proposez une implémentation la plus optimale possible pour chacune des deux méthodes.
+  - Quelle est la complexité grand O de votre implémentation ?
 
 ## Questions de réflexion
-- Pourquoi `TreeSet` rejette-t-il certains ajouts quand `compareTo` ou `compare` retourne **0** ?
-- Que se passe-t-il si l’ordre de tri change **dynamiquement** (score mis à jour) pendant que l’élément est **déjà présent** dans le set ? Quelle procédure faut-il suivre ?
-- Dans quels cas un `TreeMap<Integer, java.util.Set<Joueur>>` est-il **plus adapté** qu’un `TreeSet<Joueur>` ?
+- Dans quel(s) cas votre implémentation `GestionnaireClassementTreeSet` serait-elle avantageuse ?
+- Dans quel(s) cas votre implémentation `GestionnaireClassementTreeMap` serait-elle avantegeuse ?
+
+## 3. Bonus : Structure d'arbre avec concurrence (*thread-safety*)
+
+### 3.1. `TreeSet` synchronisé avec un verrou
+- 
+
+### 3.2. Utilisation d'un `ConcurrentSkipListSet`
+`ConcurrentSkipListSet` est une autre implémentation de `NavigableSet`. Il n'utilise pas
+
+
