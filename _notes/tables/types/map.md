@@ -2,9 +2,9 @@
 layout: default
 parent: "Tables associatives"
 title: "java.util.Map"
-nav_order: 1
+nav_order: 2
 has_toc: true
-published: true
+published: false
 ---
 
 # Interface `java.util.Map`
