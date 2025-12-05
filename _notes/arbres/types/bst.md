@@ -2,7 +2,7 @@
 layout: default
 title: "Arbre binaire de recherche"
 parent: "Arbres"
-nav_order: 2
+nav_order: 1
 published: true
 ---
 

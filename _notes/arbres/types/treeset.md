@@ -2,8 +2,8 @@
 title: "java.util.TreeSet"
 layout: default
 parent: "Arbres"
-nav_order: 1
-published: true
+nav_order: 3
+published: false
 ---
 
 # java.util.TreeSet
@@ -36,19 +36,26 @@ published: true
 Lorsque l’**ordre** des éléments est **essentiel** (classements, index triés, fenêtres d’intervalle) et que l’on veut des **coûts logarithmiques** garantis pour les mises à jour et les recherches. Si l’ordre n’est pas requis et que l’on priorise les accès les plus rapides, préférer `HashSet`. 
 
 {: .astuce}
-> Besoin d’un **ensemble trié** avec navigation par **plages** ? → `TreeSet`. Besoin de **vitesse brute** sans ordre ? → `HashSet`.
+> Besoin d’un **ensemble trié** avec navigation par **plages** ? Utiliser un `TreeSet`.
+> Besoin de **vitesse brute** sans ordre ? Utiliser un `HashSet`.
 
 ---
 
 ## Complexité des opérations
 
-| **Opération**             | **Complexité** |
-|---------------------------|-----------------|
-| `add(E e)`               | O(log n)       |
-| `remove(Object o)`       | O(log n)       |
-| `contains(Object o)`     | O(log n)       |
-| `first()` / `last()`     | O(log n)       |
-| `iterator()` (parcours)  | O(n)           |
+
+| **Opération**                     | **Complexité** |
+|-----------------------------------|-----------------|
+| `add(E e)`                        | O(log n)       |
+| `remove(Object o)`                | O(log n)       |
+| `contains(Object o)`              | O(log n)       |
+| `first()` / `last()`              | O(log n)       |
+| `iterator()` (parcours)           | O(n)           |
+| `subSet(fromElement, toElement)`  | O(log n) pour créer le sous-ensemble, O(n) pour itérer |
+| `headSet(toElement)`              | O(log n) pour créer le sous-ensemble, O(n) pour itérer |
+| `tailSet(fromElement)`            | O(log n) pour créer le sous-ensemble, O(n) pour itérer |
+
+*Si on veut être plus précis, on pourrait dire que l'itération sur les sous-ensemble est O(k) où k représente le nombre d'éléments dans le sous-ensemble. On reste cependant dans l'ordre de grandeur O(n).*
 
 
 ---
@@ -165,7 +172,7 @@ public class DemoSubsets {
 
 ## Voir aussi
 - [java.util.TreeSet (Oracle JDK 25)](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/TreeSet.html)
-- [java.util.TreeMap (base interne)](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/TreeMap.html)
+- [java.util.TreeMap (Oracle JDK 25)](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/TreeMap.html)
 
 {: .highlight}
-> `TreeSet` s’inscrit dans la **Collections Framework** et exploite les **génériques** (`Set<E>`). Pour rappel, consultez la page suivante: [Génériques en Java](../notes/generiques-java)
+> `TreeSet` fait partie du **Collections Framework** et exploite les **génériques** (`Set<E>`). Pour rappel, consultez la page suivante: [Génériques en Java](../notes/generiques-java)
