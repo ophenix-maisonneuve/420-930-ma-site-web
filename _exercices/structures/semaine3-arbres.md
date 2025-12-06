@@ -3,7 +3,7 @@ layout: default
 title: "Structures de données - semaine 3"
 parent: "Structures de données"
 nav_order: 3
-published: true
+published: false
 ---
 
 # Exercice : Structures de données – Arbres
@@ -173,7 +173,7 @@ Cette méthode doit trouver tous les joueurs se trouvant à l'intérieur de l'é
   - Quelle est la complexité grand O de votre implémentation ?
 
 ### 1.11. Implémentez les méthodes `meilleurs(int n)` et `pires(int n)`
-On veut maintenant mettre un place un *Wall of Fame* pour les meilleurs joueurs et un `*Wall of Shame* pour les pires joueurs (c'est de goût discutable, mais bon... Nous ne sommes pas les patrons!) Nous avons donc besoin de méthodes qui doivent, respectivement, retourner les **n** meilleurs ou pires joueurs.
+On veut maintenant mettre un place un *Wall of Fame* pour les meilleurs joueurs et un *Wall of Shame* pour les pires joueurs (c'est de goût discutable, mais bon... Nous ne sommes pas les patrons!) Nous avons donc besoin de méthodes qui doivent, respectivement, retourner les **n** meilleurs ou pires joueurs.
 - Analysez les méthodes `headSet` et `tailSet` de `TreeSet`.
   - Ces méthodes sont-elles utiles dans notre contexte? Pourquoi ?
 - Proposez une implémentation la plus optimale possible pour chacune des deux méthodes.
