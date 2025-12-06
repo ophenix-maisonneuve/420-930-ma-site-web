@@ -125,6 +125,7 @@ Observez ce qui se passe maintenant si l'on tente d'ajouter deux fois le même j
   - Modifie le score du nouveau joueur
   - Ajouter le nouveau joueur dans le `TreeSet`
 - Par exemple :
+
 ```java
 // implémentation initiale
 this.classement.add(joueur);
@@ -133,6 +134,7 @@ this.classement.add(joueur);
 Joueur nouveau = new Joueur(joueur.getPseudo(), joueur.getScore() + 100);
 this.classement.add(nouveau);
 ```
+
 - Qu'observez-vous ? Pourquoi ?
   - ***Indice:** quelle méthode est utilisée pour déterminer l'égaliter dans les ensembles triés comme `TreeSet`?*
 - Proposez et implémentez une solution qui permettrait d'éviter les doublons de joueurs (deux joueurs ayant le même pseudo)
