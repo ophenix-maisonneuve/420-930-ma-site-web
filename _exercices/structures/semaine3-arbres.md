@@ -109,7 +109,7 @@ Dans la méthode `Lobby.afficherMenuClassement`, ajoutez le code temporaire suiv
 joueursDisponibles.list().getFirst().setScore(0);
 ```
 - Lancer à nouveau l'affichage. Qu'observez-vous ?
-- Que se passe-t-il lorsqu'une classe appelante modifie le score des instances de `Joueur` qui sont traitées par `GestionnaireClassement`
+- Que se passe-t-il lorsqu'une classe appelante modifie le score des instances de `Joueur` qui sont traitées par `GestionnaireClassement` ?
 - Modifiez votre code de façon à le protéger de ce comportement
   - *En d'autres mots, assurez-vous que :*
     - *soit les joueurs fournis à / retournés par `GestionnaireClassement` ne peuvent pas être modifiés à l'externe...*
@@ -135,7 +135,7 @@ this.classement.add(nouveau);
 ```
 
 - Qu'observez-vous ? Pourquoi ?
-  - ***Indice:** quelle méthode est utilisée pour déterminer l'égaliter dans les ensembles triés comme `TreeSet`?*
+  - ***Indice:** quelle méthode est utilisée pour déterminer l'égalité dans les ensembles triés comme `TreeSet`?*
 - Proposez et implémentez une solution qui permettrait d'éviter les doublons de joueurs (deux joueurs ayant le même pseudo)
 
 ***N'oubliez pas d'enlever le code temporaire dans `GestionnaireClassementTreeSet.ajouter` une fois que vous avez validé votre changement! ***
