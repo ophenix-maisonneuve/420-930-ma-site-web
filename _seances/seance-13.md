@@ -21,4 +21,4 @@ published: true
    1. Comparaison visuelle avec un arbre de recherche binaire standard
       1. [Outil de visualisation](https://www.cs.usfca.edu/~galles/visualization/RedBlack.html)
 1. Mise en pratique
-   1. [Le lobby des braves](../exercices/structures/semaine3-arbres)
+   1. [Le lobby des braves](../exercices/semaine3-arbres)
