@@ -3,12 +3,10 @@ title: "java.util.TreeSet"
 layout: default
 parent: "Arbres"
 nav_order: 3
-published: false
+published: true
 ---
 
 # java.util.TreeSet
-
-![Schéma TreeSet](../assets/images/treeset.png)
 
 ## Description
 `TreeSet` est une implémentation de l’interface `Set` **triée** et **sans doublons**, basée sur une structure d’**arbre de recherche équilibré** (dans la JDK, un [arbre rouge‑noir](../notes/arbre-rouge-noir)). Les éléments sont maintenus dans l’**ordre naturel** ou selon un **`Comparator`** fourni au constructeur. Les opérations fondamentales (`add`, `remove`, `contains`) sont en **O(log n)** et le parcours se fait **en ordre trié**.

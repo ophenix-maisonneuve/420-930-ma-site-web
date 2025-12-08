@@ -3,7 +3,7 @@ layout: default
 title: "Structures de données - semaine 3"
 parent: "Structures de données"
 nav_order: 3
-published: false
+published: true
 ---
 
 # Exercice : Structures de données – Arbres

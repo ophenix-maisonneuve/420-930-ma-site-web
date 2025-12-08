@@ -3,16 +3,16 @@ layout: default
 parent: "Arbres"
 title: "Arbre rouge-noir"
 nav_order: 2
-published: false
+published: true
 ---
 
 # Arbre rouge-noir (*Red-Black Tree*)
 
 ## Structure
-Un **arbre rouge‑noir** est un arbre binaire de recherche **auto‑équilibré** qui garantit des opérations en **O(log n)** grâce au **coloriage des noeuds** (rouge/noir) et à des **rotations** qui maintiennent des propriétés d’équilibre. Il respecte les règles du BST (valeurs plus petites à gauche, plus grandes à droite) et ajoute des **propriétés de couleur** pour éviter la dégénérescence.
+Un **arbre rouge‑noir** est une spécialisation d'arbre binaire de recherche dans laquelle on a ajouté une propriété de **couleur** et des règles associées qui permettent de préserver l'équilibre de l'arbre. L'arbre rouge-noir garantit donc des opérations en **O(log n)** grâce au **coloriage des noeuds** (rouge/noir) et à des **rotations** qui maintiennent des propriétés d’équilibre. Il respecte les règles du BST (valeurs plus petites à gauche, plus grandes à droite) et ajoute des **propriétés de couleur** pour éviter la dégénérescence.
 
-![Illustration Red-Black Tree](../assets/images/red-black-tree.png)
-*Schéma indicatif d’un arbre rouge‑noir.*
+![Illustration Red-Black Tree](../assets/images/red-black-tree.webp)
+*Schéma indicatif d’un arbre rouge‑noir tiré de geeksforgeeks.org*
 
 > **Doublons** : s’ils sont acceptés, il faut rester **constant** (toujours à gauche **ou** toujours à droite). Dans ces notes, les doublons sont placés dans le sous‑arbre **gauche**, comme dans la page BST.
 
@@ -23,7 +23,7 @@ Un **arbre rouge‑noir** est un arbre binaire de recherche **auto‑équilibré
 - **P4** : Un noeud rouge n’a pas de parent rouge (pas deux rouges consécutifs).
 - **P5** : Pour tout noeud, chaque chemin vers une feuille contient le même nombre de noeuds noirs (hauteur noire).
 
-Ces propriétés bornent la **hauteur** de l’arbre à ~**2·log₂(n+1)** et garantissent des **opérations logarithmiques**. (Le JDK utilise ces propriétés pour `TreeMap` et certaines structures.) citeturn7search19
+Ces propriétés bornent la **hauteur** de l’arbre à environ **2 * log<sub>2</sub>(n+1)** et garantissent des **opérations logarithmiques**. Java utilise ces propriétés pour `TreeMap` et certaines autres structures.
 
 ```java
 /**
@@ -102,7 +102,13 @@ class RedBlackTree {
 ## Opérations principales
 
 ### Insertion
-L’insertion suit deux phases : (1) **insertion BST** classique, puis (2) **rééquilibrage** par recoloriage/rotations pour restaurer P2–P5. Les cas standard : **oncle rouge** (recoloriage) et **oncle noir** (rotations gauche/droite selon la forme). Complexité : **O(log n)**.
+Lorsqu’on insère une valeur dans un arbre rouge-noir, on commence par effectuer une insertion comme dans un **arbre binaire de recherche** : la nouvelle valeur est placée à la position appropriée selon l’ordre. Le nouveau noeud est initialement coloré rouge pour minimiser l’impact sur la hauteur noire. Ensuite, on vérifie les propriétés de l’arbre : si le parent est noir, aucune correction n’est nécessaire. Si le parent est rouge, cela brise la règle P4 « un noeud rouge ne peut pas avoir d’enfant rouge ». On applique alors des rotations et des recolorations selon trois cas principaux :
+
+- **Cas 1** : l’oncle est rouge → recoloration du parent, de l’oncle et du grand-parent.
+- **Cas 2** : l’oncle est noir et le noeud est un enfant “intérieur” : rotation pour transformer en cas 3.
+- **Cas 3** : l’oncle est noir et le noeud est un enfant “extérieur” : rotation et recoloration pour restaurer les propriétés.
+
+Enfin, la racine est toujours recolorée en noir.
 
 <details markdown="1">
 <summary markdown="span">Code d'insertion et rééquilibrage</summary>
@@ -327,7 +333,13 @@ private void rotateRight(RBNode x) {
 </details>
 
 ### Suppression
-Suppression BST (feuille / un enfant / deux enfants avec **successeur**), puis **fix‑up** si un **noeud noir** est retiré pour restaurer la **hauteur noire**. La complexité reste **O(log n)** grâce aux propriétés. (Organisation parallèle à la page BST.)
+La suppression commence par retirer le noeud comme dans un arbre binaire de recherche. Si le noeud supprimé ou son remplaçant est rouge, aucune violation n’apparaît. Si un noeud noir est supprimé, cela peut réduire la hauteur noire d’un chemin, ce qui brise la propriété d’équilibre **P5**. Pour corriger cela, on introduit la notion de noeud doublement noir et on applique des ajustements :
+
+- **Cas 1** : le frère est rouge : rotation et recoloration pour obtenir un frère noir.
+- **Cas 2** : le frère est noir avec deux enfants noirs : recoloration du frère et propagation du double noir vers le parent.
+- **Cas 3** : le frère est noir avec un enfant rouge : rotation et recoloration pour restaurer les propriétés.
+
+Ces étapes garantissent que tous les chemins retrouvent la même hauteur noire. La racine est toujours noire à la fin.
 
 <details markdown="1">
 <summary markdown="span">Code de suppression et rééquilibrage</summary>
