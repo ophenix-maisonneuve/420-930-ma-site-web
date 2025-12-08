@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "aaaa-MM-dd"
+title: "2025-12-08"
 nav_order: 13
-published: false
+published: true
 ---
 
 # Séance 13 : Structures de données: Arbres
