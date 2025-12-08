@@ -9,7 +9,7 @@ published: true
 # java.util.TreeSet
 
 ## Description
-`TreeSet` est une implémentation de l’interface `Set` **triée** et **sans doublons**, basée sur une structure d’**arbre de recherche équilibré** (dans la JDK, un [arbre rouge‑noir](../notes/arbre-rouge-noir)). Les éléments sont maintenus dans l’**ordre naturel** ou selon un **`Comparator`** fourni au constructeur. Les opérations fondamentales (`add`, `remove`, `contains`) sont en **O(log n)** et le parcours se fait **en ordre trié**.
+`TreeSet` est une implémentation de l’interface `Set` **triée** et **sans doublons**, basée sur une structure d’**arbre de recherche équilibré** (en Java, un [arbre rouge‑noir](../notes/arbre-rouge-noir)). Les éléments sont maintenus dans l’**ordre naturel** ou selon un **`Comparator`** fourni au constructeur. Les opérations fondamentales (`add`, `remove`, `contains`) sont en **O(log n)** et le parcours se fait **en ordre trié**.
 
 ## Fonctionnement interne
 `TreeSet` n'est en réalité rien de plus qu'une `TreeMap` dans laquelle les **clés** correspondent aux **éléments** (les valeurs ne sont pas considérées et contiennent généralement une valeur par défaut constante). Ainsi, l’ordre et la navigation (bornes, sous‑ensembles) proviennent des opérations de `NavigableMap` : `first`, `last`, `ceiling`, `floor`, `headSet`, `tailSet`, `subSet`.
