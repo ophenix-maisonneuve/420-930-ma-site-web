@@ -55,7 +55,6 @@ Cette interface définit plusieurs méthodes utiles pour les classements qu'il f
 public interface GestionnaireClassement {
     void ajouter(Joueur joueur);
     void supprimer(Joueur joueur);
-    //void rafraichir();
     Set<Joueur> pires(int n);
     Set<Joueur> meilleurs(int n);
     Set<Joueur> trouverRivaux(Joueur joueur, int ecart);
