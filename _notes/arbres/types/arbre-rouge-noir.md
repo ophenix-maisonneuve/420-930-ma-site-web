@@ -613,6 +613,7 @@ La recherche suit le **BST** : **O(log n)**. Les parcours (**infixe**, **préfi
 | Insertion      | O(log n)              | O(log n)                |
 | Recherche      | O(log n)              | O(log n)                |
 | Suppression    | O(log n)              | O(log n)                |
+| Parcours       | O(n)                  | O(n)                    |
 
 
 {: .highlight}
