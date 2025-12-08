@@ -106,9 +106,8 @@ class RedBlackTree {
 ### Insertion
 Lorsqu’on insère une valeur dans un arbre rouge-noir, on commence par effectuer une insertion comme dans un **arbre binaire de recherche** : la nouvelle valeur est placée à la position appropriée selon l’ordre. Le nouveau noeud est initialement coloré rouge pour minimiser l’impact sur la hauteur noire. Ensuite, on vérifie les propriétés de l’arbre : si le parent est noir, aucune correction n’est nécessaire. Si le parent est rouge, cela brise la règle P4 « un noeud rouge ne peut pas avoir d’enfant rouge ». On applique alors des rotations et des recolorations selon trois cas principaux :
 
-- **Cas 1** : l’oncle est rouge : recoloration du parent, de l’oncle et du grand-parent.
-- **Cas 2** : l’oncle est noir et le noeud est un enfant “intérieur” : rotation pour transformer en cas 3.
-- **Cas 3** : l’oncle est noir et le noeud est un enfant “extérieur” : rotation et recoloration pour restaurer les propriétés.
+- **Cas 1** : l’oncle est rouge : recoloration du parent et de l’oncle en noir et du grand-parent en rouge, puis propager vers le haut
+- **Cas 2** : l’oncle est noir et le noeud est un enfant “intérieur” : rotation (gauche ou droite) et recoloration
 
 Enfin, la racine est toujours recolorée en noir.
 
@@ -338,7 +337,7 @@ private void rotateRight(RBNode x) {
 La suppression commence par retirer le noeud comme dans un arbre binaire de recherche. Si le noeud supprimé ou son remplaçant est rouge, aucune violation n’apparaît. Si un noeud noir est supprimé, cela peut réduire la hauteur noire d’un chemin, ce qui brise la propriété d’équilibre **P5**. Pour corriger cela, on introduit la notion de noeud doublement noir et on applique des ajustements :
 
 - **Cas 1** : le frère est rouge : rotation et recoloration pour obtenir un frère noir.
-- **Cas 2** : le frère est noir avec deux enfants noirs : recoloration du frère et propagation du double noir vers le parent.
+- **Cas 2** : le frère est noir avec deux enfants noirs : recoloration du frère en route et propagation vers le haut
 - **Cas 3** : le frère est noir avec un enfant rouge : rotation et recoloration pour restaurer les propriétés.
 
 Ces étapes garantissent que tous les chemins retrouvent la même hauteur noire. La racine est toujours noire à la fin.
