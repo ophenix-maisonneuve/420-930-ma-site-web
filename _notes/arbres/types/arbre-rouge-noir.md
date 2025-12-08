@@ -12,9 +12,11 @@ published: true
 Un **arbre rouge‑noir** est une spécialisation d'arbre binaire de recherche dans laquelle on a ajouté une propriété de **couleur** et des règles associées qui permettent de préserver l'équilibre de l'arbre. L'arbre rouge-noir garantit donc des opérations en **O(log n)** grâce au **coloriage des noeuds** (rouge/noir) et à des **rotations** qui maintiennent des propriétés d’équilibre. Il respecte les règles du BST (valeurs plus petites à gauche, plus grandes à droite) et ajoute des **propriétés de couleur** pour éviter la dégénérescence.
 
 ![Illustration Red-Black Tree](../assets/images/red-black-tree.webp)
+
 *Schéma indicatif d’un arbre rouge‑noir tiré de geeksforgeeks.org*
 
-> **Doublons** : s’ils sont acceptés, il faut rester **constant** (toujours à gauche **ou** toujours à droite). Dans ces notes, les doublons sont placés dans le sous‑arbre **gauche**, comme dans la page BST.
+{: .highlight}
+> Si les doublons sont acceptés, il faut rester **constant** (toujours à gauche **ou** toujours à droite). Dans ces notes, les doublons sont placés dans le sous‑arbre **gauche**, comme dans la page BST.
 
 ### Propriétés
 - **P1** : Chaque noeud est rouge ou noir.
@@ -104,7 +106,7 @@ class RedBlackTree {
 ### Insertion
 Lorsqu’on insère une valeur dans un arbre rouge-noir, on commence par effectuer une insertion comme dans un **arbre binaire de recherche** : la nouvelle valeur est placée à la position appropriée selon l’ordre. Le nouveau noeud est initialement coloré rouge pour minimiser l’impact sur la hauteur noire. Ensuite, on vérifie les propriétés de l’arbre : si le parent est noir, aucune correction n’est nécessaire. Si le parent est rouge, cela brise la règle P4 « un noeud rouge ne peut pas avoir d’enfant rouge ». On applique alors des rotations et des recolorations selon trois cas principaux :
 
-- **Cas 1** : l’oncle est rouge → recoloration du parent, de l’oncle et du grand-parent.
+- **Cas 1** : l’oncle est rouge : recoloration du parent, de l’oncle et du grand-parent.
 - **Cas 2** : l’oncle est noir et le noeud est un enfant “intérieur” : rotation pour transformer en cas 3.
 - **Cas 3** : l’oncle est noir et le noeud est un enfant “extérieur” : rotation et recoloration pour restaurer les propriétés.
 
