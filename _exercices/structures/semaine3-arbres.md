@@ -221,6 +221,7 @@ Cette méthode doit supprimer un joueur du classement.
 ## Questions de réflexion
 - Dans quel(s) cas votre implémentation `GestionnaireClassementTreeSet` serait-elle avantageuse ?
 - Dans quel(s) cas votre implémentation `GestionnaireClassementTreeMap` serait-elle avantegeuse ?
+- À la question **1.6**, on vous demandait de protéger votre code du cas où le score d'un joueur est modifié à l'extérieur du gestionnaire de classement. Pouvez-vous identifier d'autres scénarios où votre implémentation est vulnérable à des modifications faites par l'appelant qui auraient un impact négatif sur l'intégrité de votre structure de données ? Comment pourriez-vous protéger votre code de ces interventions ? 
 
 ## 3. Bonus : Structure d'arbre avec concurrence (*thread-safety*)
 Les structures en arbres sont particulièrement complexes et coûteuses à implémenter d'une manière à permettre l'accès concurrent. Pour cette raison, dans la majorité des langages (incluant Java), on proposera donc les alternatives suivantes.
