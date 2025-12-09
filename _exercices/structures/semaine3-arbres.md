@@ -180,7 +180,7 @@ On veut maintenant mettre un place un *Wall of Fame* pour les meilleurs joueurs 
 
 
 ## 2. Interfaces `Map` / `NavigableMap` et implémentation `TreeMap`
-Votre implémentation du gestionnaire de classement fonctionne bien, mais vous regrettez de ne pas avoir de ***réelle*** gestion des ex-aequo. En effet, dans votre implémentation précédente, deux joueurs ayant le même score ne partageront pas le même rang, car le comparateur doit forcément prioriser un joueur par rapport à l'autre.
+Votre implémentation du gestionnaire de classement fonctionne bien, mais vous regrettez de ne pas avoir de ***réelle*** gestion des ex-aequo. En effet, dans votre implémentation précédente, deux joueurs ayant le même score ne partageront pas le même rang, car le comparateur doit forcément prioriser un joueur par rapport à l'autre pour éviter les doublons.
 
 Vous décidez donc d'explorer une alternative : utiliser une implémentation table associative (`Map`) ordonnée utilisant un arbre rouge-noir en arrière-plan: `TreeMap`. Vous tentez d'évaluer si, pour votre scénario d'utilisation, cette structure pourrait mieux répondre au besoin.
 
@@ -193,15 +193,11 @@ Cette implémentation doit utiliser une `TreeMap` pour gérer le classement.
 ### 2.2. Implémentez la méthode `ajouter(Joueur joueur)`
 Cette méthode doit ajouter le joueur à la bonne position dans le classement.
 - Quelle méthode de `TreeMap` doit être utilisée pour faire l'ajout ?
+- **N'oubliez pas de gérer le cas où la *map* ne contient pas encore de joueurs associés au score à insérer.** Dans ces cas, il faudra d'abord créer un nouveau `Set`, puis y insérer le joueur, et ensuite ajouter le score (clé) et le nouveau `Set` (valeur).
+  - Analysez les méthodes `computeIfAbsent` et `merge` de l'interface `Map`.
+  - Ces méthodes peuvent-elles vous être utiles ?
 - Quelle est la complexité grand O de l'ajout dans un `TreeMap` ?
 - Est-ce que la performance est meilleure qu'avec un `TreeSet` ? Pourquoi ?
-
-### 2.3. Gérez le cas où on insère un nouveau score
-Il peut arriver qu'aucun joueur n'ait le score à insérer (c'est-à-dire que la *Map* ne contienne pas de joueurs associés au score à insérer). Dans ces cas, il faudra d'abord créer un nouveau `Set`, puis y insérer le joueur, et ensuite ajouter le score (clé) et le nouveau `Set` (valeur).
-- Analysez les méthodes `computeIfAbsent` et `merge` de l'interface `Map`.
-  - Ces méthodes peuvent-elles vous être utiles ?
-- Modifiez votre implémentation de la méthode `ajouter(Joueur joueur)` 
-- Votre modifications change-t-elle la complexité grand O de cette méthode ?
 
 ### 2.3. Implémentez la méthode `afficher()`
 Cette méthode doit afficher le classement tel qu'il est présentement stocké dans le `TreeMap`
@@ -209,6 +205,7 @@ Cette méthode doit afficher le classement tel qu'il est présentement stocké d
 - Quel est l'ordre d'itération que vous observez ?
 - Avez-vous besoin de modifier l'ordre naturel de `Joueur` ou d'utiliser un `Comparator` ? Pourquoi ?
 - Quelle est la complexité grand O de la méthode `afficher()` ? Pourquoi ?
+  - ***Indice:** Vous êtes sûrement tenté de répondre O(n<sup>2</sup>), avec raison... Cependant, si on considère que **n** représente le nombre de joueurs, est-ce vraiment le cas ici ? *
 
 ### 2.4. Implémentez la méthode `supprimer(Joueur joueur)`
 Cette méthode doit supprimer un joueur du classement.
@@ -217,7 +214,7 @@ Cette méthode doit supprimer un joueur du classement.
 - Est-ce que la performance est meilleure qu'avec un `TreeSet` ? Pourquoi ?
 
 ### 2.5. Implémentez les méthodes `trouverRival(Joueur joueur)`, `trouverRivaux(Joueur joueur, int ecart)`, `meilleurs(int n)` et `pires(int n)`
-- Implémentez la méthode de la façon la plus optimale
+- Implémentez ces méthodes de la façon la plus optimale possible
   - Comment se compare votre implémentation à celle que vous aviez faite dans `GestionnaireClassementTreeSet` ?
   - Quelle est la complexité grand O de votre implémentation ?
 
