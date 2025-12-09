@@ -179,4 +179,68 @@ On veut maintenant mettre un place un *Wall of Fame* pour les meilleurs joueurs 
   - Quelle est la complexité grand O de votre implémentation ?
 
 
+## 2. Interfaces `Map` / `NavigableMap` et implémentation `TreeMap`
+Votre implémentation du gestionnaire de classement fonctionne bien, mais vous regrettez de ne pas avoir de ***réelle*** gestion des ex-aequo. En effet, dans votre implémentation précédente, deux joueurs ayant le même score ne partageront pas le même rang, car le comparateur doit forcément prioriser un joueur par rapport à l'autre.
+
+Vous décidez donc d'explorer une alternative : utiliser une implémentation table associative (`Map`) ordonnée utilisant un arbre rouge-noir en arrière-plan: `TreeMap`. Vous tentez d'évaluer si, pour votre scénario d'utilisation, cette structure pourrait mieux répondre au besoin.
+
+### 2.1. Créez une nouvelle implémentation de l'interface `GestionnaireClassement` appelée `GestionnaireJoueursTreeMap`
+Cette implémentation doit utiliser une `TreeMap` pour gérer le classement.
+- Gardez une référence vers un nouveau `TreeMap<Integer, Set<Joueur>>` comme champ dans la classe.
+  - La **clé** est le score du joueur
+  - La **valeur** est un ensemble d'instances de `Joueur` ayant le même score.
+
+### 2.2. Implémentez la méthode `ajouter(Joueur joueur)`
+Cette méthode doit ajouter le joueur à la bonne position dans le classement.
+- Quelle méthode de `TreeMap` doit être utilisée pour faire l'ajout ?
+- Quelle est la complexité grand O de l'ajout dans un `TreeMap` ?
+- Est-ce que la performance est meilleure qu'avec un `TreeSet` ? Pourquoi ?
+
+### 2.3. Gérez le cas où on insère un nouveau score
+Il peut arriver qu'aucun joueur n'ait le score à insérer (c'est-à-dire que la *Map* ne contienne pas de joueurs associés au score à insérer). Dans ces cas, il faudra d'abord créer un nouveau `Set`, puis y insérer le joueur, et ensuite ajouter le score (clé) et le nouveau `Set` (valeur).
+- Analysez les méthodes `computeIfAbsent` et `merge` de l'interface `Map`.
+  - Ces méthodes peuvent-elles vous être utiles ?
+- Modifiez votre implémentation de la méthode `ajouter(Joueur joueur)` 
+- Votre modifications change-t-elle la complexité grand O de cette méthode ?
+
+### 2.3. Implémentez la méthode `afficher()`
+Cette méthode doit afficher le classement tel qu'il est présentement stocké dans le `TreeMap`
+- Comment pouvez-vous itérer sur la map ?
+- Quel est l'ordre d'itération que vous observez ?
+- Avez-vous besoin de modifier l'ordre naturel de `Joueur` ou d'utiliser un `Comparator` ? Pourquoi ?
+- Quelle est la complexité grand O de la méthode `afficher()` ? Pourquoi ?
+
+### 2.4. Implémentez la méthode `supprimer(Joueur joueur)`
+Cette méthode doit supprimer un joueur du classement.
+- Quelle méthode de `TreeMap` doit être utilisée pour faire la suppression ?
+- Quelle est la complexité grand O de la suppression dans un `TreeMap` ?
+- Est-ce que la performance est meilleure qu'avec un `TreeSet` ? Pourquoi ?
+
+### 2.5. Implémentez les méthodes `trouverRival(Joueur joueur)`, `trouverRivaux(Joueur joueur, int ecart)`, `meilleurs(int n)` et `pires(int n)`
+- Implémentez la méthode de la façon la plus optimale
+  - Comment se compare votre implémentation à celle que vous aviez faite dans `GestionnaireClassementTreeSet` ?
+  - Quelle est la complexité grand O de votre implémentation ?
+
+## Questions de réflexion
+- Dans quel(s) cas votre implémentation `GestionnaireClassementTreeSet` serait-elle avantageuse ?
+- Dans quel(s) cas votre implémentation `GestionnaireClassementTreeMap` serait-elle avantegeuse ?
+
+## 3. Bonus : Structure d'arbre avec concurrence (*thread-safety*)
+Les structures en arbres sont particulièrement complexes et coûteuses à implémenter d'une manière à permettre l'accès concurrent. Pour cette raison, dans la majorité des langages (incluant Java), on proposera donc les alternatives suivantes.
+
+### 3.1. `TreeSet` synchronisé avec un verrou
+- Quelle modification devriez-vous apporter au code de `GestionnaireClassementTreeSet` pour le rendre concurrent (*thread-safe*) via l'utilisation d'un verrou ?
+- Existe-t-il une méthode dans la classe `Collections` qui peut vous aider ?
+
+
+### 3.2. Utilisation d'une structure alternative (ex. : `ConcurrentSkipListSet`)
+`ConcurrentSkipListSet` est une autre implémentation de `NavigableSet`. Sous le capot, cette implémentation n'utilise pas un arbre rouge-noir, mais plutôt des listes multi-niveaux permettant d'atteindre des performances en O(log n) similaires à celles d'un arbre binaire bien équilibré. 
+- Si vous vouliez écrire une nouvelle implémentation de `GestionnaireClassement` qui utilise un `ConcurrentSkipListSet`, plutôt qu'un `TreeSet`, le code serait-il très différent de votre implémentation `GestionnaireClassementTreeSet` ? Pourquoi ?
+- Vous désirez écrire cette implémentation en minimisant la duplication de code...
+  - Pourriez-vous utiliser le polymorphisme pour partager un maximum de code entre `GestionnaireClassementTreeSet` et votre nouvelle implémentation utilisant le `ConcurrentSkipListSet` ?
+  - Pourriez-vous utiliser la composition pour partager un maximum de code entre `GestionnaireClassementTreeSet` et votre nouvelle implémentation utilisatnt le `ConcurrentSkipListSet` ?
+
+Entre l'héritage (polymorphisme) et la composition, quelle approche vous semble la meilleure ? Pourquoi ?
+
+
 
