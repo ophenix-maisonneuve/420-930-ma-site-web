@@ -3,7 +3,7 @@ title: "java.util.HashMap"
 layout: default
 parent: "java.util.Map"
 nav_order: 2
-published: true
+published: false
 ---
 
 # java.util.HashMap

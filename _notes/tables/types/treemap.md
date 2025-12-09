@@ -36,8 +36,8 @@ published: true
 Quand l’**ordre** des clés est **fondamental** (classements, intervalles, navigation). Si les accès aléatoires sans ordre priment, préférer `HashMap`.
 
 {: .astuce}
-> Besoin d’un **ensemble trié** de clés et d’opérations **logarithmiques** → `TreeMap`.
-> Besoin de **performances brutes** sans ordre → `HashMap`.
+> Besoin d’un **ensemble trié** de clés et d’opérations **logarithmiques** : `TreeMap`.
+> Besoin de **performances brutes** sans ordre : `HashMap`.
 
 ---
 
