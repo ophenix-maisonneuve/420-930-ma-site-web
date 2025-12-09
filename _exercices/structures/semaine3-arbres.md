@@ -138,7 +138,7 @@ this.classement.add(nouveau);
   - ***Indice:** quelle méthode est utilisée pour déterminer l'égalité dans les ensembles triés comme `TreeSet`?*
 - Proposez et implémentez une solution qui permettrait d'éviter les doublons de joueurs (deux joueurs ayant le même pseudo)
 
-***N'oubliez pas d'enlever le code temporaire dans `GestionnaireClassementTreeSet.ajouter` une fois que vous avez validé votre changement! ***
+***N'oubliez pas d'enlever le code temporaire dans `GestionnaireClassementTreeSet.ajouter` une fois que vous avez validé votre changement!***
 
 ### 1.8. Utilisez un `Comparator` plutôt que l'ordre naturel
 L'un des problèmes introduits par le changement d'ordre naturel de la classe `Joueur` est une incohérence entre une égalité logique (méthode `equals`) et la comparaison (méthode `compareTo`). Afin de demeurer cohérent, il est préférable que si `equals` entre deux instances retourne `true`, `compareTo` entre ces deux mêmes instances retourne `0`. Afin de régler ce problème:
