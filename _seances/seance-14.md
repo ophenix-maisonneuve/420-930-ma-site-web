@@ -22,4 +22,5 @@ published: true
 
 ### Exercices complémentaires
 1. [Le lobby des braves](../exercices/semaine3-arbres)
+   1. Terminer question 2 (le corrigé vous sera fourni)
    1. Questions 3 (Bonus)
