@@ -55,13 +55,17 @@ Ou directement à partir de votre IDE.
 ### 3. Analysez l’interface `GestionnaireMessagerie` et l'implémentation inachevée `GestionnaireMessagerieMap`
 L'interface `GestionnaireMessagerie` définit les méthodes nécessaires au fonctionnement de la messagerie qu'il faudra implémenter :
 ```java
-code java ici
+public interface GestionnaireMessagerie {
+    Message envoyer(String emetteur, String destinataire, String contenu, boolean urgent);
+    Message prochain(String pseudoDestinataire);
+    Collection<Message> purger(String pseudoDestinataire);
+    boolean bloquer(String pseudoDestinataire, String pseudoEmetteur);
+    boolean debloquer(String pseudoDestinataire, String pseudoEmetteur);
+}
 
 ```
+
 La classe `GestionnaireMessagerieMap` contient une première ébauche incomplète du gestionnaire de messagerie utilisant une table associative (map) :
-```java
-code java ici
-```
 
 ---
 
