@@ -3,7 +3,7 @@ layout: default
 title: "Structures de données – semaine 4"
 parent: "Structures de données"
 nav_order: 4
-published: false
+published: true
 ---
 
 # Exercice : Structures de données – Tables associatives (*Maps*)
@@ -14,22 +14,12 @@ Bienvenue, pour la dernière fois, dans **Le Lobby des Braves** ! Votre ultime
 
 Pour vous faciliter la tâche, votre ancienne camarade de classe a amorcé l’implémentation du module. Malheureusement, elle a manqué de temps pour le terminer et, n’ayant pas votre expertise en algorithmes et structures de données, elle doute que ses choix soient toujours optimaux... Comme le temps presse, vous décidez d’abord de compléter son travail pour obtenir une version fonctionnelle, puis d’analyser et optimiser le code afin d’améliorer ses performances.
 
-------- À RETRAVAILLER
-Un·e collègue a commencé le module de **messagerie** des joueurs. L’implémentation actuelle utilise une **table associative ordonnée** (`TreeMap`) indexant les **messages par pseudo du destinataire**. Le code fonctionne en partie, mais la conceptrice du jeu te demande d’optimiser la **performance** pour des boîtes de réception massives. Tu dois :
-1) **Finaliser/corriger** l’implémentation partielle `GestionnaireMessagerieMap`.
-2) **Évaluer** les diverses structures utilisées
-3) **Basculer** vers une **table hachée** (`HashMap`) pour **gagner** en performance (accès direct par pseudo), tout en conservant la possibilité d’offrir des **vues ordonnées** si nécessaire.
+## Objectifs 
 
-> Nous parlons ici de **tables associatives** (clé → valeur), illustrées par les implémentations Java `TreeMap` (ordonnée) et `HashMap` (hachée). Nous utiliserons aussi `HashSet` pour la **liste de blocage** des pseudos.
-
-## Objectifs
-- Partir d’une **implémentation partielle** `TreeMap<String, List<Message>>` et la rendre **fonctionnelle**.
-- Identifier les **limitations** de `TreeMap` pour ce cas (messagerie volumétrique).
-- **Migrer** vers `HashMap<String, List<Message>>` et **mesurer** les gains.
-- Préserver des fonctionnalités utiles (ex. **navigation** alphabétique) en proposant des **solutions adaptées** (vues ordonnées à la demande, utilitaires d’autocomplétion).
-- Utiliser `HashSet` pour la **gestion des pseudos bloqués** (O(1) test d’appartenance).
-- Bonus : `LinkedHashMap` (ordre d’insertion), `ConcurrentHashMap` (sections critiques).
--------------------------
+1. **Finaliser/corriger** l’implémentation partielle `GestionnaireMessagerieMap`.
+1. **Évaluer** les diverses tables associatives (*maps*) utilisées
+1. **Proposer** des alternatives optimales pour les tables associatives (*maps*)
+1. **Analyser** l'implémentation générale
 
 ---
 
