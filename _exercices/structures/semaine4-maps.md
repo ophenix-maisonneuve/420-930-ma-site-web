@@ -17,9 +17,9 @@ Pour vous faciliter la tâche, votre ancienne camarade de classe a amorcé l’i
 ## Objectifs 
 
 1. **Finaliser/corriger** l’implémentation partielle `GestionnaireMessagerieMap`.
-1. **Évaluer** les diverses tables associatives (*maps*) utilisées
-1. **Proposer** des alternatives optimales pour les tables associatives (*maps*)
-1. **Analyser** l'implémentation générale
+1. **Évaluer** les diverses tables associatives (*maps*) utilisées.
+1. **Proposer** des alternatives optimales pour les tables associatives (*maps*).
+1. **Analyser** l'implémentation générale du module et optimiser sa performance lorsque requis.
 
 ---
 
