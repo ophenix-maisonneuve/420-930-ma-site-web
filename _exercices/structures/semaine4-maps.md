@@ -6,33 +6,49 @@ nav_order: 4
 published: false
 ---
 
-# Exercice : Structures de données – *Maps* (messagerie des joueurs)
+# Exercice : Structures de données – Tables associatives (*Maps*)
 
 ## Contexte
-Bienvenue dans **Le Lobby des Braves** ! Cette semaine, vous devez enrichir votre application en ajoutant une **messagerie** entre joueurs. Chaque **joueur** sera la **clé** d’une *table associative* et la **valeur** sera une **liste de messages** qui lui sont destinés.
 
-Nous allons explorer trois implémentations de `Map` :
-- `TreeMap` pour un **ordre trié** des destinataires (transition naturelle après `TreeSet`).
-- `HashMap` pour des **performances optimales** sans ordre garanti.
-- `ConcurrentHashMap` pour les cas nécessitant la **concurrence** (*thread‑safe*).
+Bienvenue, pour la dernière fois, dans **Le Lobby des Braves** ! Votre ultime mission consiste à mettre en place un gestionnaire de messagerie permettant aux joueurs d’échanger des messages instantanés pendant leurs parties. Attention : il ne s’agit pas de créer un serveur de courriels ni une messagerie sophistiquée, mais simplement d’offrir un moyen rapide pour envoyer de brefs messages en temps réel. Dans l’esprit du jeu et pour limiter les coûts d’infrastructure, aucun historique ne sera conservé : une fois le message lu par son destinataire, il disparaît.
+
+Pour vous faciliter la tâche, votre ancienne camarade de classe a amorcé l’implémentation du module. Malheureusement, elle a manqué de temps pour le terminer et, n’ayant pas votre expertise en algorithmes et structures de données, elle doute que ses choix soient toujours optimaux... Comme le temps presse, vous décidez d’abord de compléter son travail pour obtenir une version fonctionnelle, puis d’analyser et optimiser le code afin d’améliorer ses performances.
+
+------- À RETRAVAILLER
+Un·e collègue a commencé le module de **messagerie** des joueurs. L’implémentation actuelle utilise une **table associative ordonnée** (`TreeMap`) indexant les **messages par pseudo du destinataire**. Le code fonctionne en partie, mais la conceptrice du jeu te demande d’optimiser la **performance** pour des boîtes de réception massives. Tu dois :
+1) **Finaliser/corriger** l’implémentation partielle `GestionnaireMessagerieMap`.
+2) **Évaluer** les diverses structures utilisées
+3) **Basculer** vers une **table hachée** (`HashMap`) pour **gagner** en performance (accès direct par pseudo), tout en conservant la possibilité d’offrir des **vues ordonnées** si nécessaire.
+
+> Nous parlons ici de **tables associatives** (clé → valeur), illustrées par les implémentations Java `TreeMap` (ordonnée) et `HashMap` (hachée). Nous utiliserons aussi `HashSet` pour la **liste de blocage** des pseudos.
 
 ## Objectifs
-- Concevoir une *table associative* `Map<Joueur, List<Message>>` pour la messagerie.
-- Implémenter un gestionnaire avec `TreeMap` (clés triées, navigation `higherKey`, `lowerKey`, `subMap`).
-- Implémenter une variante avec `HashMap` (performance amortie O(1), ordre non garanti).
-- Implémenter une variante *thread‑safe* avec `ConcurrentHashMap` (opérations atomiques, itérateurs faiblement cohérents).
-- Discuter des **complexités**, des **pièges** (`equals`/`hashCode` de `Joueur`, ordre des clés), et des **choix** de structure.
+- Partir d’une **implémentation partielle** `TreeMap<String, List<Message>>` et la rendre **fonctionnelle**.
+- Identifier les **limitations** de `TreeMap` pour ce cas (messagerie volumétrique).
+- **Migrer** vers `HashMap<String, List<Message>>` et **mesurer** les gains.
+- Préserver des fonctionnalités utiles (ex. **navigation** alphabétique) en proposant des **solutions adaptées** (vues ordonnées à la demande, utilitaires d’autocomplétion).
+- Utiliser `HashSet` pour la **gestion des pseudos bloqués** (O(1) test d’appartenance).
+- Bonus : `LinkedHashMap` (ordre d’insertion), `ConcurrentHashMap` (sections critiques).
+-------------------------
 
 ---
 
 ## Étapes préparatoires
-### 1. Clonez (ou mettez à jour) le dépôt
+
+### 1. Clonez (ou mettez à jour) le dépôt de l’exercice
 ```bash
 git clone git@github.com:ophenix-420-930-ma-24636/lobby-braves.git
 ```
-Ou :
+Ou, si vous avez déjà cloné le dépôt :
 ```bash
 git pull
+```
+
+Si vous travaillez sur une autre branche:
+```bash
+git checkout <votre branche>
+git fetch
+git merge origin/main
 ```
 
 ### 2. Lancez le projet Java
@@ -40,157 +56,108 @@ git pull
 mvn clean package
 java -jar target/lobby-braves-1.0-SNAPSHOT.jar
 ```
-
-### 3. Créez l’interface `GestionnaireMessagerie`
-```java
-public interface GestionnaireMessagerie {
-    void envoyerMessage(Joueur destinataire, Message message);
-    java.util.List<Message> messagesDe(Joueur destinataire);
-    void supprimerMessagesDe(Joueur destinataire);
-    void afficher();
-}
+Ou :
+```bash
+mvn clean compile exec:java
 ```
-{: .highlight}
-> Cette interface sera implémentée par les trois gestionnaires (`TreeMap`, `HashMap`, `ConcurrentHashMap`).
+Ou directement à partir de votre IDE.
 
-Créez la classe `Message` :
+### 3. Analysez l’interface `GestionnaireMessagerie` et l'implémentation inachevée `GestionnaireMessagerieMap`
+L'interface `GestionnaireMessagerie` définit les méthodes nécessaires au fonctionnement de la messagerie qu'il faudra implémenter :
 ```java
-public class Message {
-    private String texte;
-    private java.time.Instant horodatage;
+code java ici
 
-    public Message(String texte, java.time.Instant horodatage) {
-        this.texte = texte;
-        this.horodatage = horodatage;
-    }
-
-    public String getTexte() { return this.texte; }
-    public void setTexte(String texte) { this.texte = texte; }
-
-    public java.time.Instant getHorodatage() { return this.horodatage; }
-    public void setHorodatage(java.time.Instant horodatage) { this.horodatage = horodatage; }
-
-    @Override
-    public String toString() {
-        return "Message{" +
-               "texte='" + this.texte + '\'' +
-               ", horodatage=" + this.horodatage +
-               '}';
-    }
-}
+```
+La classe `GestionnaireMessagerieMap` contient une première ébauche incomplète du gestionnaire de messagerie utilisant une table associative (map) :
+```java
+code java ici
 ```
 
 ---
 
-## 1. Messagerie ordonnée avec TreeMap
-### 1.1. Créez `GestionnaireMessagerieTreeMap`
-Implémentez l’interface avec un champ :
-```java
-public class GestionnaireMessagerieTreeMap implements GestionnaireMessagerie {
-    private final java.util.NavigableMap<Joueur, java.util.List<Message>> messages;
+## 1. Terminer l'implémentation de `GestionnaireMesagerieMap`
 
-    public GestionnaireMessagerieTreeMap() {
-        this.messages = new java.util.TreeMap<>(new java.util.Comparator<Joueur>() {
-            @Override
-            public int compare(Joueur j1, Joueur j2) {
-                return j1.getPseudo().compareTo(j2.getPseudo());
-            }
-        });
-    }
+### 1.1. Implémentez la méthode `purger(destinataire)`
+Cette méthode doit supprimer tous les messages adressés au destinataire.
+- Quelle méthode de l'interface `Map` doit être utilisée pour cette opération ? 
+- Avec l'implémentation actuelle, quelle est la complexité grand O de cette opération ? Pourquoi ?
 
-    @Override
-    public void envoyerMessage(Joueur destinataire, Message message) {
-        java.util.List<Message> liste = this.messages.get(destinataire);
-        if (liste == null) {
-            liste = new java.util.ArrayList<>();
-            this.messages.put(destinataire, liste);
-        }
-        liste.add(message);
-    }
+### 1.2. Implémentez la méthode `bloquer(destinataire, emetteur)`
+Cette méthode doit ajouter le pseudo de l'émetteur dans la liste d'utilisateurs bloqués pour le destinataire.
+- Quelle méthode de l'interface `Map` doit être utilisée pour retrouver la liste des émetteurs bloqués pour un destinataire ?
+- Quelle méthode de l'interface `List` doit être utilisée pour ajouter l'émetteur bloqué à la liste ?
+- Avec l'implémentation actuelle, quelle est la complexité grand O de la méthode `bloquer` ?
+- Avec l'implémentation actuelle, comment sont gérés les doublons (si par exemple on bloque deux fois le même émetteur pour un même destinataire) ? 
+- Est-il pertinent de conserver l'ordre des émetteurs bloqués ? Pourquoi ?
 
-    @Override
-    public java.util.List<Message> messagesDe(Joueur destinataire) {
-        java.util.List<Message> liste = this.messages.get(destinataire);
-        if (liste == null) {
-            return java.util.Collections.emptyList();
-        }
-        return java.util.Collections.unmodifiableList(liste);
-    }
+### 1.3. Terminez l'implémentation de la méthode `envoyer`emetteur, destinataire, contenu, urgent)`
+Avant d'envoyer un message, il faut maintenant vérifier que l'émetteur n'a pas été bloqué par le destinataire.
+- Avec l'implémentation actuelle, quelle est la complexité grand O de la méthode `envoyer` ? Pourquoi ?
 
-    @Override
-    public void supprimerMessagesDe(Joueur destinataire) {
-        this.messages.remove(destinataire);
-    }
+### 1.4. Corrigez la méthode `prochain(destinataire)`
+Cette méthode doit lire le prochain message du destinataire puis le supprimer. Les messages doivent être triés en ordre chronologique (du plus ancien au plus récent), mais en priorisant toujours les messages urgents.
+- Corrigez la méthode pour que l'ordre de tri soit respecté. Quel était le problème ?
+- Quel type de liste récupérez-vous lorsque vous allez chercher les messages dans la *map* (en utilisant le destinataire comme clé) ? 
+- Quelle est la complexité des opérations suivantes dans la méthode `prochain` :
+  - Récupération de la liste des messages dans la *map* ?
+  - Tri de la liste ?
+  - Retrait du premier message ?
+- Quelle est donc la complexité globale de la méthode ?
 
-    @Override
-    public void afficher() {
-        for (java.util.Map.Entry<Joueur, java.util.List<Message>> e : this.messages.entrySet()) {
-            System.out.println("Destinataire: " + e.getKey());
-            for (Message m : e.getValue()) {
-                System.out.println("  - " + m);
-            }
-        }
-    }
-}
-```
+---
 
-### 1.2. Navigation des destinataires
-- Récupérez le **premier** et le **dernier** destinataire (`firstKey`, `lastKey`).
-- Trouvez le **suivant** et le **précédent** (`higherKey`, `lowerKey`).
-- Créez une **fenêtre** de destinataires avec `subMap(from, true, to, true)`.
+## 2. Choix du type de `Map`
+Votre camarade ne semble pas convaincue qu'elle a choisi le bon type de table associative (*map*) pour sa première implémentation. Vous décidez donc de vérifier si un autre type aurait pu être plus performant.
+
+### 2.1 Choix de la `Map` pour le champ `messages`
+Répondez aux questions suivantes afin de guider votre évaluation:
+- Quelles sont les opérations les plus fréquentes sur la *map* messages ?
+- Avec une `TreeMap`, quelle est la complexité grand O de ces opérations dominantes ?
+- À quoi est due cette complexité ?
+- Avons-nous besoin de la fonctionnalité qui introduit cette complexité supplémentaire ? 
+- Existe-t-il un différent type de `Map` offrant une complexité plus faible pour les opérations dominantes ?
+  - Si oui, quelle est la complexité des opérations dominantes sur ce type de `Map` ?
+  - Sinon, pourquoi ?
+
+**Si vous croyez avoir trouvé une structure plus optimale, effectuez cette modification**
+
+### 2.2 Choix de la `Map` pour le champ `blocages`
+Est-ce que votre raisonnement de la question précédente s'applique aussi pour le champ `blocages` ?
+- Si oui, pourquoi ?
+- Sinon, la structure actuelle est-elle optimale ou en existe-t-il une meilleure ?
+
+**Si vous croyez avoir trouvé une structure plus optimale, effectuez cette modification**
+
+---
+
+## 3. Optimisation générale du module de messagerie
+Une fois que vous aurez validé que l'implémentation est complète, utilisez la [méthode vue dans le cours](../notes/optimisation) pour optimiser différents aspects du module de messagerie.
+
+{: .highlight}
+> Comme c'est souvent le cas, les étapes 2 (structure) et 3 (algorithme) de la méthode devraient être celles qui permettent les gains le plus significatifs. 
+
+Pour chaque amélioration proposée, expliquez :
+- Quelle était la complexité grand O avant et après votre changement
+- À quoi est dû le gain de performance
+- Dans quelles circonstances votre changement apporterait les plus grand bénéfices
 
 {: .astuce}
-> `TreeMap` implémente `NavigableMap` : vous pouvez aussi parcourir en ordre **décroissant** via `descendingMap()`.
+> Portez une attention particulière aux différentes structures de données utilisées, ainsi qu'aux algorithmes utilisés pour effectuer des opérations sur celles-ci (ajout, retrait, itération, recherche, etc.).
+
 
 ---
 
-## 2. Messagerie avec HashMap
-### 2.1. Créez `GestionnaireMessagerieHashMap`
-Implémentez l’interface avec un champ :
-```java
-private final java.util.Map<Joueur, java.util.List<Message>> messages = new java.util.HashMap<>();
-```
-- Pourquoi `HashMap` est-elle **O(1)** en moyenne pour `get` et `put` ?
-- Que se passe-t-il en cas de **collisions** ? Expliquez la **treeification** des bins en Java 8+.
+## 4. Concurrence (*thread safety*)
+Comme il est fort probable que plusieurs joueurs envoient et lisent des messages simultanément, il serait prudent de garantir la cohérence de notre `GestionnaireMessagerieMap` en contexte concurrent (*multi-thread*).
 
-### 2.2. Améliorez avec `computeIfAbsent`
-Réécrivez `envoyerMessage` :
-```java
-java.util.List<Message> liste = this.messages.computeIfAbsent(
-    destinataire,
-    j -> new java.util.ArrayList<>()
-);
-liste.add(message);
-```
+### 4.1 Identifiez 3 différentes façons de garantir le *thread-safety*
+Pour chacune des façons identifiées, quels sont...
+- Les situations où cette forme de synchronisation est optimale
+- Les situations où cette forme de synchronisation est à éviter
 
----
+### 4.2 Choix de la méthode de synchronisation
+Sachant que le nombre de joueurs inscrits au jeu ne cesse de croître et que l'on s'attent à un grand volume de messages écrits et lus, choisissez l'une des trois méthodes de synchronisation énumérées précédemment.
+ - Implémentez votre changement directement dans la classe `GestionnaireMessagerieMap`
 
-## 3. Messagerie concurrente avec ConcurrentHashMap
-### 3.1. Créez `GestionnaireMessagerieConcurrent`
-Utilisez `computeIfAbsent` pour des insertions atomiques :
-```java
-private final java.util.concurrent.ConcurrentHashMap<Joueur, java.util.List<Message>> messages =
-    new java.util.concurrent.ConcurrentHashMap<>();
-```
-- Pourquoi `ConcurrentHashMap` est-elle **préférée** à `HashMap` en multithread ?
-- Quels sont les **pièges** à éviter avec `computeIfAbsent` ?
-
----
-
-## 4. Tests et validation
-- Générez 50 joueurs, envoyez des messages.
-- Vérifiez l’ordre avec `TreeMap`, la performance avec `HashMap`, et la sécurité avec `ConcurrentHashMap`.
-
----
-
-## 5. Bonus
-- Limiter la taille des boîtes de réception.
-- Export CSV.
-- Index par pseudo avec `TreeMap<String, Joueur>`.
-
----
-
-## Questions de réflexion
-- Pourquoi la clé `Joueur` doit-elle avoir des `equals`/`hashCode` **stables** ?
-- Dans quels cas `TreeMap` est-il **préférable** à `HashMap` pour la messagerie ?
-- Pourquoi `ConcurrentHashMap` n’offre pas de **verrou global** et quelles en sont les **implications** ?
+{: .astuce}
+> Il se peut aussi que votre choix soit une combinaison de plusieurs techniques...

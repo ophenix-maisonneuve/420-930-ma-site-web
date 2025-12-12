@@ -48,7 +48,8 @@ La table est composée de **seaux** (*buckets*). Deux paramètres influencent le
 - **Autorise `null`** comme élément.
 
 **Faiblesses**
-- **Ordre non garanti** (contrairement à ou `TreeSet`).  
+- **Ordre non garanti** (contrairement à `TreeSet`).
+- **Redimensionnements** et **rehachage** peuvent être coûteux.
 - **Non thread‑safe** (utiliser `Collections.synchronizedSet`).
 
 ---
@@ -69,11 +70,11 @@ La table est composée de **seaux** (*buckets*). Deux paramètres influencent le
 
 ### HashMap
 
-| **Opération**           | **Complexité (moyenne)** | **Pire cas** |
-|-------------------------|---------------------------|--------------|
-| `get`, `put`, `remove`  | O(1) amorti               | O(n)         |
-| `containsKey`           | O(1) amorti               | O(n)         |
-| `iterator()` (parcours) | O(n) (≈ taille)           | O(n) (+ dépend de la **capacité**) |
+| **Opération**           | **Complexité (moyenne)** |
+|-------------------------|---------------------------|
+| `get`, `put`, `remove`  | O(1) amorti               |
+| `containsKey`           | O(1) amorti               |
+| `iterator()` (parcours) | O(n)           |
 
 ### HashSet
 
@@ -82,7 +83,7 @@ La table est composée de **seaux** (*buckets*). Deux paramètres influencent le
 | `add(E e)`             | O(1) amorti               |
 | `remove(Object o)`     | O(1) amorti               |
 | `contains(Object o)`   | O(1) amorti               |
-| `iterator()` (parcours)| O(n) (≈ taille + capacité de la `HashMap` interne) |
+| `iterator()` (parcours)| O(n)                      |
 
 ---
 
@@ -134,4 +135,3 @@ public class DemoHashSet {
 ## Voir aussi
 - [Documentation `HashMap` officielle](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/HashMap.html)
 - [Documentation `HashSet` officielle](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/HashSet.html)
-- [Chargement et **load factor** expliqué (Baeldung)](https://www.baeldung.com/java-hashmap-load-factor)
