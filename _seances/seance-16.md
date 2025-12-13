@@ -16,8 +16,8 @@ published: true
    1. Principales complexités
       1. [O(1)](../notes/o1) : Complexité constante
       1. [O(log n)](../notes/ologn) (logarithmique) et [O(2<sup>n</sup>)](../notes/o2n) (exponentielle)
-      1. [O(n)](../notes/on) (linéaire) et [O(n<sup>x</sup>)](../notes/onx) ()
-      1. [O(n log n)](../notes/onlogn)
+      1. [O(n)](../notes/on) (linéaire) et [O(n<sup>x</sup>)](../notes/onx) (polynomiale)
+      1. [O(n log n)](../notes/onlogn) : Complexité linéarithmique
 1. Optimisation de la performance
    1. [Méthode d'optimisation](../notes/optimisation)
 1. Mise en pratique
