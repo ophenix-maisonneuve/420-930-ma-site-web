@@ -14,9 +14,9 @@ published: true
 1. Complexité grand O
    1. [Concept général](../notes/notagion-grand-o)
    1. Principales complexités
-      1. [O(1)][../notes/o1]
-      1. [O(log n)][../notes/ologn] et [O(2<sup>n</sup>)](../notes/o2n)
-      1. [O(n)](../notes/on) et [O(n<sup>x</sup>)](../notes/o1)
+      1. [O(1)](../notes/o1) : Complexité constante
+      1. [O(log n)](../notes/ologn) (logarithmique) et [O(2<sup>n</sup>)](../notes/o2n) (exponentielle)
+      1. [O(n)](../notes/on) (linéaire) et [O(n<sup>x</sup>)](../notes/onx) ()
       1. [O(n log n)](../notes/onlogn)
 1. Optimisation de la performance
    1. [Méthode d'optimisation](../notes/optimisation)
