@@ -14,17 +14,17 @@ published: false
 
 `HashSet` est une implémentation de l’interface `Set` **adossée à une `HashMap`** interne (les éléments du set servent de clés). Elle **n’autorise aucun doublon**, **ne garantit pas l’ordre d’itération**, et **autorise l’élément `null`**. Les opérations fondamentales (`add`, `remove`, `contains`) sont **en temps constant amorti** si le hachage est de bonne qualité.
 
-Depuis Java 8, les seaux fortement en collision peuvent basculer vers des **arbres équilibrés** afin de conserver de bonnes performances (selon la comparabilité des clés).
-
 ## Fonctionnement interne
 
 **HashMap**  
-La table est composée de **seaux** (*buckets*). Deux paramètres influencent les performances :
-- **Capacité initiale** (nombre de seaux), par défaut `16`
+La table est composée de **cases** (*buckets*). Deux paramètres influencent les performances :
+- **Capacité initiale** (nombre de cases), par défaut `16`
 - **Facteur de charge** (*load factor*), par défaut `0.75` : lorsque `taille > capacité × facteur`, la table **redimensionne** et **rehache** les entrées (en général, capacité doublée).
 
 **HashSet**  
 `HashSet` utilise **une `HashMap`** comme structure sous-jacente (chaque élément est stocké comme clé et les valeurs restent `null`). Il **hérite** donc des caractéristiques de performance, de capacité et de facteur de charge de `HashMap` (incluant l’impact de la **capacité** et du **load factor** sur le coût d’itération).
+
+Pour gérer les collisions (deux clés différentes qui produisent le même index dans le tableau), `HashMap` et `HashSet` utilisent généralement une liste doublement chaînée. Cependant, depuis Java 8, les cases fortement en collision peuvent basculer vers des **arbres équilibrés** afin de conserver de bonnes performances (selon la comparabilité des clés). Par défaut, Java passe la case en **arbre rouge-noir** lorsque le nombre d'éléments **dépasse 8** et revient à une liste doublement chaînée lorsque le nombre d'éléments **redevient inférieur à 6**.
 
 ---
 
@@ -60,8 +60,8 @@ La table est composée de **seaux** (*buckets*). Deux paramètres influencent le
 - **`HashSet`** : lorsque l’objectif est d’**assurer l’unicité** d’éléments et de tester rapidement l’appartenance.
 
 {: .astuce}
-> Besoin d’un **ensemble non trié** de paires clé→valeur et **accès très rapide** → `HashMap`.  
-> Besoin d’un **ensemble d’éléments uniques** sans ordre → `HashSet`.  
+> Besoin d’un **ensemble non trié** de paires clé→valeur et **accès très rapide** : `HashMap`.  
+> Besoin d’un **ensemble d’éléments uniques** sans ordre : `HashSet`.  
 > Si l’ordre d’insertion ou un ordre trié est nécessaire, voir `TreeMap`/`TreeSet`.
 
 ---
@@ -72,8 +72,11 @@ La table est composée de **seaux** (*buckets*). Deux paramètres influencent le
 
 | **Opération**           | **Complexité (moyenne)** |
 |-------------------------|---------------------------|
-| `get`, `put`, `remove`  | O(1) amorti               |
+| `get`                   | O(1) amorti               |
+| `put`                   | O(1) amorti               |
+| `remove`                | O(1) amorti               |
 | `containsKey`           | O(1) amorti               |
+| `containsValue`         | O(n)                      |
 | `iterator()` (parcours) | O(n)           |
 
 ### HashSet

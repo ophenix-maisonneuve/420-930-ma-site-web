@@ -43,8 +43,11 @@ Lorsque **plusieurs threads** doivent lire et modifier simultanément une table 
 | **Opération**                          | **Complexité (attendue)** |
 |----------------------------------------|----------------------------|
 | `get`                                  | O(1) amorti               |
-| `put`, `remove`, `containsKey`         | O(1) amorti               |
-| `iterator()` (faiblement cohérent)     | O(n)                      |
+| `put`                                  | O(1) amorti               |
+| `remove`                               | O(1) amorti               |
+| `containsKey`                          | O(1) amorti               |
+| `containsValue`                        | O(n)                      |
+| `iterator()` (parcours faiblement cohérent) | O(n)                 |
 
 ---
 

@@ -45,9 +45,13 @@ Quand l’**ordre** des clés est **fondamental** (classements, intervalles, nav
 
 | **Opération**                                      | **Complexité** |
 |----------------------------------------------------|-----------------|
-| `get`, `put`, `remove`, `containsKey`             | O(log n)       |
+| `get`                                             | O(log n)       |
+| `put`                                             | O(log n)       |
+| `remove`                                          | O(log n)       |
+| `containsKey`                                     | O(log n)       |
+| `containsValue`                                   | O(n)           |
 | `firstKey`, `lastKey`, `floorKey`, `ceilingKey`   | O(log n)       |
-| `iterator()` (parcours trié)                       | O(n)           |
+| `iterator()` (parcours trié)                      | O(n)           |
 
 
 ---

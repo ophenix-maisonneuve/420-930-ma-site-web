@@ -21,7 +21,7 @@ published: true
 1. Optimisation de la performance
    1. [Méthode d'optimisation](../notes/optimisation)
 1. Mise en pratique
-   1. [Le lobby des braves](../exercices/semaine3-maps) : Question 3
+   1. [Le lobby des braves](../exercices/semaine4-maps) : Question 3
    1. Retour en groupe
 
 ### Exercices complémentaires
