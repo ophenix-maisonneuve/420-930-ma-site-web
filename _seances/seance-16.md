@@ -25,5 +25,4 @@ published: true
    1. Retour en groupe
 
 ### Exercices complémentaires
-1. [Le lobby des braves](../exercices/semaine4-maps)
-   1. Question 4.2
+1. [Le lobby des braves](../exercices/semaine4-maps) : Question 4.2
