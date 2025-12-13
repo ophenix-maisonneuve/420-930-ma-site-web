@@ -12,7 +12,7 @@ published: true
 ### Ordre du jour
 
 1. Complexité grand O
-   1. [Concept général](../notes/notagion-grand-o)
+   1. [Concept général](../notes/notation-grand-o)
    1. Principales complexités
       1. [O(1)](../notes/o1) : Complexité constante
       1. [O(log n)](../notes/ologn) (logarithmique) et [O(2<sup>n</sup>)](../notes/o2n) (exponentielle)
