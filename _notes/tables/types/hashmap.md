@@ -3,16 +3,16 @@ title: "java.util.HashMap"
 layout: default
 parent: "java.util.Map"
 nav_order: 2
-published: false
+published: true
 ---
 
 # java.util.HashMap
 
-![Schéma HashMap](../assets/images/hashmap.png)
+![Schéma HashMap](../assets/images/hash-table-chainage-simple.png)
 
 `HashMap` est une implémentation de table associative **basée sur une table de hachage**. Elle offre des performances **en temps constant O(1) amorti** pour `get` et `put` lorsque la fonction de hachage répartit bien les clés. L’ordre d’itération **n’est pas garanti** et peut changer au fil des opérations. Elle **autorise** une seule **clé `null`** ainsi que les **valeurs `null`**. 
 
-`HashSet` est une implémentation de l’interface `Set` **adossée à une `HashMap`** interne (les éléments du set servent de clés). Elle **n’autorise aucun doublon**, **ne garantit pas l’ordre d’itération**, et **autorise l’élément `null`**. Les opérations fondamentales (`add`, `remove`, `contains`) sont **en temps constant amorti** si le hachage est de bonne qualité.
+`HashSet` est une implémentation de l’interface `Set` **utilisant une `HashMap`** interne (les éléments du *set* servent de clés). Elle **n’autorise aucun doublon**, **ne garantit pas l’ordre d’itération**, et **autorise l’élément `null`**. Les opérations fondamentales (`add`, `remove`, `contains`) sont **en temps constant amorti** si le hachage est de bonne qualité.
 
 ## Fonctionnement interne
 

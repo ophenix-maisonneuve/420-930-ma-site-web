@@ -3,9 +3,11 @@ title: "java.util.concurrent.ConcurrentHashMap"
 layout: default
 parent: "java.util.Map"
 nav_order: 3
-published: false
+published: true
 ---
+
 # java.util.concurrent.ConcurrentHashMap
+
 ## Description
 `ConcurrentHashMap` est une table de hachage **thread‑safe** offrant une **pleine concurrence en lecture** et une **forte concurrence en écriture**. Les **lectures** (dont `get`) sont en général **non bloquantes** et peuvent **chevaucher** des mises à jour (`put`, `remove`). Les itérateurs sont **faiblement cohérents** (ne lèvent pas `ConcurrentModificationException`).
 
@@ -13,7 +15,9 @@ published: false
 La structure **redimensionne** dynamiquement lorsque les collisions deviennent trop nombreuses (seuil lié au **facteur de charge ~0.75**). Les opérations de lecture n’emploient pas de verrou global; les mises à jour utilisent des mécanismes de concurrence fins pour préserver la **sécurité des threads** tout en maximisant le débit. Les **clés `null`** et les **valeurs `null`** **ne sont pas autorisées** (pour éviter l’ambiguïté entre « clé absente » et « valeur `null` » en environnement concurrent).
 
 ---
+
 ## Forces et faiblesses
+
 ### Forces
 - **Lectures non bloquantes**; **itérateurs faiblement cohérents**.
 - **Très bonnes performances** sous forte concurrence.
@@ -25,13 +29,16 @@ La structure **redimensionne** dynamiquement lorsque les collisions deviennent t
 - Certaines méthodes d’agrégat (`size`, `containsValue`) reflètent des **états transitoires**.
 
 ---
+
 ## Quand l’utiliser ?
 Lorsque **plusieurs threads** doivent lire et modifier simultanément une table associative **sans verrou global** (caches, index partagés, compteurs).
+
 {: .warning}
 > `ConcurrentHashMap` **n’autorise pas** les **clés/valeurs `null`**. Utilisez une **valeur sentinelle** ou encapsulez avec `Optional` si nécessaire.
 
 ---
-## Complexité (indicative)
+
+## Complexité
 
 **Opération**  | **Complexité (attendue)**
 -------------- | -------------------------
@@ -43,14 +50,15 @@ Lorsque **plusieurs threads** doivent lire et modifier simultanément une table 
 `iterator()` (parcours faiblement cohérent) | O(n)
 
 ---
+
 ## Comparaison avec `Collections.synchronizedMap`
 
 ### Description rapide
 **`Collections.synchronizedMap`** est un *wrapper* qui rend une `Map` (souvent une `HashMap`) **thread‑safe** via un **verrou unique** (*mutex*) autour de **toutes** les opérations. Les itérateurs **doivent** être utilisés à l’intérieur d’un bloc `synchronized` sur la map.
 
 **Forces**
-- **Simplicité** : transformer rapidement une `Map` non thread‑safe en thread‑safe.
-- **Sémantique forte** par opération : chaque appel est **entièrement synchronisé** : état observé **cohérent** au moment de l’appel.
+- **Simplicité** : transformer rapidement une `Map` non *thread‑safe* en *thread‑safe*.
+- **Sémantique forte** par opération : chaque appel est **entièrement synchronisé** (état observé **cohérent** au moment de l’appel).
 - **Autorise `null`** si la map sous‑jacente l’autorise (ex. `HashMap`).
 
 **Faiblesses**
