@@ -60,7 +60,7 @@ Pour gérer les collisions (deux clés différentes qui produisent le même inde
 - **`HashSet`** : lorsque l’objectif est d’**assurer l’unicité** d’éléments et de tester rapidement l’appartenance.
 
 {: .astuce}
-> Besoin d’un **ensemble non trié** de paires clé→valeur et **accès très rapide** : `HashMap`.  
+> Besoin d’un **ensemble non trié** de paires clé/valeur et **accès très rapide** : `HashMap`.  
 > Besoin d’un **ensemble d’éléments uniques** sans ordre : `HashSet`.  
 > Si l’ordre d’insertion ou un ordre trié est nécessaire, voir `TreeMap`/`TreeSet`.
 
