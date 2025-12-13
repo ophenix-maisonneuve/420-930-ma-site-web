@@ -65,7 +65,7 @@ public interface GestionnaireMessagerie {
 
 ```
 
-La classe `GestionnaireMessagerieMap` contient une première ébauche incomplète du gestionnaire de messagerie utilisant une table associative (map) :
+La classe `GestionnaireMessagerieMap` contient une première ébauche incomplète du gestionnaire de messagerie utilisant une table associative (*map*) :
 
 ---
 
