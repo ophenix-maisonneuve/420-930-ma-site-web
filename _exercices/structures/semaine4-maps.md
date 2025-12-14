@@ -41,6 +41,11 @@ git fetch
 git merge origin/main
 ```
 
+En cas de doutes ou de problèmes techniques, la branche `solution` contient tout le code réalisé jusqu'à présent. Elle peut aussi vous servir de point de départ pour cet exercice:
+```bash
+git checkout solution
+```
+
 ### 2. Lancez le projet Java
 ```bash
 mvn clean package
