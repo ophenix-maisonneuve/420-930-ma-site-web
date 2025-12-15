@@ -138,7 +138,7 @@ Une fois que vous aurez validé que l'implémentation est complète, utilisez la
 Pour chaque amélioration proposée, expliquez :
 - Quelle était la complexité grand O avant et après votre changement
 - À quoi est dû le gain de performance
-- Dans quelles circonstances votre changement apporterait les plus grand bénéfices
+- Dans quelles circonstances votre changement apporterait les plus grands bénéfices
 
 {: .astuce}
 > Portez une attention particulière aux différentes structures de données utilisées, ainsi qu'aux algorithmes utilisés pour effectuer des opérations sur celles-ci (ajout, retrait, itération, recherche, etc.).
