@@ -8,7 +8,9 @@ published: false
 
 ## Mise en situation
 
-Ça y est! Après des mois de travail acharné pour raffiner son modèle d'affaires, votre cousin est finalement prêt à lancer SOLIDEMENT BON, un *food truck* qui se promènera partout au Québec au gré des différents événements et festivals. Pendant qu'il se concentrait sur le lancement de son entreprise, il a confié le développement de l'application de gestion de commandes et de paiement à une firme externe. Ne disposant pas de beaucoup de moyens au départ, il a donné le contrat à la firme qui offrait le plus bas prix, même si elle semblait un peu louche. 
+![SOLIDEMENT Bon](../assets/images/food-truck.png)
+
+Ça y est! Après des mois de travail acharné pour raffiner son modèle d'affaires, votre cousin est finalement prêt à lancer SOLIDEMENT Bon, un *food truck* qui se promènera partout au Québec au gré des différents événements et festivals. Pendant qu'il se concentrait sur le lancement de son entreprise, il a confié le développement de l'application de gestion de commandes et de paiement à une firme externe. Ne disposant pas de beaucoup de moyens au départ, il a donné le contrat à la firme qui offrait le plus bas prix, même si elle semblait un peu louche. 
 
 À quelques semaines du début de ses opérations, votre cousin désire ajouter quelques éléments à son menu, ainsi qu'ajouter de nouveaux types de paiement et moyens de notifications. À sa grande surprise, la firme ayant conçu l'application lui répond que ces modifications, qui sont pourtant simples, lui coûteront presque autant que le développement initial et prendront plusieurs mois. Désespéré, il se souvient alors que vous suivez des cours en développement de logiciels au Collège de Maisonneuve, et il vous supplie de l'aider.
 
