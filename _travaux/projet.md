@@ -2,7 +2,7 @@
 layout: default
 title: "Projet"
 nav_order: 3
-published: true
+published: false
 ---
 # Projet : Amélioration d'une applications de gestion des commandes d'un *food truck*
 
