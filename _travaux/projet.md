@@ -34,30 +34,30 @@ published: true
 
 1. **Ajout des nouvelles fonctionnalités**
   - Afin de valider que les changements effectués améliorent la maintenabilité de l'application, ajouter les fonctionnalités suivantes :
-    - Ajout du **nouveau plat** `SALADE` avec les options suivantes :
-      - `taille` : valeurs possibles `petite`, `grande`
-      - `vinaigrette` : valeurs possibles `cesar`, `maison`
-      - *Portez une attention particulière à la façon dont ces options peuvent s'intégrer avec les options `epice` (épicé) et `extraFromage` qui sont déjà présentes pour les plats existants.*
-    - Ajout du **nouveau mode de paiement** `VIREMENT`, qui permettra aux clients de payer par virement bancaire.
-    - Ajout du **nouveau type de notification** `SMS`, qui permettra d'informer le client de l'état de sa commande par messagerie texte.
+     - Ajout du **nouveau plat** `SALADE` avec les options suivantes :
+       - `taille` : valeurs possibles `petite`, `grande`
+       - `vinaigrette` : valeurs possibles `cesar`, `maison`
+       - *Portez une attention particulière à la façon dont ces options peuvent s'intégrer avec les options `epice` (épicé) et `extraFromage` qui sont déjà présentes pour les plats existants.*
+     - Ajout du **nouveau mode de paiement** `VIREMENT`, qui permettra aux clients de payer par virement bancaire.
+     - Ajout du **nouveau type de notification** `SMS`, qui permettra d'informer le client de l'état de sa commande par messagerie texte.
 
 1. **Amélioration du système de notification**
   - L'application doit informer le client de l'état de sa commande à deux moments : 
-    - Lorsque la commande est passée (comme c'est le cas actuellement)
-    - Lorsque la commande est prête (à ajouter)
+     - Lorsque la commande est passée (comme c'est le cas actuellement)
+     - Lorsque la commande est prête (à ajouter)
   - ***Indice** : L'un des patrons de conception étudiés dans le cours est particulièrement bien adapté pour ce type de fonctionnalité...*
 
 1. **Ajustement de la classe de démarrage `App`**
   - La classe doit être ajustée pour :
-    - Profiter des améliorations que vous avez faites dans le code
-    - Permettre l'utilisation des fonctionnalités ajoutées
+     - Profiter des améliorations que vous avez faites dans le code
+     - Permettre l'utilisation des fonctionnalités ajoutées
 
 
 1. **Diagramme UML de classes** pour la partie refactorée.
   - Ce diagramme peut être réalisé à l'aide d'un logiciel, ou fait à la main puis remis sous forme d'image (à condition qu'il soit lisible)
 
 1. **Plan de tests** pour valider le comportement.
-  - Il peut s'agir d'un plan de tests manuels ou de tests automatisés à l'aide d'une librairie de tests comme **j-unit**
+  - Il peut s'agir d'un plan de tests manuels ou de tests automatisés à l'aide d'une librairie de tests comme **JUnit**
 
 
 ## Évaluation
