@@ -16,7 +16,7 @@ published: true
 
 ## Objectifs pédagogiques
 
-- Comprendre les **principes SOLID** et les impacts négatifs liés à leur non-respect.
+- Comprendre les **principes SOLID** et les impacts négatifs lorsqu'ils sont enfreints.
 - Améliorer la maintenabilité d'une application par la **refactorisation** et/ou l'utilisation de **patrons de conception**
 - Ajouter les nouvelles fonctionnalités **sans impact majeur au code refactorisé** (***open-closed principle***)
 - Produire un **diagramme UML de classes** et un plan de tests.
@@ -40,6 +40,7 @@ published: true
        - *Portez une attention particulière à la façon dont ces options peuvent s'intégrer avec les options `epice` (épicé) et `extraFromage` qui sont déjà présentes pour les plats existants.*
      - Ajout du **nouveau mode de paiement** `VIREMENT`, qui permettra aux clients de payer par virement bancaire.
      - Ajout du **nouveau type de notification** `SMS`, qui permettra d'informer le client de l'état de sa commande par messagerie texte.
+  - *Si vos améliorations précédentes ont bien respecté le pricipe Ouvert/Fermé (OCP), l'ajout de nouvelles fonctionnalités ne devrait pas occasionner de changements majeurs dans le code refactorisé. Il devrait principalement s'agir d'ajouts.*
 
 1. **Amélioration du système de notification**
   - L'application doit informer le client de l'état de sa commande à deux moments : 
@@ -62,16 +63,16 @@ published: true
 
 ## Évaluation
 
-| Critère                                  | Points |
-| -----------------------------------------| -------- |
-| Analyse SOLID                            | 5      |
-| Amélioration du code                     | 5      |
-| Ajout des nouvelles fonctionnalités      | 5      |
-| Amélioration du système de notification  | 2      |
-| Ajustement de la classe `App`            | 2      |
-| Diagramme UML                            | 3      |
-| Plan de tests                            | 3      |
-| **Total**                                | **25** |
+| Critère                                     | Points |
+| ------------------------------------------- | -------- |
+| 1. Analyse SOLID                            | 5      |
+| 2. Amélioration du code                     | 5      |
+| 3. Ajout des nouvelles fonctionnalités      | 5      |
+| 4. Amélioration du système de notification  | 2      |
+| 5. Ajustement de la classe `App`            | 2      |
+| 6. Diagramme UML                            | 3      |
+| 7. Plan de tests                            | 3      |
+| **Total**                                   | **25** |
 
 ---
 
