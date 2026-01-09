@@ -20,11 +20,11 @@ Les principes **SOLID** ont été formalisés et popularisés au tournant des an
 - **Améliorer la maintenabilité et la longévité** : rendre le code plus simple à faire évoluer, en particulier lorsqu'il est partagé entre plusieurs équipes.
 
 ## Définition
-- **Responsabilité unique (SRP - *Single Responsibility Principle*)** — Une classe ne doit avoir **qu’une seule raison de changer**.
-- **Ouvert/Fermé (OCP - *Open/Closed Principle*)** — Les entités **ouvertes à l’extension**, **fermées à la modification**.
-- **Substitution de Liskov (LSP - *Liskov Substitution Principle*)** — Les **types dérivés** se **substituent** aux types de base **sans altérer** le comportement attendu.
-- **Ségrégation des interfaces (ISP - *Interface Segregation Principle*)** — **Plusieurs petites interfaces spécifiques** plutôt qu’une interface « généraliste ».
-- **Inversion des dépendances (DIP - *Dependency Inversion Principle*)** — **Dépendre d’abstractions** plutôt que de **classes concrètes**.
+- **SRP - Responsabilité unique** (*Single Responsibility Principle*) : Une classe ne doit avoir qu’une seule raison de changer.
+- **OCP - Ouvert/Fermé** (*Open/Closed Principle*) : Les entités ouvertes à l’extension, fermées à la modification.
+- **LSP - Substitution de Liskov** (*Liskov Substitution Principle*) : Les types dérivés se substituent aux types de base sans altérer le comportement attendu.
+- **ISP - Ségrégation des interfaces** : Plusieurs petites interfaces spécifiques plutôt qu’une interface généraliste.
+- **DIP - Inversion des dépendances** (*Dependency Inversion Principle*) : Dépendre d’abstractions plutôt que de classes concrètes.
 
 {: .highlight}
 > En pratique, on applique ces principes **ensemble** : SRP pour séparer les rôles, ISP pour cibler les interfaces, DIP pour dépendre de contrats, LSP pour garantir la substituabilité, OCP pour étendre sans toucher au code existant.
