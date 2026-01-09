@@ -77,9 +77,7 @@ public class UtilisateurRepository {
 
 public class RapportFormatter {
     public String formatter(String donnees, String nomUtilisateur) {
-        return "=== RAPPORT UTILISATEUR ===
-Nom: " + nomUtilisateur + "
-" + donnees;
+        return "=== RAPPORT UTILISATEUR === Nom: " + nomUtilisateur + donnees;
     }
 }
 
