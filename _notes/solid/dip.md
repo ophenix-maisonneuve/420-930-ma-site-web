@@ -19,7 +19,9 @@ Le **DIP** sépare **politiques** (règles métier ou *business logic*) et **dé
 ## Exemple qui ne respecte pas DIP
 ```java
 public class MySQLCommandeRepository {
-    public void sauvegarder(String commande) { System.out.println("Sauvegarde MySQL: " + commande); }
+    public void sauvegarder(String commande) {
+        System.out.println("Sauvegarde MySQL: " + commande);
+    }
 }
 
 public class ServiceCommande {
@@ -34,6 +36,7 @@ public class ServiceCommande {
 }
 ```
 
+{: .warning}
 Ici, `ServiceCommande` **dépend** d’une **classe concrète** (`MySQLCommandeRepository`). Le service est **verrouillé** sur MySQL et **difficile à tester** (pas d’abstraction à mocker).
 
 ## Exemple corrigé conforme au DIP
@@ -43,11 +46,15 @@ public interface CommandeRepository {
 }
 
 public class MySQLCommandeRepository implements CommandeRepository {
-    public void sauvegarder(String commande) { System.out.println("Sauvegarde MySQL: " + commande); }
+    public void sauvegarder(String commande) {
+        System.out.println("Sauvegarde MySQL: " + commande);
+    }
 }
 
 public class MemoireCommandeRepository implements CommandeRepository {
-    public void sauvegarder(String commande) { System.out.println("Sauvegarde en mémoire: " + commande); }
+    public void sauvegarder(String commande) {
+        System.out.println("Sauvegarde en mémoire: " + commande);
+    }
 }
 
 public class ServiceCommande {
@@ -70,8 +77,9 @@ public class ServiceCommande {
 }
 ```
 
-Le service dépend maintenant **d’une abstraction** (`CommandeRepository`). On **injecte** l’implémentation voulue (MySQL, mémoire, etc.), ce qui **facilite** les tests et **évite** le couplage aux détails.
+{: .highlight}
+> Le service dépend maintenant **d’une abstraction** (`CommandeRepository`). On **injecte** l’implémentation voulue (MySQL, mémoire, etc.), ce qui **facilite** les tests et **évite** le couplage aux détails.
 
 ## Liens utiles
-- https://en.wikipedia.org/wiki/Dependency_inversion_principle
+- (https://en.wikipedia.org/wiki/Dependency_inversion_principle)
 - https://blog.logrocket.com/dependency-inversion-principle/

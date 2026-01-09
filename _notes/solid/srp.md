@@ -64,7 +64,8 @@ public class RapportUtilisateur {
 }
 ```
 
-Ici, la classe **mélange trois raisons de changer** : l’accès aux données, le **formatage** et l’**export**. Une modification de la base, du format de sortie, ou du mécanisme d’export **entraîne des changements** dans la même classe, augmentant le **couplage** et les **risques**.
+{: .warning}
+> Ici, la classe **mélange trois raisons de changer** : l’accès aux données, le **formatage** et l’**export**. Une modification de la base, du format de sortie, ou du mécanisme d’export **entraîne des changements** dans la même classe, augmentant le **couplage** et les **risques**.
 
 ## Exemple corrigé conforme au SRP
 ```java
@@ -107,7 +108,8 @@ public class RapportService {
 }
 ```
 
-Chaque classe a maintenant **une responsabilité unique** (données, formatage, export). Les changements futures seront **localisés**, rendant le code **testable** et **extensible** sans modifier les autres rôles.
+{: .highlight}
+> Chaque classe a maintenant **une responsabilité unique** (données, formatage, export). Les changements futures seront **localisés**, rendant le code **testable** et **extensible** sans modifier les autres rôles.
 
 ## Liens utiles
 - https://en.wikipedia.org/wiki/Single-responsibility_principle

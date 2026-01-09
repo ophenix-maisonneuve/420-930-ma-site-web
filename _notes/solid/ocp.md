@@ -33,7 +33,8 @@ public class CalculateurRemise {
 }
 ```
 
-Ici, ajouter une nouvelle catégorie (*PRO*, *ASSOCIATION*, etc.) impose de **modifier** `CalculateurRemise`. Le code est **fermé** à l’extension et **ouvert** aux régressions.
+{: .warning}
+> Ici, ajouter une nouvelle catégorie (*PRO*, *ASSOCIATION*, etc.) impose de **modifier** `CalculateurRemise`. Le code est **fermé** à l’extension et **ouvert** aux régressions.
 
 ## Exemple corrigé conforme au OCP
 ```java
@@ -77,7 +78,8 @@ public class CalculateurRemise {
 }
 ```
 
-`CalculateurRemise` **ne change plus** : on **injecte** une nouvelle `Remise` (ex. `RemisePro`) pour étendre le comportement **sans modifier** le code existant.
+{:. highlight}
+> `CalculateurRemise` **ne change plus** : on **injecte** une nouvelle `Remise` (ex. `RemisePro`) pour étendre le comportement **sans modifier** le code existant.
 
 ## Liens utiles
 - https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle

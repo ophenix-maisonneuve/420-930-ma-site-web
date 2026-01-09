@@ -65,7 +65,8 @@ public class TestRectangle {
 }
 ```
 
-Ici, `Carre` **modifie l’invariant** attendu par `Rectangle` (largeur indépendante de la hauteur). Le client qui manipule `Rectangle` **n’obtient plus** le comportement attendu (aire 20) et la **substituabilité** est enfreinte.
+{: .warning}
+> Ici, `Carre` **modifie l’invariant** attendu par `Rectangle` (largeur indépendante de la hauteur). Le client qui manipule `Rectangle` **n’obtient plus** le comportement attendu (aire 20) et la **substituabilité** est enfreinte.
 
 ## Exemple corrigé conforme au LSP
 ```java
@@ -116,7 +117,8 @@ public class CalculAire {
 }
 ```
 
-`Rectangle` et `Carre` deviennent **deux types distincts** partageant l’abstraction `Forme`. Chacun **préserve son invariant** et peut être **substitué** via `Forme` sans causer de mauvaises surprises au code qui utilise l'interface de base `Forme`.
+{: .highlight}
+> `Rectangle` et `Carre` deviennent **deux types distincts** partageant l’abstraction `Forme`. Chacun **préserve son invariant** et peut être **substitué** via `Forme` sans causer de mauvaises surprises au code qui utilise l'interface de base `Forme`.
 
 ## Liens utiles
 - https://en.wikipedia.org/wiki/Liskov_substitution_principle

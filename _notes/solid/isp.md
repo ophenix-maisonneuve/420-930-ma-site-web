@@ -25,13 +25,22 @@ public interface AppareilMultifonction {
 }
 
 public class Imprimante implements AppareilMultifonction {
-    public void imprimer(String contenu) { System.out.println("Impression: " + contenu); }
-    public void scanner() { throw new UnsupportedOperationException("Scan non supporté."); }
-    public void faxer(String numero, String contenu) { throw new UnsupportedOperationException("Fax non supporté."); }
+    public void imprimer(String contenu) {
+        System.out.println("Impression: " + contenu);
+    }
+
+    public void scanner() {
+        throw new UnsupportedOperationException("Scan non supporté.")
+    }
+
+    public void faxer(String numero, String contenu) {
+        throw new UnsupportedOperationException("Fax non supporté.");
+    }
 }
 ```
 
-Ici, l’interface **oblige** à implémenter des méthodes **inutiles** pour `Imprimante`. On **couple** le code à des capacités qui ne sont pas requises et on **alourdit** la classe pour rien.
+{: .warning}
+> Ici, l’interface **oblige** à implémenter des méthodes **inutiles** pour `Imprimante`. On **couple** le code à des capacités qui ne sont pas requises et on **alourdit** la classe pour rien.
 
 ## Exemple corrigé conforme à ISP
 ```java
@@ -65,7 +74,8 @@ public class AppareilQuiFaitToutSaufTonLunch implements Imprimante, Scanner, Tel
 }
 ```
 
-Les interfaces sont maintenant **séparées** par **capacité**. Chaque implémenteur implémente **seulement** ce dont il a besoin, ce qui **réduit** le couplage et **simplifie** les tests et l’évolution.
+{: .highlight}
+> Les interfaces sont maintenant **séparées** par **capacité**. Chaque implémenteur implémente **seulement** ce dont il a besoin, ce qui **réduit** le couplage et **simplifie** les tests et l’évolution.
 
 ## Liens utiles
 - https://en.wikipedia.org/wiki/Interface_segregation_principle
