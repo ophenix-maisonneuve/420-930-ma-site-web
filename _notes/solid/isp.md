@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "ISP — Ségrégation des interfaces"
+title: "ISP - Ségrégation des interfaces"
 parent: "Principes SOLID"
 nav_order: 4
 published: true

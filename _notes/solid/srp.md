@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "SRP — Responsabilité unique"
+title: "SRP - Responsabilité unique"
 parent: "Principes SOLID"
 nav_order: 1
 published: true

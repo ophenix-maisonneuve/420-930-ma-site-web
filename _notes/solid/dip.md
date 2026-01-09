@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "DIP — Inversion des dépendances"
+title: "DIP - Inversion des dépendances"
 parent: "Principes SOLID"
 nav_order: 5
 published: true
@@ -81,5 +81,5 @@ public class ServiceCommande {
 > Le service dépend maintenant **d’une abstraction** (`CommandeRepository`). On **injecte** l’implémentation voulue (MySQL, mémoire, etc.), ce qui **facilite** les tests et **évite** le couplage aux détails.
 
 ## Liens utiles
-- (https://en.wikipedia.org/wiki/Dependency_inversion_principle)
+- [](https://en.wikipedia.org/wiki/Dependency_inversion_principle)
 - https://blog.logrocket.com/dependency-inversion-principle/

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "OCP — Ouvert/Fermé"
+title: "OCP - Ouvert/Fermé"
 parent: "Principes SOLID"
 nav_order: 2
 published: true

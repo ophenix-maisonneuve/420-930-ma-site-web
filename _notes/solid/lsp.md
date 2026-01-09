@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "LSP — Substitution de Liskov"
+title: "LSP - Substitution de Liskov"
 parent: "Principes SOLID"
 nav_order: 3
 published: true
