@@ -54,7 +54,7 @@ published: true
      - Permettre l'utilisation des fonctionnalités ajoutées
 
 
-1. **Diagramme UML de classes** pour la partie refactorée.
+1. **Diagramme UML de classes** pour la partie refactorisée.
   - Ce diagramme peut être réalisé à l'aide d'un logiciel, ou fait à la main puis remis sous forme d'image (à condition qu'il soit lisible)
 
 1. **Plan de tests** pour valider le comportement.
