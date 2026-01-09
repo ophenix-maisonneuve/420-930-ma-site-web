@@ -61,7 +61,7 @@ public class GameManager {
             System.out.println("Temps restant: " + this.secondsRemaining + "s");
         }
         if (this.secondsRemaining <= 0) {
-            System.out.println("Game over.");
+            System.out.println("Temps écoulé, mission ÉCHOUÉE!");
         }
     }
 
@@ -79,6 +79,10 @@ public class GameManager {
 ## 2. OCP - Principe ouvert/fermé
 
 ```java
+/**
+ * Classe qui calcule le temps alloué pour une épreuve en
+ * fonction du type d'épreuve.
+ */
 public class DifficultyCalculator {
     public int computeSecondsForPuzzle(String puzzleType) {
         if ("TEXT".equals(puzzleType)) {
@@ -109,7 +113,7 @@ public class PuzzleBase {
         if (input == null) {
             return false;
         }
-        return input.length() >= 1;
+        return "START".equals(input);
     }
 }
 
@@ -117,16 +121,16 @@ public class LaserMazePuzzle extends PuzzleBase {
     @Override
     public boolean attempt(String input) {
         if (input == null) {
-            throw new IllegalArgumentException("LaserMaze requires a START command.");
+            throw new IllegalArgumentException("LaserMaze requires a START or RUN command.");
         }
-        if (!"START".equals(input)) {
+        if (!("START".equals(input) || "RUN".equals(input)) {
             throw new UnsupportedOperationException("Invalid command for LaserMaze.");
         }
         return true;
     }
 }
 
-// Code client écrit contre le type de base
+// Code client
 public class PuzzleRunner {
     public boolean run(PuzzleBase puzzle, String input) {
         return puzzle.attempt(input); // suppose aucune exception
@@ -141,7 +145,7 @@ public class PuzzleRunner {
 1. Si le principe n'est pas respecté, proposez une nouvelle version du code qui corrige le problème.
 
 
-### 4. ISP - Principe de ségrégation des interfaces
+## 4. ISP - Principe de ségrégation des interfaces
 
 ```java
 /**
@@ -186,47 +190,33 @@ public class TextTerminal implements GameConsole {
   1. **Indice** : Est-il réellement utile d'implémenter les méthodes `playSound`, `vibrate`, `showMap` et `recordVideo` pour un terminal de texte ?
 1. Proposez une nouvelle version du code qui corrige le problème.
 
-### 4. ISP - Principe de ségrégation des interfaces
+## 5. DIP - Principe d'inversion des dépendances
 
 ```java
-/**
- * Interface qui définit une console de jeu utilisable pour jouer au escape room
- * Par exemple : terminal de texte, PC Windows, iPhone, etc
- */
-public interface GameConsole {
-    void displayText(String text);
-    void playSound(String soundFile);
-    void vibrate(int intensity);
-    void showMap(String roomId);
-    void recordVideo(String filePath);
-}
-
-/**
- * Implémentation la plus basique d'une console de jeu : un terminal texte
- */
-public class TextTerminal implements GameConsole {
-    public void displayText(String text) {
-        System.out.println(text);
-    }
-
-    public void playSound(String soundFile) {
-        throw new UnsupportedOperationException("Le son n'est pas pris en charge.");
-    }
-
-    public void vibrate(int intensity) {
-        throw new UnsupportedOperationException("La vibration n'est pas prise en charge.");
-    }
-
-    public void showMap(String roomId) {
-        throw new UnsupportedOperationException("Les maps complexes ne sont pas prises en charge.");
-    }
-
-    public void recordVideo(String filePath) {
-        throw new UnsupportedOperationException("La vidéo n'est pas prise en charge.");
+public class FileProgressRepository {
+    public void saveProgress(String playerId, int score, int secondsLeft) {
+        System.out.println("Sauvegarde en cours pour le joueur " + playerId + " -> score=" + score + ", temps=" + secondsLeft);
     }
 }
+
+public class ProgressService {
+    private FileProgressRepository repository;
+
+    public ProgressService() {
+        this.repository = new FileProgressRepository();
+    }
+
+    public void save(String playerId, int score, int secondsLeft) {
+        this.repository.saveProgress(playerId, score, secondsLeft);
+    }
+}
+
 ```
+1. Supposez que l'on désire maintenant proposer la sauvegarde dans une base de données plutôt que dans un fichier. 
+  1. Avec le code actuel, quelle(s) modification(s) serait(ent) nécessaire(s) pour prendre en charge ce nouveau type de sauvegarde ?
+  1. Cette modification enfreindrait-elle l'un des 4 autres principes (S-O-L-I) ? Pourquoi ?
+  1. Avec le code actuel, serait-il possible de prendre en charge à la fois la sauvegarde dans un fichier et la sauvegarde en BD sans changer le code de `ProgressService` ? Pourquoi ?
+1. En fonction de vos réponses aux questions précédentes, croyez-vous que le code ci-haut respecte le principe d'inversion des dépendances ? 
+1. Si le code ne respecte pas DIP, proposez une nouvelle version du code qui corrige le problème.
 
-1. Pourquoi le code ci-haut enfreint le principe de ségrégation des interfaces ?
-  1. **Indice** : Est-il réellement utile d'implémenter les méthodes `playSound`, `vibrate`, `showMap` et `recordVideo` pour un terminal de texte ?
-1. Proposez une nouvelle version du code qui corrige le problème.
+
