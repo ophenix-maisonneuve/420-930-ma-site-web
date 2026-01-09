@@ -82,4 +82,4 @@ public class ServiceCommande {
 
 ## Liens utiles
 - [https://en.wikipedia.org/wiki/Dependency_inversion_principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle)
-- [https://blog.logrocket.com/dependency-inversion-principle/]
+- [https://blog.logrocket.com/dependency-inversion-principle/](https://blog.logrocket.com/dependency-inversion-principle/)

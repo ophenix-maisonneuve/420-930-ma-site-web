@@ -82,5 +82,5 @@ public class CalculateurRemise {
 > `CalculateurRemise` **ne change plus** : on **injecte** une nouvelle `Remise` (ex. `RemisePro`) pour étendre le comportement **sans modifier** le code existant.
 
 ## Liens utiles
-- https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle
-- https://martinfowler.com/ieeeSoftware/protectedVariation.pdf
+- [https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle)
+- [https://martinfowler.com/ieeeSoftware/protectedVariation.pdf](https://martinfowler.com/ieeeSoftware/protectedVariation.pdf)

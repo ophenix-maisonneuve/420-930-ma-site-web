@@ -112,5 +112,5 @@ public class RapportService {
 > Chaque classe a maintenant **une responsabilité unique** (données, formatage, export). Les changements futures seront **localisés**, rendant le code **testable** et **extensible** sans modifier les autres rôles.
 
 ## Liens utiles
-- https://en.wikipedia.org/wiki/Single-responsibility_principle
-- https://www.baeldung.com/solid-principles
+- [https://en.wikipedia.org/wiki/Single-responsibility_principle](https://en.wikipedia.org/wiki/Single-responsibility_principle)
+- [https://www.baeldung.com/solid-principles](https://www.baeldung.com/solid-principles)

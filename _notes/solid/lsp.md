@@ -121,5 +121,5 @@ public class CalculAire {
 > `Rectangle` et `Carre` deviennent **deux types distincts** partageant l’abstraction `Forme`. Chacun **préserve son invariant** et peut être **substitué** via `Forme` sans causer de mauvaises surprises au code qui utilise l'interface de base `Forme`.
 
 ## Liens utiles
-- https://en.wikipedia.org/wiki/Liskov_substitution_principle
-- https://www.baeldung.com/cs/liskov-substitution-principle
+- [https://en.wikipedia.org/wiki/Liskov_substitution_principle](https://en.wikipedia.org/wiki/Liskov_substitution_principle)
+- [https://www.baeldung.com/cs/liskov-substitution-principle](https://www.baeldung.com/cs/liskov-substitution-principle)

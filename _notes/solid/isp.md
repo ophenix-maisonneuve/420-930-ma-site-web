@@ -78,5 +78,5 @@ public class AppareilQuiFaitToutSaufTonLunch implements Imprimante, Scanner, Tel
 > Les interfaces sont maintenant **séparées** par **capacité**. Chaque implémenteur implémente **seulement** ce dont il a besoin, ce qui **réduit** le couplage et **simplifie** les tests et l’évolution.
 
 ## Liens utiles
-- https://en.wikipedia.org/wiki/Interface_segregation_principle
-- https://stackify.com/interface-segregation-principle/
+- [https://en.wikipedia.org/wiki/Interface_segregation_principle](https://en.wikipedia.org/wiki/Interface_segregation_principle)
+- [https://stackify.com/interface-segregation-principle/](https://stackify.com/interface-segregation-principle/)
