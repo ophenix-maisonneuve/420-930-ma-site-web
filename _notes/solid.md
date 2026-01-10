@@ -2,7 +2,7 @@
 layout: default
 title: "Principes SOLID"
 nav_order: 8
-published: true
+published: false
 ---
 
 # Principes SOLID
