@@ -6,7 +6,7 @@ nav_order: 2
 published: true
 ---
 
-# OCP — Ouvert/Fermé (*Open/CLosed Principle*)
+# OCP — Ouvert/Fermé (*Open/Closed Principle*)
 
 Les entités doivent être **ouvertes à l’extension**, mais **fermées à la modification**.
 
