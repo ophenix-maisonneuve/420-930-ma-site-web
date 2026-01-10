@@ -123,9 +123,12 @@ public class LaserMazePuzzle extends PuzzleBase {
         if (input == null) {
             throw new IllegalArgumentException("LaserMaze requires a START or RUN command.");
         }
-        if (!("START".equals(input) || "RUN".equals(input)) {
+        if (!("START".equals(input) || "RUN".equals(input))) {
             throw new UnsupportedOperationException("Invalid command for LaserMaze.");
         }
+
+        // exécuter de la logique métier ici, au besoin
+
         return true;
     }
 }
@@ -195,7 +198,7 @@ public class TextTerminal implements GameConsole {
 ```java
 public class FileProgressRepository {
     public void saveProgress(String playerId, int score, int secondsLeft) {
-        System.out.println("Sauvegarde en cours pour le joueur " + playerId + " -> score=" + score + ", temps=" + secondsLeft);
+        System.out.println("Sauvegarde en cours dans un fichier pour le joueur " + playerId + " -> score=" + score + ", temps=" + secondsLeft);
     }
 }
 
