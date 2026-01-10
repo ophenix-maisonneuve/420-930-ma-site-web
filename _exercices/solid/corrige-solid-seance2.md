@@ -4,16 +4,16 @@ title: "SOLID - Corrigé séance 2"
 parent: "Principes SOLID"
 nav_order: 2
 has_toc: false
-published: true
+published: false
 ---
 
 ## 3. LSP - Principe de substitution de Liskov
 
 ### 3.1. Que se passera-t-il si l'entrée (`input`) est `null` dans les cas suivants :
-#### Si `puzzle` est de type `PuzzleBase` ?
+**Si `puzzle` est de type `PuzzleBase` ?**
 Si `puzzle` est de type `PuzzleBase`, tout fonctionnera comme prévu : comme `input == null`, la méthode `attempt` retournera `false`, qui se propagera à l'appelant de `PuzzleRunner.run`.
 
-#### Si `puzzle` est de type `LaserMazePuzzle` ?
+**Si `puzzle` est de type `LaserMazePuzzle` ?**
 Si `puzzle` est de type `LaserMazePuddle`, on est dans le trouble : comme `input == null`, la méthode `attempt` lancera une exception qui n'est pas correctement gérée par l'appelant. Le résultat très probable sera un crash de l'application.
 
 ### 3.2. En fonction de vos réponses ci-haut, le principe de substitution de Liskov est-il respecté ? Pourquoi ?

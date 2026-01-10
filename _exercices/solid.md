@@ -5,7 +5,6 @@ nav_order: 10
 has_toc: false
 published: true
 ---
-
 # Exercice: Analyse et correctifs SOLID
 
 ## Objectifs
@@ -72,9 +71,9 @@ public class GameManager {
     }
 }
 ```
-1. Pourquoi le code ci-haut enfreint le principe de responsabilité unique ?
-1. Proposez une nouvelle version du code qui corrige le problème.
 
+1. Pourquoi le code ci-haut enfreint le principe de responsabilité unique ?
+2. Proposez une nouvelle version du code qui corrige le problème.
 
 ## 2. OCP - Principe ouvert/fermé
 
@@ -99,9 +98,8 @@ public class DifficultyCalculator {
 ```
 
 1. Pourquoi le code ci-haut enfreint le principe ouvert/fermé ?
-  1. **Indice** : Si on désirait ajouter un nouveau type d'énigme, comment devrait-on procéder ?
-1. Proposez une nouvelle version du code qui corrige le problème.
-
+   1. **Indice** : Si on désirait ajouter un nouveau type d'énigme, comment devrait-on procéder ?
+2. Proposez une nouvelle version du code qui corrige le problème.
 
 ## 3. LSP - Principe de substitution de Liskov
 
@@ -142,11 +140,10 @@ public class PuzzleRunner {
 ```
 
 1. Que se passera-t-il si l'entrée (`input`) est `null` dans les cas suivants :
-  1. Si `puzzle` est de type `PuzzleBase` ?
-  1. Si `puzzle` est de type `LaserMazePuzzle` ?
-1. En fonction de vos réponses ci-haut, le principe de substitution de Liskov est-il respecté ? Pourquoi ?
-1. Si le principe n'est pas respecté, proposez une nouvelle version du code qui corrige le problème.
-
+   1. Si `puzzle` est de type `PuzzleBase` ?
+   2. Si `puzzle` est de type `LaserMazePuzzle` ?
+2. En fonction de vos réponses ci-haut, le principe de substitution de Liskov est-il respecté ? Pourquoi ?
+3. Si le principe n'est pas respecté, proposez une nouvelle version du code qui corrige le problème.
 
 ## 4. ISP - Principe de ségrégation des interfaces
 
@@ -190,8 +187,8 @@ public class TextTerminal implements GameConsole {
 ```
 
 1. Pourquoi le code ci-haut enfreint le principe de ségrégation des interfaces ?
-  1. **Indice** : Est-il réellement utile d'implémenter les méthodes `playSound`, `vibrate`, `showMap` et `recordVideo` pour un terminal de texte ?
-1. Proposez une nouvelle version du code qui corrige le problème.
+   1. **Indice** : Est-il réellement utile d'implémenter les méthodes `playSound`, `vibrate`, `showMap` et `recordVideo` pour un terminal de texte ?
+2. Proposez une nouvelle version du code qui corrige le problème.
 
 ## 5. DIP - Principe d'inversion des dépendances
 
@@ -215,11 +212,10 @@ public class ProgressService {
 }
 
 ```
-1. Supposez que l'on désire maintenant proposer la sauvegarde dans une base de données plutôt que dans un fichier. 
-  1. Avec le code actuel, quelle(s) modification(s) serait(ent) nécessaire(s) pour prendre en charge ce nouveau type de sauvegarde ?
-  1. Cette modification enfreindrait-elle l'un des 4 autres principes (S-O-L-I) ? Pourquoi ?
-  1. Avec le code actuel, serait-il possible de prendre en charge à la fois la sauvegarde dans un fichier et la sauvegarde en BD sans changer le code de `ProgressService` ? Pourquoi ?
-1. En fonction de vos réponses aux questions précédentes, croyez-vous que le code ci-haut respecte le principe d'inversion des dépendances ? 
-1. Si le code ne respecte pas DIP, proposez une nouvelle version du code qui corrige le problème.
 
-
+1. Supposez que l'on désire maintenant proposer la sauvegarde dans une base de données plutôt que dans un fichier.
+   1. Avec le code actuel, quelle(s) modification(s) serait(ent) nécessaire(s) pour prendre en charge ce nouveau type de sauvegarde ?
+   2. Cette modification enfreindrait-elle l'un des 4 autres principes (S-O-L-I) ? Pourquoi ?
+   3. Avec le code actuel, serait-il possible de prendre en charge à la fois la sauvegarde dans un fichier et la sauvegarde en BD sans changer le code de `ProgressService` ? Pourquoi ?
+2. En fonction de vos réponses aux questions précédentes, croyez-vous que le code ci-haut respecte le principe d'inversion des dépendances ?
+3. Si le code ne respecte pas DIP, proposez une nouvelle version du code qui corrige le problème.

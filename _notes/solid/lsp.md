@@ -14,7 +14,7 @@ Les **types dérivés** doivent pouvoir **se substituer** aux types de base **sa
 Une hiérarchie **mal conçue** peut briser les comportements attendus du parent ; le code qui dépend du type de base se **comporte différemment** lorsqu'utilisé avec une implémentation particulière (une sous-classe), entraînant des **erreurs** inattendues.
 
 ## Définition
-Le **LSP** impose un **sous‑typage comportemental** : un sous‑type doit respecter les **pré‑conditions**, **post‑conditions** et **invariants** du super‑type. En héritage, toute **restriction** ou **renforcement** mal aligné peut rompre la substituabilité (voir l'exemple *Rectangle/Carre* ci-bas). Quand les invariants **diffèrent**, il vaut mieux recourir à la **composition** ou à des **types indépendants**, assortis d’une **abstraction commune**. Cette rigueur évite des tests spécifiques aux enfants, des *casts* ou des *RTTI*, et **préserve** l’**OCP** en permettant d’introduire de nouveaux types sans changer le code client.
+Le **LSP** impose une constance dans le comportement des **sous‑types** : un sous‑type doit respecter les **pré‑conditions**, **post‑conditions** et **invariants** du type parent. En héritage, toute **restriction** ou **renforcement** mal aligné peut rompre la substituabilité (voir l'exemple *Rectangle/Carré* ci-bas). Quand les invariants **diffèrent**, il vaut mieux recourir à la **composition** ou à des **types indépendants**, assortis d’une **abstraction commune**. Cette rigueur évite des tests spécifiques aux enfants ou des *casts* explicites et **préserve** l’**OCP** en permettant d’introduire de nouveaux types sans changer le code client.
 
 ## Exemple qui ne respecte pas LSP
 ```java

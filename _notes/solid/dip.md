@@ -14,7 +14,7 @@ Les modules de haut niveau ne doivent pas dépendre de modules de bas niveau : t
 Le code métier (*business logic*) **couplé** à des composants techniques (base de données, API, fichiers) est **difficile à tester** et très **rigide** face aux changements d’implémentation.
 
 ## Définition
-Le **DIP** sépare **politiques** (règles métier ou *business logic*) et **détails** (implémentations techniques) en **inversant** la dépendance : modules haut niveau et bas niveau **dépendent d’une abstraction** commune. Concrètement, on **déclare** des interfaces au niveau métier et on **injecte** les implémentations techniques (via constructeur, setter, conteneur, etc). On gagne en **testabilité** (mocks), en **flexibilité** (remplacer MySQL par mémoire ou HTTP), et on **préserve** l’**OCP** en ajoutant des implémentations sans modifier le service.
+Le **DIP** sépare **politiques** (règles métier ou *business logic*) et **détails** (implémentations techniques) en **inversant** la dépendance : les modules haut niveau et bas niveau **dépendent d’une abstraction** commune. Concrètement, on **déclare** des interfaces au niveau métier et on **injecte** les implémentations techniques (via constructeur, setter, autre *framework* d'injection de dépendances, etc). On gagne en **testabilité** (mocks), en **flexibilité** (remplacer MySQL par mémoire ou HTTP), et on **préserve** l’**OCP** en ajoutant des implémentations sans modifier le service.
 
 ## Exemple qui ne respecte pas DIP
 ```java
