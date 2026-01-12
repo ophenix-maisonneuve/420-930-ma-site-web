@@ -10,7 +10,7 @@ published: false
 ## 1. SRP - Principe de responsabilité unique
 
 ### 1.1 Pourquoi le code ci-haut enfreint le principe de responsabilité unique ?
-Le code proposé présente les caractéristiques d'un ***God object***, qui est l'anti-pattern le plus souvent associé à un bris de SRP. En effet, il s'agit d'une classe qui tente de tout gérer : les énigmes, les scores, les indices et le chronomètre. Les risques sont élevés que, sans refactorisation, cette classe grossira sans arrêt au fil des ajouts de fonctionnalités, la rendant toujours plus difficile à maintenir et à tester. 
+Le code proposé présente les caractéristiques d'un ***God object*** en formation, qui est l'anti-pattern le plus souvent associé à un bris de SRP. En effet, il s'agit d'une classe qui tente de tout gérer : les énigmes, les scores, les indices et le chronomètre. Les risques sont élevés que, sans refactorisation, cette classe grossira sans arrêt au fil des ajouts de fonctionnalités, la rendant toujours plus difficile à maintenir et à tester. 
 
 ### 1.2 Proposez une nouvelle version du code qui corrige le problème
 
