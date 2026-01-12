@@ -3,7 +3,7 @@ layout: default
 title: "Principes SOLID"
 nav_order: 10
 has_toc: false
-published: false
+published: true
 ---
 # Exercice: Analyse et correctifs SOLID
 
