@@ -25,46 +25,46 @@ published: true
 
 1. **Analyse SOLID**
 
-- Identification des violations aux principes SOLID présentes dans l'application initiale
-- Explication du principe non respecté
+   - Identification des violations aux principes SOLID présentes dans l'application initiale
+   - Explication du principe non respecté
 
 1. **Amélioration du code**
 
-- Pour chaque principe SOLID non respecté, fournir une nouvelle implémentation qui corrige le problème.
-- Pour chaque correctif, expliquez comment votre nouvelle implémentation corrige le problème soit directement en commentaire dans le code, ou dans la partie **Analyse SOLID** ci-haut.
-- *Au moins l'une des corrections devra utiliser un patron de conception étudié en classe*
+   - Pour chaque principe SOLID non respecté, fournir une nouvelle implémentation qui corrige le problème.
+   - Pour chaque correctif, expliquez comment votre nouvelle implémentation corrige le problème soit directement en commentaire dans le code, ou dans la partie **Analyse SOLID** ci-haut.
+   - *Au moins l'une des corrections devra utiliser un patron de conception étudié en classe*
 
 1. **Ajout des nouvelles fonctionnalités**
 
-- Afin de valider que les changements effectués améliorent la maintenabilité de l'application, ajouter les fonctionnalités suivantes :
-  - Ajout du **nouveau plat** `SALADE` avec les options suivantes :
-    - `taille` : valeurs possibles `petite`, `grande`
-    - `vinaigrette` : valeurs possibles `cesar`, `maison`
-    - *Portez une attention particulière à la façon dont ces options peuvent s'intégrer avec les options `epice` (épicé) et `extraFromage` qui sont déjà présentes pour les plats existants.*
-  - Ajout du **nouveau mode de paiement** `VIREMENT`, qui permettra aux clients de payer par virement bancaire.
-  - Ajout du **nouveau type de notification** `SMS`, qui permettra d'informer le client de l'état de sa commande par messagerie texte.
-- *Si vos améliorations précédentes ont bien respecté le pricipe Ouvert/Fermé (OCP), l'ajout de nouvelles fonctionnalités ne devrait pas occasionner de changements majeurs dans le code refactorisé. Il devrait principalement s'agir d'ajouts.*
+   - Afin de valider que les changements effectués améliorent la maintenabilité de l'application, ajouter les fonctionnalités suivantes :
+      - Ajout du **nouveau plat** `SALADE` avec les options suivantes :
+         - `taille` : valeurs possibles `petite`, `grande`
+         - `vinaigrette` : valeurs possibles `cesar`, `maison`
+         - *Portez une attention particulière à la façon dont ces options peuvent s'intégrer avec les options `epice` (épicé) et `extraFromage` qui sont déjà présentes pour les plats existants.*
+      - Ajout du **nouveau mode de paiement** `VIREMENT`, qui permettra aux clients de payer par virement bancaire.
+      - Ajout du **nouveau type de notification** `SMS`, qui permettra d'informer le client de l'état de sa commande par messagerie texte.
+   - *Si vos améliorations précédentes ont bien respecté le pricipe Ouvert/Fermé (OCP), l'ajout de nouvelles fonctionnalités ne devrait pas occasionner de changements majeurs dans le code refactorisé. Il devrait principalement s'agir d'ajouts.*
 
 1. **Amélioration du système de notification**
 
-- L'application doit informer le client de l'état de sa commande à deux moments :
-  - Lorsque la commande est passée (comme c'est le cas actuellement)
-  - Lorsque la commande est prête (à ajouter)
-- ***Indice** : L'un des patrons de conception étudiés dans le cours est particulièrement bien adapté pour ce type de fonctionnalité...*
+   - L'application doit informer le client de l'état de sa commande à deux moments :
+      - Lorsque la commande est passée (comme c'est le cas actuellement)
+      - Lorsque la commande est prête (à ajouter)
+   - ***Indice** : L'un des patrons de conception étudiés dans le cours est particulièrement bien adapté pour ce type de fonctionnalité...*
 
 1. **Ajustement de la classe de démarrage `App`**
 
-- La classe doit être ajustée pour :
-  - Profiter des améliorations que vous avez faites dans le code
-  - Permettre l'utilisation des fonctionnalités ajoutées
+   - La classe doit être ajustée pour :
+      - Profiter des améliorations que vous avez faites dans le code
+      - Permettre l'utilisation des fonctionnalités ajoutées
 
 1. **Diagramme UML de classes** pour la partie refactorisée.
 
-- Ce diagramme peut être réalisé à l'aide d'un logiciel, ou fait à la main puis remis sous forme d'image (à condition qu'il soit lisible)
+   - Ce diagramme peut être réalisé à l'aide d'un logiciel, ou fait à la main puis remis sous forme d'image (à condition qu'il soit lisible)
 
 1. **Plan de tests** pour valider le comportement.
 
-- Il peut s'agir d'un plan de tests manuels ou de tests automatisés à l'aide d'une librairie de tests comme **JUnit**
+   - Il peut s'agir d'un plan de tests manuels ou de tests automatisés à l'aide d'une librairie de tests comme **JUnit**
 
 ## Évaluation
 

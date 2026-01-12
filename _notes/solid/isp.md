@@ -11,7 +11,7 @@ published: true
 Il vaut mieux **plusieurs petites interfaces spécifiques** qu’une **grande interface** généraliste.
 
 ## Pourquoi ?
-Les interfaces de type *canif suisse* (c'est-à-dire des interfaces qui tentent de tout définir) forcent les implémenteurs à **coder des méthodes inutiles** (souvent vides), multiplient les **dépendances** et **complexifient** les tests inutilement.
+Les interfaces de type *couteau suisse* (c'est-à-dire des interfaces qui tentent de tout définir) forcent les implémenteurs à **coder des méthodes inutiles** (souvent vides), multiplient les **dépendances** et **complexifient** les tests inutilement.
 
 ## Définition
 L’**ISP** force à **modéliser des capacités** ciblées (imprimer, numériser, faxer) et à **composer** les besoins d’un client avec **plusieurs petites interfaces**. On évite ainsi les interfaces gonflées qui rassemblent des responsabilités **artificiellement** ; les implémenteurs implémentent **seulement** ce qu’ils utilisent, ce qui **réduit** le couplage, **clarifie** les contrats et **accélère** les tests. En combinaison avec le **SRP** (pour garder une seule raison de changer) et le **DIP** (pour dépendre d’abstractions), l’ISP rend le système **modulaire** et **évolutif**.

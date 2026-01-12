@@ -14,7 +14,7 @@ Une classe ne doit avoir **qu’une seule raison de changer** : elle doit être
 Quand une classe **porte plusieurs responsabilités** (accès aux données, formatage, journalisation, export), chaque changement augmente le risque de **régression**, **alourdit** les tests et **complique** la compréhension.
 
 ## Définition
-Le SRP vise la **cohésion forte** : toutes les méthodes d’une classe doivent servir un **même but**. En pratique, on découpe une logique complexe en **rôles spécialisés** (récupération des données, logique métier, présentation/formatage, persistance/export), ce qui rend les **tests unitaires** plus simples, réduit les **dépendances transversales**, et améliore la **réutilisabilité**. Respecter le SRP clarifie aussi les **responsabilités organisationnelles** : si une règle métier évolue, la classe concernée a une **seule raison** de changer et l’impact sur le code est généralement plus limité. Combiné avec l’**ISP** (pour éviter les interfaces « couteau suisse ») et le **DIP** (pour dépendre d’abstractions), le SRP est une bonne défense contre les *code smells* et les effets domino.
+Le SRP vise la **cohésion forte** : toutes les méthodes d’une classe doivent servir un **même but**. En pratique, on découpe une logique complexe en **rôles spécialisés** (récupération des données, logique métier, présentation/formatage, persistance/export), ce qui rend les **tests unitaires** plus simples, réduit les **dépendances transversales**, et améliore la **réutilisabilité**. Respecter le SRP clarifie aussi les **responsabilités organisationnelles** : si une règle métier évolue, la classe concernée a une **seule raison** de changer et l’impact sur le code est généralement plus limité. Combiné avec l’**ISP** (pour éviter les interfaces trop générales) et le **DIP** (pour dépendre d’abstractions), le SRP est une bonne défense contre les *code smells* et les effets domino.
 
 ## Exemple qui ne respecte pas SRP
 ```java
@@ -107,7 +107,7 @@ public class RapportService {
 ```
 
 {: .highlight}
-> Chaque classe a maintenant **une responsabilité unique** (données, formatage, export). Les changements futures seront **localisés**, rendant le code **testable** et **extensible** sans modifier les autres rôles.
+> Chaque classe a maintenant **une responsabilité unique** (données, formatage, export). Les changements futurs seront **localisés**, rendant le code **testable** et **extensible** sans modifier les autres rôles.
 
 ## Liens utiles
 - [https://en.wikipedia.org/wiki/Single-responsibility_principle](https://en.wikipedia.org/wiki/Single-responsibility_principle)
