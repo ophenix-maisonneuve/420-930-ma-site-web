@@ -59,7 +59,10 @@ public class Imprimante implements Imprimante {
     public void imprimer(String contenu) { System.out.println("Impression: " + contenu); }
 }
 
-public class AppareilQuiFaitToutSaufTonLunch implements Imprimante, Scanner, Telecopieur {
+/**
+ * Appareil qui fait tout, sauf votre lunch... 
+ */
+public class AppareilMultiFonction implements Imprimante, Scanner, Telecopieur {
     public void imprimer(String contenu) {
         System.out.println("Impression pro: " + contenu);
     }

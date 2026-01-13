@@ -22,3 +22,7 @@ published: false
    1. [Exercice SOLID - Question 4](../exercices/solid)
    1. [DIP - Principe d'inversion des dépendances](../notes/dip)
    1. [Exercice SOLID - Question 5](../exercices/solid)
+
+
+### Exercices complémentaires
+1. Identification d'infractions SOLID (à venir dans la journée)
