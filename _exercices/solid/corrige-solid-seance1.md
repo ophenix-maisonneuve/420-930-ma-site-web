@@ -101,7 +101,7 @@ public class GameController {
     private PuzzleService puzzleService = new PuzzleService();
     private HintService hintService = new HintService();
     private ScoreService scoreService = new ScoreService();
-    private TimerService timerService = new TimerService();
+    private TimerService timerService = new TimerService(900);
 
     public void startGame() {
         // démarrage logique (aucune logique lourde ici)
@@ -145,7 +145,7 @@ public interface Puzzle {
 public class LogicPuzzle implements Puzzle {
     private String id;
     public LogicPuzzle(String id) {
-        this.id = id
+        this.id = id;
     }
 
     public String getId() {
