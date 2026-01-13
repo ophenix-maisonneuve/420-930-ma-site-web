@@ -130,12 +130,17 @@ public ProgressService() {
     this.repository = new DatabaseProgressRepository();
 }
 ```
+
 3. Se croiser les doigts que `DatabaseProgressRepository` implémente exactement la méthode `saveProgress(String, int, int)`
 
+
 **Cette modification enfreindrait-elle l'un des 4 autres principes (S-O-L-I) ? Pourquoi ?**
+
 Cette modification enfreindrait le principe OCP (ouvert/fermé), car on doit modifier directement `ProgressService` pour ajouter une fonctionnalité.
 
+
 **Avec le code actuel, serait-il possible de prendre en charge à la fois la sauvegarde dans un fichier et la sauvegarde en BD sans changer le code de `ProgressService` ? Pourquoi ?**
+
 Non, pas sans des modifications très significatives dans la classe `ProgressService`, incluant possiblement un changement de la signature de méthode `save` pour passer en paramètre le type de sauvegarde (fichier, BD).
 
 ### 5.2. En fonction de vos réponses aux questions précédentes, croyez-vous que le code ci-haut respecte le principe d'inversion des dépendances ?
