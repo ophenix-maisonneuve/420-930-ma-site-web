@@ -119,9 +119,11 @@ public class TelephoneIntelligent implements TextOutput, AudioOutput, HapticFeed
 ## 5. DIP - Principe d'inversion des dépendances
 
 ### 5.1. Supposez que l'on désire maintenant proposer la sauvegarde dans une base de données plutôt que dans un fichier. 
+
 **Avec le code actuel, quelle(s) modification(s) serait(ent) nécessaire(s) pour prendre en charge ce nouveau type de sauvegarde ?**
 1. Créer une nouvelle classe `DatabaseProgressRepository`
 2. Modification de la classe `ProgressService` comme ceci:
+
 ```java
 private DatabaseProgressRepository repository;
 public ProgressService() {
@@ -132,6 +134,7 @@ public ProgressService() {
 
 **Cette modification enfreindrait-elle l'un des 4 autres principes (S-O-L-I) ? Pourquoi ?**
 Cette modification enfreindrait le principe OCP (ouvert/fermé), car on doit modifier directement `ProgressService` pour ajouter une fonctionnalité.
+
 **Avec le code actuel, serait-il possible de prendre en charge à la fois la sauvegarde dans un fichier et la sauvegarde en BD sans changer le code de `ProgressService` ? Pourquoi ?**
 Non, pas sans des modifications très significatives dans la classe `ProgressService`, incluant possiblement un changement de la signature de méthode `save` pour passer en paramètre le type de sauvegarde (fichier, BD).
 
