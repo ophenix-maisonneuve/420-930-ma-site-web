@@ -2,7 +2,7 @@
 layout: default
 title: "2026-01-13"
 nav_order: 18
-published: false
+published: true
 ---
 
 # Séance 18 : Principes de développement (partie 2)
