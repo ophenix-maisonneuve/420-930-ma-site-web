@@ -55,9 +55,9 @@ public interface Telecopieur {
     void faxer(String numero, String contenu);
 }
 
-public class Imprimante implements Imprimante {
+public class ImprimanteLaser implements Imprimante {
     public void imprimer(String contenu) { System.out.println("Impression: " + contenu); }
-}
+}cd 
 
 /**
  * Appareil qui fait tout, sauf votre lunch... 
