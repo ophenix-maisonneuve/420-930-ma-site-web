@@ -66,6 +66,11 @@ published: true
 
    - Il peut s'agir d'un plan de tests manuels ou de tests automatisés à l'aide d'une librairie de tests comme **JUnit**
 
+{: .warning-title}
+> Note sur la préparation en cuisine
+
+>Afin de garder l’application simple et centrée sur les objectifs pédagogiques (principes SOLID et patrons de conception), la préparation des plats est simulée de manière synchrone. Cela signifie qu’une commande est entièrement traitée avant de passer à la suivante. Dans un système réel, on pourrait envisager une approche concurrente pour permettre la préparation simultanée de plusieurs plats, mais cette complexité n’est pas requise pour ce projet.
+
 ## Évaluation
 
 
