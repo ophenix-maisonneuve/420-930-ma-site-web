@@ -25,4 +25,4 @@ published: true
 
 
 ### Exercices complémentaires
-1. [Identification d'infractions SOLID - Question 6] (../exercices/solid)
+1. [Identification d'infractions SOLID - Question 6](../exercices/solid)
