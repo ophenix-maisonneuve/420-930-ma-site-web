@@ -255,7 +255,7 @@ public class GestionnaireAgenceVoyages {
                 continue;
             }
             double prix;
-            switch (it.type()) { // OCP violé : switch fermé
+            switch (it.type()) {
                 case "INTERIEUR":
                     prix = prixInterieur(it);
                     break;
