@@ -219,3 +219,108 @@ public class ProgressService {
    3. Avec le code actuel, serait-il possible de prendre en charge à la fois la sauvegarde dans un fichier et la sauvegarde en BD sans changer le code de `ProgressService` ? Pourquoi ?
 2. En fonction de vos réponses aux questions précédentes, croyez-vous que le code ci-haut respecte le principe d'inversion des dépendances ?
 3. Si le code ne respecte pas DIP, proposez une nouvelle version du code qui corrige le problème.
+
+
+## 6. Bonus - Identifier les infractions SOLID
+Analysez le code ci-bas. Au besoin, vous pouvez le copier dans un fichier `GestionnaireAgenceVoyages.java` dans votre IDE de choix.
+
+```java
+package ca.qc.cmaisonneuve.amp.solid;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class GestionnaireAgenceVoyages {
+
+    private boolean hauteSaison = false;
+    private double fraisAeroport = 35.0;
+    public static double fondDeCaisse = 1000.0;
+
+    private final List<Itineraire> itineraires = new ArrayList<>();
+
+    public GestionnaireAgenceVoyages() {
+        System.out.println("[GUICHET] Bienvenue chez J'ai mon voyage !");
+    }
+
+    public void ajouterReservation(Itineraire itineraire) {
+        itineraires.add(itineraire);
+    }
+
+    public void traiterReservations() {
+        double revenuTotal = 0.0;
+        for (Itineraire it : itineraires) {
+            System.out.println("[GUICHET] Traitement : " + it.type() + " " + it.origine() + " >> " + it.destination());
+            if (!villeSupportee(it.origine())) {
+                System.out.println("[GUICHET] Ville d'origine invalide.");
+                continue;
+            }
+            double prix;
+            switch (it.type()) { // OCP violé : switch fermé
+                case "INTERIEUR":
+                    prix = prixInterieur(it);
+                    break;
+                case "INTERNATIONAL":
+                    prix = prixInternational(it);
+                    break;
+                case "NOLISE":
+                    prix = prixNolise(it);
+                    break;
+                default:
+                    System.out.println("Type inconnu");
+                    continue;
+            }
+            prix = prix + fraisAeroport;
+            fondDeCaisse = fondDeCaisse + (prix * 0.05);
+            String libelle;
+            if ("INTERIEUR".equals(it.type())) {
+                libelle = "Billet interieur " + it.origine() + " >> " + it.destination();
+            } else if ("INTERNATIONAL".equals(it.type())) {
+                libelle = "Billet international " + it.origine() + " >> " + it.destination();
+            } else if ("NOLISE".equals(it.type())) {
+                libelle = "Billet nolise " + it.origine() + " >> " + it.destination();
+            } else {
+                libelle = "Billet inconnu";
+            }
+
+            System.out.println("Billet emis : " + libelle + " (" + prix + " $)");
+            appendCsv("reservations.csv", it.type() + "," + it.origine() + "," + it.destination() + "," + prix);
+            revenuTotal += prix;
+        }
+        appendCsv("reservations.csv", "REVENU_TOTAL," + revenuTotal);
+        System.out.println("Fonds restants : " + fondDeCaisse);
+    }
+
+    private double prixInterieur(Itineraire it) {
+        return 200.0 + (it.passagers() - 1) * 90.0;
+    }
+
+    private double prixInternational(Itineraire it) {
+        return 650.0 + (hauteSaison ? 40.0 : 0);
+    }
+
+    private double prixNolise(Itineraire it) {
+        return 1200.0;
+    }
+
+    private void appendCsv(String f, String l) {
+        System.out.println("[CSV] " + f + " << " + l);
+    }
+
+    private boolean villeSupportee(String v) {
+        System.out.println("[VALID] " + v);
+        return v != null && v.length() > 1;
+    }
+
+    private static record Itineraire(String type, int passagers, String origine, String destination) {}
+
+    public static void main(String[] args) {
+        GestionnaireAgenceVoyages agence = new GestionnaireAgenceVoyages();
+        agence.ajouterReservation(new Itineraire("INTERIEUR", 2, "Montreal", "Vancouver"));
+        agence.ajouterReservation(new Itineraire("INTERNATIONAL", 1, "Montreal", "Paris"));
+        agence.traiterReservations();
+    }
+}
+```
+
+1. Identifiez chacune des infractions SOLID présentes dans le code.
+1. En vos mots, expliquez les refactorisations que vous pourriez effectuer pour rendre le code conforme aux principes SOLID.
