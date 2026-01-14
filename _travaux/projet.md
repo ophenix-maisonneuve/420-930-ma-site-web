@@ -69,7 +69,7 @@ published: true
 {: .warning-title}
 > Note sur la préparation en cuisine
 >
-> Afin de garder l’application simple et centrée sur les objectifs du cours (principes SOLID et patrons de conception), la préparation des plats en cuisine est simulée de manière synchrone. Cela signifie qu’une commande est entièrement traitée avant de passer à la suivante (les méthodes requises en cuisine selon le type de plat sont appelées successivement). Dans un système réel, on pourrait envisager une approche concurrente pour permettre la préparation simultanée de plusieurs plats, mais cette complexité n’est pas requise pour ce projet.
+> Afin de garder l’application simple et centrée sur les objectifs du cours (principes SOLID et patrons de conception), la préparation des plats en cuisine est simulée de manière synchrone. Cela signifie qu’une commande est entièrement traitée avant de passer à la suivante (les méthodes de l'interface `CuisineService` requises en cuisine selon le type de plat sont appelées successivement). Dans un système réel, on pourrait envisager une approche concurrente pour permettre la préparation simultanée de plusieurs plats, mais cette complexité n’est pas requise pour ce projet.
 
 ## Évaluation
 
