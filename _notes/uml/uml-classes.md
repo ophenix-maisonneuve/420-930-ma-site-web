@@ -15,6 +15,13 @@ Le **diagramme de classes** montre les **classes**, leurs **attributs**, leurs *
 - Visualiser **associations**, **dépendances**, **héritages**, **implémentations**, **agrégations** et **compositions**
 - Servir de base à la conception orientée objet et à la documentation de l’architecture
 
+
+## Quand l'utiliser ?
+- Décomposer un domaine en concepts  
+- Clarifier les relations essentielles (composition, héritage, interfaces)  
+- Préparer une architecture orientée objet  
+- Documenter les structures logiques (modèle de domaine)
+
 ## Principaux symboles et concepts
 
 ### Classe
@@ -108,12 +115,6 @@ L'agrégation est similaire à la composition, mais elle représente une relatio
 classDiagram
     Ensemble o-- Element : agrégation
 ```
-
-## Quand l'utiliser ?
-- Décomposer un domaine en concepts  
-- Clarifier les relations essentielles (composition, héritage, interfaces)  
-- Préparer une architecture orientée objet  
-- Documenter les structures logiques (modèle de domaine)
 
 ## Exemple simple
 
