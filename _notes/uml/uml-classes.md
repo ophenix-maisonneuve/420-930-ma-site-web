@@ -10,8 +10,6 @@ published: true
 
 Le **diagramme de classes** montre les **classes**, leurs **attributs**, leurs **méthodes**, ainsi que les **relations** entre elles. C’est le diagramme structurel le plus utilisé en conception orientée objet.
 
-> Références : OMG — UML 2.5.1 (diagram semantics), GeeksforGeeks — UML Diagrams
-
 ## Objectifs d’un diagramme de classes
 - Décrire la **structure** statique du système (types — pas instances)
 - Visualiser **associations**, **dépendances**, **héritages**, **implémentations**, **agrégations** et **compositions**
@@ -36,6 +34,7 @@ Représentée par un rectangle à trois sections: *nom*, *attributs*, *méthodes
 
 **1. Association (forte)**
 Une association représente un lien logique durable entre deux classes. Elle est représentée par une flèche simple qui pointe vers la classe associée.
+
 ```mermaid
 classDiagram
     ClasseA --> ClasseB : association
@@ -69,6 +68,7 @@ classDiagram
 
 **3. Héritage**
 L'héritage "classique" où une classe enfant hérite des caractéristiques de la classe de base est représentée par une flèche pleine creuse qui pointe vers la classe de base.
+
 ```mermaid
 classDiagram
     Parent <|-- Enfant
@@ -76,6 +76,7 @@ classDiagram
 
 **4. Implémentation**
 L'implémentation d'une interface, qu'il soit implicite ou explicite, est représentée par une flèche pointillée creuse qui pointe vers l'interface.
+
 ```mermaid
 classDiagram
     class Interface {
@@ -86,6 +87,7 @@ classDiagram
 
 **5. Composition**
 La composition représente une relation forte, c'est-à-dire une relation où un tout est composé de ses éléments et où les éléments ne peuvent pas exister sans le tout. En UML, on représente cette relation par une flèche avec un bout en forme de lozange plein qui pointe vers le tout.
+
 ```mermaid
 classDiagram
     Tout *-- Partie : composition
@@ -93,6 +95,7 @@ classDiagram
 
 **6. Agrégation**
 L'agrégation est similaire à la composition, mais elle représente une relation faible, c'est-à-dire que les éléments peuvent exister indépendamment. En UML, on représente cette relation par une flèche avec un bout en forme de lozange vide qui pointe vers le tout.
+
 ```mermaid
 classDiagram
     Ensemble o-- Element : agrégation
