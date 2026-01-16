@@ -26,7 +26,7 @@ Représentée par un rectangle à trois sections: *nom*, *attributs*, *méthodes
 |---------|------------| ------------------------------------|
 | +       | public     | Champ à visibilité publique (`public` en Java)|
 | #       | protégé    | Champ à visibilité protégée (`protected` en Java)|
-| ~       | package    | Champ à visibilité limitée aux entités faisant partie du même *package* ou *namespace* (représenté par l'absence de mot-clé en Java)
+| ~       | package    | Champ à visibilité limitée aux entités faisant partie du même *package* ou *namespace* (représenté par l'absence de mot-clé en Java)|
 | -       | privé      | Champ à visibilité privée (`private` en Java)|
 
 
