@@ -4,6 +4,7 @@ logo: "/assets/images/amp-logo.png"
 markdown: kramdown
 plugins:
   - jekyll-remote-theme
+  - jekyll-mermaid
 
 callouts:
   highlight:
