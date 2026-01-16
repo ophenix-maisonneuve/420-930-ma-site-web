@@ -39,7 +39,8 @@ Représentée par un rectangle à trois sections: *nom*, *attributs*, *méthodes
 
 ### Relations entre classes
 
-**Association (forte)**
+
+#### Association (forte)
 
 Une association représente un lien logique durable entre deux classes. Elle est représentée par une flèche simple qui pointe vers la classe associée.
 
