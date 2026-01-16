@@ -59,6 +59,7 @@ La cardinalités entre les classes est identifiée par un nombre à chaque extr�
 
 
 ```mermaid
+graph TD;
 classDiagram
     ClasseA "1" --> "0..*" ClasseB : multiplicité
 ```
