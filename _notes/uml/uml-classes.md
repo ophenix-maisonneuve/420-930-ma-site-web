@@ -173,7 +173,14 @@ classDiagram
 ```
 </details>
 
-## Exemple simple
+## Exemples
+
+<details markdown="1">
+<summary markdown="span">
+
+**Classes, attributs, méthodes**
+
+</summary>
 
 ```mermaid
 classDiagram
@@ -191,8 +198,14 @@ classDiagram
 
     Bibliotheque "1" *-- "0..*" Livre : contient
 ```
+</details>
 
-## Exemple avec héritage et implémentation
+<details markdown="1">
+<summary markdown="span">
+
+**Héritage - Classes concrètes et interfaces**
+
+</summary>
 
 ```mermaid
 classDiagram
@@ -214,9 +227,15 @@ classDiagram
     Utilisateur <|-- Employe
     Employe ..|> Authentifiable
 ```
+</details>
 
+<details markdown="1">
+<summary markdown="span">
 
-## Exemple complet
+**Modèle complet**
+
+</summary>
+
 ```mermaid
 classDiagram
     %% ===== Interfaces / Contrats =====
@@ -273,7 +292,7 @@ classDiagram
     %% (Optionnel) Un département propose des cours (association simple)
     Departement --> "0..*" Cours : propose
 ```
-
+</details>
 
 ## Liens utiles
 - [https://en.wikipedia.org/wiki/Class_diagram](https://en.wikipedia.org/wiki/Class_diagram)
