@@ -74,7 +74,11 @@ Une association représente un lien logique entre deux classes, indiquant qu'ell
 L'héritage "classique" où une classe enfant hérite des caractéristiques de la classe de base est représentée par une flèche pleine creuse qui pointe vers la classe de base.
 
 <details markdown="1">
-<summary markdown="span">Exemple</summary>
+<summary markdown="span">
+
+**Exemple**
+
+</summary>
 ```mermaid
 classDiagram
     Parent <|-- Enfant
@@ -116,7 +120,11 @@ classDiagram
 L'agrégation est similaire à la composition, mais elle représente une relation faible, c'est-à-dire que les éléments peuvent exister indépendamment. En UML, on représente cette relation par une flèche avec un bout en forme de lozange vide qui pointe vers le tout.
 
 <details markdown="1">
-<summary markdown="span">Exemple</summary>
+<summary markdown="span">
+
+**Exemple**
+
+</summary>
 
 *Dans cet exemple, une classe est l'agrégation d'un certain nombre d'étudiants. Les étudiants peuvent exister sans être dans une salle de classe.*
 ```mermaid
