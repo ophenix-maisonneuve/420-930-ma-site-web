@@ -18,7 +18,6 @@ published: false
 Utiliser la [question 6](../exercices/solid) de l'exercice sur les principes SOLID afin de modifier un diagramme de classes UML existant et de concevoir un diagramme de séquence simple.
 
 
-
 ## 1. Diagramme de classes
 
 Le code de départ de la [question 6](../exercices/solid) a été modélisé en diagramme de classes UML :
