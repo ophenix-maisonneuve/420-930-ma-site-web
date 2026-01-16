@@ -100,20 +100,50 @@ public void traiterReservations() {
 
 1. Régler **OCP** : Identifier les points d'extension probables et créer des interfaces :
    1. Pour se débarasser du `switch/case` qui a été déplacé dans `CalculateurPrix`
-      - Transformer `ServicePrix` en interface avec une méthode `int calculerPrix(boolean hauteSaison)`
+      - Transformer `ServicePrix` en interface avec une méthode `int calculerPrix(Itineraire it, boolean hauteSaison)`
       - Créer une implémentation de `ServicePrix` pour chaque type de vol, par exemple :
          - `ServicePrixInterieur` : calcul des prix pour les vols intérieurs
          - `ServicePrixInternational` : calcul des prix pour les vols internationaux
          - etc 
       - Déplacer la logique de calcul des prix (qui était précédemment dans le `switch/case`) dans les implémentations appropriées
-   1. Répéter l'étape précédente pour le `ServiceBillet` afin d'obtenir un générateur de libellé pour chaque type de vol.
+   1. Répéter l'étape précédente pour le `ServiceBillet` afin d'obtenir un générateur de libellé pour chaque implémentation requise.
+      - *Il est possible que nous n'ayons pas besoin d'une implémentation par type de vol. En effet, la logique spécifique à chaque cas est très simple et peut très bien être généralisée en une seule implémentation `ServiceBilletsSimple`*
    1. Répéter encore une fois les étapes précédentes pour `ServiceExport` afin de permettre, éventuellement, un export dans un autre format que CSV. Pour le moment, nous aurions:
-      - `ServiceExport` : interface contenant une seule méthode `void export(Itineraire itineraire, double prix)`
+      - `ServiceExport` : interface contenant les méthodes `void add(Itineraire it, double prix)` (ajout d'un itinéraire et de son prix au rapport) et `void export(String fichier)` (export du rapport).
       - `ServiceExportCSV` : implémentation de `ServiceExport` qui effectue l'export en format CSV
    1. Il est possible que l'on juge que `ServicePetiteCaisse` n'est pas vraiment un point d'extension requis, surtout si l'on juge que les méthodes de calcul sont peu susceptibles de changer.
 
 
 1. Après avoir effectué les étapes précédentes, vous aurez grandement amélioré le respect des principes **SRP** et **OCP** du code. Cependant, vous aurez fort probablement des instructions ressemblant à celles-ci dans votre code:
-```java
 
+```java
+ServiceExport serviceExport = new ServiceExportCsv();
+ServicePrix servicePrix = new ServicePrixInterieur(fraisAeroport);
+ServiceBillets serviceBillets = new ServiceBilletsSimple();
 ```
+
+Ces instanciations ne respectent pas le principe d'inversion de dépendances, car notre classe de haut-niveau `GestionnaireAgenceVoyages` dépend d'implémentations concrètes des classes techniques. Pour corriger:
+
+   1. `ServiceExport` et `ServicePrix` sont déjà des interfaces. Il est donc possible de ne dépendre que du contrat et de recevoir une implémentation spécifique, par exemple via l'injection au constructeur.
+
+   1. `ServicePetiteCaisse` n'a cependant pas d'abstraction. Nous pouvons donc transformer cette classe en une interface qui n'aura qu'une seule implémentation, qui sera également passée au constructeur. Le code final pourrait ressembler à:
+
+   ```java
+    ...
+    private final List<ServicePrix> servicesPrix = new ArrayList<>();
+    private final ServicePetiteCaisse servicePetiteCaisse;
+    private final ServiceExport serviceExport;
+    private final ServiceBillets serviceBillets;
+
+    public GestionnaireAgenceVoyages(List<ServicePrix> servicePrix, ServiceExport serviceExport, ServicePetiteCaisse servicePetiteCaisse, ServiceBillets serviceBillets) {
+        this.servicesPrix.addAll(servicePrix);
+        this.serviceExport = serviceExport;
+        this.servicePetiteCaisse = servicePetiteCaisse;
+        this.serviceBillets = serviceBillets;
+        
+        System.out.println("[GUICHET] Bienvenue chez J'ai mon voyage !");
+    }
+
+    ...
+
+   ```
