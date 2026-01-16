@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Diagrammes de classes UML"
+title: "Diagramme de classes"
 parent: "Introduction à UML"
 nav_order: 1
 published: true
@@ -34,17 +34,6 @@ Représentée par un rectangle à trois sections: *nom*, *attributs*, *méthodes
 
 ### Relations entre classes
 
-| Relation | Description |
-|---------|-------------|
-| **Association** | Lien logique durable entre deux classes |
-| **Multiplicités** | Nombre d’instances possibles (ex. 1..*, 0..1) |
-| **Héritage (généralisation)** | La classe dérivée hérite des caractéristiques de la classe de base |
-| **Implémentation** | Une classe **implémente** une interface |
-| **Composition** | Relation forte : la partie n’existe pas sans le tout |
-| **Agrégation** | Relation faible : la partie peut exister indépendamment |
-
-> Références : OMG — About UML 2.5.1, Wikipédia — Unified Modeling Language (notations générales)
-
 **1. Association (forte)**
 Une association représente un lien logique durable entre deux classes. Elle est représentée par une flèche simple qui pointe vers la classe associée.
 ```mermaid
@@ -54,6 +43,21 @@ classDiagram
 
 **2. Multiplicités**
 La cardinalités entre les classes est identifiée par un nombre à chaque extrémité du lien qui illustre la relation. On peut ainsi représenter les relations 1:1, 1:N, N:1, N:M
+
+
+| Multiplicité | Signification |
+|--------------|---------------|
+| 0..1         | Aucun ou un seul élément (optionnel) |
+| 1            | Exactement un élément |
+| 0..*         | Zéro, un ou plusieurs éléments |
+| 1..*         | Un ou plusieurs éléments |
+| n            | Exactement *n* éléments (ex. 3) |
+| 0..n         | De zéro à *n* éléments |
+| 1..n         | D’un à *n* éléments |
+| *            | Nombre indéterminé (équivalent à 0..*) |
+| n..m         | Entre *n* et *m* éléments inclus |
+
+
 ```mermaid
 classDiagram
     ClasseA "1" --> "0..*" ClasseB : multiplicité
@@ -195,3 +199,7 @@ classDiagram
     %% (Optionnel) Un département propose des cours (association simple)
     Departement --> "0..*" Cours : propose
 ```
+
+
+## Liens utiles
+- [https://en.wikipedia.org/wiki/Class_diagram](https://en.wikipedia.org/wiki/Class_diagram)

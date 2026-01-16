@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Introduction à UML"
-nav_order: 1
+nav_order: 9
 has_children: true
 published: true
 ---
