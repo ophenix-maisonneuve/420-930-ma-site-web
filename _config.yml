@@ -6,6 +6,9 @@ plugins:
   - jekyll-remote-theme
   - jekyll-mermaid
 
+mermaid:
+  version: 9.1.0
+
 callouts:
   highlight:
     title: Remarque
