@@ -41,6 +41,10 @@ classDiagram
     ClasseA --> ClasseB : association
 ```
 
+```mermaid
+info
+```
+
 **2. Multiplicités**
 La cardinalités entre les classes est identifiée par un nombre à chaque extrémité du lien qui illustre la relation. On peut ainsi représenter les relations 1:1, 1:N, N:1, N:M
 
@@ -59,7 +63,6 @@ La cardinalités entre les classes est identifiée par un nombre à chaque extr�
 
 
 ```mermaid
-graph TD;
 classDiagram
     ClasseA "1" --> "0..*" ClasseB : multiplicité
 ```
