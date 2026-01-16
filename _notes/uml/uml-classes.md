@@ -90,7 +90,12 @@ classDiagram
 L'implémentation d'une interface, qu'elle soit implicite ou explicite, est représentée par une flèche pointillée creuse qui pointe vers l'interface.
 
 <details markdown="1">
-<summary markdown="span">Exemple</summary>
+<summary markdown="span">
+
+**Exemple**
+
+</summary>
+
 ```mermaid
 classDiagram
     class Interface {
@@ -106,7 +111,11 @@ classDiagram
 La composition représente une relation forte, c'est-à-dire une relation où un tout est composé de ses éléments et où les éléments ne peuvent pas exister sans le tout. En UML, on représente cette relation par une flèche avec un bout en forme de lozange plein qui pointe vers le tout.
 
 <details markdown="1">
-<summary markdown="span">Exemple</summary>
+<summary markdown="span">
+
+**Exemple**
+
+</summary>
 
 *Dans cet exemple, le profil d'un étudiant est composé (entre autres) de ses résultats. Les résultats ne peuvent pas exister sans l'étudiant.*
 ```mermaid
@@ -150,7 +159,11 @@ Certaines relations, principalement les associations, les compositions et les ag
 | n..m         | Entre *n* et *m* éléments inclus |
 
 <details markdown="1">
-<summary markdown="span">Exemple</summary>
+<summary markdown="span">
+
+**Exemple**
+
+</summary>
 
 *Dans cet exemple, un étudiant peut suivre entre 0 et plusieurs cours.*
 ```mermaid
