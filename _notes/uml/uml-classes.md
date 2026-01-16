@@ -24,15 +24,16 @@ Représentée par un rectangle à trois sections: *nom*, *attributs*, *méthodes
 
 | Symbole | Visibilité | Description |
 |---------|------------| ------------------------------------|
-| +       | public     | Champ à visibilité publique (`public` en Java)|
-| #       | protégé    | Champ à visibilité protégée (`protected` en Java)|
-| ~       | package    | Champ à visibilité limitée aux entités faisant partie du même *package* ou *namespace* (représenté par l'absence de mot-clé en Java)|
-| -       | privé      | Champ à visibilité privée (`private` en Java)|
+| `+`       | public     | Champ à visibilité publique (`public` en Java)|
+| `#`       | protégé    | Champ à visibilité protégée (`protected` en Java)|
+| `~`       | package    | Champ à visibilité limitée aux entités faisant partie du même *package* ou *namespace* (représenté par l'absence de mot-clé en Java)|
+| `-`       | privé      | Champ à visibilité privée (`private` en Java)|
 
 
 ### Relations entre classes
 
-**1. Association (forte)**
+**Association (forte)**
+
 Une association représente un lien logique durable entre deux classes. Elle est représentée par une flèche simple qui pointe vers la classe associée.
 
 ```mermaid
@@ -40,7 +41,8 @@ classDiagram
     ClasseA --> ClasseB : association
 ```
 
-**2. Multiplicités**
+**Multiplicités**
+
 La cardinalités entre les classes est identifiée par un nombre à chaque extrémité du lien qui illustre la relation. On peut ainsi représenter les relations 1:1, 1:N, N:1, N:M, etc.
 
 
@@ -62,7 +64,8 @@ classDiagram
     ClasseA "1" --> "0..*" ClasseB : multiplicité
 ```
 
-**3. Héritage**
+**Héritage**
+
 L'héritage "classique" où une classe enfant hérite des caractéristiques de la classe de base est représentée par une flèche pleine creuse qui pointe vers la classe de base.
 
 ```mermaid
@@ -70,7 +73,8 @@ classDiagram
     Parent <|-- Enfant
 ```
 
-**4. Implémentation**
+**Implémentation**
+
 L'implémentation d'une interface, qu'il soit implicite ou explicite, est représentée par une flèche pointillée creuse qui pointe vers l'interface.
 
 ```mermaid
@@ -81,7 +85,7 @@ classDiagram
     Interface <|.. ClasseConcrete
 ```
 
-**5. Composition**
+**Composition**
 La composition représente une relation forte, c'est-à-dire une relation où un tout est composé de ses éléments et où les éléments ne peuvent pas exister sans le tout. En UML, on représente cette relation par une flèche avec un bout en forme de lozange plein qui pointe vers le tout.
 
 ```mermaid
@@ -89,7 +93,7 @@ classDiagram
     Tout *-- Partie : composition
 ```
 
-**6. Agrégation**
+**Agrégation**
 L'agrégation est similaire à la composition, mais elle représente une relation faible, c'est-à-dire que les éléments peuvent exister indépendamment. En UML, on représente cette relation par une flèche avec un bout en forme de lozange vide qui pointe vers le tout.
 
 ```mermaid
