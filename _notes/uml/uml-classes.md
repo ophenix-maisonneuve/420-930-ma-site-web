@@ -3,7 +3,7 @@ layout: default
 title: "Diagramme de classes"
 parent: "Introduction à UML"
 nav_order: 1
-published: false
+published: true
 ---
 
 # Diagrammes de classes UML
