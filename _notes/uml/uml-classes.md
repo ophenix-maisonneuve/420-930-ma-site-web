@@ -168,6 +168,7 @@ classDiagram
 classDiagram
     %% ===== Interfaces / Contrats =====
     class Authentifiable {
+        <<interface>>
         +login() bool
     }
 
