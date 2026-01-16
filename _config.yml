@@ -4,10 +4,6 @@ logo: "/assets/images/amp-logo.png"
 markdown: kramdown
 plugins:
   - jekyll-remote-theme
-  - jekyll-mermaid
-
-mermaid:
-  version: 9.1.0
 
 callouts:
   highlight:
@@ -35,6 +31,7 @@ collections:
     permalink: /:collection/:name
 
 just_the_docs:
+  mermaid: true
   collections:
     seances:
       name: Séances
@@ -48,7 +45,4 @@ just_the_docs:
     travaux:
       name: Travaux Pratiques
       nav_fold: true
-
-
-
 
