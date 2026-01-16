@@ -144,6 +144,7 @@ classDiagram
 
 ## Cardinalité (multiplicité)
 
+
 Certaines relations, principalement les associations, les compositions et les agrégations, peuvent impliquer des relations 1:1, 1:N ou même N:M. On représente ces contraintes par deux nombres sur le lien entre les deux classes (un nombre pour la source et l'autre pour la destination).
 
 | Multiplicité | Signification |
