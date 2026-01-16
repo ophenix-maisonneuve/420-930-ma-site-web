@@ -24,7 +24,32 @@ Le **diagramme de classes** montre les **classes**, leurs **attributs**, leurs *
 
 ## Représentation d'une classe
 
-Une classe est représentée par un rectangle à trois sections: *nom*, *attributs*, *méthodes*. Chaque attribut ou méthode est précédé d'un symbole représentant sa visibilité :
+Une classe est représentée par un rectangle à trois sections: *nom*, *attributs*, *méthodes*.
+```mermaid
+classDiagram
+    class MaClasse {
+        -String attributPrive
+        #int attributProtected
+        +double attributPublic
+        -methodePrivee()
+        #methodeProtected()
+        +methodePublique()
+    }
+```
+
+Il s'agit ici d'une classe au sens large; on utilise aussi cet élément pour représenter les interfaces, les records, et autres variations spéciales selon le langage. Il est possible de préciser le type de classe précis en utilisant le symbole `<< >>`, par exemple :
+
+```mermaid
+classDiagram
+    class Interface {
+        <<interface>>
+        +methode1()
+        +methode2()
+    }
+```
+
+
+Chaque attribut ou méthode est précédé d'un symbole représentant sa visibilité :
 
 | Symbole | Visibilité | Description |
 |---------|------------| ------------------------------------|
@@ -63,6 +88,7 @@ L'implémentation d'une interface, qu'il soit implicite ou explicite, est repré
 ```mermaid
 classDiagram
     class Interface {
+        <<interface>>
         +operation()
     }
     Interface <|.. ClasseConcrete
