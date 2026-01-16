@@ -36,10 +36,14 @@ Représentée par un rectangle à trois sections: *nom*, *attributs*, *méthodes
 
 Une association représente un lien logique durable entre deux classes. Elle est représentée par une flèche simple qui pointe vers la classe associée.
 
+<details markdown="1">
+<summary markdown="span">Exemple d'association</summary>
 ```mermaid
 classDiagram
     ClasseA --> ClasseB : association
 ```
+</details>
+
 
 **Multiplicités**
 
@@ -58,11 +62,13 @@ La cardinalités entre les classes est identifiée par un nombre à chaque extr�
 | *            | Nombre indéterminé (équivalent à 0..*) |
 | n..m         | Entre *n* et *m* éléments inclus |
 
-
+<details markdown="1">
+<summary markdown="span">Exemple de multiplicité</summary>
 ```mermaid
 classDiagram
     ClasseA "1" --> "0..*" ClasseB : multiplicité
 ```
+</details>
 
 **Héritage**
 
@@ -86,6 +92,7 @@ classDiagram
 ```
 
 **Composition**
+
 La composition représente une relation forte, c'est-à-dire une relation où un tout est composé de ses éléments et où les éléments ne peuvent pas exister sans le tout. En UML, on représente cette relation par une flèche avec un bout en forme de lozange plein qui pointe vers le tout.
 
 ```mermaid
@@ -94,6 +101,7 @@ classDiagram
 ```
 
 **Agrégation**
+
 L'agrégation est similaire à la composition, mais elle représente une relation faible, c'est-à-dire que les éléments peuvent exister indépendamment. En UML, on représente cette relation par une flèche avec un bout en forme de lozange vide qui pointe vers le tout.
 
 ```mermaid
