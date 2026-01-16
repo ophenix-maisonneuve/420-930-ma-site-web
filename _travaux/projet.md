@@ -42,12 +42,12 @@ published: true
          - `vinaigrette` : valeurs possibles `cesar`, `maison`
          - *Portez une attention particulière à la façon dont ces options peuvent s'intégrer avec les options `epice` (épicé) et `extraFromage` qui sont déjà présentes pour les plats existants.*
       - Ajout du **nouveau mode de paiement** `VIREMENT`, qui permettra aux clients de payer par virement bancaire.
-      - Ajout du **nouveau type de notification** `SMS`, qui permettra d'informer le client de l'état de sa commande par messagerie texte.
+      - Ajout du **nouveau type de notification** `SMS`, qui permettra d'informer le client de l'état de sa commande par messagerie texte au lieu de par courriel.
    - *Si vos améliorations précédentes ont bien respecté le pricipe Ouvert/Fermé (OCP), l'ajout de nouvelles fonctionnalités ne devrait pas occasionner de changements majeurs dans le code refactorisé. Il devrait principalement s'agir d'ajouts.*
 
 1. **Amélioration du système de notification**
 
-   - L'application doit informer le client de l'état de sa commande à deux moments :
+   - L'application doit informer le client de l'état de sa commande à deux moments par la méthode choisie (courriel ou SMS) :
       - Lorsque la commande est passée (comme c'est le cas actuellement)
       - Lorsque la commande est prête (à ajouter)
    - ***Indice** : L'un des patrons de conception étudiés dans le cours est particulièrement bien adapté pour ce type de fonctionnalité...*
