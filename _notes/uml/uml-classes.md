@@ -37,11 +37,11 @@ classDiagram
     }
 ```
 
-Il s'agit ici d'une classe au sens large; on utilise aussi cet élément pour représenter les interfaces, les records, et autres variations spéciales selon le langage. Il est possible de préciser le type de classe précis en utilisant le symbole `<< >>`, par exemple :
+Il s'agit ici d'une classe au sens large; on utilise aussi cet élément pour représenter les interfaces, les records, et autres variations spéciales selon le langage. Il est possible de préciser le type de classe précis (appelé le *Stereotype*) en utilisant le symbole `<< >>`, par exemple :
 
 ```mermaid
 classDiagram
-    class Interface {
+    class MonInterface {
         <<interface>>
         +methode1()
         +methode2()
@@ -73,6 +73,8 @@ Une association représente un lien logique entre deux classes, indiquant qu'ell
 
 L'héritage "classique" où une classe enfant hérite des caractéristiques de la classe de base est représentée par une flèche pleine creuse qui pointe vers la classe de base.
 
+<details markdown="1">
+<summary markdown="span">Exemple</summary>
 ```mermaid
 classDiagram
     Parent <|-- Enfant
@@ -81,7 +83,7 @@ classDiagram
 
 ### Implémentation
 
-L'implémentation d'une interface, qu'il soit implicite ou explicite, est représentée par une flèche pointillée creuse qui pointe vers l'interface.
+L'implémentation d'une interface, qu'elle soit implicite ou explicite, est représentée par une flèche pointillée creuse qui pointe vers l'interface.
 
 <details markdown="1">
 <summary markdown="span">Exemple</summary>
@@ -101,7 +103,8 @@ La composition représente une relation forte, c'est-à-dire une relation où un
 
 <details markdown="1">
 <summary markdown="span">Exemple</summary>
-Dans cet exemple, le profil d'un étudiant est composé (entre autres) de ses résultats. Les résultats ne peuvent pas exister sans l'étudiant.
+
+*Dans cet exemple, le profil d'un étudiant est composé (entre autres) de ses résultats. Les résultats ne peuvent pas exister sans l'étudiant.*
 ```mermaid
 classDiagram
     Etudiant *-- Resultat : composition
@@ -114,7 +117,8 @@ L'agrégation est similaire à la composition, mais elle représente une relatio
 
 <details markdown="1">
 <summary markdown="span">Exemple</summary>
-Dans cet exemple, une classe est l'agrégation d'un certain nombre d'étudiants. Les étudiants peuvent exister sans être dans une salle de classe.
+
+*Dans cet exemple, une classe est l'agrégation d'un certain nombre d'étudiants. Les étudiants peuvent exister sans être dans une salle de classe.*
 ```mermaid
 classDiagram
     Classe o-- Etudiant : agrégation
@@ -139,7 +143,8 @@ Certaines relations, principalement les associations, les compositions et les ag
 
 <details markdown="1">
 <summary markdown="span">Exemple</summary>
-Dans cet exemple, un étudiant peut suivre entre 0 et plusieurs cours.
+
+*Dans cet exemple, un étudiant peut suivre entre 0 et plusieurs cours.*
 ```mermaid
 classDiagram
     Etudiant "1" --> "0..*" Cours : multiplicité
