@@ -5,6 +5,11 @@ markdown: kramdown
 plugins:
   - jekyll-remote-theme
 
+
+mermaid:
+  version: "9.1.3
+
+
 callouts:
   highlight:
     title: Remarque
@@ -31,7 +36,6 @@ collections:
     permalink: /:collection/:name
 
 just_the_docs:
-  mermaid: true
   collections:
     seances:
       name: Séances
