@@ -23,6 +23,8 @@ published: true
 
 ## Tâches à réaliser
 
+Le code de départ du projet est disponible dans le dépôt suivant: [Code SOLIDEMENT Bon](https://github.com/ophenix-420-930-ma-24636/solidement-bon)
+
 1. **Analyse SOLID**
 
    - Identification des violations aux principes SOLID présentes dans l'application initiale
