@@ -65,9 +65,36 @@ Chaque attribut ou méthode est précédé d'un symbole représentant sa visibil
 ### Association
 
 Une association représente un lien logique entre deux classes, indiquant qu'elles sont liées d'une certaine manière. Il existe deux types d'association :
-- Association simple : C'est le cas le plus courant, où les deux classes *se connaissent* mutuellement. En d'autres termes, la relation implique que les deux classes ont une assiociation bidirectionnelle. Dans ce cas, on utilise un trait sans flèche entre les deux classes.
-- Association directionnelle : Plus rarement, on voudra indiquer la direction de l'association (A connaît B, mais B ne connaît pas A). Dans ce cas, on utilisera une flèche simple pointant dans le sens de l'association.
+- **Association simple** : C'est le cas le plus courant, où les deux classes *se connaissent* mutuellement. En d'autres termes, la relation implique que les deux classes ont une assiociation bidirectionnelle. Dans ce cas, on utilise un trait sans flèche entre les deux classes.
+- **Association directionnelle** : Parfois, on voudra indiquer la direction de l'association (A connaît B, mais B ne connaît pas A). Dans ce cas, on utilisera une flèche simple pointant dans le sens de l'association.
 
+<details markdown="1">
+<summary markdown="span">
+
+**Exemple - Association simple**
+
+</summary>
+
+*Ici, ClasseA et ClasseB sont liées l'une à l'autre, sans direction particulière.*
+```mermaid
+classDiagram
+    ClasseA -- ClasseB
+```
+</details>
+
+<details markdown="1">
+<summary markdown="span">
+
+**Exemple - Association directionnelle**
+
+</summary>
+
+* Ici, ClasseA connaît ClasseB, mais pas l'inverse. On modélise donc la direction.
+```mermaid
+classDiagram
+    ClasseA --> ClasseB
+```
+</details>
 
 ### Héritage
 
