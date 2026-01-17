@@ -20,7 +20,7 @@ Ici, il n'existe pas une réponse unique. De façon générale, on voudra d'abor
 
 Une approche itérative pourrait donc ressembler à ceci:
 
-1. Régler **SRP** : Décomposer la ***God class*** `GestionnaireAgenceVoyages` en classes plus petites avec des responsabilités ciblées, par exemple :
+1. Régler **SRP** : Décomposer la ***God class*** `GestionnaireAgenceVoyages` en classes plus petites avec des responsabilités ciblées, par exemple...
    - `ServicePrix` : classe responsable du calcul du prix des billets
       - *Cette classe contiendrait la logique présentement contenue dans le `switch/case` et la variante `hauteSaison`, ainsi que les frais d'aéroport*.
    - `ServiceBillet` : classe responsable de la composition du libellé des billets
@@ -30,7 +30,7 @@ Une approche itérative pourrait donc ressembler à ceci:
    - `ServicePetiteCaisse` : classe responsable de gérer la petite caisse.
    - `GestionnaireAgenceVoyages` : classe existante, conserve uniquement la responsabilité d'orchestrer les appels aux classes spécialisées créées précédemment.
 
-** Exemple pour `ServicePrix` et `ServiceExport` et `GestionnaireAgenceVoyages` après les modifications ci-haut.
+**Exemple pour `ServicePrix` et `ServiceExport` et `GestionnaireAgenceVoyages` après les modifications ci-haut.**
 ```java
 public class ServicePrix {
 
@@ -98,7 +98,7 @@ public void traiterReservations() {
 }
 ```
 
-1. Régler **OCP** : Identifier les points d'extension probables et créer des interfaces :
+2. Régler **OCP** : Identifier les points d'extension probables et créer des interfaces...
    1. Pour se débarasser du `switch/case` qui a été déplacé dans `CalculateurPrix`
       - Transformer `ServicePrix` en interface avec une méthode `int calculerPrix(Itineraire it, boolean hauteSaison)`
       - Créer une implémentation de `ServicePrix` pour chaque type de vol, par exemple :
@@ -114,7 +114,7 @@ public void traiterReservations() {
    1. Il est possible que l'on juge que `ServicePetiteCaisse` n'est pas vraiment un point d'extension requis, surtout si l'on juge que les méthodes de calcul sont peu susceptibles de changer.
 
 
-1. Après avoir effectué les étapes précédentes, vous aurez grandement amélioré le respect des principes **SRP** et **OCP** du code. Cependant, vous aurez fort probablement des instructions ressemblant à celles-ci dans votre code:
+3. Après avoir effectué les étapes précédentes, vous aurez grandement amélioré le respect des principes **SRP** et **OCP** du code. Cependant, vous aurez fort probablement des instructions ressemblant à celles-ci dans votre code:
 
 ```java
 ServiceExport serviceExport = new ServiceExportCsv();
@@ -147,15 +147,36 @@ Ces instanciations ne respectent pas le principe d'inversion de dépendances (**
     ...
 
    ```
+   ```java
+    public static void main(String[] args) {
+        // ce serait encore mieux si on lisait ces valeur au démarrage ou dans une
+        // config, mais bon...
+        double fraisAeroport = 35.0;
+        double soldeInitialPetiteCaisse = 1000.0;
+
+        List<ServicePrix> servicesPrix = List.of(new ServicePrixInterieur(fraisAeroport),
+                new ServicePrixInternational(fraisAeroport),
+                new ServicePrixNolise(fraisAeroport));
+        ServiceExport serviceExport = new ServiceExportCsv();
+        ServicePetiteCaisse servicePetiteCaisse = new ServicePetiteCaisseRegulier(soldeInitialPetiteCaisse);
+        ServiceBillets serviceBillets = new ServiceBilletsSimple();
+
+        GestionnaireAgenceVoyages agence = new GestionnaireAgenceVoyages(servicesPrix, serviceExport,
+                servicePetiteCaisse, serviceBillets);
+        agence.ajouterReservation(new Itineraire("INTERIEUR", 2, "Montreal", "Vancouver"));
+        agence.ajouterReservation(new Itineraire("INTERNATIONAL", 1, "Montreal", "Paris"));
+        agence.traiterReservations();
+    }
+   ```
 
 ### Pistes d'améliorations supplémentaires
 
 Félicitations, vous avez **grandement** amélioré la qualité du code du gestionnaire de l'agence de voyages. Si vous désirez pousser l'exercice plus loin, quelques autres éléments, plus mineurs, peuvent aussi être améliorés:
 
-1. Validation de la ville
+#### 1. Validation de la ville
 
 La méthode `private boolean villeSupportee(String ville)` ne fait qu'une validation minimale; elle vérifie que la ville est une chaîne de caractère non-vide. Si on voulait améliorer la validation, on pourrait faire une implémentation plus robuste qui, par exemple, lit à partir d'un fichier de configuration toutes les villes pour lesquelles l'agence offre des départs ou des arrivées. Ainsi, toute ville entrée qui n'est pas prise en charge serait refusée, et l'ajout ou le retrait d'une ville ne demanderait que la modification d'un fichier de configuration (ou toute autre source externe, comme une base de données).
 
-1. Journalisation (*logs*)
+#### 2. Journalisation (*logs*)
 
 Les journaux (*logs*) de l'application sont écrits à l'aide de `System.out.println`. Dans une application de production, il serait préférable d'utiliser un véritable *framework* de logs, comme *SFL4J* en Java (il en existe aussi plusieurs autres).
