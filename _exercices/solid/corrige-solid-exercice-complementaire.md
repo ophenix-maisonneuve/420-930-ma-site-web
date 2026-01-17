@@ -4,7 +4,7 @@ title: "SOLID - Corrigé exercice complémentaire"
 parent: "Principes SOLID"
 nav_order: 3
 has_toc: false
-published: false
+published: true
 ---
 
 ## 6. Bonus - Identifier les infractions SOLID
@@ -122,7 +122,7 @@ ServicePrix servicePrix = new ServicePrixInterieur(fraisAeroport);
 ServiceBillets serviceBillets = new ServiceBilletsSimple();
 ```
 
-Ces instanciations ne respectent pas le principe d'inversion de dépendances, car notre classe de haut-niveau `GestionnaireAgenceVoyages` dépend d'implémentations concrètes des classes techniques. Pour corriger:
+Ces instanciations ne respectent pas le principe d'inversion de dépendances (**DIP**), car notre classe de haut-niveau `GestionnaireAgenceVoyages` dépend d'implémentations concrètes des classes techniques. Pour corriger:
 
    1. `ServiceExport` et `ServicePrix` sont déjà des interfaces. Il est donc possible de ne dépendre que du contrat et de recevoir une implémentation spécifique, par exemple via l'injection au constructeur.
 
@@ -147,3 +147,15 @@ Ces instanciations ne respectent pas le principe d'inversion de dépendances, ca
     ...
 
    ```
+
+### Pistes d'améliorations supplémentaires
+
+Félicitations, vous avez **grandement** amélioré la qualité du code du gestionnaire de l'agence de voyages. Si vous désirez pousser l'exercice plus loin, quelques autres éléments, plus mineurs, peuvent aussi être améliorés:
+
+1. Validation de la ville
+
+La méthode `private boolean villeSupportee(String ville)` ne fait qu'une validation minimale; elle vérifie que la ville est une chaîne de caractère non-vide. Si on voulait améliorer la validation, on pourrait faire une implémentation plus robuste qui, par exemple, lit à partir d'un fichier de configuration toutes les villes pour lesquelles l'agence offre des départs ou des arrivées. Ainsi, toute ville entrée qui n'est pas prise en charge serait refusée, et l'ajout ou le retrait d'une ville ne demanderait que la modification d'un fichier de configuration (ou toute autre source externe, comme une base de données).
+
+1. Journalisation (*logs*)
+
+Les journaux (*logs*) de l'application sont écrits à l'aide de `System.out.println`. Dans une application de production, il serait préférable d'utiliser un véritable *framework* de logs, comme *SFL4J* en Java (il en existe aussi plusieurs autres).
