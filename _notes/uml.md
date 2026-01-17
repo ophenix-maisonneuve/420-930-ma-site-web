@@ -73,7 +73,7 @@ Pour visualiser les diagrammes MermaidJS dans vos documents Markdown avec VSCode
 - [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) : Permet de visualiser les diagrammes MermaidJS dans la prévisualisation Markdown de VSCode.
 
 ### Editeur MermaidJS en ligne
-Vous pouvez tester MermaidJS directement dans votre navigateur en utilisant cet éditeur en ligne.
+Vous pouvez tester MermaidJS directement dans votre navigateur en utilisant cet [éditeur en ligne](https://mermaid.live/edit).
 
 ## Liens utiles
 - [https://en.wikipedia.org/wiki/Unified_Modeling_Language](https://en.wikipedia.org/wiki/Unified_Modeling_Language)
