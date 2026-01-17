@@ -167,7 +167,7 @@ classDiagram
 
 ### Composition
 
-La composition représente une relation forte, c'est-à-dire une relation où un tout est composé de ses éléments et où les éléments ne peuvent pas exister sans le tout. En UML, on représente cette relation par une flèche avec un bout en forme de lozange plein qui pointe vers le tout.
+La composition représente une relation forte, c'est-à-dire une relation où un tout est composé de ses éléments et où les éléments ne peuvent pas exister sans le tout. En UML, on représente cette relation par une flèche avec un bout en forme de losange plein qui pointe vers le tout.
 
 <details markdown="1">
 <summary markdown="span">
@@ -185,7 +185,7 @@ classDiagram
 
 ### Agrégation
 
-L'agrégation est similaire à la composition, mais elle représente une relation faible, c'est-à-dire que les éléments peuvent exister indépendamment. En UML, on représente cette relation par une flèche avec un bout en forme de lozange vide qui pointe vers le tout.
+L'agrégation est similaire à la composition, mais elle représente une relation faible, c'est-à-dire que les éléments peuvent exister indépendamment. En UML, on représente cette relation par une flèche avec un bout en forme de losange vide qui pointe vers le tout.
 
 {: .warning}
 > En pratique, l’agrégation est très peu utilisée en UML, car elle n’apporte presque pas de sémantique supplémentaire par rapport à une association classique.
