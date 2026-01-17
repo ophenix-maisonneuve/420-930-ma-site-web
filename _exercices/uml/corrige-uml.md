@@ -4,7 +4,7 @@ title: "Diagrammes UML - Corrigé"
 parent: "Diagrammes UML"
 nav_order: 1
 has_toc: false
-published: true
+published: false
 ---
 # Exercice: Diagrammes UML - Corrigé
 
@@ -20,8 +20,6 @@ Utiliser la [question 6](../exercices/solid) de l'exercice sur les principes SOL
 
 
 ## 1. Diagramme de classes
-
-1. De façon itérative, en corrigeant les infractions aux principes SOLID présentes dans le code, modifiez le diagramme ci-haut pour modéliser vos améliorations.
 
 En fonction de la correction réalisée en classe, voici le diagramme de classes résultant. Bien sûr, si les problèmes SOLID ont été réglés différemment, le diagramme de classes devra aussi être ajusté.
 
