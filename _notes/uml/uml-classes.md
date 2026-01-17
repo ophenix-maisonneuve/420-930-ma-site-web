@@ -65,7 +65,7 @@ Chaque attribut ou méthode est précédé d'un symbole représentant sa visibil
 ### Association
 
 Une association représente un lien logique entre deux classes, indiquant qu'elles sont liées d'une certaine manière. Il existe deux types d'association :
-- **Association simple** : C'est le cas le plus courant, où les deux classes *se connaissent* mutuellement. En d'autres termes, la relation implique que les deux classes ont une assiociation bidirectionnelle. Dans ce cas, on utilise un trait sans flèche entre les deux classes.
+- **Association simple** : C'est le cas le plus courant, où l'on ne précise pas le sens de la relation. En d'autres termes, les classes sont liées, mais la direction de cette liaison n'est pas connue ou claire. Dans ce cas, on utilise un trait sans flèche entre les deux classes.
 - **Association directionnelle** : Parfois, on voudra indiquer la direction de l'association (A connaît B, mais B ne connaît pas A). Dans ce cas, on utilisera une flèche simple pointant dans le sens de l'association.
 
 <details markdown="1">
@@ -89,12 +89,44 @@ classDiagram
 
 </summary>
 
-* Ici, ClasseA connaît ClasseB, mais pas l'inverse. On modélise donc la direction.
+*Ici, ClasseA connaît ClasseB, mais pas l'inverse. On modélise donc la direction.*
 ```mermaid
 classDiagram
     ClasseA --> ClasseB
 ```
 </details>
+
+### Dépendance
+
+Une dépendance représente une relation faible entre deux éléments du modèle : une classe A utilise ou dépend temporairement d’une classe B. Cette relation indique que toute modification apportée à B peut affecter A, sans qu’il s’agisse d’un lien structurel (contrairement à l’association). La dépendance est toujours directionnelle, représentée par une flèche en pointillés.
+
+**Différence avec l'association**
+
+| Relation | Nature | Durée | Référence stockée ? | Notation |
+|---------|--------|-------|----------------------|----------|
+| **Association** | Structurelle | Permanente | Oui | Trait plein (avec ou sans flèche) |
+| **Dépendance** | Fonctionnelle et temporaire | Ponctuelle | Non | Ligne en pointillés |
+
+<details markdown="1">
+<summary markdown="span">
+
+**Exemple**
+
+</summary>
+```mermaid
+classDiagram
+class ServiceA {
+  +traiter(d : Donnee)
+}
+class Donnee {
+  +valeur : int
+}
+ServiceA ..> Donnee : dépend
+```
+</details>
+
+{: .highlight}
+> Une dépendance UML est **toujours directionnelle**. Une association peut être directionnelle ou non.
 
 ### Héritage
 
@@ -154,6 +186,12 @@ classDiagram
 ### Agrégation
 
 L'agrégation est similaire à la composition, mais elle représente une relation faible, c'est-à-dire que les éléments peuvent exister indépendamment. En UML, on représente cette relation par une flèche avec un bout en forme de lozange vide qui pointe vers le tout.
+
+{: .warning}
+> En pratique, l’agrégation est très peu utilisée en UML, car elle n’apporte presque pas de sémantique supplémentaire par rapport à une association classique.
+On lui préfère généralement une association unidirectionnelle, notamment lorsqu'une classe conserve une référence vers une autre (comme dans le cas d’une injection de dépendance).
+>
+> L’agrégation devrait être réservée aux cas où la relation tout/partie a un sens clair et explicite dans le domaine métier.
 
 <details markdown="1">
 <summary markdown="span">
