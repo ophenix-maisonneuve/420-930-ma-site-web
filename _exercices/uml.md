@@ -3,7 +3,7 @@ layout: default
 title: "Diagrammes UML"
 nav_order: 11
 has_toc: false
-published: false
+published: true
 ---
 # Exercice: Diagrammes UML
 
