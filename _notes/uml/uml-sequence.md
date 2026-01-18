@@ -83,9 +83,11 @@ La **création** fait apparaître un nouveau participant dans le scénario au mo
 
 ```mermaid
 sequenceDiagram
-Caller ->> Factory : createSession()
+Caller ->> Factory: createSession()
+activate Factory
 create participant Session
-Factory -->> Caller : Session
+Factory ->> Session: <<create>>
+Factory -->> Caller: Session
 ```
 
 ### Destruction d’objet

@@ -117,12 +117,9 @@ Une dépendance représente une relation faible entre deux éléments du modèle
 | **Association** | Structurelle | Permanente | Oui | Trait plein (avec ou sans flèche) |
 | **Dépendance** | Fonctionnelle et temporaire | Ponctuelle | Non | Ligne en pointillés |
 
-<details markdown="1">
-<summary markdown="span">
+{: .highlight}
+> Une dépendance UML est **toujours directionnelle**. Une association peut être directionnelle ou non.
 
-**Exemple**
-
-</summary>
 ```mermaid
 classDiagram
 class ServiceA {
@@ -133,21 +130,11 @@ class Donnee {
 }
 ServiceA ..> Donnee : dépend
 ```
-</details>
-
-{: .highlight}
-> Une dépendance UML est **toujours directionnelle**. Une association peut être directionnelle ou non.
 
 ### Héritage
 
 L'héritage "classique" où une classe enfant hérite des caractéristiques de la classe de base est représentée par une flèche pleine creuse qui pointe vers la classe de base.
 
-<details markdown="1">
-<summary markdown="span">
-
-**Exemple**
-
-</summary>
 ```mermaid
 classDiagram
     Parent <|-- Enfant
@@ -155,15 +142,7 @@ classDiagram
 </details>
 
 ### Implémentation
-
 L'implémentation d'une interface, qu'elle soit implicite ou explicite, est représentée par une flèche pointillée creuse qui pointe vers l'interface.
-
-<details markdown="1">
-<summary markdown="span">
-
-**Exemple**
-
-</summary>
 
 ```mermaid
 classDiagram
@@ -173,20 +152,12 @@ classDiagram
     }
     Interface <|.. ClasseConcrete
 ```
-</details>
 
 ### Composition
-
 La composition représente une relation forte, c'est-à-dire une relation où un tout est composé de ses éléments et où les éléments ne peuvent pas exister sans le tout. En UML, on représente cette relation par un lien avec un bout en forme de losange plein qui pointe vers le tout.
 
-<details markdown="1">
-<summary markdown="span">
-
-**Exemple**
-
-</summary>
-
 *Dans cet exemple, le profil d'un étudiant est composé (entre autres) de ses résultats. Les résultats ne peuvent pas exister sans l'étudiant.*
+
 ```mermaid
 classDiagram
     Etudiant *-- Resultat : composition
@@ -194,7 +165,6 @@ classDiagram
 </details>
 
 ### Agrégation
-
 L'agrégation est similaire à la composition, mais elle représente une relation faible, c'est-à-dire que les éléments peuvent exister indépendamment. En UML, on représente cette relation par un lien avec un bout en forme de losange vide qui pointe vers le tout.
 
 {: .warning}
@@ -202,23 +172,13 @@ L'agrégation est similaire à la composition, mais elle représente une relatio
 >
 > L’agrégation devrait être réservée aux rares cas où la relation tout/partie a un sens clair et explicite dans le domaine métier.
 
-<details markdown="1">
-<summary markdown="span">
-
-**Exemple**
-
-</summary>
-
 *Dans cet exemple, une classe est l'agrégation d'un certain nombre d'étudiants. Les étudiants peuvent exister sans être dans une salle de classe.*
 ```mermaid
 classDiagram
     Classe o-- Etudiant : agrégation
 ```
-</details>
 
 ## Cardinalité (multiplicité)
-
-
 Certaines relations structurelles, principalement les associations, les compositions et les agrégations, peuvent impliquer des relations 1:1, 1:N ou même N:M. On représente ces contraintes par deux nombres sur le lien entre les deux classes (un nombre pour la source et l'autre pour la destination).
 
 | Multiplicité | Signification |
@@ -233,28 +193,16 @@ Certaines relations structurelles, principalement les associations, les composit
 | *            | Nombre indéterminé (équivalent à 0..*) |
 | n..m         | Entre *n* et *m* éléments inclus |
 
-<details markdown="1">
-<summary markdown="span">
-
-**Exemple**
-
-</summary>
 
 *Dans cet exemple, un étudiant peut suivre entre 0 et plusieurs cours.*
 ```mermaid
 classDiagram
     Etudiant "1" --> "0..*" Cours : multiplicité
 ```
-</details>
 
-## Plus d'exemples
+## Exemples
 
-<details markdown="1">
-<summary markdown="span">
-
-**Classes, attributs, méthodes**
-
-</summary>
+### Classes, attributs, méthodes
 
 ```mermaid
 classDiagram
@@ -272,14 +220,8 @@ classDiagram
 
     Bibliotheque "1" *-- "0..*" Livre : contient
 ```
-</details>
 
-<details markdown="1">
-<summary markdown="span">
-
-**Héritage - Classes concrètes et interfaces**
-
-</summary>
+### Héritage - Classes concrètes et interfaces
 
 ```mermaid
 classDiagram
@@ -301,14 +243,8 @@ classDiagram
     Utilisateur <|-- Employe
     Employe ..|> Authentifiable
 ```
-</details>
 
-<details markdown="1">
-<summary markdown="span">
-
-**Modèle complet**
-
-</summary>
+### Modèle complet
 
 ```mermaid
 classDiagram
@@ -366,7 +302,6 @@ classDiagram
     %% (Optionnel) Un département propose des cours (association simple)
     Departement --> "0..*" Cours : propose
 ```
-</details>
 
 ## Liens utiles
 - [https://en.wikipedia.org/wiki/Class_diagram](https://en.wikipedia.org/wiki/Class_diagram)
