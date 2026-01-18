@@ -20,17 +20,17 @@ Le **diagramme de séquence** montre comment les objets interagissent au fil du 
 - **Pour les projets existants** : aussitôt que possible, car il servira de documentation pour **le comportement** de l'application.
 
 ## Étapes pour créer un diagramme de séquence
-- **Identifier les participants** : acteurs, objets, services.
-- **Définir le scénario** : étapes clés, entrées/sorties attendues.
-- **Lister les messages** : appels synchrones/asynchrones, retours, créations/destructions.
-- **Ordonner dans le temps** : du haut vers le bas, un scénario par diagramme.
-- **Ajouter des fragments** : alternatives (`alt`), boucles (`loop`), options (`opt`).
+1. **Identifier les participants** : acteurs, objets, services.
+1. **Définir le scénario** : étapes clés, entrées/sorties attendues.
+1. **Lister les messages** : appels synchrones/asynchrones, retours, créations/destructions.
+1. **Ordonner dans le temps** : du haut vers le bas, un scénario par diagramme.
+1. **Ajouter des fragments** : alternatives (`alt`), boucles (`loop`), options (`opt`).
 
-# Éléments d’un diagramme de séquence
+## Éléments d’un diagramme de séquence
 
-Afin de représenter les différents participants et les interactions entre chacun, le diagramme de séquence définit plusieurs éléments à utiliser
+Afin de représenter les différents participants et les interactions entre chacun, le diagramme de séquence définit plusieurs éléments à utiliser. Les principaux éléments sont décrits ci-bas:
 
-## 1. Ligne de vie (*Lifeline*)
+### Ligne de vie (*Lifeline*)
 La ligne de vie représente un **participant** (acteur, objet, service) présent pendant tout ou partie du scénario. Elle est dessinée verticalement, le **temps s’écoulant du haut vers le bas**. Le nom du participant figure en en‑tête. Plusieurs participants peuvent coexister sans nécessairement interagir à chaque instant.
 
 ```mermaid
@@ -39,7 +39,7 @@ participant User
 participant System
 ```
 
-## 2. Message synchrone (appel bloquant)
+### Message synchrone (appel bloquant)
 Un message **synchrone** modélise un appel de méthode bloquant : l’émetteur attend la fin de l’exécution côté récepteur avant de poursuivre. On l’utilise pour la plupart des invocations de services ou de méthodes dans un code classique.
 
 ```mermaid
@@ -48,7 +48,7 @@ User ->> System : login(username, password)
 System -->> User : result
 ```
 
-## 3. Message asynchrone (non bloquant)
+### Message asynchrone (non bloquant)
 Un message **asynchrone** déclenche un traitement sans bloquer l’émetteur. Typique des files de messages, événements, signaux, tâches en arrière‑plan. L’émetteur peut continuer pendant que le récepteur traite l’événement.
 
 ```mermaid
@@ -57,7 +57,7 @@ Sensor ->>+ Controller : signal()
 Controller -->>- Sensor : ack (optionnel)
 ```
 
-## 4. Retour (*Return message*)
+### Retour (*Return message*)
 Un **retour** indique la fin d’un traitement côté récepteur et l’acheminement d’une valeur de retour (ou d’un statut). Les retours sont **optionnels** dans les diagrammes : ils améliorent la lisibilité quand le résultat influence la suite du scénario.
 
 ```mermaid
@@ -66,7 +66,7 @@ Service ->> Repo : find(id)
 Repo -->> Service : Entity | null
 ```
 
-## 5. Activation (barre d’activation)
+### Activation (barre d’activation)
 Une **activation** (barre verticale épaissie) représente la durée d’exécution d’une opération sur un participant. Elle apparaît généralement pendant un appel synchrone. On peut activer/désactiver explicitement pour clarifier des traitements plus longs ou imbriqués.
 
 ```mermaid
@@ -78,7 +78,7 @@ Service -->> Client : ok
 deactivate Service
 ```
 
-## 6. Création d’objet
+### Création d’objet
 La **création** fait apparaître un nouveau participant dans le scénario au moment exact où l’objet naît. Utile pour montrer l'instanciation d’objets, l’ouverture de sessions, ou la mise en place de ressources temporaires.
 
 ```mermaid
@@ -88,7 +88,7 @@ create participant Session
 Factory -->> Caller : Session
 ```
 
-## 7. Destruction d’objet
+### Destruction d’objet
 La **destruction** indique la fin de vie d’un participant (libération de ressource, fermeture de session, suppression). Elle aide à raisonner sur la durée de vie et à éviter les fuites de ressources.
 
 ```mermaid
@@ -97,7 +97,7 @@ System ->> Session : close()
 destroy Session
 ```
 
-## 8. Fragments combinés : alternatives (`alt`), boucles (`loop`), options (`opt`)
+### Fragments combinés : alternatives (`alt`), boucles (`loop`), options (`opt`)
 Les **fragments** structurent le scénario :
 - **alt** pour les **branches conditionnelles** (if/else)
 - **loop** pour les **répétitions** (itérations avec une condition)
@@ -121,9 +121,9 @@ opt utilisateur premium
 end
 ```
 
-# Exemples
+## Exemples
 
-## Exemple simple : Connexion d’un utilisateur
+### Exemple simple : Connexion d’un utilisateur
 Un utilisateur saisit ses identifiants dans l’UI, qui appelle le service d’authentification. Le service renvoie un succès ou un échec, que l’UI affiche à l’utilisateur. Cet exemple illustre des **messages synchrones** et un **retour** explicite.
 
 ```mermaid
@@ -138,7 +138,7 @@ AuthService -->> UI : success | failure
 UI -->> User : afficherRésultat
 ```
 
-## Exemple complet : Achat en ligne (stock, paiement, notification)
+### Exemple complet : Achat en ligne (stock, paiement, notification)
 Le client lance l’achat. Le Frontend récupère le panier, vérifie le stock **pour chaque article** (`loop`), bifurque selon la disponibilité (`alt`)
 - si tout est disponible, il **paie** puis **envoie une confirmation** par courriel ;
 - sinon, il informe le client d’une **rupture de stock**. 

@@ -24,10 +24,10 @@ Le **diagramme de classes** montre les **classes**, leurs **attributs**, leurs *
 > Dans tous les cas, on voudra s'assurer que le diagramme de classe est tenu à jour au fur et à mesure que le code évolue. 
 
 ## Étapes pour créer un diagramme de classe
-- **Identifier les classes** : Déterminer les entités principales à modéliser.
-- **Définir les attributs** : Établir les propriétés des classes qui représentent les données pertinentes.
-- **Définir les méthodes** : Préciser les opérations que chaque classe peut exécuter.
-- **Définir les relations entre classes** : Identifier comment les classes interagissent entre elles (associations, agrégations, compositions, héritage).
+1. **Identifier les classes** : Déterminer les entités principales à modéliser.
+1. **Définir les attributs** : Établir les propriétés des classes qui représentent les données pertinentes.
+1. **Définir les méthodes** : Préciser les opérations que chaque classe peut exécuter.
+1. **Définir les relations entre classes** : Identifier comment les classes interagissent entre elles (associations, agrégations, compositions, héritage).
 
 {: .highlight}
 > Ceci est un processus itératif qui peut être affiné au fur et à mesure de l'avancement du projet.
