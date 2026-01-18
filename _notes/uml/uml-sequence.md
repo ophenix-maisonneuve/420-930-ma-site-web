@@ -171,3 +171,6 @@ else un ou plusieurs articles manquants
     Frontend -->> Client : afficherRuptureStock
 end
 ```
+
+## Liens utiles
+- [https://en.wikipedia.org/wiki/Sequence_diagram](https://en.wikipedia.org/wiki/Sequence_diagram)

@@ -78,33 +78,21 @@ Une association représente un lien logique entre deux classes, indiquant qu'ell
 - **Association simple** : C'est le cas le plus courant, où l'on ne précise pas le sens de la relation. En d'autres termes, la relation existe, mais la navigabilité n’est pas spécifiée. Dans ce cas, on utilise un trait sans flèche entre les deux classes.
 - **Association directionnelle** : Parfois, on voudra indiquer la direction de l'association (A connaît B, mais B ne connaît pas A). Dans ce cas, on utilisera une flèche simple pointant dans le sens de l'association.
 
-<details markdown="1">
-<summary markdown="span">
+**Association simple**
 
-**Exemple - Association simple**
-
-</summary>
-
-*Ici, ClasseA et ClasseB sont liées l'une à l'autre, sans direction particulière.*
 ```mermaid
 classDiagram
     ClasseA -- ClasseB
 ```
-</details>
+*Ici, ClasseA et ClasseB sont liées l'une à l'autre, sans direction particulière.*
 
-<details markdown="1">
-<summary markdown="span">
+**Association directionnelle**
 
-**Exemple - Association directionnelle**
-
-</summary>
-
-*Ici, ClasseA connaît ClasseB, mais pas l'inverse. On modélise donc la direction.*
 ```mermaid
 classDiagram
     ClasseA --> ClasseB
 ```
-</details>
+*Ici, ClasseA connaît ClasseB, mais pas l'inverse. On modélise donc la direction.*
 
 ### Dépendance
 
@@ -139,7 +127,6 @@ L'héritage "classique" où une classe enfant hérite des caractéristiques de l
 classDiagram
     Parent <|-- Enfant
 ```
-</details>
 
 ### Implémentation
 L'implémentation d'une interface, qu'elle soit implicite ou explicite, est représentée par une flèche pointillée creuse qui pointe vers l'interface.
@@ -156,13 +143,11 @@ classDiagram
 ### Composition
 La composition représente une relation forte, c'est-à-dire une relation où un tout est composé de ses éléments et où les éléments ne peuvent pas exister sans le tout. En UML, on représente cette relation par un lien avec un bout en forme de losange plein qui pointe vers le tout.
 
-*Dans cet exemple, le profil d'un étudiant est composé (entre autres) de ses résultats. Les résultats ne peuvent pas exister sans l'étudiant.*
-
 ```mermaid
 classDiagram
     Etudiant *-- Resultat : composition
 ```
-</details>
+*Dans cet exemple, le profil d'un étudiant est composé (entre autres) de ses résultats. Les résultats ne peuvent pas exister sans l'étudiant.*
 
 ### Agrégation
 L'agrégation est similaire à la composition, mais elle représente une relation faible, c'est-à-dire que les éléments peuvent exister indépendamment. En UML, on représente cette relation par un lien avec un bout en forme de losange vide qui pointe vers le tout.
@@ -172,11 +157,11 @@ L'agrégation est similaire à la composition, mais elle représente une relatio
 >
 > L’agrégation devrait être réservée aux rares cas où la relation tout/partie a un sens clair et explicite dans le domaine métier.
 
-*Dans cet exemple, une classe est l'agrégation d'un certain nombre d'étudiants. Les étudiants peuvent exister sans être dans une salle de classe.*
 ```mermaid
 classDiagram
     Classe o-- Etudiant : agrégation
 ```
+*Dans cet exemple, une classe est l'agrégation d'un certain nombre d'étudiants. Les étudiants peuvent exister sans être dans une salle de classe.*
 
 ## Cardinalité (multiplicité)
 Certaines relations structurelles, principalement les associations, les compositions et les agrégations, peuvent impliquer des relations 1:1, 1:N ou même N:M. On représente ces contraintes par deux nombres sur le lien entre les deux classes (un nombre pour la source et l'autre pour la destination).
@@ -194,11 +179,11 @@ Certaines relations structurelles, principalement les associations, les composit
 | n..m         | Entre *n* et *m* éléments inclus |
 
 
-*Dans cet exemple, un étudiant peut suivre entre 0 et plusieurs cours.*
 ```mermaid
 classDiagram
     Etudiant "1" --> "0..*" Cours : multiplicité
 ```
+*Dans cet exemple, un étudiant peut suivre entre 0 et plusieurs cours.*
 
 ## Exemples
 
