@@ -21,7 +21,7 @@ Le **diagramme de classes** montre les **classes**, leurs **attributs**, leurs *
 - **Pour les projets existants** : aussitôt que possible, car il servira de documentation pour **l'architecture** du projet.
 
 {: .astuce}
-> Dans tous les cas, on voudra s'assurer que le diagramme de classe est tenu à jour au fur et à mesure que le code évolue. 
+> Dans tous les cas, on voudra s'assurer que le diagramme de classes est tenu à jour au fur et à mesure que le code évolue. 
 
 ## Étapes pour créer un diagramme de classe
 1. **Identifier les classes** : Déterminer les entités principales à modéliser.
