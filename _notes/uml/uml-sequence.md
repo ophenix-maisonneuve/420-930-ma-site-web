@@ -3,7 +3,7 @@ layout: default
 title: "Diagramme de séquence"
 parent: "Introduction à UML"
 nav_order: 2
-published: true
+published: false
 ---
 # Diagramme de séquence UML
 
@@ -56,7 +56,7 @@ Sensor -) Controller : event()
 ```
 
 ### Retour (*Return message*)
-Un **retour** indique la fin d’un traitement côté récepteur et l’acheminement d’une valeur de retour (ou d’un statut). Les retours sont **optionnels** dans les diagrammes : ils améliorent la lisibilité quand le résultat influence la suite du scénario. Si le résultat est trivial ou peu important, on peut l'omettre.
+Un **retour** indique la fin d’un traitement côté récepteur et l’acheminement d’une valeur de retour (ou d’un statut). Les retours sont **optionnels** dans les diagrammes : ils améliorent la lisibilité quand le résultat influence la suite du scénario. Si le résultat est trivial ou peu important, on peut l'omettre. On représente le message de retour par une flèche pointillée de l'appelé vers l'appelant.
 
 ```mermaid
 sequenceDiagram
