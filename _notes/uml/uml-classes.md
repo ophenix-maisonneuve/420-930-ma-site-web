@@ -17,8 +17,8 @@ Le **diagramme de classes** montre les **classes**, leurs **attributs**, leurs *
 
 
 ## Quand l'utiliser ?
-- Pour les nouveaux projets : dès la phase de conception détaillée, ce qui permet de commencer l'architecture sans avoir à écrire le code.
-- Pour les projets existants : aussitôt que possible, car il servira de documentation pour l'architecture du projet
+- **Pour les nouveaux projets** : dès la phase de conception détaillée, ce qui permet de travailler **l'architecture** sans avoir à écrire le code.
+- **Pour les projets existants** : aussitôt que possible, car il servira de documentation pour **l'architecture** du projet.
 
 {: .astuce}
 > Dans tous les cas, on voudra s'assurer que le diagramme de classe est tenu à jour au fur et à mesure que le code évolue. 

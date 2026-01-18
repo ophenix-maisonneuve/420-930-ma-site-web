@@ -16,8 +16,8 @@ Le **diagramme de séquence** montre comment les objets interagissent au fil du 
 - Documenter le déroulement d’un cas d’utilisation ou d’un flux métier.
 
 ## Quand l'utiliser ?
-- Pour les nouveaux projets : dès la phase de conception détaillée, ce qui permet de définir le **comportement** de l'application sans avoir à écrire le code.
-- Pour les projets existants : aussitôt que possible, car il servira de documentation pour **le comportement** de l'application.
+- **Pour les nouveaux projets** : dès la phase de conception détaillée, ce qui permet de définir le **comportement** de l'application sans avoir à écrire le code.
+- **Pour les projets existants** : aussitôt que possible, car il servira de documentation pour **le comportement** de l'application.
 
 ## Étapes pour créer un diagramme de séquence
 - **Identifier les participants** : acteurs, objets, services.
