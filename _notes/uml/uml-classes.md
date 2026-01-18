@@ -75,7 +75,7 @@ Chaque attribut ou méthode est précédé d'un symbole représentant sa visibil
 ### Association
 
 Une association représente un lien logique entre deux classes, indiquant qu'elles sont liées d'une certaine manière. Il existe deux types d'association :
-- **Association simple** : C'est le cas le plus courant, où l'on ne précise pas le sens de la relation. En d'autres termes, les classes sont liées, mais la direction de cette liaison n'est pas connue ou claire. Dans ce cas, on utilise un trait sans flèche entre les deux classes.
+- **Association simple** : C'est le cas le plus courant, où l'on ne précise pas le sens de la relation. En d'autres termes, la relation existe, mais la navigabilité n’est pas spécifiée. Dans ce cas, on utilise un trait sans flèche entre les deux classes.
 - **Association directionnelle** : Parfois, on voudra indiquer la direction de l'association (A connaît B, mais B ne connaît pas A). Dans ce cas, on utilisera une flèche simple pointant dans le sens de l'association.
 
 <details markdown="1">
@@ -177,7 +177,7 @@ classDiagram
 
 ### Composition
 
-La composition représente une relation forte, c'est-à-dire une relation où un tout est composé de ses éléments et où les éléments ne peuvent pas exister sans le tout. En UML, on représente cette relation par une flèche avec un bout en forme de losange plein qui pointe vers le tout.
+La composition représente une relation forte, c'est-à-dire une relation où un tout est composé de ses éléments et où les éléments ne peuvent pas exister sans le tout. En UML, on représente cette relation par un lien avec un bout en forme de losange plein qui pointe vers le tout.
 
 <details markdown="1">
 <summary markdown="span">
@@ -195,7 +195,7 @@ classDiagram
 
 ### Agrégation
 
-L'agrégation est similaire à la composition, mais elle représente une relation faible, c'est-à-dire que les éléments peuvent exister indépendamment. En UML, on représente cette relation par une flèche avec un bout en forme de losange vide qui pointe vers le tout.
+L'agrégation est similaire à la composition, mais elle représente une relation faible, c'est-à-dire que les éléments peuvent exister indépendamment. En UML, on représente cette relation par un lien avec un bout en forme de losange vide qui pointe vers le tout.
 
 {: .warning}
 > En pratique, l’agrégation est très peu utilisée en UML moderne, car elle n’apporte presque pas de sémantique supplémentaire par rapport à une association classique. On lui préfère généralement une association unidirectionnelle, notamment lorsqu'une classe conserve une référence vers une autre (comme dans le cas d’une injection de dépendance).
@@ -219,7 +219,7 @@ classDiagram
 ## Cardinalité (multiplicité)
 
 
-Certaines relations, principalement les associations, les dépendances, les compositions et les agrégations, peuvent impliquer des relations 1:1, 1:N ou même N:M. On représente ces contraintes par deux nombres sur le lien entre les deux classes (un nombre pour la source et l'autre pour la destination).
+Certaines relations structurelles, principalement les associations, les compositions et les agrégations, peuvent impliquer des relations 1:1, 1:N ou même N:M. On représente ces contraintes par deux nombres sur le lien entre les deux classes (un nombre pour la source et l'autre pour la destination).
 
 | Multiplicité | Signification |
 |--------------|---------------|
