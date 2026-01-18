@@ -32,6 +32,8 @@ Le **diagramme de classes** montre les **classes**, leurs **attributs**, leurs *
 {: .highlight}
 > Ceci est un processus itératif qui peut être affiné au fur et à mesure de l'avancement du projet.
 
+---
+
 ## Représentation d'une classe
 
 Une classe est représentée par un rectangle à trois sections: *nom*, *attributs*, *méthodes*.
@@ -69,8 +71,9 @@ Chaque attribut ou méthode est précédé d'un symbole représentant sa visibil
 | `-`       | privé      | Champ à visibilité privée (`private` en Java)|
 
 
-## Relations entre classes
+---
 
+## Relations entre classes
 
 ### Association
 
@@ -93,6 +96,8 @@ classDiagram
     ClasseA --> ClasseB
 ```
 *Ici, ClasseA connaît ClasseB, mais pas l'inverse. On modélise donc la direction.*
+
+---
 
 ### Dépendance
 
@@ -118,6 +123,7 @@ class Donnee {
 }
 ServiceA ..> Donnee : dépend
 ```
+---
 
 ### Héritage
 
@@ -127,6 +133,8 @@ L'héritage "classique" où une classe enfant hérite des caractéristiques de l
 classDiagram
     Parent <|-- Enfant
 ```
+
+---
 
 ### Implémentation
 L'implémentation d'une interface, qu'elle soit implicite ou explicite, est représentée par une flèche pointillée creuse qui pointe vers l'interface.
@@ -140,6 +148,8 @@ classDiagram
     Interface <|.. ClasseConcrete
 ```
 
+---
+
 ### Composition
 La composition représente une relation forte, c'est-à-dire une relation où un tout est composé de ses éléments et où les éléments ne peuvent pas exister sans le tout. En UML, on représente cette relation par un lien avec un bout en forme de losange plein qui pointe vers le tout.
 
@@ -148,6 +158,8 @@ classDiagram
     Etudiant *-- Resultat : composition
 ```
 *Dans cet exemple, le profil d'un étudiant est composé (entre autres) de ses résultats. Les résultats ne peuvent pas exister sans l'étudiant.*
+
+---
 
 ### Agrégation
 L'agrégation est similaire à la composition, mais elle représente une relation faible, c'est-à-dire que les éléments peuvent exister indépendamment. En UML, on représente cette relation par un lien avec un bout en forme de losange vide qui pointe vers le tout.
@@ -162,6 +174,8 @@ classDiagram
     Classe o-- Etudiant : agrégation
 ```
 *Dans cet exemple, une classe est l'agrégation d'un certain nombre d'étudiants. Les étudiants peuvent exister sans être dans une salle de classe.*
+
+---
 
 ## Cardinalité (multiplicité)
 Certaines relations structurelles, principalement les associations, les compositions et les agrégations, peuvent impliquer des relations 1:1, 1:N ou même N:M. On représente ces contraintes par deux nombres sur le lien entre les deux classes (un nombre pour la source et l'autre pour la destination).
@@ -185,6 +199,8 @@ classDiagram
 ```
 *Dans cet exemple, un étudiant peut suivre entre 0 et plusieurs cours.*
 
+---
+
 ## Exemples
 
 ### Classes, attributs, méthodes
@@ -205,6 +221,8 @@ classDiagram
 
     Bibliotheque "1" *-- "0..*" Livre : contient
 ```
+
+---
 
 ### Héritage - Classes concrètes et interfaces
 
@@ -228,6 +246,8 @@ classDiagram
     Utilisateur <|-- Employe
     Employe ..|> Authentifiable
 ```
+
+---
 
 ### Modèle complet
 
