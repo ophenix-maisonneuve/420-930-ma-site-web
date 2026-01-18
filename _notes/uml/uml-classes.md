@@ -11,16 +11,26 @@ published: true
 Le **diagramme de classes** montre les **classes**, leurs **attributs**, leurs **méthodes**, ainsi que les **relations** entre elles. C’est le diagramme structurel le plus utilisé en conception orientée objet.
 
 ## Objectifs d’un diagramme de classes
-- Décrire la **structure** statique du système (types — pas instances)
-- Visualiser **associations**, **dépendances**, **héritages**, **implémentations**, **agrégations** et **compositions**
+- Décrire la **structure** statique du système (les types, et non les instances)
+- Visualiser les relations entre les types : **associations**, **dépendances**, **héritages**, **implémentations**, **agrégations** et **compositions**
 - Servir de base à la conception orientée objet et à la documentation de l’architecture
 
 
 ## Quand l'utiliser ?
-- Décomposer un domaine en concepts  
-- Clarifier les relations essentielles (composition, héritage, interfaces)  
-- Préparer une architecture orientée objet  
-- Documenter les structures logiques (modèle de domaine)
+- Pour les nouveaux projets : dès la phase de conception détaillée, ce qui permet de commencer l'architecture sans avoir à écrire le code.
+- Pour les projets existants : aussitôt que possible, car il servira de documentation pour l'architecture du projet
+
+{: .astuce}
+> Dans tous les cas, on voudra s'assurer que le diagramme de classe est tenu à jour au fur et à mesure que le code évolue. 
+
+## Étapes pour créer un diagramme de classe
+- **Identifier les classes** : Déterminer les entités principales à modéliser.
+- **Définir les attributs** : Établir les propriétés des classes qui représentent les données pertinentes.
+- **Définir les méthodes** : Préciser les opérations que chaque classe peut exécuter.
+- **Définir les relations entre classes** : Identifier comment les classes interagissent entre elles (associations, agrégations, compositions, héritage).
+
+{: .highlight}
+> Ceci est un processus itératif qui peut être affiné au fur et à mesure de l'avancement du projet.
 
 ## Représentation d'une classe
 
