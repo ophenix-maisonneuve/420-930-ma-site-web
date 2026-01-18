@@ -40,25 +40,23 @@ participant System
 ```
 
 ### Message synchrone (appel bloquant)
-Un message **synchrone** modélise un appel de méthode bloquant : l’émetteur attend la fin de l’exécution côté récepteur avant de poursuivre. On l’utilise pour la plupart des invocations de services ou de méthodes dans un code classique.
+Un message **synchrone** modélise un appel de méthode bloquant : l’émetteur attend la fin de l’exécution côté récepteur avant de poursuivre. On l’utilise pour la plupart des invocations de services ou de méthodes dans un code classique. On représente cet appel par une flèche fermée du participant appelant vers le participant appelé.
 
 ```mermaid
 sequenceDiagram
 User ->> System : login(username, password)
-System -->> User : result
 ```
 
 ### Message asynchrone (non bloquant)
-Un message **asynchrone** déclenche un traitement sans bloquer l’émetteur. Typique des files de messages, événements, signaux, tâches en arrière‑plan. L’émetteur peut continuer pendant que le récepteur traite l’événement.
+Un message **asynchrone** déclenche un traitement sans bloquer l’émetteur. Typique des files de messages, événements, signaux, tâches en arrière‑plan. L’émetteur peut continuer pendant que le récepteur traite l’événement. On représente cet appel par une flèche ouverte du participant appelant vers le participant appelé.
 
 ```mermaid
 sequenceDiagram
-Sensor ->>+ Controller : signal()
-Controller -->>- Sensor : ack (optionnel)
+Sensor -) Controller : event()
 ```
 
 ### Retour (*Return message*)
-Un **retour** indique la fin d’un traitement côté récepteur et l’acheminement d’une valeur de retour (ou d’un statut). Les retours sont **optionnels** dans les diagrammes : ils améliorent la lisibilité quand le résultat influence la suite du scénario.
+Un **retour** indique la fin d’un traitement côté récepteur et l’acheminement d’une valeur de retour (ou d’un statut). Les retours sont **optionnels** dans les diagrammes : ils améliorent la lisibilité quand le résultat influence la suite du scénario. Si le résultat est trivial ou peu important, on peut l'omettre.
 
 ```mermaid
 sequenceDiagram
@@ -67,14 +65,14 @@ Repo -->> Service : Entity | null
 ```
 
 ### Activation (barre d’activation)
-Une **activation** (barre verticale épaissie) représente la durée d’exécution d’une opération sur un participant. Elle apparaît généralement pendant un appel synchrone. On peut activer/désactiver explicitement pour clarifier des traitements plus longs ou imbriqués.
+Une **activation** (barre verticale épaissie) représente la durée d’exécution d’une opération sur un participant. Elle apparaît généralement pendant un appel synchrone. La barre d'activation est **optionnelle** : on peut activer/désactiver explicitement pour clarifier des traitements plus longs ou imbriqués, mais cela n'est pas obligatoire.
 
 ```mermaid
 sequenceDiagram
-Client ->> Service : process()
+Client ->>+ Service : process()
 activate Service
 Service ->> Service : étapeInterne()
-Service -->> Client : ok
+Service -->>- Client : ok
 deactivate Service
 ```
 
