@@ -57,7 +57,6 @@ classDiagram
     }
 
     %% Relations
-    GestionnaireAgenceVoyages *-- "*" Itineraire : contient
     GestionnaireAgenceVoyages ..> Itineraire : utilise
 ```
 
