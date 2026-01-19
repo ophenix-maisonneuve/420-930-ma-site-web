@@ -22,6 +22,8 @@ Utiliser la [question 6](../exercices/solid) de l'exercice sur les principes SOL
 
 Le code de départ de la [question 6](../exercices/solid) a été modélisé en diagramme de classes UML (voir le diagramme et le code source Mermaid ci-bas). De façon itérative, en corrigeant les infractions aux principes SOLID présentes dans le code, modifiez le diagramme de classes pour modéliser vos améliorations.
 
+### Diagramme
+
 ```mermaid
 
 ---
@@ -58,6 +60,8 @@ classDiagram
     GestionnaireAgenceVoyages *-- "*" Itineraire : contient
     GestionnaireAgenceVoyages ..> Itineraire : utilise
 ```
+
+### Code source
 
 ```
 ---
