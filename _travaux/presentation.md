@@ -71,6 +71,7 @@ Vous pouvez choisir l'un des patrons de conception suivants:
 
 ## À remettre
 Il n'y a aucun matériel à remettre formellement, car l'évaluation portera uniquement sur la présentation. Cependant, il sera important de vous assurer que votre matériel soit accessible pour les autres étudiants au moment de la présentation, incluant :
+
 - Diapositives
 - Lien vers un site web
 - Diagrammes
