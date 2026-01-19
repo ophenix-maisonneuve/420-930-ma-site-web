@@ -77,15 +77,15 @@ Vous pouvez choisir l'un des patrons de conception suivants:
 - **23 janvier** : toutes les équipes doivent être confirmées avec le patron de conception choisi
 
 ### Semaine du 26 janvier : préparation
-- **26 janvier** : L'enseignant enseigne les patrons architecturaux
-- **27 janvier** : L'enseignant enseigne 2 patrons qui n'auront pas été choisis par le groupe
 - L'enseignant confirme l'ordre des présentations
 - Les étudiants commencent à préparer leurs présentations
+- **26 janvier** : L'enseignant enseigne les patrons architecturaux
+- **27 janvier** : L'enseignant enseigne 2 patrons qui n'auront pas été choisis par le groupe
 
 ### Semaine du 2 février : préparation
+- Les étudiants continuent leur préparation
 - **2 février** : L'enseignant enseigne 2 patrons qui n'auront pas été choisis par le groupe
 - **3 février** : L'enseignant enseigne les 2 derniers patrons qui n'ont pas été choisis par le groupe
-- Les étudiants continuent leur préparation
 
 ### Semaine du 9 février : début des présentations
 - **9 février** : présentations des 2 premières équipes (à déterminer)
