@@ -82,7 +82,6 @@ classDiagram
         - double prixNolise(Itineraire it)
         - void appendCsv(String f, String l)
         - boolean villeSupportee(String v)
-        + static void main(String[] args)
     }
 
     class Itineraire {
@@ -94,7 +93,6 @@ classDiagram
     }
 
     %% Relations
-    GestionnaireAgenceVoyages *-- "*" Itineraire : contient
     GestionnaireAgenceVoyages ..> Itineraire : utilise
 ```
 
