@@ -7,7 +7,13 @@ published: true
 # Présentation : Patron de conception
 
 ## Énoncé
-En équipes de deux (2) ou de trois (3), choisissez **un** patron de conception parmi la liste ci-dessous. Vous devrez préparer une présentation d'environ une heure sur le patron choisi, incluant les explications, au moins un exercice pratique et la correction de l'exercice pratique. Les notes de cours de base vous seront fournies, mais vous êtes libres d'utiliser du matériel supplémentaire pour votre présentation. 
+En équipes de deux (2) ou de trois (3), choisissez **un** patron de conception parmi la liste ci-dessous. Vous devrez préparer une présentation d'environ une heure sur le patron choisi, incluant :
+
+- les explications,
+- au moins un exercice pratique
+- la correction de l'exercice pratique
+
+Les notes de cours de base vous seront fournies, mais vous êtes libres d'utiliser du matériel supplémentaire pour votre présentation. 
 
 ## Patrons de conception
 Vous pouvez choisir l'un des patrons de conception suivants:
@@ -53,11 +59,11 @@ Vous pouvez choisir l'un des patrons de conception suivants:
   - Justesse du corrigé
 - Présentation (4 points)
   - Clarté des explications
-  - Utilisation d'exemples clairs, par exemple
-    - Analogies ou métaphores
-    - Comparaisons avec des objets de la vie courante
-    - Autres types d'exemples facilitant la compréhension
   - Matériel utilisé judicieusement (notes de cours ou ajouts personnalisés)
+  - Utilisation d'exemples clairs, incluant :
+    - *Analogies ou métaphores*
+    - *Comparaisons avec des objets de la vie courante*
+    - *Tout autre type d'exemple facilitant la compréhension*
 
 - **Total : 15 points (15% de la note finale)**
 
