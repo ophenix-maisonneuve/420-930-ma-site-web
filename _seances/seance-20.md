@@ -12,8 +12,9 @@ published: false
 ### Ordre du jour
 
 1. Informations générales
+1. UML: [Diagramme de classes](../notes/uml-classes)
+   1. Suite de l'[exercice UML - Question 1](../exercices/uml)
 1. UML: [Diagramme de séquence](../notes/uml-sequence)
-   1. [Exercice UML - Question 1](../exercices/uml)
 1. Introduction aux patrons de conception
    1. Concepts de base
    1. Pourquoi des patrons de conception ?
