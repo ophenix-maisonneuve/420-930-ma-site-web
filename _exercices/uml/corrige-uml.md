@@ -125,7 +125,7 @@ classDiagram
     ServicePrixNolise ..|> ServicePrix
 
     %% Associations & cardinalités
-    GestionnaireAgenceVoyages o-- "1..*" ServicePrix : servicesPrix
+    GestionnaireAgenceVoyages --> "1..*" ServicePrix : servicesPrix
     GestionnaireAgenceVoyages --> ServiceExport : serviceExport
     GestionnaireAgenceVoyages --> ServicePetiteCaisse : servicePetiteCaisse
     GestionnaireAgenceVoyages --> ServiceBillets : serviceBillets
