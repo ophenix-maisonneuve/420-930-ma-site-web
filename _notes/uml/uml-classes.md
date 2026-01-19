@@ -77,9 +77,9 @@ Chaque attribut ou méthode est précédé d'un symbole représentant sa visibil
 
 ### Association
 
-Une association représente un lien logique entre deux classes, indiquant qu'elles sont liées d'une certaine manière. Il existe deux types d'association :
+Une association représente un lien structurel durable entre deux classes, indiquant qu'elles sont liées d'une certaine manière. Il existe deux types d'association :
 - **Association simple** : C'est le cas le plus courant, où l'on ne précise pas le sens de la relation. En d'autres termes, la relation existe, mais la navigabilité n’est pas spécifiée. Dans ce cas, on utilise un trait sans flèche entre les deux classes.
-- **Association directionnelle** : Parfois, on voudra indiquer la direction de l'association (A connaît B, mais B ne connaît pas A). Dans ce cas, on utilisera une flèche simple pointant dans le sens de l'association.
+- **Association directionnelle** : Parfois, on voudra indiquer la direction de l'association (A utilise B, mais B ne connaît pas A). Dans ce cas, on utilisera une flèche simple pointant dans le sens de l'association.
 
 **Association simple**
 
@@ -95,7 +95,7 @@ classDiagram
 classDiagram
     ClasseA --> ClasseB
 ```
-*Ici, ClasseA connaît ClasseB, mais pas l'inverse. On modélise donc la direction.*
+*Ici, ClasseA utilise ClasseB, mais pas l'inverse. On modélise donc la direction.*
 
 ---
 
@@ -127,7 +127,7 @@ ServiceA ..> Donnee : dépend
 
 ### Héritage
 
-L'héritage "classique" où une classe enfant hérite des caractéristiques de la classe de base est représentée par une flèche pleine creuse qui pointe vers la classe de base.
+L'héritage "classique" où une classe enfant hérite des caractéristiques de la classe de base est représentée par une flèche creuse qui pointe vers la classe de base.
 
 ```mermaid
 classDiagram
@@ -151,7 +151,7 @@ classDiagram
 ---
 
 ### Composition
-La composition représente une relation forte, c'est-à-dire une relation où un tout est composé de ses éléments et où les éléments ne peuvent pas exister sans le tout. En UML, on représente cette relation par un lien avec un bout en forme de losange plein qui pointe vers le tout.
+La composition représente une relation forte, c'est-à-dire une relation où un tout est composé de ses éléments et où les éléments ne peuvent pas exister sans le tout. Autrement dit, si le tout est supprimé, toutes les parties qui le composent le seront également. En UML, on représente cette relation par un lien avec un bout en forme de losange plein qui pointe vers le tout.
 
 ```mermaid
 classDiagram
@@ -166,8 +166,6 @@ L'agrégation est similaire à la composition, mais elle représente une relatio
 
 {: .warning}
 > En pratique, l’agrégation est très peu utilisée en UML moderne, car elle n’apporte presque pas de sémantique supplémentaire par rapport à une association classique. On lui préfère généralement une association unidirectionnelle, notamment lorsqu'une classe conserve une référence vers une autre (comme dans le cas d’une injection de dépendance).
->
-> L’agrégation devrait être réservée aux rares cas où la relation tout/partie a un sens clair et explicite dans le domaine métier.
 
 ```mermaid
 classDiagram
