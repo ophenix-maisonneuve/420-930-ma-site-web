@@ -4,7 +4,7 @@ title: "Présentation - patron de conception"
 nav_order: 4
 published: true
 ---
-# Présentation : Patron de conception
+# Présentation : patron de conception
 
 ## Énoncé
 En équipes de deux (2) ou de trois (3), choisissez **un** patron de conception parmi la liste ci-dessous. Vous devrez préparer une présentation d'environ une heure sur le patron choisi, incluant :
