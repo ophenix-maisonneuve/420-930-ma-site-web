@@ -3,7 +3,7 @@ layout: default
 title: "Diagramme de séquence"
 parent: "Introduction à UML"
 nav_order: 2
-published: false
+published: true
 ---
 # Diagramme de séquence UML
 
@@ -28,7 +28,7 @@ Le **diagramme de séquence** montre comment les objets interagissent au fil du 
 
 ## Éléments d’un diagramme de séquence
 
-Afin de représenter les différents participants et les interactions entre chacun, le diagramme de séquence définit plusieurs éléments à utiliser. Les principaux éléments sont décrits ci-bas:
+Afin de représenter les différents participants et les interactions entre chacun, le diagramme de séquence définit plusieurs éléments à utiliser. Les principaux éléments sont décrits ci-bas :
 
 ### Ligne de vie (*Lifeline*)
 La ligne de vie représente un **participant** (acteur, objet, service) présent pendant tout ou partie du scénario. Elle est dessinée verticalement, le **temps s’écoulant du haut vers le bas**. Le nom du participant figure en en‑tête. Plusieurs participants peuvent coexister sans nécessairement interagir à chaque instant.
