@@ -4,6 +4,7 @@ title: Patrons de conception
 has_children: true
 nav_order: 10
 published: true
+has_toc: false
 ---
 
 # Patrons de conception
@@ -18,10 +19,10 @@ Les patrons de conception ont été formalisés dans les années 1990 par le cé
 
 Les patrons de conception sont divisés en quatre grandes familles (ou trois dans les cas où l'on n'inclut pas les patrons architecturaux dans la définition) :
 
-- Patrons architecturaux (*architectural patterns*)
-- Patrons de création (*creation patterns*)
-- Patrons structurels (*structural patterns*)
-- Patrons comportementaux (*behavioral patterns*)
+- [Patrons architecturaux](../notes/architecture) (*architectural patterns*)
+- [Patrons de création](../notes/creation) (*creation patterns*)
+- [Patrons structurels](../notes/structure) (*structural patterns*)
+- [Patrons comportementaux](../notes/comportement) (*behavioral patterns*)
 
 
 
