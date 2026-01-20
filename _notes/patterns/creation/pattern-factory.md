@@ -3,6 +3,7 @@ layout: default
 title: Factory
 parent: Patrons de création
 nav_order: 3
+published: false
 ---
 
 ## Description

@@ -3,6 +3,7 @@ layout: default
 title: Facade
 parent: Patrons structurels
 nav_order: 4
+published: false
 ---
 ## Description
 Facade fournit une interface unifiée et simple vers un sous-système complexe, afin de simplifier son utilisation par les clients.

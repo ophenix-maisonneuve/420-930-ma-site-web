@@ -3,6 +3,7 @@ layout: default
 title: Composite
 parent: Patrons structurels
 nav_order: 2
+published: false
 ---
 
 ## Description

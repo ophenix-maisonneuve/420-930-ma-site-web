@@ -3,6 +3,7 @@ layout: default
 title: Strategy
 parent: Patrons comportementaux
 nav_order: 1
+published: false
 ---
 
 ## Description

@@ -3,6 +3,7 @@ layout: default
 title: Observer
 parent: Patrons comportementaux
 nav_order: 2
+published: false
 ---
 
 ## Description

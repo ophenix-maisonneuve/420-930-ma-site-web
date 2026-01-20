@@ -3,6 +3,7 @@ layout: default
 title: Adapter
 parent: Patrons structurels
 nav_order: 1
+published: false
 ---
 
 ## Description

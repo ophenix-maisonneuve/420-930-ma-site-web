@@ -3,6 +3,7 @@ layout: default
 title: Decorator
 parent: Patrons structurels
 nav_order: 3
+published: false
 ---
 
 ## Description

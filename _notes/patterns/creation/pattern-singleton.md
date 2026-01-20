@@ -3,6 +3,7 @@ layout: default
 title: Singleton
 parent: Patrons de création
 nav_order: 4
+published: false
 ---
 
 ## Description

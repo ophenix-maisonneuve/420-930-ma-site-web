@@ -9,8 +9,8 @@ nav_order: 4
 
 Les patrons comportementaux décrivent comment les objets interagissent, échangent de l’information et distribuent efficacement les responsabilités.
 
-## Problèmes résolus
-Ils offrent des solutions aux difficultés liées à la communication entre objets, à la flexibilité du comportement dynamique et à la distribution des responsabilités dans un système complexe.
+## Cas d'utilisation
+Ils offrent des solutions aux difficultés liées à la communication entre objets, à la flexibilité du comportement dynamique et à la distribution des responsabilités dans un système complexe. Certains patrons comportementaux sont d'une grande utilité pour respecter le principe ouvert/fermé (***OCP***).
 
 ## Patrons courants
 - Observer

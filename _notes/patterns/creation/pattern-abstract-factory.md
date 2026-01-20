@@ -3,6 +3,7 @@ layout: default
 title: Abstract factory
 parent: Patrons de création
 nav_order: 1
+published: false
 ---
 
 ## Description
