@@ -4,7 +4,7 @@ title: "Diagrammes UML - Corrigé"
 parent: "Diagrammes UML"
 nav_order: 1
 has_toc: false
-published: true
+published: false
 ---
 # Exercice: Diagrammes UML - Corrigé
 
