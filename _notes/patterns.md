@@ -3,7 +3,7 @@ layout: default
 title: Patrons de conception
 has_children: true
 nav_order: 10
-published: false
+published: true
 ---
 
 # Patrons de conception
