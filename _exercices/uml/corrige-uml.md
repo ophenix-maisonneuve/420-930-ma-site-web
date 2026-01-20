@@ -4,7 +4,7 @@ title: "Diagrammes UML - Corrigé"
 parent: "Diagrammes UML"
 nav_order: 1
 has_toc: false
-published: false
+published: true
 ---
 # Exercice: Diagrammes UML - Corrigé
 
@@ -135,3 +135,44 @@ classDiagram
 
 ```
 
+## 2. Diagramme de séquence
+
+```mermaid
+sequenceDiagram
+%   autonumber
+    actor Agent
+    participant G as GestionnaireAgenceVoyages
+    participant SPi as ServicePrixInterieur
+    participant SPx as ServicePrixInternational
+    participant SPn as ServicePrixNolise
+    participant SB as ServiceBillets
+    participant PC as ServicePetiteCaisse
+    participant EX as ServiceExportCsv
+
+    Agent->>G: traiterReservations()
+    loop Pour chaque Itineraire
+        G->>G: villeSupportee(origine)
+        Note over G: Sélection du ServicePrix par getType()
+        alt type == "INTERIEUR"
+            G->>SPi: calculer(it, hauteSaison)
+            SPi-->>G: prix
+        else type == "INTERNATIONAL"
+            G->>SPx: calculer(it, hauteSaison)
+            SPx-->>G: prix
+        else type == "NOLISE"
+            G->>SPn: calculer(it, hauteSaison)
+            SPn-->>G: prix
+        end
+        G->>SB: creerLibelle(it)
+        SB-->>G: libelle
+        G->>PC: depot(prix * 0.05)
+        PC-->>G: solde mis à jour
+        G->>EX: add(it, prix)
+        EX-->>G: OK
+
+    end
+    G->>EX: export("reservations.csv")
+    EX-->>G: OK
+    G->>PC: getSolde()
+    PC-->>G: solde
+```

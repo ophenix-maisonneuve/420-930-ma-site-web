@@ -96,3 +96,6 @@ classDiagram
     GestionnaireAgenceVoyages ..> Itineraire : utilise
 ```
 
+## 2. Diagramme de séquence
+
+Représentez maintenant le scénario principal (traitement des réservations) de votre application corrigée dans un diagramme de séquence UML.

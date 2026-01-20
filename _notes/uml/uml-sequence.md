@@ -24,7 +24,7 @@ Le **diagramme de séquence** montre comment les objets interagissent au fil du 
 1. **Définir le scénario** : étapes clés, entrées/sorties attendues.
 1. **Lister les messages** : appels synchrones/asynchrones, retours, créations/destructions.
 1. **Ordonner dans le temps** : du haut vers le bas, un scénario par diagramme.
-1. **Ajouter des fragments** : alternatives (`alt`), boucles (`loop`), options (`opt`).
+1. **Ajouter des fragments** (au besoin) : alternatives (`alt`), boucles (`loop`), options (`opt`).
 
 ## Éléments d’un diagramme de séquence
 
