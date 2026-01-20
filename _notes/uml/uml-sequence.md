@@ -13,7 +13,7 @@ Le **diagramme de séquence** montre comment les objets interagissent au fil du 
 - Décrire l’ordre chronologique des interactions entre participants.
 - Visualiser les messages, appels, retours, activations et événements de cycle de vie.
 - Clarifier les responsabilités de chaque participant dans un scénario.
-- Documenter le déroulement d’un cas d’utilisation ou d’un flux métier.
+- Documenter le déroulement d’un cas d’utilisation
 
 ## Quand l'utiliser ?
 - **Pour les nouveaux projets** : dès la phase de conception détaillée, ce qui permet de définir le **comportement** de l'application sans avoir à écrire le code.
