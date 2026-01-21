@@ -23,7 +23,7 @@ Il est important de distinguer clairement :
   - Favorise l’extensibilité en ajoutant de nouveaux types d’objets sans modifier le code existant.
   - S'inscrit dans une architecture orientée objet utilisant l'héritage.
 
-Le Factory Method est donc un mécanisme de **polymorphisme appliqué à la création d’objets**, contrairement à la SimpleFactory, qui encapsule seulement une logique de création.
+Le factory method est donc un mécanisme de **polymorphisme appliqué à la création d’objets**, contrairement à la SimpleFactory, qui encapsule seulement une logique de création.
 
 ## Quand l'utiliser ?
 - Lorsque le code doit créer des objets, mais que la classe parente veut laisser la décision finale aux sous-classes.
