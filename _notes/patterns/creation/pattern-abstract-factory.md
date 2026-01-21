@@ -7,7 +7,12 @@ published: true
 ---
 
 ## Description
-Abstract factory fournit une interface pour créer des familles d’objets liés sans spécifier leurs classes concrètes.
+Abstract factory fournit une interface pour créer des familles d’objets liés sans spécifier leurs classes concrètes. Il permet de coordonner la création de plusieurs objets distincts dont le type concret doit être déterminé par un ou plusieurs paramètres communs qui détermineront la famille d'objets à créer pour chaque type abstrait.
+
+Abstract Factory définit une interface qui permet de créer plusieurs objets liés entre eux sans jamais mentionner leurs classes concrètes. Ce patron garantit que, pour une famille donnée, tous les objets produits sont cohérents entre eux, car ils sont choisis en fonction d’un même paramètre (ou d’un même contexte) qui détermine quelle famille d’objets instancier.
+
+{: .highlight}
+> On choisit donc une “usine abstraite”, et cette usine construit automatiquement tous les objets correspondant à la même famille, chacun sous sa forme concrète appropriée.
 
 ## Quand l'utiliser ?
 - Lorsque des produits doivent varier ensemble (même famille) selon une plateforme ou un thème.

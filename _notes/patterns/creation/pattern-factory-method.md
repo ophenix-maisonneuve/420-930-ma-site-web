@@ -11,7 +11,7 @@ Factory method est un patron de création dont l’objectif est de déléguer la
 
 Il est important de distinguer clairement :
 
-- **SimpleFactory (ou "Factory") — ***PAS un "vrai" design pattern*** :
+- **SimpleFactory (ou "Factory") — *PAS un "vrai" design pattern*** :
   - C’est simplement une classe utilitaire qui possède une méthode statique `create(...)`.
   - Elle décide elle-même quel objet instancier.
   - Elle ne repose ni sur l’héritage ni sur le polymorphisme.
