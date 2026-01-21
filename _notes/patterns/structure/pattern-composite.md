@@ -43,8 +43,6 @@ class Dot {
   +setX(x: int): void
   +getY(): int
   +setY(y: int): void
-  +draw(): void
-  +move(x: int, y: int): void
 }
 class Circle {
   -radius: int
@@ -53,8 +51,6 @@ class Circle {
   +getRadius(): int
   +setRadius(radius: int): void
   +getCenter(): Dot
-  +draw(): void
-  +move(x: int, y: int): void
 }
 class CompoundGraphic {
   -children: List<Graphic>
@@ -62,8 +58,6 @@ class CompoundGraphic {
   +getChildren(): List<Graphic>
   +add(child: Graphic): void
   +remove(child: Graphic): void
-  +draw(): void
-  +move(x: int, y: int): void
 }
 CompoundGraphic <-- Graphic : contient
 Circle --> Dot : contient
