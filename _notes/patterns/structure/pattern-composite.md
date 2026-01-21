@@ -53,9 +53,9 @@ class Circle {
   +getCenter(): Dot
 }
 class CompoundGraphic {
-  -children: List<Graphic>
+  -children: List~Graphic~
   +CompoundGraphic()
-  +getChildren(): List<Graphic>
+  +getChildren(): List~Graphic~
   +add(child: Graphic): void
   +remove(child: Graphic): void
 }
