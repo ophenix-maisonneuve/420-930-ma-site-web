@@ -40,7 +40,11 @@ class Observer {
   +update(temperature: float): void
 }
 class WeatherStation {
-    -observers : List<Observer>
+    -observers: List<Observer>
+}
+class CurrentConditionsDisplay {
+    -lastTemperature: float
+    +getLastTemperature(): float
 }
 Subject <|.. WeatherStation
 Observer <|.. CurrentConditionsDisplay
