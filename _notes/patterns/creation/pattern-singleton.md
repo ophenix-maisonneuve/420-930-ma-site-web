@@ -7,7 +7,7 @@ published: false
 ---
 
 ## Description
-Singleton garantit qu’une classe ne possède qu’une seule instance et fournit un point d’accès global à celle-ci.
+Singleton garantit qu’une classe ne possède qu’une seule instance et fournit un point d’accès global à celle-ci, qui est utilisé où nécessaire dans toute l'application.
 
 ## Quand l'utiliser ?
 - Lorsque une ressource partagée doit être unique (journalisation, configuration, pool de connexions, etc.).
@@ -15,11 +15,12 @@ Singleton garantit qu’une classe ne possède qu’une seule instance et fourni
 
 ## Avantages
 - Instance unique contrôlée.
-- Initialisation paresseuse possible.
+- Initialisation paresseuse (*lazy init*) possible.
 
 ## Inconvénients
 - Peut cacher des dépendances globales, compliquant les tests.
 - Risques en environnement concurrent sans gestion appropriée.
+- Lorsque mal utilisé, peut constituer le début d'un *God object*.
 
 ## Exemple de code Java
 ```java

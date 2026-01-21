@@ -6,42 +6,53 @@ nav_order: 2
 published: false
 ---
 
+
 ## Description
-Builder sépare la construction d’un objet complexe de sa représentation, permettant différentes représentations avec le même processus de construction.
+Builder est un patron de création qui permet de construire des objets complexes étape par étape, tout en séparant clairement la construction de la représentation finale. Contrairement à d’autres patrons de création, Builder vise surtout à **éviter les constructeurs à rallonge** et à rendre le processus de création plus clair, flexible et lisible.
+
+Le rôle du Builder est donc d'encapsuler la configuration d'un objet complexe en proposant une interface simple pour en assembler les parties.
+
+{: .highlight}
+La classe *Director* est parfois présentée dans les versions classiques du patron Builder (notamment dans le livre *Design Patterns* du GoF). Elle sert à orchestrer automatiquement les étapes de construction. **Elle n’est pas obligatoire** et n’est pas utilisée dans cette version moderne du patron, où le *client* contrôle lui-même les étapes.
 
 ## Quand l'utiliser ?
-- Lorsque la création d’un objet comporte de nombreuses étapes optionnelles.
-- Pour éviter des constructeurs avec trop de paramètres.
+- Lorsque la création d’un objet nécessite **de nombreuses options** ou paramètres.
+- Lorsque vous voulez éviter plusieurs constructeurs surchargés (*constructor telescoping*).
+- Lorsque vous voulez rendre la construction d’objet **plus lisible** et progressive.
+- Lorsque certaines étapes sont facultatives ou qu’un ordre spécifique n’est pas strictement requis.
 
 ## Avantages
-- Construction pas-à-pas claire et contrôlée.
-- Réutilisation du même processus pour différentes représentations.
+- Le code client devient plus lisible et intuitif, surtout avec une interface *fluent*.
+- Les objets complexes peuvent être construits sans exposer leur logique interne.
+- Facilite l’ajout de nouveaux paramètres de construction sans casser l’existant.
+- Évite les constructeurs surchargés et difficiles à maintenir.
 
 ## Inconvénients
-- Plus de classes à maintenir.
-- Peut sembler verbeux pour des objets simples.
+- Nécessite une classe Builder supplémentaire.
+- Peut être excessif pour des objets très simples.
+- Le client doit appeler manuellement les étapes (ceci peut être mitigé par l'utilisation optionnelle d'un *Director*).
 
-## Exemple de code Java
+## Exemple
 ```java
-class House {
-    private int windows;
-    private int doors;
+public class Maison {
+    private int fenetres;
+    private int portes;
     private boolean garage;
 
-    public int getWindows() {
-        return this.windows;
+    public int getFenetres() {
+        return this.fenetres;
     }
 
-    public void setWindows(int windows) {
-        this.windows = windows;
+    public void setFenetres(int fenetres) {
+        this.fenetres = fenetres;
     }
 
-    public int getDoors() {
-        return this.doors;
+    public int getPortes() {
+        return this.portes;
     }
 
-    public void setDoors(int doors) {
-        this.doors = doors;
+    public void setPortes(int portes) {
+        this.portes = portes;
     }
 
     public boolean hasGarage() {
@@ -53,61 +64,57 @@ class House {
     }
 }
 
-interface Builder {
+public interface Builder {
     void reset();
-    void setWindows(int count);
-    void setDoors(int count);
-    void setGarage(boolean hasGarage);
+    void setFenetres(int nb);
+    void setPortes(int nb);
+    void setGarage(boolean garage);
 }
 
-class HouseBuilder implements Builder {
-    private House house;
+public class MaisonBuilder implements Builder {
+    private Maison maison;
 
-    public HouseBuilder() {
-        this.house = new House();
-    }
-
-    public House getResult() {
-        return this.house;
+    public MaisonBuilder() {
+        this.maison = new Maison();
     }
 
     @Override
     public void reset() {
-        this.house = new House();
+        this.maison = new Maison();
     }
 
     @Override
-    public void setWindows(int count) {
-        this.house.setWindows(count);
+    public void setFenetres(int nb) {
+        this.maison.setFenetres(nb);
     }
 
     @Override
-    public void setDoors(int count) {
-        this.house.setDoors(count);
+    public void setPortes(int nb) {
+        this.maison.setPortes(nb);
     }
 
     @Override
-    public void setGarage(boolean hasGarage) {
-        this.house.setGarage(hasGarage);
+    public void setGarage(boolean garage) {
+        this.maison.setGarage(garage);
+    }
+
+    public Maison getResult() {
+        return this.maison;
     }
 }
 
-class Director {
-    public void makeSimpleHouse(HouseBuilder builder) {
-        builder.reset();
-        builder.setWindows(4);
-        builder.setDoors(1);
-        builder.setGarage(false);
-    }
-}
-
-class Demo {
+public class Demo {
     public static void main(String[] args) {
-        HouseBuilder builder = new HouseBuilder();
-        Director director = new Director();
-        director.makeSimpleHouse(builder);
-        House house = builder.getResult();
-        System.out.println("Windows: " + house.getWindows());
+        MaisonBuilder builder = new MaisonBuilder();
+
+        builder.setFenetres(6);
+        builder.setPortes(2);
+        builder.setGarage(true);
+
+        Maison maison = builder.getResult();
+        builder.reset();
+        
+        System.out.println("Maison construite: " + maison.getFenetres() + " fenêtres");
     }
 }
 ```
@@ -115,41 +122,41 @@ class Demo {
 ## Diagramme de classes (Mermaid)
 ```mermaid
 classDiagram
-class House {
-  -windows: int
-  -doors: int
+class Maison {
+  -fenetres: int
+  -portes: int
   -garage: boolean
-  +getWindows(): int
-  +setWindows(count: int): void
-  +getDoors(): int
-  +setDoors(count: int): void
+  +getFenetres(): int
+  +setFenetres(nb: int): void
+  +getPortes(): int
+  +setPortes(nb: int): void
   +hasGarage(): boolean
-  +setGarage(hasGarage: boolean): void
+  +setGarage(garage: boolean): void
 }
+
 class Builder {
   <<interface>>
   +reset(): void
-  +setWindows(count: int): void
-  +setDoors(count: int): void
-  +setGarage(hasGarage: boolean): void
+  +setFenetres(nb: int): void
+  +setPortes(nb: int): void
+  +setGarage(garage: boolean): void
 }
-class HouseBuilder {
-  -house: House
-  +HouseBuilder()
-  +getResult(): House
+
+class MaisonBuilder {
+  -maison: Maison
+  +MaisonBuilder()
   +reset(): void
-  +setWindows(count: int): void
-  +setDoors(count: int): void
-  +setGarage(hasGarage: boolean): void
+  +setFenetres(nb: int): void
+  +setPortes(nb: int): void
+  +setGarage(garage: boolean): void
+  +getResult(): Maison
 }
-class Director {
-  +makeSimpleHouse(builder: HouseBuilder): void
-}
-HouseBuilder --> House
-Director --> HouseBuilder
-Builder <|.. HouseBuilder
+
+Builder <|.. MaisonBuilder
+MaisonBuilder --> Maison
 ```
 
 ## Liens utiles
 - https://refactoring.guru/design-patterns/builder
 - https://en.wikipedia.org/wiki/Builder_pattern
+- https://sourcemaking.com/design_patterns/builder

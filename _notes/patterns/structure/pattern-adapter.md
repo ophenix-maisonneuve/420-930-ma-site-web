@@ -7,7 +7,7 @@ published: false
 ---
 
 ## Description
-Adapter permet de faire collaborer des interfaces incompatibles en enveloppant (adapter) un objet existant pour qu’il expose l’interface attendue par le client.
+Adapter permet de faire collaborer des interfaces incompatibles en enveloppant (ou en *adaptant*) un objet existant pour qu’il expose l’interface attendue par le client.
 
 ## Quand l'utiliser ?
 - Lorsque vous souhaitez réutiliser une classe existante dont l’interface ne correspond pas à celle requise.
@@ -21,7 +21,7 @@ Adapter permet de faire collaborer des interfaces incompatibles en enveloppant (
 - Multiplie parfois les couches d’indirection.
 - Peut masquer des incompatibilités conceptuelles plus profondes.
 
-## Exemple de code Java
+## Exemple
 ```java
 class RoundPeg {
     private double radius;

@@ -3,7 +3,7 @@ layout: default
 title: Observer
 parent: Patrons comportementaux
 nav_order: 2
-published: false
+published: true
 ---
 
 ## Description
@@ -18,7 +18,8 @@ Observer définit une dépendance 1:N (un à plusieurs ou *one-to-many*) entre o
 - Réduction du couplage et meilleure testabilité.
 
 ## Inconvénients
-- Ordre de notification et gestion d’erreurs parfois délicats.
+- Ordre de notification non garanti.
+- Gestion d’erreurs parfois complexe.
 - Risque de fuites mémoire si les observateurs ne se désabonnent pas.
 
 ## Exemple
@@ -111,7 +112,7 @@ class Observer {
 }
 Subject <|.. WeatherStation
 Observer <|.. CurrentConditionsDisplay
-WeatherStation o-- Observer : observers
+WeatherStation --> Observer : observers
 WeatherStation --> CurrentConditionsDisplay : notifie
 ```
 

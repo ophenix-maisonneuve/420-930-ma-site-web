@@ -10,7 +10,7 @@ published: false
 Composite permet de traiter de façon uniforme des objets simples (feuilles) et des compositions d’objets (composites) via une interface commune.
 
 ## Quand l'utiliser ?
-- Lorsque vous manipulez des hiérarchies d’objets (arborescences) où les clients ne devraient pas connaître la différence entre une feuille et un nœud composé.
+- Lorsque vous manipulez des hiérarchies d’objets (arborescences) où les clients ne devraient pas connaître la différence entre une feuille et un noeud composé.
 - Pour permettre des opérations récursives uniformes.
 
 ## Avantages
@@ -21,7 +21,7 @@ Composite permet de traiter de façon uniforme des objets simples (feuilles) et 
 - Peut rendre les contraintes de type moins explicites.
 - Débogage parfois plus complexe dans les structures profondes.
 
-## Exemple de code Java
+## Exemple
 ```java
 import java.util.ArrayList;
 import java.util.List;

@@ -3,7 +3,7 @@ layout: default
 title: State
 parent: Patrons comportementaux
 nav_order: 3
-published: false
+published: true
 ---
 
 ## Description

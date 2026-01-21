@@ -7,108 +7,127 @@ published: false
 ---
 
 ## Description
-Decorator ajoute des responsabilités à un objet dynamiquement en l’enveloppant dans d’autres objets respectant la même interface.
+Decorator ajoute des responsabilités à un objet dynamiquement en l’enveloppant dans d’autres objets respectant la même interface. Il permet d’étendre le comportement d’un objet existant **sans modifier son code** et sans recourir à l’héritage multiple. Le Decorator favorise la composition plutôt que l’héritage et permet une grande flexibilité.
 
 ## Quand l'utiliser ?
-- Lorsque vous souhaitez ajouter des fonctionnalités à la volée sans modifier la classe d’origine.
-- Pour éviter une explosion de sous-classes dédiées à chaque combinaison de comportements.
+- Lorsque vous souhaitez ajouter ou combiner des fonctionnalités à la volée sans modifier la classe d'origine.
+- Lorsque l’héritage entraîne une explosion de sous-classes dédiées à chaque combinaison de comportements.
 
 ## Avantages
-- Composition flexible des comportements.
-- Respect du principe ouvert/fermé (ouvert à l’extension, fermé à la modification).
+- Composition flexible de comportements.
+- Respect du principe ouvert/fermé (***OCP***)
+- Possibilité d'ajouter des responsabilités de manière dynamique.
 
 ## Inconvénients
-- Empilement de décorateurs qui peut rendre le débogage plus difficile.
-- La configuration peut devenir verbeuse.
+- Peut mener à une accumulation complexe de décorateurs.
+- Le débogage peut devenir plus difficile.
 
-## Exemple de code Java
+## Exemple
+
 ```java
-interface Notifier {
-    void send(String message);
+interface Texte {
+    String afficher();
 }
 
-class EmailNotifier implements Notifier {
+class TexteBrut implements Texte {
+    private String contenu;
+
+    public TexteBrut(String contenu) {
+        this.contenu = contenu;
+    }
+
     @Override
-    public void send(String message) {
-        System.out.println("Email: " + message);
+    public String afficher() {
+        return this.contenu;
     }
 }
 
-abstract class NotifierDecorator implements Notifier {
-    private Notifier wrappee;
+abstract class TexteDecorator implements Texte {
+    private Texte wrappee;
 
-    public NotifierDecorator(Notifier wrappee) {
+    public TexteDecorator(Texte wrappee) {
         this.wrappee = wrappee;
     }
 
-    public Notifier getWrappee() {
+    public Texte getWrappee() {
         return this.wrappee;
     }
-
-    public void setWrappee(Notifier wrappee) {
-        this.wrappee = wrappee;
-    }
 }
 
-class SMSDecorator extends NotifierDecorator {
-    public SMSDecorator(Notifier wrappee) {
+class TexteMajuscules extends TexteDecorator {
+
+    public TexteMajuscules(Texte wrappee) {
         super(wrappee);
     }
 
     @Override
-    public void send(String message) {
-        if (getWrappee() != null) {
-            getWrappee().send(message);
-        }
-        System.out.println("SMS: " + message);
+    public String afficher() {
+        return getWrappee().afficher().toUpperCase();
     }
 }
 
-class SlackDecorator extends NotifierDecorator {
-    public SlackDecorator(Notifier wrappee) {
+class TexteEncadre extends TexteDecorator {
+
+    public TexteEncadre(Texte wrappee) {
         super(wrappee);
     }
 
     @Override
-    public void send(String message) {
-        if (getWrappee() != null) {
-            getWrappee().send(message);
-        }
-        System.out.println("Slack: " + message);
+    public String afficher() {
+        String contenu = getWrappee().afficher();
+        String ligne = "+" + "-".repeat(contenu.length()) + "+";
+        return ligne + "
+|" + contenu + "|
+" + ligne;
     }
 }
 
 class Demo {
     public static void main(String[] args) {
-        Notifier notifier = new EmailNotifier();
-        notifier = new SMSDecorator(notifier);
-        notifier = new SlackDecorator(notifier);
-        notifier.send("Bienvenue !");
+        Texte texte = new TexteBrut("Bonjour le monde");
+        texte = new TexteMajuscules(texte);
+        texte = new TexteEncadre(texte);
+
+        System.out.println(texte.afficher());
     }
 }
 ```
 
-## Diagramme de classes (Mermaid)
+## Diagramme de classes
 ```mermaid
 classDiagram
-Notifier <|.. EmailNotifier
-Notifier <|.. NotifierDecorator
-NotifierDecorator <|-- SMSDecorator
-NotifierDecorator <|-- SlackDecorator
-class Notifier {
+class Texte {
   <<interface>>
-  +send(message: String): void
+  +afficher(): String
 }
-class EmailNotifier {
-  +send(message: String): void
+
+class TexteBrut {
+  -contenu: String
+  +TexteBrut(contenu: String)
+  +afficher(): String
 }
-class NotifierDecorator {
-  -wrappee: Notifier
-  +NotifierDecorator(wrappee: Notifier)
-  +getWrappee(): Notifier
-  +setWrappee(wrappee: Notifier): void
-  +send(message: String): void
+
+class TexteDecorator {
+  <<abstract>>
+  -wrappee: Texte
+  +TexteDecorator(wrappee: Texte)
+  +getWrappee(): Texte
+  +afficher(): String
 }
+
+class TexteMajuscules {
+  +afficher(): String
+}
+
+class TexteEncadre {
+  +afficher(): String
+}
+
+Texte <|.. TexteBrut
+Texte <|.. TexteDecorator
+TexteDecorator <|-- TexteMajuscules
+TexteDecorator <|-- TexteEncadre
+TexteDecorator --> Texte
 ```
 
 ## Liens utiles

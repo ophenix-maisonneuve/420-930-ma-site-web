@@ -14,13 +14,14 @@ Facade fournit une interface unifiée et simple vers un sous-système complexe, 
 
 ## Avantages
 - Diminue le couplage entre le client et les détails internes du sous-système.
-- Améliore la lisibilité et l’onboarding.
+- Améliore la lisibilité et l'apprentissage de nouveaux développeurs.
 
 ## Inconvénients
-- Risque de devenir un « point unique » difficile à maintenir si trop de responsabilités.
+- Risque de devenir un point unique difficile à maintenir si trop de responsabilités.
 - Peut cacher des problèmes de conception internes.
+- Lorsque mal utilisé, peut représenter un *God object* en formation...
 
-## Exemple de code Java
+## Exemple
 ```java
 class Amplifier {
     public void on() {

@@ -3,23 +3,24 @@ layout: default
 title: Command
 parent: Patrons comportementaux
 nav_order: 1
-published: false
+published: true
 ---
 
 ## Description
-Command encapsule une requête dans un objet, ce qui permet de paramétrer des clients avec des opérations, de les mettre en file, d’enregistrer l’historique et de supporter l’annulation.
+Command encapsule une requête dans un objet, ce qui permet de paramétrer des clients avec des opérations, de les mettre en file, d’enregistrer l’historique et de supporter l’annulation et le rétablissement (*undo/redo*).
 
 ## Quand l'utiliser ?
 - Lorsque vous souhaitez découpler l’émetteur de la requête du récepteur qui l’exécute.
-- Pour gérer l’historique et l’annulation/rétablissement d’actions (*undo*/*redo*)
+- Pour gérer l’historique et l’annulation/rétablissement d’actions (*undo*/*redo*) - en utilisant la variante d'annulation.
 
 ## Avantages
 - Faible couplage entre invocateur et récepteur.
-- Historisation et macro-commandes possibles.
+- Historisation et macro-commandes (commandes combinant plusieurs autres commandes) possibles.
 
 ## Inconvénients
 - Multiplication de classes de commandes.
 - Complexité accrue si l’annulation est complexe.
+
 
 ## Exemple
 ```java
@@ -133,6 +134,26 @@ class Light {
 RemoteControl --> Command
 TurnOnCommand --> Light
 TurnOffCommand --> Light
+```
+
+## Variante avec annulation (`undo()`)
+
+Dans la définition classique du patron **Command**, seule la méthode `execute()` est obligatoire. Cependant, dans certaines applications — éditeurs de texte, logiciels graphiques, outils de modélisation — il est nécessaire de pouvoir **annuler** (*undo*) ou **refaire** (*redo*) une action. Dans ces cas, une variante du patron peut être utilisée.
+
+Pour permettre l’annulation, les commandes doivent être capables de **revenir à l’état précédent**, opération représentée par la méthode `undo()`. Par exemple :
+- `LightOnCommand.execute()` → allume la lumière  
+- `LightOnCommand.undo()` → éteint la lumière  
+
+Il n’est pas recommandé d’ajouter `undo()` dans l’interface `Command` lorsque toutes les commandes ne sont pas annulables. Une meilleure approche consiste à définir une sous‑interface :
+
+```java
+public interface Command {
+    void execute();
+}
+
+public interface UndoableCommand extends Command {
+    void undo();
+}
 ```
 
 ## Liens utiles

@@ -21,7 +21,7 @@ Abstract factory fournit une interface pour créer des familles d’objets liés
 - Nombre de classes et d’interfaces plus important.
 - Rigidité si l’on souhaite mélanger des produits de familles différentes.
 
-## Exemple de code Java
+## Exemple
 ```java
 interface Button {
     void paint();
@@ -115,7 +115,7 @@ class Demo {
 }
 ```
 
-## Diagramme de classes (Mermaid)
+## Diagramme de classes
 ```mermaid
 classDiagram
 class GUIFactory {
