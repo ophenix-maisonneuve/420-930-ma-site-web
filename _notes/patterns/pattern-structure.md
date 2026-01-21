@@ -14,7 +14,7 @@ Les patrons structurels décrivent comment assembler et organiser des classes ou
 Ils facilitent la composition, l’adaptation ou l’extension de structures d’objets sans modifier leur code interne. Ces patrons permettent aussi de réduire les dépendances rigides et d’encourager la réutilisation.
 
 ## Patrons courants
-- [Adapter](../notes/patterns-adapter)
-- [Decorator](../notes/patterns-decorator)
-- [Facade](../notes/patterns-facade)
-- [Composite](../notes/patterns-composite)
+- [Adapter](../notes/pattern-adapter)
+- [Decorator](../notes/pattern-decorator)
+- [Facade](../notes/pattern-facade)
+- [Composite](../notes/pattern-composite)
