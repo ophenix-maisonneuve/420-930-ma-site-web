@@ -7,7 +7,7 @@ published: true
 ---
 
 ## Description
-Composite permet de traiter de façon uniforme des objets simples (feuilles) et des compositions d’objets (composites) via une interface commune.
+Composite définit une interface commune permettant de manipuler de façon uniforme des objets simples (feuilles) et des ensembles d’objets (composites). Grâce à cette interface partagée, le code client n’a pas à connaître la structure interne de l’objet qu’il manipule. Si l’objet est un composite, il se charge lui-même d’appliquer l’opération à chacun de ses sous‑objets.
 
 ## Quand l'utiliser ?
 - Lorsque vous manipulez des hiérarchies d’objets (arborescences) où les clients ne devraient pas connaître la différence entre une feuille et un noeud composé.
