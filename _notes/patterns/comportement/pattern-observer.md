@@ -39,6 +39,9 @@ class Observer {
   <<interface>>
   +update(temperature: float): void
 }
+class WeatherStation {
+    -observers : List<Observer>
+}
 Subject <|.. WeatherStation
 Observer <|.. CurrentConditionsDisplay
 WeatherStation --> Observer : notifie
