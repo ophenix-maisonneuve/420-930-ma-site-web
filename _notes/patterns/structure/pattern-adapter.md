@@ -3,25 +3,64 @@ layout: default
 title: Adapter
 parent: Patrons structurels
 nav_order: 1
-published: false
+published: true
 ---
-
 ## Description
+
 Adapter permet de faire collaborer des interfaces incompatibles en enveloppant (ou en *adaptant*) un objet existant pour qu’il expose l’interface attendue par le client.
 
 ## Quand l'utiliser ?
+
 - Lorsque vous souhaitez réutiliser une classe existante dont l’interface ne correspond pas à celle requise.
 - Quand vous voulez intégrer progressivement un composant tiers sans modifier son code.
 
 ## Avantages
+
 - Favorise la réutilisation de composants existants.
 - Isole les changements d’interface, limitant l’impact sur le reste du code.
 
 ## Inconvénients
+
 - Multiplie parfois les couches d’indirection.
 - Peut masquer des incompatibilités conceptuelles plus profondes.
 
 ## Exemple
+
+### Diagramme de classes
+```mermaid
+classDiagram
+class RoundPeg { 
+  -radius: double
+  +RoundPeg()
+  +RoundPeg(radius: double)
+  +getRadius(): double
+  +setRadius(radius: double): void
+}
+class RoundHole {
+  -radius: double
+  +RoundHole(radius: double)
+  +getRadius(): double
+  +fits(peg: RoundPeg): boolean
+}
+class SquarePeg {
+  -width: double
+  +SquarePeg(width: double)
+  +getWidth(): double
+  +setWidth(width: double): void
+}
+class SquarePegAdapter {
+  -squarePeg: SquarePeg
+  +SquarePegAdapter(squarePeg: SquarePeg)
+  +getSquarePeg(): SquarePeg
+  +setSquarePeg(squarePeg: SquarePeg): void
+  +getRadius(): double
+}
+RoundHole --> RoundPeg : utilise
+SquarePegAdapter --|> RoundPeg
+SquarePegAdapter --> SquarePeg
+```
+
+### Code Java
 ```java
 class RoundPeg {
     private double radius;
@@ -116,40 +155,7 @@ class Demo {
 }
 ```
 
-## Diagramme de classes (Mermaid)
-```mermaid
-classDiagram
-class RoundPeg { 
-  -radius: double
-  +RoundPeg()
-  +RoundPeg(radius: double)
-  +getRadius(): double
-  +setRadius(radius: double): void
-}
-class RoundHole {
-  -radius: double
-  +RoundHole(radius: double)
-  +getRadius(): double
-  +fits(peg: RoundPeg): boolean
-}
-class SquarePeg {
-  -width: double
-  +SquarePeg(width: double)
-  +getWidth(): double
-  +setWidth(width: double): void
-}
-class SquarePegAdapter {
-  -squarePeg: SquarePeg
-  +SquarePegAdapter(squarePeg: SquarePeg)
-  +getSquarePeg(): SquarePeg
-  +setSquarePeg(squarePeg: SquarePeg): void
-  +getRadius(): double
-}
-RoundHole --> RoundPeg : utilise
-SquarePegAdapter --|> RoundPeg
-SquarePegAdapter --> SquarePeg
-```
-
 ## Liens utiles
-- https://refactoring.guru/design-patterns/adapter
-- https://en.wikipedia.org/wiki/Adapter_pattern
+
+- [https://refactoring.guru/design-patterns/adapter](https://refactoring.guru/design-patterns/adapter)
+- [https://en.wikipedia.org/wiki/Adapter_pattern](https://en.wikipedia.org/wiki/Adapter_pattern)

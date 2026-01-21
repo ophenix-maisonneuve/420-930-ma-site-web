@@ -3,7 +3,7 @@ layout: default
 title: Decorator
 parent: Patrons structurels
 nav_order: 3
-published: false
+published: true
 ---
 
 ## Description
@@ -24,6 +24,44 @@ Decorator ajoute des responsabilités à un objet dynamiquement en l’enveloppa
 
 ## Exemple
 
+## Diagramme de classes
+```mermaid
+classDiagram
+class Texte {
+  <<interface>>
+  +afficher(): String
+}
+
+class TexteBrut {
+  -contenu: String
+  +TexteBrut(contenu: String)
+  +afficher(): String
+}
+
+class TexteDecorator {
+  <<abstract>>
+  -wrappee: Texte
+  +TexteDecorator(wrappee: Texte)
+  +getWrappee(): Texte
+  +afficher(): String
+}
+
+class TexteMajuscules {
+  +afficher(): String
+}
+
+class TexteEncadre {
+  +afficher(): String
+}
+
+Texte <|.. TexteBrut
+Texte <|.. TexteDecorator
+TexteDecorator <|-- TexteMajuscules
+TexteDecorator <|-- TexteEncadre
+TexteDecorator --> Texte
+```
+
+### Code Java
 ```java
 interface Texte {
     String afficher();
@@ -93,43 +131,6 @@ class Demo {
 }
 ```
 
-## Diagramme de classes
-```mermaid
-classDiagram
-class Texte {
-  <<interface>>
-  +afficher(): String
-}
-
-class TexteBrut {
-  -contenu: String
-  +TexteBrut(contenu: String)
-  +afficher(): String
-}
-
-class TexteDecorator {
-  <<abstract>>
-  -wrappee: Texte
-  +TexteDecorator(wrappee: Texte)
-  +getWrappee(): Texte
-  +afficher(): String
-}
-
-class TexteMajuscules {
-  +afficher(): String
-}
-
-class TexteEncadre {
-  +afficher(): String
-}
-
-Texte <|.. TexteBrut
-Texte <|.. TexteDecorator
-TexteDecorator <|-- TexteMajuscules
-TexteDecorator <|-- TexteEncadre
-TexteDecorator --> Texte
-```
-
 ## Liens utiles
-- https://refactoring.guru/design-patterns/decorator
-- https://en.wikipedia.org/wiki/Decorator_pattern
+- [https://refactoring.guru/design-patterns/decorator](https://refactoring.guru/design-patterns/decorator)
+- [https://en.wikipedia.org/wiki/Decorator_pattern](https://en.wikipedia.org/wiki/Decorator_pattern)

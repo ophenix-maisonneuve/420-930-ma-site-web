@@ -3,7 +3,7 @@ layout: default
 title: Facade
 parent: Patrons structurels
 nav_order: 4
-published: false
+published: true
 ---
 ## Description
 Facade fournit une interface unifiée et simple vers un sous-système complexe, afin de simplifier son utilisation par les clients.
@@ -22,6 +22,24 @@ Facade fournit une interface unifiée et simple vers un sous-système complexe, 
 - Lorsque mal utilisé, peut représenter un *God object* en formation...
 
 ## Exemple
+
+## Diagramme de classes
+```mermaid
+classDiagram
+class HomeTheaterFacade {
+  -amp: Amplifier
+  -dvd: DvdPlayer
+  -projector: Projector
+  +HomeTheaterFacade(amp: Amplifier, dvd: DvdPlayer, projector: Projector)
+  +watchMovie(movie: String): void
+  +endMovie(): void
+}
+HomeTheaterFacade --> Amplifier
+HomeTheaterFacade --> DvdPlayer
+HomeTheaterFacade --> Projector
+```
+
+### Code Java
 ```java
 class Amplifier {
     public void on() {
@@ -91,22 +109,6 @@ class Demo {
 }
 ```
 
-## Diagramme de classes (Mermaid)
-```mermaid
-classDiagram
-class HomeTheaterFacade {
-  -amp: Amplifier
-  -dvd: DvdPlayer
-  -projector: Projector
-  +HomeTheaterFacade(amp: Amplifier, dvd: DvdPlayer, projector: Projector)
-  +watchMovie(movie: String): void
-  +endMovie(): void
-}
-HomeTheaterFacade --> Amplifier
-HomeTheaterFacade --> DvdPlayer
-HomeTheaterFacade --> Projector
-```
-
 ## Liens utiles
-- https://refactoring.guru/design-patterns/facade
-- https://en.wikipedia.org/wiki/Facade_pattern
+- [https://refactoring.guru/design-patterns/facade](https://refactoring.guru/design-patterns/facade)
+- [https://en.wikipedia.org/wiki/Facade_pattern](https://en.wikipedia.org/wiki/Facade_pattern)

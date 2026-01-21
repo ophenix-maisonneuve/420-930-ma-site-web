@@ -3,7 +3,7 @@ layout: default
 title: Composite
 parent: Patrons structurels
 nav_order: 2
-published: false
+published: true
 ---
 
 ## Description
@@ -22,6 +22,54 @@ Composite permet de traiter de façon uniforme des objets simples (feuilles) et 
 - Débogage parfois plus complexe dans les structures profondes.
 
 ## Exemple
+
+
+### Diagramme de classes
+```mermaid
+classDiagram
+class Graphic {
+  <<interface>>
+  +draw(): void
+  +move(x: int, y: int): void
+}
+Graphic <|.. Dot
+Graphic <|.. Circle
+Graphic <|.. CompoundGraphic
+class Dot {
+  -x: int
+  -y: int
+  +Dot(x: int, y: int)
+  +getX(): int
+  +setX(x: int): void
+  +getY(): int
+  +setY(y: int): void
+  +draw(): void
+  +move(x: int, y: int): void
+}
+class Circle {
+  -radius: int
+  -center: Dot
+  +Circle(x: int, y: int, radius: int)
+  +getRadius(): int
+  +setRadius(radius: int): void
+  +getCenter(): Dot
+  +draw(): void
+  +move(x: int, y: int): void
+}
+class CompoundGraphic {
+  -children: List~Graphic~
+  +CompoundGraphic()
+  +getChildren(): List~Graphic~
+  +add(child: Graphic): void
+  +remove(child: Graphic): void
+  +draw(): void
+  +move(x: int, y: int): void
+}
+CompoundGraphic o-- Graphic
+Circle *-- Dot
+```
+
+### Code Java
 ```java
 import java.util.ArrayList;
 import java.util.List;
@@ -145,51 +193,6 @@ class Demo {
 }
 ```
 
-## Diagramme de classes (Mermaid)
-```mermaid
-classDiagram
-class Graphic {
-  <<interface>>
-  +draw(): void
-  +move(x: int, y: int): void
-}
-Graphic <|.. Dot
-Graphic <|.. Circle
-Graphic <|.. CompoundGraphic
-class Dot {
-  -x: int
-  -y: int
-  +Dot(x: int, y: int)
-  +getX(): int
-  +setX(x: int): void
-  +getY(): int
-  +setY(y: int): void
-  +draw(): void
-  +move(x: int, y: int): void
-}
-class Circle {
-  -radius: int
-  -center: Dot
-  +Circle(x: int, y: int, radius: int)
-  +getRadius(): int
-  +setRadius(radius: int): void
-  +getCenter(): Dot
-  +draw(): void
-  +move(x: int, y: int): void
-}
-class CompoundGraphic {
-  -children: List~Graphic~
-  +CompoundGraphic()
-  +getChildren(): List~Graphic~
-  +add(child: Graphic): void
-  +remove(child: Graphic): void
-  +draw(): void
-  +move(x: int, y: int): void
-}
-CompoundGraphic o-- Graphic
-Circle *-- Dot
-```
-
 ## Liens utiles
-- https://refactoring.guru/design-patterns/composite
-- https://en.wikipedia.org/wiki/Composite_pattern
+- [https://refactoring.guru/design-patterns/composite](https://refactoring.guru/design-patterns/composite)
+- [https://en.wikipedia.org/wiki/Composite_pattern](https://en.wikipedia.org/wiki/Composite_pattern)
