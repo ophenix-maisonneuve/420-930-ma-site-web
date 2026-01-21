@@ -31,8 +31,7 @@ class Command {
   <<interface>>
   +execute(): void
 }
-Command <|.. TurnOnCommand
-Command <|.. TurnOffCommand
+
 class RemoteControl {
   -command: Command
   +setCommand(command: Command): void
@@ -45,6 +44,15 @@ class Light {
   +turnOn(): void
   +turnOff(): void
 }
+class TurnOnCommand {
+    - light: Light
+}
+class TurnOffCommand {
+    - light: Light
+}
+
+Command <|.. TurnOnCommand
+Command <|.. TurnOffCommand
 RemoteControl --> Command
 TurnOnCommand --> Light
 TurnOffCommand --> Light
@@ -85,10 +93,6 @@ class TurnOnCommand implements Command {
         this.light = light;
     }
 
-    public Light getLight() {
-        return this.light;
-    }
-
     @Override
     public void execute() {
         this.light.turnOn();
@@ -100,10 +104,6 @@ class TurnOffCommand implements Command {
 
     public TurnOffCommand(Light light) {
         this.light = light;
-    }
-
-    public Light getLight() {
-        return this.light;
     }
 
     @Override

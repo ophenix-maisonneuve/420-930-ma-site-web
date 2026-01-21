@@ -41,8 +41,7 @@ class Observer {
 }
 Subject <|.. WeatherStation
 Observer <|.. CurrentConditionsDisplay
-WeatherStation --> Observer : observers
-WeatherStation --> CurrentConditionsDisplay : notifie
+WeatherStation --> Observer : notifie
 ```
 
 ### Code Java
