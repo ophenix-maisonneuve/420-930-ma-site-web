@@ -34,24 +34,18 @@ class Texte {
 
 class TexteBrut {
   -contenu: String
-  +TexteBrut(contenu: String)
-  +afficher(): String
 }
 
 class TexteDecorator {
   <<abstract>>
   -wrappee: Texte
-  +TexteDecorator(wrappee: Texte)
   +getWrappee(): Texte
-  +afficher(): String
 }
 
 class TexteMajuscules {
-  +afficher(): String
 }
 
 class TexteEncadre {
-  +afficher(): String
 }
 
 Texte <|.. TexteBrut
