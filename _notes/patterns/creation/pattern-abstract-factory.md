@@ -36,8 +36,6 @@ class GUIFactory {
   +createButton(): Button
   +createCheckbox(): Checkbox
 }
-GUIFactory <|.. WinFactory
-GUIFactory <|.. MacFactory
 class Button {
   <<interface>>
   +paint(): void
@@ -46,6 +44,11 @@ class Checkbox {
   <<interface>>
   +paint(): void
 }
+
+GUIFactory <|.. WinFactory
+GUIFactory <|.. MacFactory
+GUIFactory ..> Button : crée
+GUIFactory ..> Checkbox : crée
 Button <|.. WinButton
 Button <|.. MacButton
 Checkbox <|.. WinCheckbox
