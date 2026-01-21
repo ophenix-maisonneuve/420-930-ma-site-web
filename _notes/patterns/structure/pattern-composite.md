@@ -57,15 +57,15 @@ class Circle {
   +move(x: int, y: int): void
 }
 class CompoundGraphic {
-  -children: List~Graphic~
+  -children: List<Graphic>
   +CompoundGraphic()
-  +getChildren(): List~Graphic~
+  +getChildren(): List<Graphic>
   +add(child: Graphic): void
   +remove(child: Graphic): void
   +draw(): void
   +move(x: int, y: int): void
 }
-CompoundGraphic o-- Graphic
+CompoundGraphic <-- Graphic : contient
 Circle *-- Dot
 ```
 
