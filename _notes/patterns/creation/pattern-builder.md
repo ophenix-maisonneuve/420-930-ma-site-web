@@ -34,6 +34,16 @@ La classe *Director* est parfois présentée dans les versions classiques du pat
 
 ## Exemple
 
+{: .highlight}
+> Dans la version *classique* du patron Builder (telle que décrite par le *Gang of Four*), la méthode `getResult()` n’apparaît pas dans l’interface `Builder`. Elle est uniquement définie dans les *builders concrets*.  
+>
+> La raison est historique : en 1994, les langages ciblés (C++, Smalltalk…) ne permettaient pas d’exprimer facilement une méthode de retour typée dans une interface commune. Chaque builder pouvait produire un type de produit différent, ce qui empêchait de déclarer proprement `getResult()` au niveau abstrait.
+>
+> En Java (et dans plusieurs autres langages modernes, c’est différent : on peut (et souvent on devrait) placer `getResult()` dans l’interface `Builder`en utilisant des **génériques**.
+>
+> L'exemple ci-bas montre cette façon de faire, mais vous verrez aussi souvent des exemples où la méthode `getResult()` est uniquement dans l'implémentation de l'interface.
+
+
 ### Diagramme de classes
 ```mermaid
 classDiagram
@@ -49,26 +59,22 @@ class Maison {
   +setGarage(garage: boolean): void
 }
 
-class Builder {
+class Builder<T> {
   <<interface>>
   +reset(): void
   +setFenetres(nb: int): void
   +setPortes(nb: int): void
   +setGarage(garage: boolean): void
+  +getResult(): T
 }
 
 class MaisonBuilder {
   -maison: Maison
-  +MaisonBuilder()
-  +reset(): void
-  +setFenetres(nb: int): void
-  +setPortes(nb: int): void
-  +setGarage(garage: boolean): void
   +getResult(): Maison
 }
 
 Builder <|.. MaisonBuilder
-MaisonBuilder --> Maison
+MaisonBuilder --> Maison : construit
 ```
 
 ### Code Java
@@ -103,14 +109,15 @@ public class Maison {
     }
 }
 
-public interface Builder {
+public interface Builder<T> {
     void reset();
     void setFenetres(int nb);
     void setPortes(int nb);
     void setGarage(boolean garage);
+    T getResult();
 }
 
-public class MaisonBuilder implements Builder {
+public class MaisonBuilder implements Builder<Maison> {
     private Maison maison;
 
     public MaisonBuilder() {
@@ -137,6 +144,7 @@ public class MaisonBuilder implements Builder {
         this.maison.setGarage(garage);
     }
 
+    @Override
     public Maison getResult() {
         return this.maison;
     }
@@ -144,7 +152,7 @@ public class MaisonBuilder implements Builder {
 
 public class Demo {
     public static void main(String[] args) {
-        MaisonBuilder builder = new MaisonBuilder();
+        Builder<Maison> builder = new MaisonBuilder();
 
         builder.setFenetres(6);
         builder.setPortes(2);
