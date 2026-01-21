@@ -22,6 +22,33 @@ Abstract factory fournit une interface pour créer des familles d’objets liés
 - Rigidité si l’on souhaite mélanger des produits de familles différentes.
 
 ## Exemple
+
+### Diagramme de classes
+```mermaid
+classDiagram
+class GUIFactory {
+  <<interface>>
+  +createButton(): Button
+  +createCheckbox(): Checkbox
+}
+GUIFactory <|.. WinFactory
+GUIFactory <|.. MacFactory
+class Button {
+  <<interface>>
+  +paint(): void
+}
+class Checkbox {
+  <<interface>>
+  +paint(): void
+}
+Button <|.. WinButton
+Button <|.. MacButton
+Checkbox <|.. WinCheckbox
+Checkbox <|.. MacCheckbox
+Application --> GUIFactory
+```
+
+### Code Java
 ```java
 interface Button {
     void paint();
@@ -115,31 +142,7 @@ class Demo {
 }
 ```
 
-## Diagramme de classes
-```mermaid
-classDiagram
-class GUIFactory {
-  <<interface>>
-  +createButton(): Button
-  +createCheckbox(): Checkbox
-}
-GUIFactory <|.. WinFactory
-GUIFactory <|.. MacFactory
-class Button {
-  <<interface>>
-  +paint(): void
-}
-class Checkbox {
-  <<interface>>
-  +paint(): void
-}
-Button <|.. WinButton
-Button <|.. MacButton
-Checkbox <|.. WinCheckbox
-Checkbox <|.. MacCheckbox
-Application --> GUIFactory
-```
 
 ## Liens utiles
-- https://refactoring.guru/design-patterns/abstract-factory
-- https://en.wikipedia.org/wiki/Abstract_factory_pattern
+- [https://refactoring.guru/design-patterns/abstract-factory](https://refactoring.guru/design-patterns/abstract-factory)
+- [https://en.wikipedia.org/wiki/Abstract_factory_pattern](https://en.wikipedia.org/wiki/Abstract_factory_pattern)

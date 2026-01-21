@@ -43,6 +43,40 @@ Le Factory Method est donc un mécanisme de **polymorphisme appliqué à la cré
 - Peut sembler « trop complexe » pour des besoins simples, où une SimpleFactory suffirait.
 
 ## Exemple
+
+### Diagramme de classes
+```mermaid
+classDiagram
+class Transport {
+  <<interface>>
+  +livrer(): void
+}
+class Camion {
+  +livrer(): void
+}
+class Bateau {
+  +livrer(): void
+}
+Transport <|.. Camion
+Transport <|.. Bateau
+
+class Logistique {
+  <<abstract>>
+  +creerTransport(): Transport
+  +planifierLivraison(): void
+}
+class LogistiqueRoutiere {
+  +creerTransport(): Transport
+}
+class LogistiqueMaritime {
+  +creerTransport(): Transport
+}
+Logistique <|-- LogistiqueRoutiere
+Logistique <|-- LogistiqueMaritime
+Logistique --> Transport
+```
+
+### Code Java
 ```java
 // Produit (interface ou classe abstraite)
 public interface Transport {
@@ -109,39 +143,6 @@ public class Demo {
 }
 ```
 
-## Diagramme de classes
-```mermaid
-classDiagram
-class Transport {
-  <<interface>>
-  +livrer(): void
-}
-class Camion {
-  +livrer(): void
-}
-class Bateau {
-  +livrer(): void
-}
-Transport <|.. Camion
-Transport <|.. Bateau
-
-class Logistique {
-  <<abstract>>
-  +creerTransport(): Transport
-  +planifierLivraison(): void
-}
-class LogistiqueRoutiere {
-  +creerTransport(): Transport
-}
-class LogistiqueMaritime {
-  +creerTransport(): Transport
-}
-Logistique <|-- LogistiqueRoutiere
-Logistique <|-- LogistiqueMaritime
-Logistique --> Transport
-```
-
 ## Liens utiles
-- https://refactoring.guru/design-patterns/factory-method
-- https://en.wikipedia.org/wiki/Factory_method_pattern
-- https://sourcemaking.com/design_patterns/factory_method
+- [https://refactoring.guru/design-patterns/factory-method](https://refactoring.guru/design-patterns/factory-method)
+- [https://en.wikipedia.org/wiki/Factory_method_pattern](https://en.wikipedia.org/wiki/Factory_method_pattern)

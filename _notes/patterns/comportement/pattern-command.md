@@ -143,10 +143,10 @@ class Demo {
 Dans la définition classique du patron **Command**, seule la méthode `execute()` est obligatoire. Cependant, dans certaines applications — éditeurs de texte, logiciels graphiques, outils de modélisation — il est nécessaire de pouvoir **annuler** (*undo*) ou **refaire** (*redo*) une action. Dans ces cas, une variante du patron peut être utilisée.
 
 Pour permettre l’annulation, les commandes doivent être capables de **revenir à l’état précédent**, opération représentée par la méthode `undo()`. Par exemple :
-- `LightOnCommand.execute()` → allume la lumière  
-- `LightOnCommand.undo()` → éteint la lumière  
+- `LightOnCommand.execute()` : allume la lumière  
+- `LightOnCommand.undo()` : éteint la lumière  
 
-Il n’est pas recommandé d’ajouter `undo()` dans l’interface `Command` lorsque toutes les commandes ne sont pas annulables. Une meilleure approche consiste à définir une sous‑interface :
+Il n’est pas recommandé d’ajouter `undo()` dans l’interface `Command` lorsque toutes les commandes ne sont pas annulables. Afin de respecter le principe de ségrégation des interfaces (***ISP***), une meilleure approche consiste à définir une sous‑interface :
 
 ```java
 public interface Command {

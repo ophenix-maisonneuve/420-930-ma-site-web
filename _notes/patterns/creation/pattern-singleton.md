@@ -22,7 +22,20 @@ Singleton garantit qu’une classe ne possède qu’une seule instance et fourni
 - Risques en environnement concurrent sans gestion appropriée.
 - Lorsque mal utilisé, peut constituer le début d'un *God object*.
 
-## Exemple de code Java
+## Exemple
+
+### Diagramme de classes
+```mermaid
+classDiagram
+class Logger {
+  -instance: Logger
+  -Logger()
+  +getInstance(): Logger
+  +log(message: String): void
+}
+```
+
+### Code Java
 ```java
 class Logger {
     private static volatile Logger instance;
@@ -53,17 +66,6 @@ class Demo {
 }
 ```
 
-## Diagramme de classes (Mermaid)
-```mermaid
-classDiagram
-class Logger {
-  -instance: Logger
-  -Logger()
-  +getInstance(): Logger
-  +log(message: String): void
-}
-```
-
 ## Liens utiles
-- https://refactoring.guru/design-patterns/singleton
-- https://en.wikipedia.org/wiki/Singleton_pattern
+- [https://refactoring.guru/design-patterns/singleton](https://refactoring.guru/design-patterns/singleton)
+- [https://en.wikipedia.org/wiki/Singleton_pattern](https://en.wikipedia.org/wiki/Singleton_pattern)

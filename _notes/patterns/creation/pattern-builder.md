@@ -33,6 +33,45 @@ La classe *Director* est parfois présentée dans les versions classiques du pat
 - Le client doit appeler manuellement les étapes (ceci peut être mitigé par l'utilisation optionnelle d'un *Director*).
 
 ## Exemple
+
+### Diagramme de classes
+```mermaid
+classDiagram
+class Maison {
+  -fenetres: int
+  -portes: int
+  -garage: boolean
+  +getFenetres(): int
+  +setFenetres(nb: int): void
+  +getPortes(): int
+  +setPortes(nb: int): void
+  +hasGarage(): boolean
+  +setGarage(garage: boolean): void
+}
+
+class Builder {
+  <<interface>>
+  +reset(): void
+  +setFenetres(nb: int): void
+  +setPortes(nb: int): void
+  +setGarage(garage: boolean): void
+}
+
+class MaisonBuilder {
+  -maison: Maison
+  +MaisonBuilder()
+  +reset(): void
+  +setFenetres(nb: int): void
+  +setPortes(nb: int): void
+  +setGarage(garage: boolean): void
+  +getResult(): Maison
+}
+
+Builder <|.. MaisonBuilder
+MaisonBuilder --> Maison
+```
+
+### Code Java
 ```java
 public class Maison {
     private int fenetres;
@@ -113,50 +152,12 @@ public class Demo {
 
         Maison maison = builder.getResult();
         builder.reset();
-        
+
         System.out.println("Maison construite: " + maison.getFenetres() + " fenêtres");
     }
 }
 ```
 
-## Diagramme de classes (Mermaid)
-```mermaid
-classDiagram
-class Maison {
-  -fenetres: int
-  -portes: int
-  -garage: boolean
-  +getFenetres(): int
-  +setFenetres(nb: int): void
-  +getPortes(): int
-  +setPortes(nb: int): void
-  +hasGarage(): boolean
-  +setGarage(garage: boolean): void
-}
-
-class Builder {
-  <<interface>>
-  +reset(): void
-  +setFenetres(nb: int): void
-  +setPortes(nb: int): void
-  +setGarage(garage: boolean): void
-}
-
-class MaisonBuilder {
-  -maison: Maison
-  +MaisonBuilder()
-  +reset(): void
-  +setFenetres(nb: int): void
-  +setPortes(nb: int): void
-  +setGarage(garage: boolean): void
-  +getResult(): Maison
-}
-
-Builder <|.. MaisonBuilder
-MaisonBuilder --> Maison
-```
-
 ## Liens utiles
-- https://refactoring.guru/design-patterns/builder
-- https://en.wikipedia.org/wiki/Builder_pattern
-- https://sourcemaking.com/design_patterns/builder
+- [https://refactoring.guru/design-patterns/builder](https://refactoring.guru/design-patterns/builder)
+- [https://en.wikipedia.org/wiki/Builder_pattern](https://en.wikipedia.org/wiki/Builder_pattern)
