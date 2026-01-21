@@ -23,6 +23,32 @@ Command encapsule une requête dans un objet, ce qui permet de paramétrer des c
 
 
 ## Exemple
+
+```mermaid
+classDiagram
+class Command {
+  <<interface>>
+  +execute(): void
+}
+Command <|.. TurnOnCommand
+Command <|.. TurnOffCommand
+class RemoteControl {
+  -command: Command
+  +setCommand(command: Command): void
+  +pressButton(): void
+}
+class Light {
+  -on: boolean
+  +isOn(): boolean
+  +setOn(on: boolean): void
+  +turnOn(): void
+  +turnOff(): void
+}
+RemoteControl --> Command
+TurnOnCommand --> Light
+TurnOffCommand --> Light
+```
+
 ```java
 interface Command {
     void execute();
@@ -108,32 +134,6 @@ class Demo {
         remote.pressButton();
     }
 }
-```
-
-## Diagramme de classes
-```mermaid
-classDiagram
-class Command {
-  <<interface>>
-  +execute(): void
-}
-Command <|.. TurnOnCommand
-Command <|.. TurnOffCommand
-class RemoteControl {
-  -command: Command
-  +setCommand(command: Command): void
-  +pressButton(): void
-}
-class Light {
-  -on: boolean
-  +isOn(): boolean
-  +setOn(on: boolean): void
-  +turnOn(): void
-  +turnOff(): void
-}
-RemoteControl --> Command
-TurnOnCommand --> Light
-TurnOffCommand --> Light
 ```
 
 ## Variante avec annulation (`undo()`)
