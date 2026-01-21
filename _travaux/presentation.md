@@ -34,7 +34,7 @@ Vous pouvez choisir l'un des patrons de conception suivants:
 - Command
 
 ### Patrons de création
-- Factory
+- Factory method
 - Abstract factory
 - Singleton
 - Builder

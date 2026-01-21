@@ -13,7 +13,7 @@ Les patrons de création se concentrent sur la manière dont les objets sont ins
 Ces patrons résolvent les difficultés liées à l’instanciation d’objets lorsque la création doit être abstraite, contrôlée ou découplée de l’utilisation. Ils évitent les constructeurs trop complexes ou les dépendances directes entre composants qui causent souvent un bris du principe d'inversion des dépendances (***DIP***).
 
 ## Patrons courants
-- Factory
+- Factory method
 - Abstract factory
 - Singleton
 - Builder

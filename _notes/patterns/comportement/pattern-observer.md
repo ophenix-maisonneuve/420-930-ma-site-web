@@ -7,7 +7,7 @@ published: false
 ---
 
 ## Description
-Observer définit une dépendance un-à-plusieurs entre objets, de sorte que lorsque l’un change d’état, tous ses observateurs sont notifiés et mis à jour automatiquement.
+Observer définit une dépendance 1:N (un à plusieurs ou *one-to-many*) entre objets, de sorte que lorsque le sujet (l'objet observé) change d'état, tous ses observateurs sont notifiés et mis à jour automatiquement.
 
 ## Quand l'utiliser ?
 - Lorsque plusieurs composants doivent réagir aux changements d’un sujet central.
@@ -21,7 +21,7 @@ Observer définit une dépendance un-à-plusieurs entre objets, de sorte que lor
 - Ordre de notification et gestion d’erreurs parfois délicats.
 - Risque de fuites mémoire si les observateurs ne se désabonnent pas.
 
-## Exemple de code Java
+## Exemple
 ```java
 import java.util.ArrayList;
 import java.util.List;
@@ -96,7 +96,7 @@ class Demo {
 }
 ```
 
-## Diagramme de classes (Mermaid)
+## Diagramme de classes
 ```mermaid
 classDiagram
 class Subject {

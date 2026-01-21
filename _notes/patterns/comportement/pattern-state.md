@@ -21,7 +21,7 @@ State permet à un objet de modifier son comportement lorsque son état interne 
 - Nombre accru de classes.
 - Coordination des transitions à bien maîtriser.
 
-## Exemple de code Java
+## Exemple
 ```java
 interface State {
     void publish(Document ctx);
@@ -102,7 +102,7 @@ class Demo {
 }
 ```
 
-## Diagramme de classes (Mermaid)
+## Diagramme de classes
 ```mermaid
 classDiagram
 class State {

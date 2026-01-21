@@ -14,103 +14,106 @@ Strategy définit une famille d’algorithmes, encapsule chacun d’eux et les r
 - Pour éviter des instructions conditionnelles complexes dispersées.
 
 ## Avantages
-- Substitution à chaud des stratégies.
-- Respect du principe ouvert/fermé et meilleure isolation des comportements.
+- Substitution dynamique des comportements (pendant l'exécution).
+- Respect du principe ouvert/fermé (***OCP***) et meilleure isolation des comportements.
 
 ## Inconvénients
 - Augmente le nombre de classes.
 - Le client doit connaître les stratégies disponibles.
 
-## Exemple de code Java
+## Exemple
 ```java
-interface PaymentStrategy {
-    void pay(int amount);
+
+public interface CompressionStrategy {
+    void compresser(String fichier);
 }
 
-class CreditCardStrategy implements PaymentStrategy {
-    private String cardNumber;
-
-    public CreditCardStrategy(String cardNumber) {
-        this.cardNumber = cardNumber;
-    }
-
-    public String getCardNumber() {
-        return this.cardNumber;
-    }
-
-    public void setCardNumber(String cardNumber) {
-        this.cardNumber = cardNumber;
-    }
+public class ZipCompressionStrategy implements CompressionStrategy {
 
     @Override
-    public void pay(int amount) {
-        System.out.println("Pay " + amount + " by credit card " + this.cardNumber);
+    public void compresser(String fichier) {
+        System.out.println("Compression ZIP du fichier : " + fichier);
     }
 }
 
-class PaypalStrategy implements PaymentStrategy {
-    private String email;
-
-    public PaypalStrategy(String email) {
-        this.email = email;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+public class RarCompressionStrategy implements CompressionStrategy {
 
     @Override
-    public void pay(int amount) {
-        System.out.println("Pay " + amount + " by PayPal (" + this.email + ")");
+    public void compresser(String fichier) {
+        System.out.println("Compression RAR du fichier : " + fichier);
     }
 }
 
-class ShoppingCart {
-    private PaymentStrategy strategy;
+public class SevenZCompressionStrategy implements CompressionStrategy {
 
-    public void setPaymentStrategy(PaymentStrategy strategy) {
+    @Override
+    public void compresser(String fichier) {
+        System.out.println("Compression 7z du fichier : " + fichier);
+    }
+}
+
+public class CompressionContext {
+
+    private CompressionStrategy strategy;
+
+    public void setStrategy(CompressionStrategy strategy) {
         this.strategy = strategy;
     }
 
-    public void checkout(int amount) {
+    public void compresserFichier(String fichier) {
         if (this.strategy == null) {
-            System.out.println("No strategy selected");
+            System.out.println("Aucune stratégie sélectionnée.");
             return;
         }
-        this.strategy.pay(amount);
+
+        this.strategy.compresser(fichier);
     }
 }
 
-class Demo {
+public class Demo {
     public static void main(String[] args) {
-        ShoppingCart cart = new ShoppingCart();
-        cart.setPaymentStrategy(new CreditCardStrategy("1111-2222"));
-        cart.checkout(100);
-        cart.setPaymentStrategy(new PaypalStrategy("user@example.com"));
-        cart.checkout(50);
+        CompressionContext ctx = new CompressionContext();
+
+        ctx.setStrategy(new ZipCompressionStrategy());
+        ctx.compresserFichier("rapport.docx");
+
+        ctx.setStrategy(new RarCompressionStrategy());
+        ctx.compresserFichier("photo.png");
+
+        ctx.setStrategy(new SevenZCompressionStrategy());
+        ctx.compresserFichier("archive.log");
     }
 }
 ```
 
-## Diagramme de classes (Mermaid)
+## Diagramme de classes
 ```mermaid
 classDiagram
-class PaymentStrategy {
+class CompressionStrategy {
   <<interface>>
-  +pay(amount: int): void
+  +compresser(fichier: String): void
 }
-PaymentStrategy <|.. CreditCardStrategy
-PaymentStrategy <|.. PaypalStrategy
-class ShoppingCart {
-  -strategy: PaymentStrategy
-  +setPaymentStrategy(strategy: PaymentStrategy): void
-  +checkout(amount: int): void
+
+class ZipCompressionStrategy {
 }
-ShoppingCart --> PaymentStrategy
+
+class RarCompressionStrategy {
+}
+
+class SevenZCompressionStrategy {
+}
+
+class CompressionContext {
+  -strategy: CompressionStrategy
+  +setStrategy(strategy: CompressionStrategy): void
+  +compresserFichier(fichier: String): void
+}
+
+CompressionStrategy <|.. ZipCompressionStrategy
+CompressionStrategy <|.. RarCompressionStrategy
+CompressionStrategy <|.. SevenZCompressionStrategy
+CompressionContext --> CompressionStrategy
+
 ```
 
 ## Liens utiles

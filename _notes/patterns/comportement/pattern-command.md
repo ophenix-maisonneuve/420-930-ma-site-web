@@ -11,7 +11,7 @@ Command encapsule une requête dans un objet, ce qui permet de paramétrer des c
 
 ## Quand l'utiliser ?
 - Lorsque vous souhaitez découpler l’émetteur de la requête du récepteur qui l’exécute.
-- Pour gérer l’historique et l’annulation d’actions.
+- Pour gérer l’historique et l’annulation/rétablissement d’actions (*undo*/*redo*)
 
 ## Avantages
 - Faible couplage entre invocateur et récepteur.
@@ -19,9 +19,9 @@ Command encapsule une requête dans un objet, ce qui permet de paramétrer des c
 
 ## Inconvénients
 - Multiplication de classes de commandes.
-- Complexité accrue si l’annulation est délicate.
+- Complexité accrue si l’annulation est complexe.
 
-## Exemple de code Java
+## Exemple
 ```java
 interface Command {
     void execute();
@@ -109,7 +109,7 @@ class Demo {
 }
 ```
 
-## Diagramme de classes (Mermaid)
+## Diagramme de classes
 ```mermaid
 classDiagram
 class Command {
