@@ -66,7 +66,7 @@ class CompoundGraphic {
   +move(x: int, y: int): void
 }
 CompoundGraphic <-- Graphic : contient
-Circle *-- Dot
+Circle --> Dot : contient
 ```
 
 ### Code Java
