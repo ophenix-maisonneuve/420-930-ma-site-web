@@ -16,7 +16,7 @@ En équipes de deux (2) ou de trois (3), choisissez **un** patron de conception 
 Les notes de cours de base vous seront fournies, mais vous êtes libres d'utiliser du matériel supplémentaire pour votre présentation. 
 
 {. :highlight}
-> Tous les membres de l'équipe devront participer activement à la présentation (explications, présentation de l'exercice pratique, correction, ou autre).
+> Tous les membres de l'équipe devront participer activement à la présentation (explications, présentation de l'exercice pratique, correction, etc).
 
 ## Patrons de conception
 Vous pouvez choisir l'un des patrons de conception suivants:
