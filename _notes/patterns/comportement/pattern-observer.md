@@ -22,7 +22,27 @@ Observer définit une dépendance 1:N (un à plusieurs ou *one-to-many*) entre o
 - Gestion d’erreurs parfois complexe.
 - Risque de fuites mémoire si les observateurs ne se désabonnent pas.
 
+---
+
 ## Exemple
+```mermaid
+classDiagram
+class Subject {
+  <<interface>>
+  +attach(o: Observer): void
+  +detach(o: Observer): void
+  +notifyObservers(): void
+}
+class Observer {
+  <<interface>>
+  +update(temperature: float): void
+}
+Subject <|.. WeatherStation
+Observer <|.. CurrentConditionsDisplay
+WeatherStation --> Observer : observers
+WeatherStation --> CurrentConditionsDisplay : notifie
+```
+
 ```java
 import java.util.ArrayList;
 import java.util.List;
@@ -96,26 +116,8 @@ class Demo {
     }
 }
 ```
-
-## Diagramme de classes
-```mermaid
-classDiagram
-class Subject {
-  <<interface>>
-  +attach(o: Observer): void
-  +detach(o: Observer): void
-  +notifyObservers(): void
-}
-class Observer {
-  <<interface>>
-  +update(temperature: float): void
-}
-Subject <|.. WeatherStation
-Observer <|.. CurrentConditionsDisplay
-WeatherStation --> Observer : observers
-WeatherStation --> CurrentConditionsDisplay : notifie
-```
+---
 
 ## Liens utiles
-- https://refactoring.guru/design-patterns/observer
-- https://en.wikipedia.org/wiki/Observer_pattern
+- [https://refactoring.guru/design-patterns/observer](https://refactoring.guru/design-patterns/observer)
+- [https://en.wikipedia.org/wiki/Observer_pattern](https://en.wikipedia.org/wiki/Observer_pattern)

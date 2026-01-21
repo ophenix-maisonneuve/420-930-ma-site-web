@@ -21,7 +21,31 @@ State permet à un objet de modifier son comportement lorsque son état interne 
 - Nombre accru de classes.
 - Coordination des transitions à bien maîtriser.
 
+---
+
 ## Exemple
+
+```mermaid
+classDiagram
+class State {
+  <<interface>>
+  +publish(ctx: Document): void
+  +reject(ctx: Document): void
+}
+State <|.. DraftState
+State <|.. ModerationState
+State <|.. PublishedState
+class Document {
+  -state: State
+  +Document()
+  +getState(): State
+  +setState(state: State): void
+  +publish(): void
+  +reject(): void
+}
+Document --> State
+```
+
 ```java
 interface State {
     void publish(Document ctx);
@@ -102,28 +126,8 @@ class Demo {
 }
 ```
 
-## Diagramme de classes
-```mermaid
-classDiagram
-class State {
-  <<interface>>
-  +publish(ctx: Document): void
-  +reject(ctx: Document): void
-}
-State <|.. DraftState
-State <|.. ModerationState
-State <|.. PublishedState
-class Document {
-  -state: State
-  +Document()
-  +getState(): State
-  +setState(state: State): void
-  +publish(): void
-  +reject(): void
-}
-Document --> State
-```
+---
 
 ## Liens utiles
-- https://refactoring.guru/design-patterns/state
-- https://en.wikipedia.org/wiki/State_pattern
+- [https://refactoring.guru/design-patterns/state](https://refactoring.guru/design-patterns/state)
+- [https://en.wikipedia.org/wiki/State_pattern](https://en.wikipedia.org/wiki/State_pattern)

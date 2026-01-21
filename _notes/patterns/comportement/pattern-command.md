@@ -156,6 +156,8 @@ public interface UndoableCommand extends Command {
 }
 ```
 
+---
+
 ## Liens utiles
-- https://refactoring.guru/design-patterns/command
-- https://en.wikipedia.org/wiki/Command_pattern
+- [https://refactoring.guru/design-patterns/command](https://refactoring.guru/design-patterns/command)
+- [https://en.wikipedia.org/wiki/Command_pattern](https://en.wikipedia.org/wiki/Command_pattern)

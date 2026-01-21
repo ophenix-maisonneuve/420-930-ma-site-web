@@ -21,9 +21,40 @@ Strategy définit une famille d’algorithmes, encapsule chacun d’eux et les r
 - Augmente le nombre de classes.
 - Le client doit connaître les stratégies disponibles.
 
-## Exemple
-```java
+---
 
+## Exemple
+
+```mermaid
+classDiagram
+class CompressionStrategy {
+  <<interface>>
+  +compresser(fichier: String): void
+}
+
+class ZipCompressionStrategy {
+}
+
+class RarCompressionStrategy {
+}
+
+class SevenZCompressionStrategy {
+}
+
+class CompressionContext {
+  -strategy: CompressionStrategy
+  +setStrategy(strategy: CompressionStrategy): void
+  +compresserFichier(fichier: String): void
+}
+
+CompressionStrategy <|.. ZipCompressionStrategy
+CompressionStrategy <|.. RarCompressionStrategy
+CompressionStrategy <|.. SevenZCompressionStrategy
+CompressionContext --> CompressionStrategy
+
+```
+
+```java
 public interface CompressionStrategy {
     void compresser(String fichier);
 }
@@ -86,36 +117,8 @@ public class Demo {
 }
 ```
 
-## Diagramme de classes
-```mermaid
-classDiagram
-class CompressionStrategy {
-  <<interface>>
-  +compresser(fichier: String): void
-}
-
-class ZipCompressionStrategy {
-}
-
-class RarCompressionStrategy {
-}
-
-class SevenZCompressionStrategy {
-}
-
-class CompressionContext {
-  -strategy: CompressionStrategy
-  +setStrategy(strategy: CompressionStrategy): void
-  +compresserFichier(fichier: String): void
-}
-
-CompressionStrategy <|.. ZipCompressionStrategy
-CompressionStrategy <|.. RarCompressionStrategy
-CompressionStrategy <|.. SevenZCompressionStrategy
-CompressionContext --> CompressionStrategy
-
-```
+---
 
 ## Liens utiles
-- https://refactoring.guru/design-patterns/strategy
-- https://en.wikipedia.org/wiki/Strategy_pattern
+- [https://refactoring.guru/design-patterns/strategy](https://refactoring.guru/design-patterns/strategy)
+- [https://en.wikipedia.org/wiki/Strategy_pattern](https://en.wikipedia.org/wiki/Strategy_pattern)
