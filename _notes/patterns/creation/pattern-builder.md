@@ -3,7 +3,7 @@ layout: default
 title: Builder
 parent: Patrons de création
 nav_order: 2
-published: false
+published: true
 ---
 
 
