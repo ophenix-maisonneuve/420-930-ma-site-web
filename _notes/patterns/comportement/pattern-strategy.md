@@ -25,6 +25,7 @@ Strategy définit une famille d’algorithmes, encapsule chacun d’eux et les r
 
 ## Exemple
 
+### Diagramme de classes
 ```mermaid
 classDiagram
 class CompressionStrategy {
@@ -54,6 +55,7 @@ CompressionContext --> CompressionStrategy
 
 ```
 
+### Code Java
 ```java
 public interface CompressionStrategy {
     void compresser(String fichier);

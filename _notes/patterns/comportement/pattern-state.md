@@ -25,6 +25,7 @@ State permet à un objet de modifier son comportement lorsque son état interne 
 
 ## Exemple
 
+### Diagramme de classes
 ```mermaid
 classDiagram
 class State {
@@ -46,6 +47,7 @@ class Document {
 Document --> State
 ```
 
+### Code Java
 ```java
 interface State {
     void publish(Document ctx);

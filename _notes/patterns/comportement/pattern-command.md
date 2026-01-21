@@ -24,6 +24,7 @@ Command encapsule une requête dans un objet, ce qui permet de paramétrer des c
 
 ## Exemple
 
+### Diagramme de classes
 ```mermaid
 classDiagram
 class Command {
@@ -49,6 +50,7 @@ TurnOnCommand --> Light
 TurnOffCommand --> Light
 ```
 
+### Code Java
 ```java
 interface Command {
     void execute();

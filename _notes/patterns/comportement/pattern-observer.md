@@ -25,6 +25,8 @@ Observer définit une dépendance 1:N (un à plusieurs ou *one-to-many*) entre o
 ---
 
 ## Exemple
+
+### Diagramme de classes
 ```mermaid
 classDiagram
 class Subject {
@@ -43,6 +45,7 @@ WeatherStation --> Observer : observers
 WeatherStation --> CurrentConditionsDisplay : notifie
 ```
 
+### Code Java
 ```java
 import java.util.ArrayList;
 import java.util.List;
