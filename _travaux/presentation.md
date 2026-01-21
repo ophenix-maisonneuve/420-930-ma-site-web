@@ -36,7 +36,7 @@ Vous pouvez choisir l'un des patrons de conception suivants:
 ### Patrons de création
 - Factory method
 - Abstract factory
-- Singleton
+- Singleton (*Théo, Maxime, Simon*)
 - Builder
 
 
