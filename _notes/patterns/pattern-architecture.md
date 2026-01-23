@@ -21,9 +21,8 @@ En développement logiciel, *architecture* peut désigner à la fois :
 Ces deux préoccupations sont complémentaires mais n’opèrent pas à la même échelle. On parle donc de niveaux d’architecture.
 
 ### Niveau *système* (macro‑architecture)
-Définit **comment plusieurs applications/services coopèrent** pour former un produit complet.
+Définit **comment plusieurs applications/services coopèrent** pour former un produit complet. En particulier, ce niveau d'architecture définit :
 
-**Définit :**
 - **Frontières et responsabilités** : groupement de fonctionnalités selon la logique métier (*business logic*), par exemple *Catalogue*, *Recommandations*, etc.
 - **Communication** entre processus, c'est-à-dire comment les différents services échangent des données, par exemple *APIs*, *messages*, *fichiers*, *flux ("streams")*).
 - **Données** : appartenance par service, c'est-à-dire quel service gère quelle entité métier, et comment assurer la synchronisation et la cohérence.
@@ -40,18 +39,17 @@ Définit **comment plusieurs applications/services coopèrent** pour former un p
 > Une *macro‑architecture* n'impose **rien** quant à l’organisation interne de chaque service. Chaque service peut employer indépendamment MVC, *Hexagonal*, *Clean Architecture*, ou n'importe quelle autre modèle d'architecture interne.
 
 ### Niveau *application* (architecture interne)
-Définit **comment organiser le code à l’intérieur d’un service** pour garantir clarté, testabilité et séparation des responsabilités.
+Définit **comment organiser le code à l’intérieur d’un service** pour garantir clarté, testabilité et séparation des responsabilités. En particulier, ce niveau d'architecture définit : 
 
-**Définit :**
 - **Les couches** (présentation, application, domaine, infrastructure)
 - **Les dépendances** (direction, inversion, interfaces, *adapters*)
 - **Les contrats internes** (DTO, *ports*)
 
 **Exemples courants :**
-- [MVC](../patterns/pattern-mvc) ;
-- *Hexagonal* (*Ports & Adapters*) ;
-- *Clean Architecture* ;
-- MVVM.
+- [MVC](../patterns/pattern-mvc)
+- *Hexagonal* (*Ports & Adapters*)
+- *Clean Architecture*
+- MVVM
 
 {: .highlight}
 > L'*architecture interne* organise la logique interne d’un processus. Elle ne décide pas *comment* plusieurs processus coopèrent.
