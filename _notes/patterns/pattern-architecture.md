@@ -13,6 +13,7 @@ Les patrons architecturaux définissent l’organisation globale d’un système
 Ces patrons répondent à des problématiques de structuration d’application, de séparation des responsabilités et de gestion de la complexité d’ensemble. Ils améliorent la modularité, facilitent les tests et assurent une évolution plus prévisible du système. Ils peuvent intervenir à différents *niveaux* de l'architecture d'une application ou d'un système.
 
 **Niveaux?**
+
 En développement logiciel, *architecture* peut désigner à la fois :
 - **la structure interne d’une application** : organisation des couches, dépendances, responsabilités
 - **la structure d’un système distribué** : frontières entre services, communication, déploiement, données, observabilité
