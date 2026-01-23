@@ -23,29 +23,29 @@ Ces deux préoccupations sont complémentaires mais n’opèrent pas à la même
 ### Niveau *système* (macro‑architecture)
 Définit **comment plusieurs applications/services coopèrent** pour former un produit complet.
 
-**Caractéristiques clés :**
-- **Frontières et responsabilités** par *capabilité métier* (ex. *Catalogue*, *Recommandations*).
-- **Communication** entre processus (APIs, messages, fichiers, *streams*).
-- **Données** : ownership par service, synchronisation/consistance.
+**Définit :**
+- **Frontières et responsabilités** : groupement de fonctionnalités selon la logique métier (*business logic*), par exemple *Catalogue*, *Recommandations*, etc.
+- **Communication** entre processus, c'est-à-dire comment les différents services échangent des données, par exemple *APIs*, *messages*, *fichiers*, *flux ("streams")*).
+- **Données** : appartenance par service, c'est-à-dire quel service gère quelle entité métier, et comment assurer la synchronisation et la cohérence.
 - **Déploiement** : indépendance, pipelines, scalabilité, résilience.
 
 **Exemples courants :**
 - [Microservices](../patterns/pattern-microservices) ;
-- Monolithe *modulaire*
-- SOA
+- Monolithe (modulaire ou non)
+- SOA (*Service-Oriented Architecture*)
 - Architecture événementielle
-- *n‑tier* (couches déployées séparément)
+- Architecture à n‑tiers (*n-tier architecture*) : couches déployées séparément
 
 {: .highlight}
-> Une *macro‑architecture* ne présuppose **rien** de l’organisation interne de chaque service. Un service peut employer MVC, *Hexagonal*, *Clean Architecture*, ou une simple couche fonctionnelle.
+> Une *macro‑architecture* n'impose **rien** quant à l’organisation interne de chaque service. Chaque service peut employer indépendamment MVC, *Hexagonal*, *Clean Architecture*, ou n'importe quelle autre modèle d'architecture interne.
 
 ### Niveau *application* (architecture interne)
 Définit **comment organiser le code à l’intérieur d’un service** pour garantir clarté, testabilité et séparation des responsabilités.
 
-**Caractéristiques :**
-- **Couches** (présentation, application, domaine, infrastructure).
-- **Dépendances** (direction, inversion, interfaces, *adapters*).
-- **Contrats internes** (DTO, *ports*). 
+**Définit :**
+- **Les couches** (présentation, application, domaine, infrastructure).
+- **Les dépendances** (direction, inversion, interfaces, *adapters*).
+- **Les contrats internes** (DTO, *ports*). 
 
 **Exemples courants :**
 - [MVC](../patterns/pattern-mvc) ;
