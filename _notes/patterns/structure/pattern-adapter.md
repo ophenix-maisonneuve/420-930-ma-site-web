@@ -27,7 +27,7 @@ Adapter permet de faire collaborer des interfaces incompatibles en enveloppant (
 ## Exemple
 
 ### Diagramme de classes
-*Dans l'exemple suivant, on réutilise la célèbre phrase "faire entrer un carré dans un rond", et on démontre que c'est en fait possible si on possède le bon adaptateur. À noter : cet exemple utilise l'héritage classique, mais il est également possible que l'adaptateur implémente une interface plutôt qu'hérite d'une classe concrète.*
+*Dans l'exemple suivant, on réutilise la célèbre phrase "faire entrer un carré dans un rond", et on démontre que c'est en fait possible si on possède le bon adaptateur. À noter : cet exemple utilise l'héritage classique, mais il est également possible que l'adaptateur implémente une interface plutôt que d'hériter d'une classe concrète.*
 
 ```mermaid
 classDiagram
