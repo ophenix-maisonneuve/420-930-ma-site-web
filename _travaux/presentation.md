@@ -22,14 +22,14 @@ Les notes de cours de base vous seront fournies, mais vous êtes libres d'utilis
 Vous pouvez choisir l'un des patrons de conception suivants:
 
 ### Patrons structurels
-- Adapter
+- Adapter (*Olivier - 27 janvier*)
 - Decorator
 - Facade
 - Composite
 
 ### Patrons comportementaux
 - Observer
-- Strategy
+- Strategy (*Olivier - 27 janvier*)
 - State
 - Command
 
