@@ -7,10 +7,10 @@ nav_order: 1
 
 # Patrons architecturaux
 
-Les patrons architecturaux définissent l’organisation globale d’un système logiciel, sa structure à grande échelle et la manière dont ses composantes interagissent. Leur objectif est de guider la construction d’architectures robustes, évolutives et cohérentes.
+Les patrons architecturaux définissent l’organisation globale d’un système logiciel, sa structure à grande échelle et la manière dont ses composantes interagissent. Leur objectif est de guider la construction d’architectures robustes, évolutives et cohérentes. Ces patrons ont donc une portée plus large (ou plus haut-niveau) que les patrons comportementaux, structurels et de création, car ils dictent l'organisation d'une composante complète ou même d'un système complet. Autrement dit, une application ou un système construits suivant un patron architectural peut très bien aussi renfermer l'utilisation de plusieurs autres patrons de conception plus granulaires.
 
 ## Cas d'utilisation
-Ces patrons répondent à des problématiques de structuration d’application, de séparation des responsabilités et de gestion de la complexité d’ensemble. Ils améliorent la modularité, facilitent les tests et assurent une évolution plus prévisible du système. Ils peuvent intervenir à différents *niveaux* de l'architecture d'une application ou d'un système.
+Les patrons architecturaux répondent à des problématiques de structuration d’application, de séparation des responsabilités et de gestion de la complexité d’ensemble. Ils améliorent la modularité, facilitent les tests et assurent une évolution plus prévisible du système. Ils peuvent intervenir à différents *niveaux* de l'architecture d'une application ou d'un système.
 
 **Niveaux?**
 
