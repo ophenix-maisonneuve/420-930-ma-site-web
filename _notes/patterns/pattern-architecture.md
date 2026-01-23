@@ -30,7 +30,7 @@ Définit **comment plusieurs applications/services coopèrent** pour former un p
 - **Déploiement** : indépendance, pipelines, scalabilité, résilience.
 
 **Exemples courants :**
-- [Microservices](../patterns/pattern-microservices) ;
+- [Microservices](../patterns/pattern-microservices)
 - Monolithe (modulaire ou non)
 - SOA (*Service-Oriented Architecture*)
 - Architecture événementielle
@@ -43,9 +43,9 @@ Définit **comment plusieurs applications/services coopèrent** pour former un p
 Définit **comment organiser le code à l’intérieur d’un service** pour garantir clarté, testabilité et séparation des responsabilités.
 
 **Définit :**
-- **Les couches** (présentation, application, domaine, infrastructure).
-- **Les dépendances** (direction, inversion, interfaces, *adapters*).
-- **Les contrats internes** (DTO, *ports*). 
+- **Les couches** (présentation, application, domaine, infrastructure)
+- **Les dépendances** (direction, inversion, interfaces, *adapters*)
+- **Les contrats internes** (DTO, *ports*)
 
 **Exemples courants :**
 - [MVC](../patterns/pattern-mvc) ;
