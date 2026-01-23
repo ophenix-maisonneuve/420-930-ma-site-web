@@ -34,7 +34,7 @@ Vous pouvez choisir l'un des patrons de conception suivants:
 - Command
 
 ### Patrons de création
-- Factory method
+- Factory method (*Alexandrine, Dominic, Alexandre*)
 - Abstract factory
 - Singleton (*Théo, Maxime, Simon*)
 - Builder
