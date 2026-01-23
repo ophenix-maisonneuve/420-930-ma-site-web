@@ -1,7 +1,8 @@
 ---
 layout: default
 title: "Patrons architecturaux - MVC & microservices"
-nav_order: 12
+parent: "Patrons de conception"
+nav_order: 1
 has_toc: false
 published: false
 ---

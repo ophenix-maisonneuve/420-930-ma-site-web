@@ -23,7 +23,7 @@ Vous pouvez choisir l'un des patrons de conception suivants:
 
 ### Patrons structurels
 - Adapter (*Olivier - 27 janvier*)
-- Decorator
+- Decorator (*Sonia C., Sonia M., Asma, Marina*)
 - Facade
 - Composite
 
