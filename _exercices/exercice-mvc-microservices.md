@@ -16,7 +16,7 @@ published: false
 
 ## Contexte
 
-Vous disposez de **deux projets Spring Boot 3.5.9 (Maven)**. Les **contrôleurs REST sont fournis** pour vous éviter d’apprendre REST : vous vous concentrez sur la **logique interne** des services.
+Vous disposez de **deux projets Maven** utilisant Spring Boot pour gérer, entre autres, la communication via services REST. Les contrôleurs REST sont déjà fournis et n'ont pas à être modifiés afin de pouvoir se concentrer sur l'implémentation et l'architecture des services.
 
 - **catalogue-service** (pattern **MVC** à l’interne)Expose une liste de films avec `id`, `titre`, `genre`, `popularite`.Le dépôt **en mémoire** est à compléter (version squelette).Endpoints (déjà câblés) :
 
@@ -37,15 +37,15 @@ Vous disposez de **deux projets Spring Boot 3.5.9 (Maven)**. Les **contrôleurs 
 > *(Remplacez les placeholders ci-dessous par les vraies URLs de votre classe.)*
 
 ```bash
-# Catalogue (squelette)
-git clone git@github.com:VOTRE-ORG/catalogue-service-student.git
+# Catalogue
+git clone <repo ici>
 # ou
-git clone https://github.com/VOTRE-ORG/catalogue-service-student.git
+git clone <repo ici>
 
-# Recommandations (squelette)
-git clone git@github.com:VOTRE-ORG/recommendations-service-student.git
+# Recommandations
+git clone <repo ici>
 # ou
-git clone https://github.com/VOTRE-ORG/recommendations-service-student.git
+git clone <repo ici>
 ```
 
 ### 2. Lancez chaque projet Java
@@ -72,14 +72,17 @@ mvn spring-boot:run
 
 ## 1. Service de catalogue (`catalogue-service`)
 
+On désire implémenter un service ayant la responsabilité d'organiser un catalogue de films et pouvant, par exemple, servir de base à une plate-forme de diffusion (*streaming*).
+
 ### 1.1. Étudiez la structure interne de **catalogue-service**
 
-- Où se situent **Modèle / Service / Dépôt** dans le projet ?
-- Quelles responsabilités sont associées à **chaque couche** ?
-- Quelle est la **structure de données** minimale d’un `Film` (champ obligatoires) ?
-- Où et comment effectuer la **conversion Entité → DTO** ?
+- Pour chaque rôle du MVC (modèle, vue et contrôleur), identifiez la ou les classes correspondantes:
 
-### 1.2. Complétez la **persistance** du Catalogue (version squelette)
+  - **Modèle** : quelles classes représentent les entités métier, leur manipulation et leur persistance ?
+  - **Vue** : quelles classes sont responsables de la préparation / présentation de la réponse au client ?
+  - **Contrôleur** : Quelle classe reçoit les requêtes, les aiguille vers la logique métier et retourne la réponse correspondante ?
+
+### 1.2. Complétez la **persistance** du Catalogue
 
 - Implémentez un **dépôt en mémoire** `FilmRepository` et sa **configuration**.
 - Préchargez au démarrage **au moins 5 films** variés (genre, popularité).
@@ -90,18 +93,36 @@ mvn spring-boot:run
 
 > **Question de complexité** : Quelle est la complexité **grand O** des opérations de lecture dans votre dépôt en mémoire ? Justifiez.
 
-### 1.3. Implémentez la **logique métier** du Catalogue
+### 1.3. Implémentez la **logique métier** du catalogue
 
-- Dans `FilmService`, implémentez un **tri décroissant par popularité** pour `findByGenre`.
-- Assurez-vous que les **id inexistants** renvoient une **réponse vide** (ou `null` côté service, DTO `null` mappé en 404 par le contrôleur si déjà prévu).
-- Rédigez **2 tests unitaires** minimum (par ex. : *filtrage par genre*, *tri par popularité*).
+On suppose que la première version de notre catalogue de films s'adresse à des enfants. Ainsi, on voudra s'assurer que, même s'il est possible que notre base de données contienne des films qui ne sont pas destinés aux enfants, notre implémentation de service empêche les enfants d'avoir accès aux films de genre `Horreur` et `Adulte` .
+
+- Créez une implémentation de `FilmService` nommée `FilmServiceEnfants`.
+- Dans `FilmServiceEnfants`, implémentez les méthodes requises par l'interface `FilmService`
+  - Assurez-vous que toutes les méthodes excluent les films appartenant aux genres `Horreur` et `Adulte` des résultats
+- - Assurez-vous que les **id inexistants** renvoient une **réponse vide** ou `null`
+- Dans le contexte du MVC, pourquoi est-il important que cette logique d'exclusion appartienne à la classe `FilmService` plutôt...
+  - ... qu'à la classe `FilmController` ?
+  - ... qu'à la classe `FilmMapper` ou `FilmDto` ?
+
+### 1.4. Implémentez la logique de conversion dans `FilmMapper`
+
+* À quoi sert la distinction entre un objet `Film` et un objet `FilmDto` dans le contexte du MVC ?
 
 ## 2. Service de recommandations (`recommendations-service`)
 
-### 2.1. Étudiez la structure interne de **recommendations-service**
+On désire maintenant ajouter à notre service de catalogue la possibilité de faire des recommandations basées sur la popularité de certains films.
 
-- Où se trouvent **`RecommendationEngine`** (algorithme) et **`CatalogueClient`** (client vers l’autre service) ?
-- Quels sont les **DTO** échangés ? Sont-ils **proprement découplés** du modèle interne du Catalogue ? Pourquoi est-ce souhaitable ?
+### 2.1. Comparez deux architectures possibles
+
+Quels seraient les avantages et les inconvénients des solutions suivantes...
+
+- Ajouter la fonctionnalité de recommandations directement dans le service de catalogue ?
+  - Pensez, entre autres, à la complexité liée aux bases de données et à la communication entre les services...
+- Ajouter la fonctionnalité de recommandations dans un service séparé (donc un projet complètement distinct) ?
+  - Pensez, entre autres, à l'ajout de nouvelles fonctionnalités au fil du temps, à la facilité de déploiement et à la possibilité d'utiliser des langages ou technologies différentes pour différents services...
+
+Laquelle des architectures ci-haut correspond à une architecture par microservices ? Pourquoi ?
 
 ### 2.2. Implémentez l’algorithme de **recommandation**
 
@@ -109,46 +130,19 @@ mvn spring-boot:run
   - Récupère la **liste** du Catalogue,
   - Trie par **popularité décroissante**,
   - Retourne le **Top 3**.
-- Que se passe-t-il si **le genre est vide** ou non fourni ? Proposez un **comportement** raisonnable et justifiez (ex. Top 3 global).
+- Que se passe-t-il si **le genre est vide** ou non fourni ? Proposez un **comportement** raisonnable et justifiez.
 
-### 2.3. Gérez l’**indisponibilité** du Catalogue (résilience minimale)
+### 2.3. Gérez l’**indisponibilité** du service de catalogue
 
-- Simulez une panne (éteindre Catalogue).
-- Quel **message** renvoie Recommandations ?
-- Quels **comportements alternatifs** proposez-vous (ex. 503 explicite, top « fallback » à partir d’un cache, message pédagogique) ?
+Simulez une panne en éteignant le service de catalogue.
+
+- Quel **message** renvoie le service de recommandations ?
+- Quel comportement pourriez-vous implémenter pour gérer le cas où le catalogue est en panne de façon plus gracieuse ?
 - Décrivez comment vous **documenteriez** ce comportement pour un autre client (contrat).
-
-### 2.4. Variante **sans REST** (optionnelle)
-
-- Remplacez `CatalogueClient` par un **chargeur de fichier** `films.json` local (même structure que le DTO).
-- Comparez les **avantages / limites** de cette approche (simplicité, couplage, réalisme microservices).
-
----
-
-## Exercice Bonus
-
-### A. **Contrôles de validité** côté Recommandations
-
-- Genre inconnu → que faire ?
-- Valeurs de popularité **hors bornes** (négatives, >100) → les ignorer ? les normaliser ?
-- Documentez votre **stratégie** et testez-la.
-
-### B. **Extension Top N**
-
-- Rendez **N configurable** (paramètre de requête `limit`, valeur par défaut = 3).
-- Ajoutez des tests pour `limit=1`, `limit>taille`, `limit≤0`.
-
-### C. **Cache local** minimal
-
-- Mettez en place un **cache en mémoire** (structure Java) avec **expiration simple** (ex. 60 s) pour éviter d’appeler Catalogue à chaque requête.
-- Mesurez (manuellement) la **différence de comportement** en éteignant Catalogue pendant que le cache est encore valide.
-
----
 
 ## Pistes de réflexion
 
 - **Niveaux** d’architecture : qu’est-ce qui, dans cet exercice, illustre clairement que **MVC** (interne) et **microservices** (système) ne se situent **pas au même niveau** ?
-- **Frontières métier** : la coupe « Catalogue / Recommandations » vous paraît-elle **naturelle** ? Pourquoi ? Quelles autres coupes seraient possibles ?
-- **Données par service** : que changerait une **base partagée** entre les deux services ? Quels **risques** (couplage, verrouillage, migrations) ?
+- **Frontières métier** : la séparation Catalogue vs Recommandations vous paraît-elle **naturelle** ? Pourquoi ? Aurait-on pu séparer autrement ?
+- **Données par service** : que changerait une **base partagée** entre les deux services ? Quels seraient les risques et les avantages ?
 - **Évolution** : si l’on remplaçait Recommandations par un **service statistique** (moyenne de popularité par genre), qu’est-ce que cela changerait dans le **contrat** et dans les **dépendances** ?
-- **Tests d’intégration** : proposez un scénario de **test bout-en-bout** (Catalogue allumé, Recommandations qui appelle, vérification du Top N).
