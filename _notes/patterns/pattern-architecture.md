@@ -23,10 +23,10 @@ Ces deux préoccupations sont complémentaires mais n’opèrent pas à la même
 ### Niveau *système* (macro‑architecture)
 Définit **comment plusieurs applications/services coopèrent** pour former un produit complet. En particulier, ce niveau d'architecture définit :
 
-- **Frontières et responsabilités** : groupement de fonctionnalités selon la logique métier (*business logic*), par exemple *Catalogue*, *Recommandations*, etc.
-- **Communication** entre processus, c'est-à-dire comment les différents services échangent des données, par exemple *APIs*, *messages*, *fichiers*, *flux ("streams")*).
+- **Frontières et responsabilités** : groupement de fonctionnalités selon la logique métier (*business logic*), par exemple fonctionnalités de catalogue, fonctionnalité de recommandations, etc.
+- **Communication** entre processus, c'est-à-dire comment les différents services échangent des données, par exemple APIs, messages, fichiers, flux (*"streams"*)).
 - **Données** : appartenance par service, c'est-à-dire quel service gère quelle entité métier, et comment assurer la synchronisation et la cohérence.
-- **Déploiement** : indépendance, pipelines, scalabilité, résilience.
+- **Déploiement** : indépendance, *pipelines*, scalabilité, résilience.
 
 **Exemples courants :**
 - [Microservices](../patterns/pattern-microservices)
