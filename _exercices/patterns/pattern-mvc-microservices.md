@@ -10,25 +10,27 @@ published: false
 
 ## Objectifs
 
-- Comprendre la **différence de niveau** entre l’architecture **interne** (MVC) et l’architecture **système** (microservices).
-- Implémenter la **logique métier** d’un service **Catalogue** (MVC) et d’un service **Recommandations** (non-MVC).
-- Expérimenter la **collaboration entre services** dans un modèle microservices
-- Mettre en place des **tests simples** et raisonner sur la **résilience** (comportement si l’autre service est indisponible).
+- Comprendre la différence de niveau entre l’architecture interne (MVC) et l’architecture système (microservices).
+- Implémenter la logique métier d’un service de *catalogue* (MVC) et d’un service de *recommandations*.
+- Expérimenter la collaboration entre services dans un modèle microservices
+- Raisonner sur la résilience (comportement si l’autre service est indisponible).
 
 ## Contexte
 
 Vous disposez de **deux projets Maven** utilisant Spring Boot pour gérer, entre autres, la communication via services REST. Les contrôleurs REST sont déjà fournis et n'ont pas à être modifiés afin de pouvoir se concentrer sur l'implémentation et l'architecture des services.
 
-- **catalogue-service** (pattern **MVC** à l’interne)Expose une liste de films avec `id`, `titre`, `genre`, `popularite`.Le dépôt **en mémoire** est à compléter (version squelette).Endpoints (déjà câblés) :
+- `catalogue-service` : expose une liste de films avec `id`, `titre`, `genre`, `popularite` :
 
   - `GET /films`
   - `GET /films?genre=Action`
   - `GET /films/{id}`
-- **recommendations-service** (pattern **non‑MVC**, “service layer only”)Calcule un **Top N** (N=3) par *genre* en **appelant** le service Catalogue (client fourni) ou en **lisant** un fichier `films.json` (variante).Endpoint (déjà câblé) :
+
+- `recommendations-service` : calcule un *Top N* par *genre* en appelant le service *catalogue* (client fourni) :
 
   - `GET /recommendations?genre=Action`
 
-> Le but est de **vivre** l’architecture : un service peut être MVC, un autre non, **et pourtant** ils coopèrent proprement.
+{: .highlight}
+> Le but est de simuler une application évoluant en contexte d'entreprise: l'architecture par microservices permet qu'un deuxième service (MVC ou non) soit ajouté et géré de façon indépendante à un premier service existant.
 
 ## Étapes préparatoires
 
@@ -51,7 +53,7 @@ git clone <repo ici>
 
 ### 2. Lancez chaque projet Java
 
-Dans **chaque** dépôt (un terminal par service) :
+Dans chaque dépôt (un terminal par service) :
 
 ```bash
 mvn clean package
@@ -61,12 +63,13 @@ mvn spring-boot:run
 - **Catalogue** démarre par défaut sur **:8080**
 - **Recommandations** démarre par défaut sur **:8081**
 
+{: .astuce}
 > Si besoin, vous pouvez surcharger l’URL du Catalogue côté Recommandations avec :
 > `-Dspring-boot.run.jvmArguments="-DCATALOGUE_URL=http://localhost:8080"`
 
 ### 3. Familiarisez-vous avec les contrôleurs fournis
 
-- **Ne modifiez pas** les contrôleurs : ils servent à **isoler l’architecture** des détails REST.
+- **Ne modifiez pas** les contrôleurs : ils servent à isoler l’architecture des détails REST.
 - Concentrez-vous sur les **services** (métier) et la **persistance** (dépôt en mémoire).
 
 ---
@@ -141,7 +144,7 @@ Simulez une panne en éteignant le service de catalogue.
 - Quel comportement pourriez-vous implémenter pour gérer le cas où le catalogue est en panne de façon plus gracieuse ?
 - Décrivez comment vous **documenteriez** ce comportement pour un autre client (contrat).
 
-## Pistes de réflexion
+## Questions de réflexion
 
 - **Niveaux** d’architecture : qu’est-ce qui, dans cet exercice, illustre clairement que **MVC** (interne) et **microservices** (système) ne se situent **pas au même niveau** ?
 - **Frontières métier** : la séparation Catalogue vs Recommandations vous paraît-elle **naturelle** ? Pourquoi ? Aurait-on pu séparer autrement ?

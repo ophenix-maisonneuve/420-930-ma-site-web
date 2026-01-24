@@ -7,7 +7,7 @@ published: true
 ---
 
 ## Description
-Les microservices sont une approche architecturale où l’application est composée de services faiblement couplés, déployables indépendamment, communiquant souvent via des API HTTP ou de la messagerie. Plus précisément, cette architecture se caractérise par la mise en place de  services autonomes où chaque service :
+Les microservices sont une approche architecturale où l’application est composée de services faiblement couplés, déployables indépendamment, communiquant souvent via des API REST ou de la messagerie. Plus précisément, cette architecture se caractérise par la mise en place de  services autonomes où chaque service :
 
 - est responsable d'un domaine métier bien **délimité** (frontière claire)
 - possède son cycle de vie (*build*, déploiement, *scaling*, etc) **indépendant**
@@ -34,10 +34,10 @@ Les microservices sont une approche architecturale où l’application est compo
 
 {: .warning}
 
-L'architecture par microservices **ne définit pas** :
-- l'architecture interne d’un service (MVC, *Hexagonal*, *Clean*, procédural, etc)
-- un protocole unique pour la communication inter-services (HTTP, messages, fichiers, etc)
-- une taille absolue (le terme *micro* est relatif à votre domaine et à votre organisation).
+> L'architecture par microservices **ne définit pas** :
+> - l'architecture interne d’un service (MVC, *Hexagonal*, *Clean*, procédural, etc)
+> - un protocole unique pour la communication inter-services (HTTP, messages, fichiers, etc)
+> - une taille absolue (le terme *micro* est relatif à votre domaine et à votre organisation).
 
 ## Bonnes pratiques
 - Séparer les microservices par **domaine métier** stable (et non, par exemple, par couche technique).
@@ -51,7 +51,7 @@ L'architecture par microservices **ne définit pas** :
 ```mermaid
 flowchart LR
   subgraph Client
-    UI[Interface usager (application bibliothèque)]
+    UI["Interface usager (application bibliothèque)"]
   end
 
   subgraph S1[Service Livres]
@@ -85,7 +85,7 @@ sequenceDiagram
   E->>E: création de l'emprunt
   E-->>C: 201 (confirmation)
 
-  Note over E,L: si livre non disponible ou erreur réseau
+  Note over E,L: "si livre non disponible ou erreur réseau"
   E->>Obs: log + métriques + trace
   E-->>C: 409 ou 503 selon le cas
 ```
