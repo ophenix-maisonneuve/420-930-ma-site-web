@@ -3,35 +3,31 @@ layout: default
 title: MVC
 parent: Patrons architecturaux
 nav_order: 1
-published: false
----
-
-
----
-layout: default
-title: MVC — Patron d’architecture interne
-parent: Patrons architecturaux — Vue d’ensemble (niveaux et exemples)
-nav_order: 1
 published: true
 ---
+
 # MVC — Patron d’architecture interne
 
-## Définition détaillée
-**MVC (Modèle–Vue–Contrôleur)** est un patron d’architecture **interne** qui organise une application en **trois rôles** :
-- **Modèle** : représente l’**état** et la **logique métier** (règles, validations, invariants). Le Modèle ne dépend pas de la présentation ; il peut inclure des *services métier* et des *dépôts* (abstractions de persistance).
-- **Vue** : produit la **représentation** destinée au consommateur (HTML, JSON). La Vue ne contient **aucune** logique métier, seulement du **formatage** et de la **mise en forme** des données.
-- **Contrôleur** : reçoit l’**entrée** (requêtes), **orchestre** les appels au Modèle, sélectionne la Vue et **retourne** la réponse. Le Contrôleur doit rester **mince** et déléguer la logique au Modèle/service.
+## Définition
 
-**But principal :** séparer les **préoccupations** pour améliorer lisibilité, testabilité et évolutivité d’un **service unique**.
+**MVC (Modèle–Vue–Contrôleur)** est un patron d’architecture **interne** qui organise une application en **trois rôles** :
+- **Modèle** : représente l’état et la logique métier (règles, validations, invariants). Le modèle ne dépend pas de la présentation ; il peut inclure des *services métier* et des *dépôts* (abstractions de persistance). Lorsqu'il change, il informe la vue qu'elle doit se mettre à jour.
+- **Vue** : produit la représentation estinée au consommateur (HTML, JSON, interface graphique "lourde", etc). La vue ne contient **aucune** logique métier, seulement du formatage et de la mise en forme des données.
+- **Contrôleur** : reçoit l’entrée (requêtes) et orchestre les appels au modèle. Le contrôleur doit rester **mince** et déléguer la logique au modèle.
+
+{: .highlight}
+> Dans les implémentations classiques du MVC, le modèle notifie la ou les vues de façon asynchrone, généralement à l’aide de messages ou d’événements (patron *Observer*). Cette approche fonctionne très bien pour les interfaces graphiques plus lourdes, qui conservent un état, mais moins bien pour les représentations sans état (*stateless*) ou pour les cas où la vue est retournée directement (HTML, JSON, XML, etc.).
+>
+> Il est donc tout à fait acceptable que le modèle soit interrogé et que la vue soit générée de manière synchrone lorsque cela est nécessaire, sans que cela ne modifie le principe fondamental du patron MVC.
 
 **Ce que MVC n’est pas :**
 - Ce n’est **pas** une architecture *système* ; il ne décrit pas la collaboration entre plusieurs applications.
 - Ce n’est **pas** un modèle de **données** ; il ne force pas une base partagée (au contraire, la persistance reste un détail derrière des interfaces).
 
 ## Quand l’utiliser ?
-- Vous exposez une API (ou UI) et souhaitez **isoler présentation et logique métier**.
+- Vous exposez un interface graphique (ou simplement une API) et souhaitez **isoler présentation et logique métier**.
 - Vous avez des **règles** testables indépendamment de la couche web.
-- Vous souhaitez **faire évoluer** l’API (ou l’UI) sans toucher au cœur métier.
+- Vous souhaitez **faire évoluer** l’interface (ou l’API) sans toucher au cœur métier.
 
 ## Avantages
 - **Séparation nette** : le contrôleur "aiguille" invoque le modèle et rafraîchit la vue; le modèle connaît la logique métier; la vue formatte les données.
@@ -44,66 +40,41 @@ published: true
 
 ## Structure générale
 ```mermaid
-classDiagram
-class Controleur {
-  +handle(req): Response
-}
-class ServiceMetier {
-  +findById(id): DTO
-  +findByGenre(genre): List~DTO~
-}
-class Depot {
-  <<interface>>
-  +findById(id): Entite
-  +findByGenre(genre): List~Entite~
-}
-class Entite {
-  -id: int
-  -etatMetier...
-}
-class Vue {
-  <<interface>>
-  +rendre(donnees): string
-}
-Controleur --> ServiceMetier : délègue
-ServiceMetier --> Depot : persiste
-Depot --> Entite
-Controleur --> Vue : formate la réponse
+sequenceDiagram
+    actor U as Utilisateur
+    participant C as Contrôleur
+    participant M as Modèle
+    participant V as Vue
+
+    U->>C: Envoie une commande
+    C->>M: Manipule le modèle
+    M-->>V: Informe la (les) vue(s)
+    V->>U: Présente l'information
 ```
 
 ---
 
-## Exemple 1 : Application de gestion d’inventaire avec interface graphique utilisateur
+## Exemple - Liste de tâches avec interface graphique
+```mermaid
+sequenceDiagram
+    autonumber
+    actor U as Utilisateur
+    participant C as Contrôleur
+    participant M as Modèle
+    participant V as Vue
 
-Cet exemple illustre une application bureau (GUI) de gestion d’inventaire, pour montrer qu’une **vue** peut être une **interface graphique**.
+    Note over M: État initial du modèle <br/> Ma liste = [Appeler maman]
 
-### Modèle (*Model*)
-- `Produit` — entité (id, nom, quantité, seuil critique).
-- `InventaireRepository` — interface de persistance (findAll, findById, save, ajusterQuantite).
-- `InMemoryInventaireRepository` — implémentation concrète (stockage en mémoire).
-- `InventaireService` — logique métier (validation, seuils, ajustements de quantité).
-
-### Vue (*View*)
-- `InventaireFenetre` — fenêtre principale (JavaFX/Swing) affichant la liste des produits.
-- `ProduitPanel` — panneau de détail d’un produit (optionnel).
-
-### Contrôleur (*Controller*)
-- `InventaireController` — écoute les événements GUI (clics, saisies), appelle les services puis demande à la vue de se rafraîchir.
-
-### Scénario
-1. L’utilisateur clique sur **Ajouter 5 unités** dans `InventaireFenetre` : l’événement est capté par `InventaireController` (**Contrôleur**).
-2. Le contrôleur exécute `inventaireService.ajusterQuantite(idProduit, +5)` : interaction avec le **modèle**.
-3. Le service met à jour les données via `InventaireRepository` / `InMemoryInventaireRepository` : les données du **modèle** sont mises à jour.
-4. Le contrôleur récupère la nouvelle liste : `inventaireService.findAll()` et appelle `InventaireFenetre.renderListeProduits(...)` : la **vue** est appelée pour rafraîchir l’affichage.
-
-### Résumé des rôles
-- **Modèle :** `Produit`, `InventaireRepository`, `InMemoryInventaireRepository`, `InventaireService`
-- **Vue :** `InventaireFenetre`, `ProduitPanel`
-- **Contrôleur :** `InventaireController`
+    U->>C: Demande d'ajouter "Acheter du café" à "Ma liste"
+    C->>M: Invoque l'ajout de l'item "Acheter du café"
+    M-->>V: Notifie la (les) vue(s) (liste modifiée)
+    Note over M: État du modèle après ajout <br/> Ma liste = [Appeler maman, Acheter du café]
+    V->>U: Présente l'information (liste mise à jour)
+```
 
 ---
 
-# Exemple 2 : Tickets de support technique
+# Exemple : Tickets de support technique (API seulement)
 
 Cet exemple illustre un service *backend* interne qui gère des tickets de support pour illustrer qu'une **vue** peut également être une représentation d'un objet du modèle dans un **format d'échange** (comme JSON ou XML), sans interface graphique.
 
