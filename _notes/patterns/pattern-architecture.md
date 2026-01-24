@@ -3,6 +3,7 @@ layout: default
 title: Patrons architecturaux
 parent: Patrons de conception
 nav_order: 1
+has_toc: false
 ---
 
 # Patrons architecturaux
