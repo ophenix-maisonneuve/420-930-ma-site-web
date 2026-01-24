@@ -74,33 +74,33 @@ sequenceDiagram
 
 ---
 
-# Exemple : Tickets de support technique (API seulement)
+## Exemple : Tickets de support technique (API seulement)
 
 Cet exemple illustre un service *backend* interne qui gère des tickets de support pour illustrer qu'une **vue** peut également être une représentation d'un objet du modèle dans un **format d'échange** (comme JSON ou XML), sans interface graphique.
 
-## Rôles MVC et classes
+### Rôles MVC et classes
 
-### Modèle (*Model*)
+**Modèle (*Model*)**
 - `Ticket` — entité métier (id, titre, description, priorité, état).
 - `TicketRepository` — interface de persistance (findAll, findById, save).
 - `InMemoryTicketRepository` — implémentation concrète (stockage en mémoire).
 - `TicketService` — logique métier (validation, changement d’état, filtrage par priorité).
 
-### Vue (*View*)
+**Vue (*View*)**
 - `TicketDto` — représentation destinée à la sortie (JSON pour l’API).
 - `TicketMapper` — conversion `Ticket → TicketDto`.
 
-### Contrôleur (*Controller*)
+**Contrôleur (*Controller*)**
 - `TicketController` — reçoit les requêtes HTTP (ex. `GET /tickets`), appelle le service, retourne des DTO.
 
-## Scénario
+### Scénario
 1. Le client appelle `GET /tickets?priorite=haute` : `TicketController` (**Contrôleur**) reçoit la requête.
 2. Le contrôleur délègue à `TicketService.findByPriorite("haute")` : Le **modèle** applique la logique métier.
 3. Le service interroge **`TicketRepository`** / **`InMemoryTicketRepository`** : Obtention des tickets à partir des données du **modèle**
 4. Le service convertit chaque `Ticket` en **`TicketDto`** via **`TicketMapper`** : TicketDto est donc la **vue** représentant les données du modèle.
 5. Le contrôleur renvoie la liste de `TicketDto` en JSON au client.
 
-## Résumé des rôles
+### Résumé des rôles
 - **Modèle :** `Ticket`, `TicketRepository`, `InMemoryTicketRepository`, `TicketService`
 - **Vue :** `TicketDto`, `TicketMapper`
 - **Contrôleur :** `TicketController`
