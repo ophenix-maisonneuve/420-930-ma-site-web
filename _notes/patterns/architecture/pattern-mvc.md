@@ -108,5 +108,5 @@ Cet exemple illustre un service *backend* interne qui gère des tickets de suppo
 ---
 
 ## Liens utiles
-- https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
-- https://martinfowler.com/eaaDev/uiArchs.html
+- [https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)
+- [https://martinfowler.com/eaaDev/uiArchs.html](https://martinfowler.com/eaaDev/uiArchs.html)
