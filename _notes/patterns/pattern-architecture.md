@@ -29,7 +29,7 @@ Définit **comment plusieurs applications/services coopèrent** pour former un p
 - **Déploiement** : indépendance, *pipelines*, scalabilité, résilience.
 
 **Exemples courants :**
-- [Microservices](../patterns/pattern-microservices)
+- [Microservices](../notes/pattern-microservices)
 - Monolithe (modulaire ou non)
 - SOA (*Service-Oriented Architecture*)
 - Architecture événementielle
@@ -46,7 +46,7 @@ Définit **comment organiser le code à l’intérieur d’un service** pour gar
 - **Les contrats internes** (DTO, *ports*)
 
 **Exemples courants :**
-- [MVC](../patterns/pattern-mvc)
+- [MVC](../notes/pattern-mvc)
 - *Hexagonal* (*Ports & Adapters*)
 - *Clean Architecture*
 - MVVM
