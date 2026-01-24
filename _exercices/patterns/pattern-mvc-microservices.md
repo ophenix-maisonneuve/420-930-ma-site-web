@@ -4,7 +4,7 @@ title: "Patrons architecturaux - MVC & microservices"
 parent: "Patrons de conception"
 nav_order: 1
 has_toc: false
-published: false
+published: true
 ---
 # Exercice : Recommandations de films (MVC + microservices)
 
@@ -77,7 +77,7 @@ mvn clean package spring-boot:run
 ```
 2. À partir d'un navigateur ou d'un outil de requêtes HTTP comme *Postman*, effectuez la requête suivante :
 ```bash
-GET /films
+GET http://localhost:8080/films
 ```
   - Qu'observez-vous ? Pourquoi ?
 
@@ -107,7 +107,7 @@ On suppose que la première version de notre catalogue de films s'adresse à des
 
 - Notre implémentation de `FilmService` est nommée `FilmServiceEnfants`.
 - Dans `FilmServiceEnfants`, implémentez les méthodes requises par l'interface `FilmService`
-  - Assurez-vous que toutes les méthodes excluent les films appartenant aux genres `Horreur` et `Adulte` des résultats
+  - Assurez-vous que toutes les méthodes excluent les films appartenant aux genres `Horreur` et `Action` des résultats
   - Assurez-vous que les id inexistants renvoient une **réponse vide** ou `null`
 - Dans le contexte du MVC, pourquoi est-il important que cette logique d'exclusion appartienne aux implémentations de l'interface `FilmService` plutôt...
   - ... qu'à la classe `FilmController` ?
@@ -127,7 +127,7 @@ mvn clean package spring-boot:run
 ```
 2. À partir d'un navigateur ou d'un outil de requêtes HTTP comme *Postman*, effectuez la requête suivante :
 ```bash
-GET /recommandations?genre=Action`
+GET http://localhost:8081/recommandations?genre=Action`
 ```
   - Qu'observez-vous ? Pourquoi ?
 
