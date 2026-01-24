@@ -4,7 +4,7 @@ title: "Patrons architecturaux - MVC & microservices"
 parent: "Patrons de conception"
 nav_order: 1
 has_toc: false
-published: true
+published: false
 ---
 # Exercice : Recommandations de films (MVC + microservices)
 
