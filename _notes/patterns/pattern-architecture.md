@@ -37,14 +37,14 @@ Définit **comment plusieurs applications/services coopèrent** pour former un p
 - Architecture à n‑tiers (*n-tier architecture*) : couches déployées séparément
 
 {: .highlight}
-> Une *macro‑architecture* n'impose **rien** quant à l’organisation interne de chaque service. Chaque service peut employer indépendamment MVC, *Hexagonal*, *Clean Architecture*, ou n'importe quelle autre modèle d'architecture interne.
+> Une *macro‑architecture* n'impose **rien** quant à l’organisation interne de chaque service ou application. Chacun peut employer indépendamment MVC, *Hexagonal*, *Clean Architecture*, ou n'importe quelle autre modèle d'architecture interne.
 
 ### Niveau *application* (architecture interne)
 Définit **comment organiser le code à l’intérieur d’un service** pour garantir clarté, testabilité et séparation des responsabilités. En particulier, ce niveau d'architecture définit : 
 
 - **Les couches** (présentation, application, domaine, infrastructure)
-- **Les dépendances** (direction, inversion, interfaces, *adapters*)
-- **Les contrats internes** (DTO, *ports*)
+- **Les dépendances** (direction, inversion)
+- **Les contrats internes** entre les couches (interfaces)
 
 **Exemples courants :**
 - [MVC](../notes/pattern-mvc)
@@ -53,4 +53,4 @@ Définit **comment organiser le code à l’intérieur d’un service** pour gar
 - MVVM
 
 {: .highlight}
-> L'*architecture interne* organise la logique interne d’un processus. Elle ne décide pas *comment* plusieurs processus coopèrent.
+> L'*architecture interne* organise la logique interne d’une application. Elle ne décide pas *comment* plusieurs processus coopèrent.
