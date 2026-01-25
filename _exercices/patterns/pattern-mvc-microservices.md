@@ -61,7 +61,7 @@ mvn spring-boot:run
 - **Recommandations** démarre par défaut sur **:8081**
 
 {: .astuce}
-> Si besoin, vous pouvez surcharger l’URL du Catalogue côté Recommandations avec :
+> Si besoin, vous pouvez surcharger l’URL du catalogue-service côté recommandations-service avec :
 > `-Dspring-boot.run.jvmArguments="-DCATALOGUE_URL=http://localhost:8080"`
 
 ---
