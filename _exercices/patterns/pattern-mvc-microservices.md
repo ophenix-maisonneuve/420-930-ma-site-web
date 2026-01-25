@@ -4,7 +4,7 @@ title: "Patrons architecturaux - MVC & microservices"
 parent: "Patrons de conception"
 nav_order: 1
 has_toc: false
-published: false
+published: true
 ---
 # Exercice : Recommandations de films (MVC + microservices)
 
@@ -103,7 +103,7 @@ Cet objet sert à transformer un objet du modèle (`Film`) en une vue retournée
 
 ### 1.5. Implémentez la logique métier du catalogue
 
-On suppose que la première version de notre catalogue de films s'adresse à des enfants. Ainsi, on voudra s'assurer que, même s'il est possible que notre base de données contienne des films qui ne sont pas destinés aux enfants, notre implémentation de service empêche les enfants d'avoir accès aux films de genre `Horreur` et `Adulte` .
+On suppose que la première version de notre catalogue de films s'adresse à des enfants. Ainsi, on voudra s'assurer que, même s'il est possible que notre base de données contienne des films qui ne sont pas destinés aux enfants, notre implémentation de service empêche les enfants d'avoir accès aux films de genre `Horreur` et `Action` .
 
 - Notre implémentation de `FilmService` est nommée `FilmServiceEnfants`.
 - Dans `FilmServiceEnfants`, implémentez les méthodes requises par l'interface `FilmService`
@@ -160,7 +160,7 @@ Simulez une panne en éteignant le service de catalogue.
 
 ## Questions de réflexion
 
-- **Niveaux** d’architecture : qu’est-ce qui, dans cet exercice, illustre clairement que **MVC** (interne) et **microservices** (système) ne se situent **pas au même niveau** ?
-- **Frontières métier** : la séparation Catalogue vs Recommandations vous paraît-elle **naturelle** ? Pourquoi ? Aurait-on pu séparer autrement ?
-- **Données par service** : que changerait une **base partagée** entre les deux services ? Quels seraient les risques et les avantages ?
-- **Évolution** : si l’on remplaçait Recommandations par un **service statistique** (moyenne de popularité par genre), qu’est-ce que cela changerait dans le **contrat** et dans les **dépendances** ?
+- **Niveaux** d’architecture : qu’est-ce qui, dans cet exercice, illustre clairement que **MVC** (interne) et **microservices** (système) ne se situent pas au même niveau ?
+- **Frontières métier** : la séparation catalogue vs recommandations vous paraît-elle naturelle ? Pourquoi ? Aurait-on pu séparer autrement ?
+- **Données par service** : que changerait une base partagée entre les services catalogue et recommandations? Quels seraient les risques et les avantages ?
+- **Évolution** : si l’on remplaçait la façon dont service-recommandations calcule la popularité, par exemple en appelant un service tiers de statistiques, qu’est-ce que cela changerait dans le **contrat** et dans les **dépendances** ?
