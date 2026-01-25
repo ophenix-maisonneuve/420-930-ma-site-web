@@ -38,14 +38,14 @@ Vous disposez de **deux projets Maven** utilisant Spring Boot pour gérer, entre
 
 ```bash
 # Catalogue
-git clone <repo ici>
+git clone git@github.com:ophenix-420-930-ma-24636/catalogue-service.git
 # ou
-git clone <repo ici>
+git clone https://github.com/ophenix-420-930-ma-24636/catalogue-service.git
 
 # Recommandations
-git clone <repo ici>
+git clone git@github.com:ophenix-420-930-ma-24636/recommandations-service.git
 # ou
-git clone <repo ici>
+git clone https://github.com/ophenix-420-930-ma-24636/recommandations-service.git
 ```
 
 ### 2. Lancez chaque projet Java
