@@ -48,9 +48,9 @@ Définit **comment organiser le code à l’intérieur d’un service** pour gar
 
 **Exemples courants :**
 - [MVC](../notes/pattern-mvc)
+- MVVM / MVP (variantes de MVC)
 - *Hexagonal* (*Ports & Adapters*)
 - *Clean Architecture*
-- MVVM
 
 {: .highlight}
 > L'*architecture interne* organise la logique interne d’une application. Elle ne décide pas *comment* plusieurs processus coopèrent.
