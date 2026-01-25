@@ -20,5 +20,5 @@ published: true
    1. [Microservices](../notes/patterns-microservices)
    1. [Exercice microservices - Question 2](../exercices/pattern-mvc-microservices) 
 
-## Exercice complémentaire
+### Exercice complémentaire
 1. [Exercice MVC et microservices - Questions de réflexion](../exercices/pattern-mvc-microservices)
