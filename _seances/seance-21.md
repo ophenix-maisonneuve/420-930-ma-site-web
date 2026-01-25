@@ -14,10 +14,10 @@ published: true
 1. Informations générales
 1. Questions de récapitulation SOLID et UML
 1. Patrons architecturaux
-   1. [Vue d'ensemble](../notes/patterns-architecture)
-   1. [MVC](../notes/patterns-mvc)
+   1. [Vue d'ensemble](../notes/pattern-architecture)
+   1. [MVC](../notes/pattern-mvc)
    1. [Exercice MVC - Question 1](../exercices/pattern-mvc-microservices)
-   1. [Microservices](../notes/patterns-microservices)
+   1. [Microservices](../notes/pattern-microservices)
    1. [Exercice microservices - Question 2](../exercices/pattern-mvc-microservices) 
 
 ### Exercice complémentaire
