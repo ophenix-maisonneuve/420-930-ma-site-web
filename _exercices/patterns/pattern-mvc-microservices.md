@@ -119,7 +119,7 @@ On suppose que la première version de notre catalogue de films s'adresse à des
 
 On désire maintenant ajouter à notre service de catalogue la possibilité de faire des recommandations basées sur la popularité de certains films.
 
-### 2.1. Tentez d'interagir avec le projet `catalogue-service`
+### 2.1. Tentez d'interagir avec le projet `recommandations-service`
 1. Lancez le projet à partir du répertoire de `recommandations-service`
 
 ```bash
@@ -131,7 +131,7 @@ GET http://localhost:8081/recommandations?genre=Action`
 ```
   - Qu'observez-vous ? Pourquoi ?
 
-### 2.1. Comparez deux architectures possibles
+### 2.2. Comparez deux architectures possibles
 
 Quels seraient les avantages et les inconvénients des solutions suivantes...
 
@@ -142,7 +142,7 @@ Quels seraient les avantages et les inconvénients des solutions suivantes...
 
 Laquelle des architectures ci-haut correspond à une architecture par microservices ? Pourquoi ?
 
-### 2.2. Implémentez l’algorithme de recommandation
+### 2.3. Implémentez l’algorithme de recommandation
 
 - Dans `DefaultRecommendationEngine`, implémentez `recommend(String genre)` :
   - Récupère la liste du Catalogue,
@@ -150,7 +150,7 @@ Laquelle des architectures ci-haut correspond à une architecture par microservi
   - Retourne le *Top 3* (les 3 films les plus populaires)
 - Que se passe-t-il si le genre est vide ou non fourni ? Proposez un comportement raisonnable et justifiez.
 
-### 2.3. Gérez l’indisponibilité du service de catalogue
+### 2.4. Gérez l’indisponibilité du service de catalogue
 
 Simulez une panne en éteignant le service de catalogue.
 
