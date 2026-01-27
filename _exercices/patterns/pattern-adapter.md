@@ -2,9 +2,9 @@
 layout: default
 title: "Adapter"
 parent: "Patrons de conception"
-nav_order: 2
+nav_order: 3
 has_toc: false
-published: false
+published: true
 ---
 
 # Exercice : J'ai mon Voyage (partie 3) - Adapter
@@ -37,17 +37,13 @@ git clone https://github.com/ophenix-420-930-ma-24636/patrons-agence-voyages.git
 mvn clean package
 java -jar target/patrons-agence-voyages-1.0-SNAPSHOT.jar
 ```
-ou
-```bash
-mvn clean compile exec:java
-```
 ou directement à partir de votre IDE.
 
 Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des itinéraires.
 
 ## Questions
 
-### 1. Analysez la classe CashBox3000
+### 1. Analysez la classe `CashBox3000`
 - Quelles sont les principales différences entre cette classe et la gestion de petite caisse utilisée présentement (`ServicePetiteCaisse`) ?
 - Si vous désirez minimiser les changements dans `GestionnaireAgenceVoyages`, que sera votre cible (*target*) et que sera votre classe adaptée (*adaptee*) dans le contexte d'un *adapter* ?
 
@@ -56,6 +52,13 @@ Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des itinéraire
 - Adaptation par héritage (*class adapter*) ?
    - Quelles étapes devriez-vous réaliser pour utiliser l'adaptation par héritage (*class adapter*) ?
    - Quels seraient les avantages et inconvénients d'utiliser cette variante ?
-- Adaptation par implémentation (*class adapter*) ?
+   - Existe-t-il un scénario où vous n'auriez pas le choix d'utiliser l'adaptation par héritage ?
+- Adaptation par implémentation (*object adapter*) ?
    - Quelles étapes devriez-vous réaliser pour utiliser l'adaptation par héritage (*class adapter*) ?
    - Quels seraient les avantages et inconvénients d'utiliser cette variante ?
+- Implémentez la classe `CashBox3000Adapter` avec la variante de votre choix.
+   - **Attention** : l'adaptateur devra faire fonctionner le `CashBox3000` comme s'il était un `ServicePetiteCaisse` (ou son interface)
+
+### 3. Validez que votre adaptateur fonctionne
+- Utilisez le principe d'inversion de dépendance (***DIP***) pour fournir votre adaptateur à la classe `GestionnaireAgenceVoyages`
+- Lancez l'application et utilisez-la. Est-ce que le code se comporte de la même façon qu'avant ?

@@ -4,7 +4,7 @@ title: "Strategy"
 parent: "Patrons de conception"
 nav_order: 2
 has_toc: false
-published: false
+published: true
 ---
 
 # Exercice : J'ai mon Voyage (partie 2) - Strategy

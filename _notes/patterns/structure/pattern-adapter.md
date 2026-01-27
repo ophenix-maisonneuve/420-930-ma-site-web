@@ -29,7 +29,6 @@ Adapter permet de faire collaborer des interfaces incompatibles en enveloppant (
 ### Diagramme de classes
 Dans l'exemple suivant, on réutilise la célèbre phrase "faire entrer un carré dans un rond", et on démontre que c'est en fait possible si on possède le bon adaptateur.
 
-### Diagramme de classes
 ```mermaid
 classDiagram
 class RoundPeg {
