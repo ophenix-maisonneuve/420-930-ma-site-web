@@ -149,6 +149,7 @@ public class Demo {
 > À noter que cette variante devient fragile ou carrément impossible si la cible est `final`, ou si l’on veut adapter plusieurs Adaptees différentes ; l’object adapter (implémentation + composition) reste alors plus souple, testable et compatible avec l’injection de dépendances. 
 >
 > Le *class adapter* est généralement recommandable lorsque la cible est une classe et que l’adaptateur doit véritablement être un sous‑type concret de cette classe (ex. API existantes qui exigent ce type, accès à des membres protected, génériques, etc). Dans les autres cas — notamment si la cible est une interface ou si l’on recherche flexibilité et testabilité — l’*object adapter* (implémentation + composition) est à privilégier.
+
 ---
 
 
