@@ -43,6 +43,19 @@ mvn clean compile exec:java
 ```
 ou directement à partir de votre IDE.
 
-Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des éléments dans la liste.
+Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des itinéraires.
 
 ## Questions
+
+### 1. Analysez la classe CashBox3000
+- Quelles sont les principales différences entre cette classe et la gestion de petite caisse utilisée présentement (`ServicePetiteCaisse`) ?
+- Si vous désirez minimiser les changements dans `GestionnaireAgenceVoyages`, que sera votre cible (*target*) et que sera votre classe adaptée (*adaptee*) dans le contexte d'un *adapter* ?
+
+
+### 2. Choisissez la variante du patron *adapter*
+- Adaptation par héritage (*class adapter*) ?
+   - Quelles étapes devriez-vous réaliser pour utiliser l'adaptation par héritage (*class adapter*) ?
+   - Quels seraient les avantages et inconvénients d'utiliser cette variante ?
+- Adaptation par implémentation (*class adapter*) ?
+   - Quelles étapes devriez-vous réaliser pour utiliser l'adaptation par héritage (*class adapter*) ?
+   - Quels seraient les avantages et inconvénients d'utiliser cette variante ?
