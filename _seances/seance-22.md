@@ -19,3 +19,7 @@ published: true
    1. [Adapter](../notes/pattern-adapter)
    1. [Exercice - Adapter](../exercices/pattern-adapter)
 
+### Exercice complémentaire
+1. [Exercice Adapter](exercices/pattern-adapter) : Questions 1 à 3 à terminer
+1. [Exercice MVC et microservices](../exercices/pattern-mvc-microservices) : Questions de réflexion
+1. [Exercice Strategy](../exercices/pattern-strategy) : Question de réflexion
