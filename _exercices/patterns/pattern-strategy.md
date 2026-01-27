@@ -64,7 +64,7 @@ Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des itinéraire
 
 ### 3. Étudiez la méthode `main()` de la classe `Launcher`
 - Cette classe respecte-t-elle les principes SOLID ? Pourquoi ?
-   - *La bonne réponse est : pour avoir une question à vous poser dans la section "Questions de réflexion"*
+   - *La bonne réponse est : pour avoir une question à vous poser dans la section "Questions de réflexion"* :)
    - S'il y a des infractions SOLID, où sont-elles ?
 - À quel endroit la langue est-elle sélectionnée ?
 - Pourriez-vous vous servir de cet endroit pour changer dynamiquement la langue en appelant la méthode correspondante du contexte ?
