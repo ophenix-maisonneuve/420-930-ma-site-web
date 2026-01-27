@@ -43,25 +43,35 @@ Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des itinéraire
 
 ## Questions
 
-### 1. Créez l'interface de votre *Strategy*
+### 1. Analysez le code actuel de l'agence de voyages
 - Pour quelle fonctionnalité tente-t-on d'ajouter des comportements différents ? 
 - Quelle classe existante effectue présentement cette fonctionnalité ?
    - *Cette classe pourrait devenir l'une des implémentations de votre **Strategy*** ?
+- Quelle classe existante représente le **contexte** ?
+   - *C'est cette classe qui devra exposer une méthode permettant de définir la stratégie à utiliser*
+
+
+### 2. Créez l'interface de votre *Strategy*
 - Créez une interface nommée `BilletStrategy` qui définit le contrat de votre *Strategy*
 - Faites en sorte que la classe existante implémente maintenant votre nouvelle interface `BilletStrategy` (vous pouvez la renommer au besoin pour que son nom soit cohérent).
+- Ajoutez une méthode au contexte permettant de changer de stratégie dynamiquement.
 - Créez une nouvelle implémentation de `BilletStrategy` qui crée le libellé en anglais dans le format suivant :
-   - *[<code du type de vol>] Ticket from <ville d'origine> to <ville de destination> [<code du type de vol>]*
+```
+[<code du type de vol>] Ticket from <ville d'origine> to <ville de destination> [<code du type de vol>]
+```
 
-### 2. Étudiez la méthode `main()` de la classe `Launcher`
+
+
+### 3. Étudiez la méthode `main()` de la classe `Launcher`
 - Cette classe respecte-t-elle les principes SOLID ? Pourquoi ?
    - *La bonne réponse est : votre enseignant était un peu paresseux pour cette classe "jetable"... :)*
    - S'il y a des infractions SOLID, où sont-elles ?
 - À quel endroit la langue est-elle sélectionnée ?
-- Pourriez-vous vous servir de cet endroit pour changer dynamiquement la langue en vous servant de votre *Strategy* ?
+- Pourriez-vous vous servir de cet endroit pour changer dynamiquement la langue en appelant la méthode correspondante du contexte ?
    - Si oui, implémentez ce changement
    - Sinon, pourquoi ?
 
-### 3. Planifiez les prochaines évolutions
+### 4. Planifiez les prochaines évolutions
 - Lorsque l'agence de voyages voudra ajouter une langue supplémentaire (par exemple l'espagnol), quelles seront les étapes à réaliser ?
 - Hormis la classe `Launcher`, est-ce que le code existant aura à être modifié ? 
 - Quel(s) principe(s) SOLID le patron *Strategy* favorise-t-il ?

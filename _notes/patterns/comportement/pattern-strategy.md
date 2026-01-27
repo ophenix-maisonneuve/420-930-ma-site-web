@@ -7,10 +7,10 @@ published: true
 ---
 
 ## Description
-Strategy définit une famille d’algorithmes, encapsule chacun d’eux et les rend interchangeables au sein du contexte qui les utilise.
+Strategy définit une famille d’algorithmes, encapsule chacun d’eux et les rend interchangeables au sein du contexte qui les utilise. Les différents comportements sont interchangeables dynamiquement, c'est-à-dire que l'on ne doit pas avoir à redémarrer l'application pour changer de comportement.
 
 ## Quand l'utiliser ?
-- Lorsque vous avez plusieurs variantes d’un comportement et souhaitez les permuter dynamiquement.
+- Il existe plusieurs variantes d’un comportement et que l'on désire les permuter dynamiquement.
 - Pour éviter des instructions conditionnelles complexes dispersées.
 
 ## Avantages
@@ -19,7 +19,10 @@ Strategy définit une famille d’algorithmes, encapsule chacun d’eux et les r
 
 ## Inconvénients
 - Augmente le nombre de classes.
-- Le client doit connaître les stratégies disponibles.
+- Le client doit connaître les stratégies disponibles afin de les fournir au contexte.
+
+{: .highlight}
+> Dans la plupart des ouvrages sur le patron *Strategy*, on n'a qu'une seule méthode dans l'interface de la stratégie. Il ne s'agit pas d'une obligation; une stratégie pourrait en théorie avoir plusieurs méthodes. Il faut cependant s'assurer que ces méthodes sont intimement liées (voire indissociables), de façon à préserver l'esprit du patron *Strategy*, qui préconise des algorithmes simples.
 
 ---
 
