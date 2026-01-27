@@ -23,8 +23,8 @@ Vous pouvez choisir l'un des patrons de conception suivants:
 
 ### Patrons structurels
 - Adapter (*Olivier - 27 janvier*)
-- Decorator (*Sonia C., Sonia M., Asma, Marina*)
-- Facade (*Samuel, Sebastien, Mohamed, Saad*)
+- Decorator (*Sonia C., Sonia M., Asma, Marina - **10 février 2/2***)
+- Facade (*Samuel, Sebastien, Mohamed, Saad - **9 février 2/2***)
 - Composite
 
 ### Patrons comportementaux
@@ -34,9 +34,9 @@ Vous pouvez choisir l'un des patrons de conception suivants:
 - Command
 
 ### Patrons de création
-- Factory method (*Alexandrine, Dominic, Alexandre*)
+- Factory method (*Alexandrine, Dominic, Alexandre **10 février 1/2***)
 - Abstract factory
-- Singleton (*Théo, Maxime, Simon*)
+- Singleton (*Théo, Maxime, Simon - **9 février 1/2***)
 - Builder
 
 
