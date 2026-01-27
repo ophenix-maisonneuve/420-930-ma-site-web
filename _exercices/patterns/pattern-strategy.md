@@ -46,7 +46,7 @@ Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des itinéraire
 ### 1. Analysez le code actuel de l'agence de voyages
 - Pour quelle fonctionnalité tente-t-on d'ajouter des comportements différents ? 
 - Quelle classe existante effectue présentement cette fonctionnalité ?
-   - *Cette classe pourrait devenir l'une des implémentations de votre **Strategy*** ?
+   - *Cette classe pourrait devenir l'une des implémentations de votre **Strategy*** 
 - Quelle classe existante représente le **contexte** ?
    - *C'est cette classe qui devra exposer une méthode permettant de définir la stratégie à utiliser*
 
@@ -64,7 +64,7 @@ Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des itinéraire
 
 ### 3. Étudiez la méthode `main()` de la classe `Launcher`
 - Cette classe respecte-t-elle les principes SOLID ? Pourquoi ?
-   - *La bonne réponse est : votre enseignant était un peu paresseux pour cette classe "jetable"... :)*
+   - *La bonne réponse est : pour avoir une question à vous poser dans la section "Questions de réflexion"*
    - S'il y a des infractions SOLID, où sont-elles ?
 - À quel endroit la langue est-elle sélectionnée ?
 - Pourriez-vous vous servir de cet endroit pour changer dynamiquement la langue en appelant la méthode correspondante du contexte ?
@@ -75,3 +75,7 @@ Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des itinéraire
 - Lorsque l'agence de voyages voudra ajouter une langue supplémentaire (par exemple l'espagnol), quelles seront les étapes à réaliser ?
 - Hormis la classe `Launcher`, est-ce que le code existant aura à être modifié ? 
 - Quel(s) principe(s) SOLID le patron *Strategy* favorise-t-il ?
+
+
+### Question de réflexion
+- Si on voulait un meilleur design de la classe `Launcher` pour éviter d'enfreindre le **OCP**, que pourrait-on faire ?
