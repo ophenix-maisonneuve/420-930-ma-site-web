@@ -17,5 +17,5 @@ published: true
    1. [Strategy](../notes/pattern-strategy)
    1. [Exercice - Strategy](../exercices/pattern-strategy)
    1. [Adapter](../notes/pattern-adapter)
-   1. [Exercice - Strategy](../exercices/pattern-adapter)
+   1. [Exercice - Adapter](../exercices/pattern-adapter)
 
