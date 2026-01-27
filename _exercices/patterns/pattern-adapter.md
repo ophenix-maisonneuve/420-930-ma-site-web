@@ -54,7 +54,7 @@ Familiarisez-vous avec le menu, qui vous permet déjà d'ajouter des itinéraire
    - Quels seraient les avantages et inconvénients d'utiliser cette variante ?
    - Existe-t-il un scénario où vous n'auriez pas le choix d'utiliser l'adaptation par héritage ?
 - Adaptation par implémentation (*object adapter*) ?
-   - Quelles étapes devriez-vous réaliser pour utiliser l'adaptation par héritage (*class adapter*) ?
+   - Quelles étapes devriez-vous réaliser pour utiliser l'adaptation par héritage (*object adapter*) ?
    - Quels seraient les avantages et inconvénients d'utiliser cette variante ?
 - Implémentez la classe `CashBox3000Adapter` avec la variante de votre choix.
    - **Attention** : l'adaptateur devra faire fonctionner le `CashBox3000` comme s'il était un `ServicePetiteCaisse` (ou son interface)
