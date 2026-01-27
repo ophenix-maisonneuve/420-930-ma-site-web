@@ -11,7 +11,7 @@ Strategy définit une famille d’algorithmes, encapsule chacun d’eux et les r
 
 ## Quand l'utiliser ?
 - Il existe plusieurs variantes d’un comportement et que l'on désire les permuter dynamiquement.
-- Pour éviter des instructions conditionnelles complexes dispersées.
+- Pour éviter des instructions conditionnelles complexes dispersées (`if/else` ou `switch` sur un critère pour définir un comportement précis).
 
 ## Avantages
 - Substitution dynamique des comportements (pendant l'exécution).
