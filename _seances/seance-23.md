@@ -2,7 +2,7 @@
 layout: default
 title: "2026-02-02"
 nav_order: 23
-published: false
+published: true
 ---
 
 # Séance 23: Patrons mystères...
