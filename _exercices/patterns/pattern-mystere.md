@@ -4,7 +4,7 @@ title: "L'attaque des zombies"
 parent: "Patrons de conception"
 nav_order: 4
 has_toc: false
-published: false
+published: true
 ---
 
 # Exercice : L'attaque des zombies!
