@@ -9,7 +9,7 @@ published: true
 
 # Exercice : L'attaque des zombies!
 
-2034. Un mystérieux virus a complètement ravagé la planète et transformé la quasi-totalité de l'humanité en zombies. Les humains du monde entier ayant résisté à l'infection ont convergé vers la dernière forteresse connue : la grande forteresse de La Prairie, Québec, Canada
+Nous sommes en 2034. Un mystérieux virus a complètement ravagé la planète et transformé la quasi-totalité de l'humanité en zombies. Les humains du monde entier ayant résisté à l'infection ont convergé vers la dernière forteresse connue : la grande forteresse de La Prairie, Québec, Canada
 
 
 ## Étapes préparatoires
