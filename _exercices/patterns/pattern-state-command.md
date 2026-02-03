@@ -4,7 +4,7 @@ title: "State et Command"
 parent: "Patrons de conception"
 nav_order: 5
 has_toc: false
-published: false
+published: true
 ---
 
 # Exercice : Machine distributrice : Patrons *State* et *Command*
@@ -74,9 +74,9 @@ Chaque état :
 - appelle l'API publique de `MachineDistributrice` (`insertion`, `choixProduit`, etc.)
 - appelle les services utilitaires si nécessaire (`debiterSoldePour`, `debiterStock`, `rendreMonnaie`),  
 - peut mettre à jour le message (`setDernierMessage`),  
-- change d’état quand cela a du sens (ex. vers `Distribution` puis retour vers `EnAttentePaiement`).
+- change d’état quand cela a du sens (ex. `Pret` -> `ProduitChoisi` lorsque l'utilisateur a fait un choix).
 
-De plus, l'état `ChoixProduit` doit s'assurer que les conditions sont remplies avant de permettre une distribution.
+De plus, l'état `ProduitChoisi` doit s'assurer que les conditions sont remplies avant de permettre une distribution.
 
 ### A3. Reliez la classe de départ à vos états
 Ajoutez dans la classe `MachineDistributrice` :
@@ -98,6 +98,13 @@ protected void onDemandeDistribution() {
     this.etatCourant.onDemandeDistribution(this);
 }
 ```
+
+### A4. Validez votre implémentation
+Utilisez la classe `Launcher` fournie pour tester votre implémentation. Vous pouvez notamment tester :
+- Les transitions entre vos différents états
+- La validation des conditions pour effectuer la distribution
+- Différentes configurations d'items (item en rupture de stock, différents prix, etc)
+
 
 ---
 
@@ -136,14 +143,21 @@ Dans `PanneauControle.configurerCommandes`, assignez les bonnes implémentations
     });
 ```
 
+### B4. Validez votre implémentation
+Utilisez la classe `Launcher` fournie pour tester votre implémentation. Vous pouvez notamment tester :
+- Les assignations dynamiques de vos commandes selon les changements causés par les comandes précédentes
+- La validation des conditions pour effectuer la distribution
+- Différentes configurations d'items (item en rupture de stock, différents prix, etc)
+
 ---
 
-## Questions de réflexion
+## Questions pour la discussion
 
 1. Où réside la variabilité dans chacune des solutions ?  
-2. Quel patron vous semble le plus simple à faire évoluer (nouveau mode vs nouvelle action) ?  
-3. Comment respecter au mieux ***OCP*** et ***SRP*** dans votre version ?  
-4. Quelles faiblesses potentielles voyez‑vous dans chacune des approches ?
+1. Quel patron vous semble le plus simple à faire évoluer (nouveau mode vs nouvelle action) ?  
+1. Quelles faiblesses potentielles voyez‑vous dans chacune des approches ?
+1. Si on désire ajouter un mécanisme de remboursement (par exemple, si un item reste "pris" dans la machine), quelle approche serait préférable ?
+1. Si on désire ajouter des restrictions plus strictes quant aux actions permises selon l'état (par exemple, impossible d'annuler si la distribution est déjà commencée), quelle approche serait préférable ?
 
 ---
 
