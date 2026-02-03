@@ -72,7 +72,7 @@ Créez une implémentation d'état par état possible :
 - `Distribution` : Lorsque le produit est en cours de distribution
 
 Chaque état :  
-- appelle l'API publique de `MachineDistributrice` (`insertion`, `choixProduit`, etc.)
+- se fait potentiellement appeler via l'API publique de `MachineDistributrice` (`insertion`, `choixProduit`, etc.)
 - appelle les services utilitaires si nécessaire (`debiterSoldePour`, `debiterStock`, `rendreMonnaie`),  
 - peut mettre à jour le message (`setDernierMessage`),  
 - change d’état quand cela a du sens (ex. `Pret` -> `ProduitChoisi` lorsque l'utilisateur a fait un choix).
