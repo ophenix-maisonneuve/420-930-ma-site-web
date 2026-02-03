@@ -24,6 +24,7 @@ Les conditions suivantes doivent être respectées :
 - La distribution doit être permise seulement si le solde est suffisant ET si le produit est en stock.
 - Si une distribution est demandée alors que le solde est insuffisant OU que le produit n'est pas en stock, un message d'erreur doit s'afficher et la distribution doit être bloquée.
 - L'annulation est permise à tout moment avant la distribution.
+
 ---
 
 ## Objectifs
