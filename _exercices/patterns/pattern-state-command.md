@@ -9,11 +9,11 @@ published: false
 
 # Exercice : Machine distributrice : Patrons *State* et *Command*
 
-Cette fois, c'est assez : la machine distributrice du campus vous a encore volé 2$! Vous décidez d'écrire à la compagnie qui fabrique cette machine distributrice afin de leur enseigner comment ils auraient dû programmer leur machine afin qu'elle cesse de voler l'argent des étudiants (à moins que ce soit fait exprès... c'est un complot!)
+Cette fois, c'est assez : la machine distributrice du campus vous a encore volé 2$! Vous décidez d'écrire à la compagnie qui fabrique cette machine distributrice afin de leur enseigner comment ils auraient dû la programmer afin qu'elle cesse de voler l'argent des étudiants (à moins que ce soit fait exprès... c'est un complot!)
 
 Après avoir analysé la machine, vous constatez le fonctionnement suivant: 
 
-Selon l'état de la machine (paiement, choix, distribution, panne), les boutons ne produisent pas les mêmes actions 
+Selon la prochaine action attendue de l'utilisateur (paiement, choix, distribution, etc), la machine change d'état. Selon l'état de la machine, les boutons ne produisent pas les mêmes actions 
 Votre mandat : **la moitié du groupe** implémente la solution avec **State**, **l’autre moitié** avec **Command**. Les deux versions doivent passer **les mêmes scénarios d’acceptation**.
 
 ---
@@ -29,8 +29,8 @@ Votre mandat : **la moitié du groupe** implémente la solution avec **State**, 
 ## Contexte
 
 Vous partez d’une classe Java (ci‑dessous) : elle ne vous force ni particulièrement vers *State* ni particulièrement vers *Command*.  
-- **Option A — State** : encapsulez les **modes** de la machine (EnAttentePaiement, PaiementValidé, etc.).  
-- **Option B — Command** : encapsulez les **actions** des boutons (ChoisirProduit, Distribuer, Annuler…), et réassignez dynamiquement ces commandes selon le contexte.
+- **Option A — State** : encapsulez les **états** de la machine (EnAttentePaiement, PaiementValidé, etc.).  
+- **Option B — Command** : encapsulez les **actions** des boutons (ChoisirProduit, Distribuer, Annuler, etc.), et réassignez dynamiquement ces commandes selon le contexte.
 
 ---
 
@@ -116,7 +116,7 @@ public interface Commande {
     void executer(MachineDistributrice m);
 }
 ```
-Éventuellement des sous‑types paramétrés :
+Créez les implémentations de commandes :
 - `CommandeChoisirProduit(String code)`
 - `CommandeDistribuer()`
 - `CommandeAnnuler()`
@@ -128,7 +128,7 @@ public interface Commande {
 
 ### B3. Reliez la classe de départ à vos commandes
 Créez une sous‑classe `MachineDistributriceCommand` qui :
-- déclare des **emplacements** pour les commandes actives (par ex. `commandeChoix`, `commandeDistribuer`, `commandeAnnuler`),  
+- déclare des champs privés pour la commande associée à chaque bouton (par ex. `commandeChoix`, `commandeDistribuer`, `commandeAnnuler`),  
 - redirige les hooks vers les commandes, par exemple :
 ```java
 @Override
@@ -167,12 +167,10 @@ protected void onDemandeDistribution() {
 
 ## Questions de réflexion
 
-1. Où réside **la variabilité** dans votre solution ?  
-   - *State* : dans les **modes**.  
-   - *Command* : dans les **actions** configurées par les boutons.  
-2. Quel patron vous semble **le plus simple à faire évoluer** (nouveau mode vs nouvelle action) ?  
-3. Comment respecter au mieux **OCP** et **SRP** dans votre version ?  
-4. Quelles **faiblesses** potentielles voyez‑vous dans l’autre approche ?
+1. Où réside la variabilité dans chacune des solutions ?  
+2. Quel patron vous semble le plus simple à faire évoluer (nouveau mode vs nouvelle action) ?  
+3. Comment respecter au mieux ***OCP*** et ***SRP*** dans votre version ?  
+4. Quelles faiblesses potentielles voyez‑vous dans chacune des approches ?
 
 ---
 
@@ -183,8 +181,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MachineDistributrice {
-
-    // Données "métier" minimales et neutres
+s
     private int soldeCents;
     private String dernierMessage;
     private Map<String, Integer> stock;     // codeProduit -> quantité
@@ -230,20 +227,20 @@ public class MachineDistributrice {
         this.onDemandeDistribution();
     }
 
-    // --- Hooks "neutres" à rediriger dans vos solutions ---
+    // --- "Hooks" à rediriger dans vos solutions ---
     protected void onChoixProduit(String codeProduit) {
-        // Intention: point d'extension pour State/Command.
+        // point d'extension pour State/Command.
     }
 
     protected void onAnnulation() {
-        // Intention: point d'extension pour State/Command.
+        // point d'extension pour State/Command.
     }
 
     protected void onDemandeDistribution() {
-        // Intention: point d'extension pour State/Command.
+        // point d'extension pour State/Command.
     }
 
-    // --- Services utilitaires communs (réutilisables par vos patrons) ---
+    // --- Méthodes utilitaires communes (réutilisables par vos patrons) ---
     public boolean produitDisponible(String codeProduit) {
         Integer qte = this.stock.get(codeProduit);
         if (qte == null) {
