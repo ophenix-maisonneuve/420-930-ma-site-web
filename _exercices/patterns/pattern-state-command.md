@@ -11,82 +11,78 @@ published: false
 
 Cette fois, c'est assez : la machine distributrice du campus vous a encore volé 2$! Vous décidez d'écrire à la compagnie qui fabrique cette machine distributrice afin de leur enseigner comment ils auraient dû la programmer afin qu'elle cesse de voler l'argent des étudiants (à moins que ce soit fait exprès... c'est un complot!)
 
-Après avoir analysé la machine, vous constatez le fonctionnement suivant: 
+Après avoir analysé la machine, vous constatez les éléments suivants :
 
-Selon la prochaine action attendue de l'utilisateur (paiement, choix, distribution, etc), la machine change d'état. Selon l'état de la machine, les boutons ne produisent pas les mêmes actions 
-Votre mandat : **la moitié du groupe** implémente la solution avec **State**, **l’autre moitié** avec **Command**. Les deux versions doivent passer **les mêmes scénarios d’acceptation**.
+- 4 boutons
+   - Insérer : ajoute des crédits à partir d'une carte de crédit ou d'une carte de points par incréments de 1$ (100 crédits)
+   - Choisir : sélectionne un produit en passant son code de produit
+   - Distribuer : officialise l'achat, distribue le produit, décrémente les stocks de la machine, débite le solde de l'utilisateur et retourne les crédits en trop à l'utilisateur
+   - Annuler : annule la sélection et retourne les crédits à l'utilisateur
+- Un petit écran LCD où le dernier message généré par la machine est affiché à l'utilisateur (messages de statut ou d'erreurs, par exemple).
 
+Les conditions suivantes doivent être respectées :
+- La distribution doit être permise seulement si le solde est suffisant ET si le produit est en stock.
+- Si une distribution est demandée alors que le solde est insuffisant OU que le produit n'est pas en stock, un message d'erreur doit s'afficher et la distribution doit être bloquée.
+- L'annulation est permise à tout moment avant la distribution.
 ---
 
 ## Objectifs
 
-- Comprendre et appliquer les patrons **State** *et* **Command** dans un contexte réaliste.  
-- Reconnaître **où placer la variabilité** : *dans les états* (State) vs *dans les actions* (Command).  
+- Comprendre et appliquer les patrons ***State*** et ***Command*** dans un contexte réaliste.  
+- Reconnaître où placer la variabilité : dans les états (*State*) ou dans les actions (*Command*).  
 - Comparer les avantages/inconvénients de chaque approche sur un même problème.
 
 ---
 
 ## Contexte
 
-Vous partez d’une classe Java (ci‑dessous) : elle ne vous force ni particulièrement vers *State* ni particulièrement vers *Command*.  
-- **Option A — State** : encapsulez les **états** de la machine (EnAttentePaiement, PaiementValidé, etc.).  
-- **Option B — Command** : encapsulez les **actions** des boutons (ChoisirProduit, Distribuer, Annuler, etc.), et réassignez dynamiquement ces commandes selon le contexte.
+Vous partez d’un squelette de code Java (voir ci-dessous). 
+- **Option A — State** : encapsulez les **états** de la machine (EnAttentePaiement, PaiementValidé, etc.), et gérez les conditions selon l'état actuel.
+- **Option B — Command** : encapsulez les **actions** des boutons (ChoisirProduit, Distribuer, Annuler, etc.), et réassignez les commandes pour respecter les conditions. 
 
 ---
 
 ## Étapes préparatoires
 
-### 1. Créez votre projet Java
-- Projet Maven/Gradle ou projet simple dans votre IDE favori.  
-- Version Java : 25 (ou celle utilisée en cours).
+### 1. Clonez le dépôt de l'exercice
 
-### 2. Copiez la classe de départ (ci‑dessous)
-- Placez‑la dans votre projet (`src/main/java/...`).  
-- Vous pouvez créer une sous‑classe selon vos besoins (voir Options A/B).
-
-### 3. Configurez un mini catalogue (pour tester)
-- Définissez au moins un produit, son prix et un stock positif.  
-- Testez les boutons : insertion, choix, annulation, demande de distribution.
+```bash
+git clone git@github.com:ophenix-420-930-ma-24636/patrons-machine-distributrice.git
+```
+ou
+```bash
+git clone https://github.com/ophenix-420-930-ma-24636/patrons-machine-distributrice.git
+```
 
 ---
 
-## Scénarios d’acceptation (exemples)
-1. Insertion 100 → Choix “Café” (prix 150) → Message: “Crédit insuffisant”.  
-2. Insertion 100 → Insertion 50 → Choix “Café” → Distribuer → *stock décrémenté* et *solde débité*.  
-3. Insertion 200 → Annuler → *rendu 200*, retour à l’état initial.  
-4. Produit en rupture → message d’erreur adapté, sans débiter.
-
 ## Option A — Implémentation *State*
 
-**Intention** : le **comportement** de la machine varie selon son **état interne**.
+Le comportement de la machine varie selon son état interne.
 
-### A1. Créez l’interface d’état
-Définissez une interface `EtatMachine` contenant les mêmes événements que les *hooks* :
-```java
-public interface EtatMachine {
-    void onChoixProduit(MachineDistributrice m, String codeProduit);
-    void onAnnulation(MachineDistributrice m);
-    void onDemandeDistribution(MachineDistributrice m);
-}
-```
+### A1. Analysez le code fourni
+- Selon le patron `State`, quelle classe représente le **Contexte** ?
+- En observant l'interface `State`, quelles sont les transitions possibles entre les états ?
 
 ### A2. Implémentez les états concrets
-- `EnAttentePaiement`
-- `PaiementValide`
-- `ChoixProduit`
-- `Distribution`
-- `HorsService` (optionnel mais utile)
+Créez une implémentation d'état par état possible :
+- `Pret` : Lorsque la machine est prête à accepter un nouveau choix
+- `ProduitChoisi` : Lorsqu'un choix a été fait par l'utilisateur
+- `Distribution` : Lorsque le produit est en cours de distribution
 
-Chaque état :
-- vérifie les préconditions (`prixAtteint`, `produitDisponible`),  
+Chaque état :  
+- appelle l'API publique de `MachineDistributrice` (`insertion`, `choixProduit`, etc.)
 - appelle les services utilitaires si nécessaire (`debiterSoldePour`, `debiterStock`, `rendreMonnaie`),  
 - peut mettre à jour le message (`setDernierMessage`),  
 - change d’état quand cela a du sens (ex. vers `Distribution` puis retour vers `EnAttentePaiement`).
 
+De plus, l'état `ChoixProduit` doit s'assurer que les conditions sont remplies avant de permettre une distribution.
+
 ### A3. Reliez la classe de départ à vos états
-Créez une **sous‑classe** de `MachineDistributrice` (ex. `MachineDistributriceState`) contenant :
-- un champ `private EtatMachine etatCourant;`
-- un constructeur qui assigne l’état initial (`EnAttentePaiement`)
+Ajoutez dans la classe `MachineDistributrice` :
+- un champ `private State etatCourant;`
+- un constructeur qui assigne l’état initial (`Pret`)
+- des méthodes de transition (ex. `setEtat(State nouvelEtat)`).
 - des redirections des hooks, par exemple :
 ```java
 @Override
@@ -102,66 +98,43 @@ protected void onDemandeDistribution() {
     this.etatCourant.onDemandeDistribution(this);
 }
 ```
-- des **méthodes de transition** (ex. `setEtat(EtatMachine nouvelEtat)`).
 
 ---
 
 ## Option B — Implémentation *Command*
 
-**Intention** : les **actions** des boutons sont encapsulées dans des **Commandes** réassignables.
+Le comportement des boutons est encapsulé dans des **Commandes** réassignables.
 
-### B1. Créez l’interface Commande
-```java
-public interface Commande {
-    void executer(MachineDistributrice m);
-}
-```
-Créez les implémentations de commandes :
+### B1. Analysez le code fourni
+- Selon le patron `Command`, quelle classe représente le ***Invoker*** (ou ***Sender***) ?
+- Quelle classe assigne les actions à l'***Invoker*** ?
+   - Sur quels critères les actions sont elles (ré-)assignées ?
+- Selon le patron `Command`, quelle classe représente le ***Receiver*** ?
+
+
+### B2. Implémentations de commandes
+Créez les implémentations de commandes manquantes (`CommandeMessage` a déjà été implémentée):
 - `CommandeChoisirProduit(String code)`
 - `CommandeDistribuer()`
 - `CommandeAnnuler()`
-- `CommandeInsertion(int montant)`
+- `CommandeInsertion()`
 
-### B2. Implémentations de commandes
-- **Commandes “réelles”** : débitent solde/stock, distribuent, rendent monnaie, etc.  
-- **Commandes “neutres”** : affichent un message si l’action n’est pas autorisée (“Insérez d’abord de l’argent”, “Choix invalide”, etc.).
+*N'oubliez pas que, selon le patron **Command**, la commande doit être construite avec le **Receiver** en paramètre de façon à garder sa référence*
+
+Chaque commande :  
+- appelle l'API publique de `MachineDistributrice` (`insertion`, `choixProduit`, etc.)
+- appelle les services utilitaires si nécessaire (`debiterSoldePour`, `debiterStock`, `rendreMonnaie`),  
+- peut mettre à jour le message (`setDernierMessage`),  
 
 ### B3. Reliez la classe de départ à vos commandes
-Créez une sous‑classe `MachineDistributriceCommand` qui :
-- déclare des champs privés pour la commande associée à chaque bouton (par ex. `commandeChoix`, `commandeDistribuer`, `commandeAnnuler`),  
-- redirige les hooks vers les commandes, par exemple :
+Dans `PanneauControle.configurerCommandes`, assignez les bonnes implémentations de commandes aux boutons en validant les conditions lorsque nécessaire. Par exemple, le bouton **Distribuer** ne devra débloquer la commande `CommandeDistribuer` que si l'item choisi est en stock ET que le solde est suffisant. Sinon, il devra utiliser une `CommandeMessage` pour afficher un message d'erreur à l'utilisateur.
+
 ```java
-@Override
-protected void onChoixProduit(String code) {
-    if (this.commandeChoix != null) {
-        // si vous optez pour une commande paramétrable
-        // this.commandeChoix.setCode(code);
-        this.commandeChoix.executer(this);
-    }
-}
-@Override
-protected void onAnnulation() {
-    if (this.commandeAnnuler != null) {
-        this.commandeAnnuler.executer(this);
-    }
-}
-@Override
-protected void onDemandeDistribution() {
-    if (this.commandeDistribuer != null) {
-        this.commandeDistribuer.executer(this);
-    }
-}
+    this.boutonDistribuer.setAction(() -> {
+        // TODO ici, on doit s'assurer que les conditions sont respectées avant de permettre au bouton "Distribuer" de lancer l'action effectuant la distribution
+        configurerCommandes(machine);
+    });
 ```
-- réassigne dynamiquement les commandes en fonction du contexte (solde, choix courant, disponibilité du produit, mode maintenance, etc.).  
-  Exemple : tant que le prix n’est pas atteint, `commandeDistribuer` pointe vers une **CommandeMessage** (“Crédit insuffisant”). Une fois le prix atteint, elle pointe vers **CommandeDistribuer**.
-
----
-
-## Critères de réussite (pour les deux options)
-
-- Les scénarios d’acceptation s'exécutent correctement (distribution, annulation, ruptures, crédits).  
-- Aucune cascade de `if/switch` géante : la variabilité est portée par les **états** ou par les **commandes**.  
-- Code clair, cohérent avec le patron choisi, et respectant les principes SOLID.  
 
 ---
 
@@ -174,168 +147,4 @@ protected void onDemandeDistribution() {
 
 ---
 
-## Classe Java de départ
-
-```java
-import java.util.HashMap;
-import java.util.Map;
-
-public class MachineDistributrice {
-s
-    private int soldeCents;
-    private String dernierMessage;
-    private Map<String, Integer> stock;     // codeProduit -> quantité
-    private Map<String, Integer> prixCents; // codeProduit -> prix en cents
-
-    public MachineDistributrice() {
-        this.soldeCents = 0;
-        this.dernierMessage = "";
-        this.stock = new HashMap<String, Integer>();
-        this.prixCents = new HashMap<String, Integer>();
-    }
-
-    // --- API "neutre" : événements/boutons ---
-    public void appuyerBoutonInsertion(int montantCents) {
-        if (montantCents > 0) {
-            this.soldeCents = this.soldeCents + montantCents;
-            this.setDernierMessage("Crédit: " + this.soldeCents + " cents");
-        } else {
-            this.setDernierMessage("Montant invalide");
-        }
-        // STATE: l'état pourra décider d'une transition ici.
-        // COMMAND: ce bouton pourrait déléguer à une Commande d'insertion.
-    }
-
-    public void appuyerBoutonChoix(String codeProduit) {
-        this.setDernierMessage("Choix demandé: " + codeProduit);
-        this.onChoixProduit(codeProduit);
-    }
-
-    public void appuyerBoutonAnnuler() {
-        if (this.soldeCents > 0) {
-            int rendu = this.soldeCents;
-            this.soldeCents = 0;
-            this.setDernierMessage("Annulé. Rendu: " + rendu + " cents");
-        } else {
-            this.setDernierMessage("Rien à annuler");
-        }
-        this.onAnnulation();
-    }
-
-    public void appuyerBoutonDistribuer() {
-        this.setDernierMessage("Demande de distribution");
-        this.onDemandeDistribution();
-    }
-
-    // --- "Hooks" à rediriger dans vos solutions ---
-    protected void onChoixProduit(String codeProduit) {
-        // point d'extension pour State/Command.
-    }
-
-    protected void onAnnulation() {
-        // point d'extension pour State/Command.
-    }
-
-    protected void onDemandeDistribution() {
-        // point d'extension pour State/Command.
-    }
-
-    // --- Méthodes utilitaires communes (réutilisables par vos patrons) ---
-    public boolean produitDisponible(String codeProduit) {
-        Integer qte = this.stock.get(codeProduit);
-        if (qte == null) {
-            return false;
-        }
-        return qte > 0;
-    }
-
-    public boolean prixAtteint(String codeProduit) {
-        Integer prix = this.prixCents.get(codeProduit);
-        if (prix == null) {
-            return false;
-        }
-        return this.soldeCents >= prix;
-    }
-
-    public boolean debiterStock(String codeProduit) {
-        Integer qte = this.stock.get(codeProduit);
-        if (qte == null) {
-            return false;
-        }
-        if (qte <= 0) {
-            return false;
-        }
-        this.stock.put(codeProduit, qte - 1);
-        return true;
-    }
-
-    public boolean debiterSoldePour(String codeProduit) {
-        Integer prix = this.prixCents.get(codeProduit);
-        if (prix == null) {
-            return false;
-        }
-        if (this.soldeCents < prix) {
-            return false;
-        }
-        this.soldeCents = this.soldeCents - prix;
-        return true;
-    }
-
-    public void rendreMonnaie() {
-        if (this.soldeCents > 0) {
-            int rendu = this.soldeCents;
-            this.soldeCents = 0;
-            this.setDernierMessage("Monnaie rendue: " + rendu + " cents");
-        } else {
-            this.setDernierMessage("Aucune monnaie à rendre");
-        }
-    }
-
-    // --- Gestion du catalogue (pour config de tests) ---
-    public void definirPrix(String codeProduit, int prixEnCents) {
-        if (codeProduit != null && prixEnCents >= 0) {
-            this.prixCents.put(codeProduit, prixEnCents);
-        }
-    }
-
-    public void definirStock(String codeProduit, int quantite) {
-        if (codeProduit != null && quantite >= 0) {
-            this.stock.put(codeProduit, quantite);
-        }
-    }
-
-    // --- Afficheur & accès aux données ---
-    public String getDernierMessage() {
-        return this.dernierMessage;
-    }
-
-    public void setDernierMessage(String message) {
-        if (message != null) {
-            this.dernierMessage = message;
-        }
-    }
-
-    public int getSoldeCents() {
-        return this.soldeCents;
-    }
-
-    public Map<String, Integer> getStockSnapshot() {
-        return new HashMap<String, Integer>(this.stock);
-    }
-
-    public Map<String, Integer> getPrixSnapshot() {
-        return new HashMap<String, Integer>(this.prixCents);
-    }
-}
-```
-
-----
-
-## Pistes d'amélioration (facultatif)
-
-- **Command** : ajoutez un **historique** et implémentez “Annuler” (si pertinent).  
-- **State** : ajoutez un **mode Maintenance** ou **HorsService** propre.  
-- **Observer** : branchez une **tour de contrôle** (capteur externe) qui notifie la machine, pour déclencher un changement de mode ou de mapping de commandes.
-
----
 
