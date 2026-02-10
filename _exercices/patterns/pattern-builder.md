@@ -89,7 +89,7 @@ Horreur! On vous demande maintenant d'ajouter des options permettant aux clients
    - Créez un nouveau constructeur **privé** qui ne prend que le `Builder` en paramètre.
    - Dans ce constructeur, assignez les valeurs des champs du `Builder` aux champs correspondants de la classe `Cafe`
 
-- Dans la classe `Demo`
+- Dans la méthode `main`
    - Utilisez votre `Builder` pour construire l'objet plutôt que les constructeurs qui avaient été créés précédemment.
 
 
