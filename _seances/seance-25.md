@@ -12,6 +12,6 @@ published: true
 ### Ordre du jour
 
 1. Présentation : [Singleton](../notes/pattern-singleton)
-1. Présentation : [Command](../notes/pattern-facade)
+1. Présentation : [Facade](../notes/pattern-facade)
 
 
