@@ -2,7 +2,7 @@
 layout: default
 title: "2026-02-10"
 nav_order: 26
-published: false
+published: true
 ---
 
 # Séance 26: Builder et Decorator
