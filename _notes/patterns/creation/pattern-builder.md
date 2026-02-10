@@ -10,38 +10,32 @@ published: true
 ## Description
 Builder est un patron de création qui permet de construire des objets complexes étape par étape, tout en séparant clairement la construction de la représentation finale. Contrairement à d’autres patrons de création, Builder vise surtout à **éviter les constructeurs à rallonge** et à rendre le processus de création plus clair, flexible et lisible.
 
-Le rôle du Builder est donc d'encapsuler la configuration d'un objet complexe en proposant une interface simple pour en assembler les parties.
+Le patron Builder sépare la construction d’un objet de sa représentation et rend explicite l’enchaînement des étapes. En Java et la plupart des langages modernes, on l’implémente fréquemment via un builder imbriqué pour créer des objets immuables tout en centralisant les validations au moment de build().
 
-{: .highlight}
-La classe *Director* est parfois présentée dans les versions classiques du patron Builder (notamment dans le livre *Design Patterns* du GoF). Elle sert à orchestrer automatiquement les étapes de construction. **Elle n’est pas obligatoire** et n’est pas utilisée dans cette version moderne du patron, où le *client* contrôle lui-même les étapes.
 
 ## Quand l'utiliser ?
 - Lorsque la création d’un objet nécessite **de nombreuses options** ou paramètres.
 - Lorsque vous voulez éviter plusieurs constructeurs surchargés (*constructor telescoping*).
 - Lorsque vous voulez rendre la construction d’objet **plus lisible** et progressive.
 - Lorsque certaines étapes sont facultatives ou qu’un ordre spécifique n’est pas strictement requis.
+- Particulièrement utile lorsque l'objet résultant est **immuable**.
 
 ## Avantages
 - Le code client devient plus lisible et intuitif, surtout avec une interface *fluent*.
 - Les objets complexes peuvent être construits sans exposer leur logique interne.
 - Facilite l’ajout de nouveaux paramètres de construction sans casser l’existant.
 - Évite les constructeurs surchargés et difficiles à maintenir.
+- Centralise les validations et garantit des invariants à la construction.
 
 ## Inconvénients
 - Nécessite une classe Builder supplémentaire.
 - Peut être excessif pour des objets très simples.
-- Le client doit appeler manuellement les étapes (ceci peut être mitigé par l'utilisation optionnelle d'un *Director*).
+- Le client doit appeler manuellement les étapes
 
 ## Exemple
 
 {: .highlight}
-> Dans la version *classique* du patron Builder (telle que décrite par le *Gang of Four*), la méthode `getResult()` n’apparaît pas dans l’interface `Builder`. Elle est uniquement définie dans les *builders concrets*.  
->
-> La raison est historique : en 1994, les langages ciblés (C++, Smalltalk…) ne permettaient pas d’exprimer facilement une méthode de retour typée dans une interface commune. Chaque builder pouvait produire un type de produit différent, ce qui empêchait de déclarer proprement `getResult()` au niveau abstrait.
->
-> En Java (et dans plusieurs autres langages modernes, c’est différent : on peut (et souvent on devrait) placer `getResult()` dans l’interface `Builder`en utilisant des **génériques**.
->
-> L'exemple ci-bas montre cette façon de faire, mais vous verrez aussi souvent des exemples où la méthode `getResult()` est uniquement dans l'implémentation de l'interface.
+La version GoF historique définit une interface *Builder* et un *Director* qui orchestre les étapes. Bien qu'elle reste utile à connaître pour comprendre l'intention originale du patron, elle est moins fréquente dans les applications modernes, où la version simplifiée présentée ici est plus courante.
 
 
 ### Diagramme de classes
@@ -51,27 +45,19 @@ class Maison {
   -fenetres: int
   -portes: int
   -garage: boolean
-  +Maison(builder: MaisonBuilder)
+  -Maison(builder: Builder)
 }
 
-class Builder~T~ {
-  <<interface>>
-  +reset(): void
+class Builder {
   +setFenetres(nb: int): void
-  +getFenetres(): int
   +setPortes(nb: int): void
-  +getPortes(): int
   +setGarage(garage: boolean): void
-  +hasGarage(): boolean
-  +getResult(): T
+  +reset(): void
+  +build(): Maison
 }
 
-class MaisonBuilder {
-  +getResult(): Maison
-}
-
-Builder ..|> MaisonBuilder
-MaisonBuilder --> Maison : construit
+Maison --* Builder : imbriqué
+Builder --> Maison : construit
 ```
 
 ### Code Java
@@ -81,7 +67,7 @@ public class Maison {
     private final int portes;
     private final boolean garage;
 
-    public Maison(Builder<Maison> builder) {
+    private Maison(Builder builder) {
         this.fenetres = builder.getFenetres();
         this.portes = builder.getPortes();
         this.garage = builder.hasGarage();
@@ -98,81 +84,50 @@ public class Maison {
     public boolean hasGarage() {
         return this.garage;
     }
-}
 
-public interface Builder<T> {
-    void setFenetres(int nb);
-    int getFenetres();
-    void setPortes(int nb);
-    int getPortes();
-    void setGarage(boolean garage);
-    boolean hasGarage();
-    T getResult();
-    void reset();
-}
+    public static class Builder {
 
-public class MaisonBuilder implements Builder<Maison> {
+        // Valeurs par défaut lorsque cela fait du sens.
+        // Cela permet de ne pas avoir à invoquer toutes les méthodes du builder.
+        private int fenetres = 4;
+        private int portes = 2
+        private boolean garage = false
 
-    private int fenetres;
-    private int portes;
-    private boolean garage;
+        public void setFenetres(int nb) {
+            this.fenetres = nb;
+        }
 
-    public MaisonBuilder() {
-        reset();
-    }
+        public void setPortes(int nb) {
+            this.portes = nb;
+        }
 
-    @Override
-    public void reset() {
-        this.fenetres = 0;
-        this.portes = 0;
-        this.garage = false;
-    }
+        public void setGarage(boolean garage) {
+            this.garage = garage;
+        }
 
-    @Override
-    public int getFenetres() {
-        return this.fenetres;
-    }
+        public Maison build() {
+            // validations
+            if (this.portes < 1) {
+                throw new IllegalArgumentException("Une maison doit avoir au moins une porte.");
+            }
+            if (this.fenetres < 1) {
+                throw new IllegalArgumentException("Une maison doit avoir au moins une fenêtre.")
+            }
 
-    @Override
-    public void setFenetres(int nb) {
-        this.fenetres = nb;
-    }
-
-    @Override
-    public int getPortes() {
-        return this.portes;
-    }
-
-    @Override
-    public void setPortes(int nb) {
-        this.portes = nb;
-    }
-
-    @Override
-    public boolean hasGarage() {
-        return this.garage;
-    }
-
-    @Override
-    public void setGarage(boolean garage) {
-        this.garage = garage;
-    }
-
-    @Override
-    public Maison getResult() {
-        return new Maison(this);
+            return new Maison(this);
+        }
     }
 }
 
 public class Demo {
     public static void main(String[] args) {
-        Builder<Maison> builder = new MaisonBuilder();
+        Builder builder = new Maison.Builder();
 
         builder.setFenetres(6);
         builder.setPortes(2);
         builder.setGarage(true);
 
-        Maison maison = builder.getResult();
+        Maison maison = builder.build();
 
         System.out.println("Maison construite: " + maison.getFenetres() + " fenêtres");
     }
@@ -180,4 +135,5 @@ public class Demo {
 ```
 
 ## Liens utiles
-- [https://javadevcentral.com/effective-java-builder-pattern/#the-builder](https://javadevcentral.com/effective-java-builder-pattern/#the-builder)
+- Version moderne : [https://javadevcentral.com/effective-java-builder-pattern/#the-builder](https://javadevcentral.com/effective-java-builder-pattern/#the-builder)
+- Version classique (pour référence) : [https://refactoring.guru/design-patterns/builder](https://refactoring.guru/design-patterns/builder)
