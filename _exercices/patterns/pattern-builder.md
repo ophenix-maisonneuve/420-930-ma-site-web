@@ -167,14 +167,13 @@ public class Maison {
             return new Maison(this);
         }
     }
-}
 
-public class Demo {
     public static void main(String[] args) {
         Maison maison = new Builder().withFenetres(10).withPortes(2).withGarage(false).build();
         System.out.println("Maison construite: " + maison.getFenetres() + " fenêtres");
     }
 }
+
 ```
 
 - Modifiez votre implémentation de `Builder` afin qu'il utilise le chaînage.
