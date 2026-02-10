@@ -52,7 +52,9 @@ class Builder {
   +setFenetres(nb: int): void
   +setPortes(nb: int): void
   +setGarage(garage: boolean): void
-  +reset(): void
+  +getFenetres(): int
+  +getPortes(): int
+  +hasGarage(): boolean
   +build(): Maison
 }
 
@@ -85,13 +87,27 @@ public class Maison {
         return this.garage;
     }
 
+
+    public int getFenetres() {
+        return this.fenetres;
+    }
+
+    public int getPortes() {
+        return this.portes;
+    }
+
+    public boolean hasGarage() {
+        return this.garage;
+    }
+
+
     public static class Builder {
 
         // Valeurs par défaut lorsque cela fait du sens.
         // Cela permet de ne pas avoir à invoquer toutes les méthodes du builder.
         private int fenetres = 4;
-        private int portes = 2
-        private boolean garage = false
+        private int portes = 2;
+        private boolean garage = false;
 
         public void setFenetres(int nb) {
             this.fenetres = nb;
@@ -121,7 +137,7 @@ public class Maison {
 
 public class Demo {
     public static void main(String[] args) {
-        Builder builder = new Maison.Builder();
+        Maison.Builder builder = new Maison.Builder();
 
         builder.setFenetres(6);
         builder.setPortes(2);
