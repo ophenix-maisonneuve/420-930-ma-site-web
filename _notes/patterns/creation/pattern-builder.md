@@ -51,20 +51,18 @@ class Maison {
   -fenetres: int
   -portes: int
   -garage: boolean
-  +getFenetres(): int
-  +setFenetres(nb: int): void
-  +getPortes(): int
-  +setPortes(nb: int): void
-  +hasGarage(): boolean
-  +setGarage(garage: boolean): void
+  +Maison(builder: MaisonBuilder)
 }
 
 class Builder~T~ {
   <<interface>>
   +reset(): void
   +setFenetres(nb: int): void
+  +getFenetres(): int
   +setPortes(nb: int): void
+  +getPortes(): int
   +setGarage(garage: boolean): void
+  +hasGarage(): boolean
   +getResult(): T
 }
 
@@ -80,73 +78,90 @@ MaisonBuilder --> Maison : construit
 ### Code Java
 ```java
 public class Maison {
-    private int fenetres;
-    private int portes;
-    private boolean garage;
+    private final int fenetres;
+    private final int portes;
+    private final boolean garage;
+
+    public Maison(Builder<Maison> builder) {
+        this.fenetres = builder.getFenetres();
+        this.portes = builder.getPortes();
+        this.garage = builder.hasGarage();
+    }
 
     public int getFenetres() {
         return this.fenetres;
-    }
-
-    public void setFenetres(int fenetres) {
-        this.fenetres = fenetres;
     }
 
     public int getPortes() {
         return this.portes;
     }
 
-    public void setPortes(int portes) {
-        this.portes = portes;
-    }
-
     public boolean hasGarage() {
         return this.garage;
-    }
-
-    public void setGarage(boolean garage) {
-        this.garage = garage;
     }
 }
 
 public interface Builder<T> {
-    void reset();
     void setFenetres(int nb);
+    int getFenetres();
     void setPortes(int nb);
+    int getPortes();
     void setGarage(boolean garage);
+    boolean hasGarage();
     T getResult();
+    void reset();
 }
 
 public class MaisonBuilder implements Builder<Maison> {
-    private Maison maison;
+
+    private int fenetres;
+    private int portes;
+    private boolean garage;
 
     public MaisonBuilder() {
-        this.maison = new Maison();
+        reset();
     }
 
     @Override
     public void reset() {
-        this.maison = new Maison();
+        this.fenetres = 0;
+        this.portes = 0;
+        this.garage = false;
+    }
+
+    @Override
+    public int getFenetres() {
+        return this.fenetres;
     }
 
     @Override
     public void setFenetres(int nb) {
-        this.maison.setFenetres(nb);
+        this.fenetres = nb;
+    }
+
+    @Override
+    public int getPortes() {
+        return this.portes;
     }
 
     @Override
     public void setPortes(int nb) {
-        this.maison.setPortes(nb);
+        this.portes = nb;
+    }
+
+    @Override
+    public boolean hasGarage() {
+        return this.garage;
     }
 
     @Override
     public void setGarage(boolean garage) {
-        this.maison.setGarage(garage);
+        this.garage = garage;
     }
 
     @Override
     public Maison getResult() {
-        return this.maison;
+        return new Maison(this);
     }
 }
 
@@ -159,7 +174,6 @@ public class Demo {
         builder.setGarage(true);
 
         Maison maison = builder.getResult();
-        builder.reset();
 
         System.out.println("Maison construite: " + maison.getFenetres() + " fenêtres");
     }
@@ -167,5 +181,4 @@ public class Demo {
 ```
 
 ## Liens utiles
-- [https://refactoring.guru/design-patterns/builder](https://refactoring.guru/design-patterns/builder)
-- [https://en.wikipedia.org/wiki/Builder_pattern](https://en.wikipedia.org/wiki/Builder_pattern)
+- [https://javadevcentral.com/effective-java-builder-pattern/#the-builder](https://javadevcentral.com/effective-java-builder-pattern/#the-builder)
