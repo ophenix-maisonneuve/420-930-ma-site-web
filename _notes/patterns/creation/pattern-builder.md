@@ -88,19 +88,6 @@ public class Maison {
     }
 
 
-    public int getFenetres() {
-        return this.fenetres;
-    }
-
-    public int getPortes() {
-        return this.portes;
-    }
-
-    public boolean hasGarage() {
-        return this.garage;
-    }
-
-
     public static class Builder {
 
         // Valeurs par défaut lorsque cela fait du sens.
@@ -121,13 +108,25 @@ public class Maison {
             this.garage = garage;
         }
 
+        public int getFenetres() {
+            return this.fenetres;
+        }
+
+        public int getPortes() {
+            return this.portes;
+        }
+
+        public boolean hasGarage() {
+            return this.garage;
+        }
+
         public Maison build() {
             // validations
             if (this.portes < 1) {
                 throw new IllegalArgumentException("Une maison doit avoir au moins une porte.");
             }
             if (this.fenetres < 1) {
-                throw new IllegalArgumentException("Une maison doit avoir au moins une fenêtre.")
+                throw new IllegalArgumentException("Une maison doit avoir au moins une fenêtre.");
             }
 
             return new Maison(this);
