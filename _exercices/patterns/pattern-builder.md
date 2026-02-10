@@ -4,7 +4,7 @@ title: "Builder"
 parent: "Patrons de conception"
 nav_order: 7
 has_toc: false
-published: false
+published: true
 ---
 
 # Exercice : Café personnalisé
@@ -73,73 +73,105 @@ public Cafe(String type, String taille, String lait, String sirop) {
 Horreur! On vous demande maintenant d'ajouter des options permettant aux clients de choisir le nombre de *shots* d'espresso, la température du breuvage ainsi que le nombre de sucres. 
 
 - Quel est le risque de continuer à ajouter des constructeurs ?
-- Quel est le risque de rendre l'objet `Café` mutable et d'utiliser les `setters` au lieu des constructeurs ?
+- Quel est le risque de rendre l'objet `Cafe` mutable et d'utiliser les `setters` au lieu des constructeurs ?
 - Comment le patron `Builder` peut-il vous aider à résoudre ces problèmes ?
 
 
-### 3. Utilisez le patron `Builder` afin d'améliorer la construction du `Café`
+### 3. Utilisez le patron `Builder` afin d'améliorer la construction du `Cafe`
+- Créez d'abord une classe imbriquée appelée `Builder` dans votre classe `Cafe`
+   - Ajoutez les différentes propriétés de votre café comme champs.
+   - Lorsque cela fait du sens, initialisez les champs avec une valeur par défaut.
+      - *Cela permet à l'appelant de ne pas avoir à appeler toutes les méthodes de construction; seulement celles qui changent les valeurs par défaut*
+   - Créez les `getters/setters` pour les champs.
+
+- Dans la classe `Cafe`...
+   - Supprimez (ou mettez en commentaires) tous les constructeurs télescopiques que vous avez créés précédemment.
+   - Créez un nouveau constructeur **privé** qui ne prend que le `Builder` en paramètre.
+   - Dans ce constructeur, assignez les valeurs des champs du `Builder` aux champs correspondants de la classe `Cafe`
+
+- Dans la classe `Demo`
+   - Utilisez votre `Builder` pour construire l'objet plutôt que les constructeurs qui avaient été créés précédemment.
+
 
 
 ### 4. Bonus: `Builder` avec interface chaînée (*fluent interface*)
 Une variante courante et plus moderne du patron de conception `Builder` consiste à l'utiliser avec une interface chaînée, ce qui rend le code encore plus lisible. Voici un exemple du `Builder` des notes de cours (construction de maison) qui utilise le principe du chaînage :
 
 ```java
-public class MaisonBuilder implements Builder<Maison> {
+public class Maison {
+    private final int fenetres;
+    private final int portes;
+    private final boolean garage;
 
-    private int fenetres;
-    private int portes;
-    private boolean garage;
-
-    public MaisonBuilder() {
-        reset();
+    private Maison(Builder builder) {
+        this.fenetres = builder.getFenetres();
+        this.portes = builder.getPortes();
+        this.garage = builder.hasGarage();
     }
 
-    @Override
-    public void reset() {
-        this.fenetres = 0;
-        this.portes = 0;
-        this.garage = false;
-    }
-
-    @Override
     public int getFenetres() {
         return this.fenetres;
     }
 
-    @Override
-    public MaisonBuilder withFenetres(int nb) {
-        this.fenetres = nb;
-    }
-
-    @Override
     public int getPortes() {
         return this.portes;
     }
 
-    @Override
-    public MaisonBuilder withPortes(int nb) {
-        this.portes = nb;
-    }
-
-    @Override
     public boolean hasGarage() {
         return this.garage;
     }
 
-    @Override
-    public MaisonBuilder withGarage(boolean garage) {
-        this.garage = garage;
+
+    public int getFenetres() {
+        return this.fenetres;
     }
 
-    @Override
-    public Maison getResult() {
-        return new Maison(this);
+    public int getPortes() {
+        return this.portes;
+    }
+
+    public boolean hasGarage() {
+        return this.garage;
+    }
+
+
+    public static class Builder {
+
+        // Valeurs par défaut lorsque cela fait du sens.
+        // Cela permet de ne pas avoir à invoquer toutes les méthodes du builder.
+        private int fenetres = 4;
+        private int portes = 2;
+        private boolean garage = false;
+
+        public Builder withFenetres(int nb) {
+            this.fenetres = nb;
+        }
+
+        public Builder withPortes(int nb) {
+            this.portes = nb;
+        }
+
+        public Builder withGarage(boolean garage) {
+            this.garage = garage;
+        }
+
+        public Maison build() {
+            // validations
+            if (this.portes < 1) {
+                throw new IllegalArgumentException("Une maison doit avoir au moins une porte.");
+            }
+            if (this.fenetres < 1) {
+                throw new IllegalArgumentException("Une maison doit avoir au moins une fenêtre.")
+            }
+
+            return new Maison(this);
+        }
     }
 }
 
 public class Demo {
     public static void main(String[] args) {
-        Maison maison = new MaisonBuilder().withFenetres(10).withPortes(2).withGarage(false).getResult();
+        Maison maison = new Builder().withFenetres(10).withPortes(2).withGarage(false).build();
         System.out.println("Maison construite: " + maison.getFenetres() + " fenêtres");
     }
 }
