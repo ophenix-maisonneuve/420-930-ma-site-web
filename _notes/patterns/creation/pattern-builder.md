@@ -67,11 +67,10 @@ class Builder~T~ {
 }
 
 class MaisonBuilder {
-  -maison: Maison
   +getResult(): Maison
 }
 
-Builder <|.. MaisonBuilder
+Builder ..|> MaisonBuilder
 MaisonBuilder --> Maison : construit
 ```
 
