@@ -79,7 +79,7 @@ Horreur! On vous demande maintenant d'ajouter des options permettant aux clients
 
 ### 3. Utilisez le patron `Builder` afin d'améliorer la construction du `Cafe`
 - Créez d'abord une classe imbriquée appelée `Builder` dans votre classe `Cafe`
-   - Ajoutez les différentes propriétés de votre café comme champs.
+   - Ajoutez les différentes propriétés de votre café comme champs dans le `Builder`
    - Lorsque cela fait du sens, initialisez les champs avec une valeur par défaut.
       - *Cela permet à l'appelant de ne pas avoir à appeler toutes les méthodes de construction; seulement celles qui changent les valeurs par défaut*
    - Créez les `getters/setters` pour les champs.
