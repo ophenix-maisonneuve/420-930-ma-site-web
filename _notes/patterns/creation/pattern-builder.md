@@ -59,7 +59,7 @@ class Maison {
   +setGarage(garage: boolean): void
 }
 
-class Builder<T> {
+class Builder~T~ {
   <<interface>>
   +reset(): void
   +setFenetres(nb: int): void
