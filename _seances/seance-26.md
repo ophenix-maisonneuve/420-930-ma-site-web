@@ -1,10 +1,16 @@
 ---
 layout: default
-title: "aaaa-MM-dd"
+title: "2026-02-10"
 nav_order: 26
 published: false
 ---
 
-# Séance 26: Patrons comportementaux (partie 2)
+# Séance 26: Builder et Decorator
 
-Contenu de la séance.
+## 10 février 2026
+
+### Ordre du jour
+
+1. [Builder](../notes/pattern-builder)
+1. Présentation : [Decorator](../notes/pattern-decorator)
+
