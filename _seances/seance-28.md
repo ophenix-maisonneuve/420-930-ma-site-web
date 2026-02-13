@@ -7,4 +7,8 @@ published: true
 
 # Séance 28: Préparation à l'épreuve finale (partie 1)
 
+## 17 février 2026
+
+### Ordre du jour
+
 1. Début de l'[exercice préparatoire à l'examen](../exercices/preparation-examen)

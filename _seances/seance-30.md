@@ -7,4 +7,8 @@ published: true
 
 # Séance 30: Épreuve finale
 
+## 25 février 2026
+
+### Ordre du jour
+
 1. Réalisation de l'[épreuve finale](../examens/examen-final)
