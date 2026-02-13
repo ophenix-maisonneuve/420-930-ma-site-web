@@ -13,6 +13,7 @@ published: true
 - Toute documentation est **permise**
 - L'accès à internet et à tous vos outils est également **permis**
 - La communication entre personnes (étudiants ou autres) est **interdite**
+- La caméra web doit demeurer **allumée** en tout temps pendant l'examen
 - Les réponses doivent être écrites **dans vos mots**. Un copier-coller évident d'un site web ou d'une réponse d'IA générative sera pénalisé.
 
 ## Directives
