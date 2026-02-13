@@ -2,7 +2,7 @@
 layout: default
 title: "L'attaque des zombies, la suite"
 parent: "Patrons de conception"
-nav_order: 4
+nav_order: 8
 has_toc: false
 published: true
 ---
