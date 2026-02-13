@@ -8,8 +8,6 @@ published: true
 
 # Examen préparatoire
 
-![AquaVague](../assets/images/aquavague.png)
-
 ## Directives
 
 ### 1. Clonez le dépôt de l'exercice
