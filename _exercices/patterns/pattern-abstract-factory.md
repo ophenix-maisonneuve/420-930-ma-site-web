@@ -34,7 +34,7 @@ ou directement à partir de votre IDE.
 Il s'agit du code qui simule la situation apocalyptique décrite ci-haut ainsi que les contextes des questions 1 et 2.
 
 
-## Questions 1 : Analyse du code actuel
+## Question 1 : Analyse du code actuel
 
 ### 1.1. Différents types de personnages
 - Quelles sont les interfaces qui représentent les différents types de personnages ?
