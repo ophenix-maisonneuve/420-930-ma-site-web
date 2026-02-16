@@ -9,7 +9,7 @@ published: true
 
 # Exercice : L'attaque des zombies, la suite!
 
-Nous sommes en 2036. Il y a maintenant plus de deux ans qu'un mystérieux virus a complètement ravagé la planète et transformé la quasi-totalité de l'humanité en zombies. La grande forteresse de La Prairie, au Québec (Canada), dernier bastion de l'humanité, résiste toujours aux attaques incessantes de hordes de zombies. Les grands sages de la forteresse décident de mettre en place un outil de simulation qui, espèrent-ils, permettra de mieux planifier les attaques et, qui sait, peut-être éventuellement de reprendre le contrôle du Quartier Dix30 à Brossard. On doit pouvoir lancer la simulation en tant qu'humains (pour prévoir nos défenses) ou en tant que zombies (pour anticiper leurs attaques).
+Nous sommes en 2036. Il y a maintenant plus de deux ans qu'un mystérieux virus a complètement ravagé la planète et transformé la quasi-totalité de l'humanité en zombies. La grande forteresse de La Prairie, au Québec (Canada), dernier bastion de l'humanité, résiste toujours aux attaques incessantes de hordes de zombies. Les grands sages de la forteresse décident de mettre en place un outil de simulation qui, espèrent-ils, permettra de mieux planifier les attaques et, qui sait, peut-être éventuellement de reprendre le contrôle d'un joyau de l'humanité : le Quartier Dix30 à Brossard. On doit pouvoir lancer la simulation en tant qu'humains (pour prévoir nos défenses) ou en tant que zombies (pour anticiper leurs attaques).
 
 
 ## Étapes préparatoires

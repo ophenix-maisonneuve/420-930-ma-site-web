@@ -11,5 +11,5 @@ published: true
 
 ### Ordre du jour
 
-1. Présenttion : [Factory Method](../notes/pattern-factory-method)
+1. Présentation : [Factory Method](../notes/pattern-factory-method)
 1. [Abstract Factory](../notes/pattern-abstract-factory)
