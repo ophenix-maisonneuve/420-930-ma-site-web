@@ -8,6 +8,8 @@ published: true
 
 # Épreuve finale
 
+![La Gencive Zen](../assets/images/gencivezen.png)
+
 ## Modalités
 - L'examen est d'une durée de 3h (12:10 à 15:10)
 - Toute documentation est **permise**
