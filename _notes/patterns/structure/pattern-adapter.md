@@ -56,7 +56,7 @@ class SquarePegAdapter {
 }
 SquarePegAdapter ..|> RoundPeg
 SquarePegAdapter --> SquarePeg : contient
-RoundHole --> RoundPeg : utilise
+RoundHole ..> RoundPeg : utilise
 ```
 
 ### Code Java
