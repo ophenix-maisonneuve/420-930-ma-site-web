@@ -42,8 +42,10 @@ import com.monentreprise.monmodule.MaClasse;
 
 ---
 
-<details>
-<summary>Comparaison avec les packages en Python</summary>
+<details markdown="1">
+
+<summary markdown="span"><strong>Comparaison avec les packages en Python</strong></summary>
+
 
 ### Packages en Python
 

@@ -31,7 +31,7 @@ sudo snap install code --classic
 
 Recherchez **MATE Tweak** depuis la barre de recherche du menu.
 
-![MATE Tweak](../../assets/images/mate-tweak-search.png)
+![MATE Tweak](../assets/images/mate-tweak-search.png)
 
 ---
 
@@ -39,10 +39,11 @@ Recherchez **MATE Tweak** depuis la barre de recherche du menu.
 
 Dans la section **Panel** sélectionner la disposition du bureau désirée.
 
-![MATE Tweak](../../assets/images/mate-tweak-panel.png)
+![MATE Tweak](../assets/images/mate-tweak-panel.png)
 
 Quelques dispositions intéressantes:
-- ** Redmond ** : Disposition semblable à Windows, avec un menu démarrer dans le coin inférieur gauche et une barre de tâche au bas de l'écran
-- ** Cupertino ** : Disposition semblable à macOS, avec un dock au bas de l'écran et des menus unifiés au haut de l'écran
-- ** Mutiny ** : Disposition semblable à Unity (Ubuntu), avec un dock à la gauche de l'écran
+- **Redmond** : Disposition semblable à Windows, avec un menu démarrer dans le coin inférieur gauche et une barre de tâche au bas de l'écran
+- **Cupertino** : Disposition semblable à macOS, avec un dock au bas de l'écran et des menus unifiés au haut de l'écran
+- **Mutiny** : Disposition semblable à Unity (Ubuntu), avec un dock à la gauche de l'écran
+
 ---

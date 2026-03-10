@@ -1,11 +1,11 @@
 ---
 layout: default
-title: "aaaa-MM-dd"
+title: "2025-10-27"
 nav_order: 1
 ---
 # Séance 1 : Présentations
 
-## DATE
+## 27 octobre 2025
 
 ### Ordre du jour
 
@@ -16,20 +16,21 @@ nav_order: 1
    * Déroulement des cours
    * Enregistrement des séances
 3. Outils utilisés
-   * Site web du cours
-   * GitHub
-   * Langage utilisé: Java
+   * [Site web du cours](https://ophenix-maisonneuve.github.io/420-930-ma-site-web/)
+   * [Omnivox / Léa](https://cmaisonneuve-lea.omnivox.ca/)
+   * [GitHub](https://github.com/ophenix-420-930-ma-24636)
+   * Langage utilisé: [Java](../notes/introduction-java)
      * Pourquoi Java?
-   * Environnement de développement
+   * [Environnement de développement](../notes/installation)
 4. Exploration de l'environnement de développement proposé
-   * Machine virtuelle fonctionnant sous VirtualBox ou VMware Workstation
+   * [Machine virtuelle](../notes/machine-virtuelle) fonctionnant sous VirtualBox ou VMware Workstation
    * Ubuntu MATE 24.04 LTS
    * Java 25 JDK
    * Maven
    * Visual Studio Code avec extensions Java (*Java Extension Pack*)
    * Exercice de familiarisation
 
-Exercice(s) complémentaire(s)
+### Exercice(s) complémentaire(s)
 
 * Terminer l'[exercice de familiarisation](../exercices/familiarisation-vscode-java)
 * Configurer / personnaliser votre environnement à votre goût

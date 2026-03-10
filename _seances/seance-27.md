@@ -1,10 +1,15 @@
 ---
 layout: default
-title: "aaaa-MM-dd"
+title: "2026-02-16"
 nav_order: 27
-published: false
+published: true
 ---
 
-# Séance 27: Patrons architecturaux
+# Séance 27: Factory method et abstract factory
 
-Contenu de la séance.
+## 10 février 2026
+
+### Ordre du jour
+
+1. Présentation : [Factory Method](../notes/pattern-factory-method)
+1. [Abstract Factory](../notes/pattern-abstract-factory)

@@ -1,11 +1,19 @@
 ---
 layout: default
-title: "aaaa-MM-dd"
+title: "2026-02-02"
 nav_order: 23
-published: false
+published: true
 ---
 
-# Séance 23: Patrons structurels (partie 1)
+# Séance 23: Patrons mystères...
 
-Contenu de la séance.
+## 2 février 2026
+
+### Ordre du jour
+
+1. Informations générales
+1. Correction du patron [Adapter](../notes/pattern-adapter)
+1. 2 nouveaux [patrons](../exercices/pattern-mystère) 
+
+
 

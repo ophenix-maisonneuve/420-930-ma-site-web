@@ -1,12 +1,17 @@
 ---
 layout: default
-title: "aaaa-MM-dd"
+title: "2026-02-09"
 nav_order: 25
-published: false
+published: true
 ---
 
-# Séance 25: Patrons comportementaux (partie 1)
+# Séance 25: Singleton et Facade
 
-Contenu de la séance.
+## 9 février 2026
+
+### Ordre du jour
+
+1. Présentation : [Singleton](../notes/pattern-singleton)
+1. Présentation : [Facade](../notes/pattern-facade)
 
 

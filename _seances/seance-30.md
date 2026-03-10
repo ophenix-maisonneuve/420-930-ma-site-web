@@ -1,10 +1,14 @@
 ---
 layout: default
-title: "aaaa-MM-dd"
+title: "2026-02-25"
 nav_order: 30
-published: false
+published: true
 ---
 
 # Séance 30: Épreuve finale
 
-Contenu de la séance.
+## 25 février 2026
+
+### Ordre du jour
+
+1. Réalisation de l'[épreuve finale](../examens/examen-final)

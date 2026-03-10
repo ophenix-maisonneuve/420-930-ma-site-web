@@ -5,7 +5,20 @@ nav_order: 1
 has_toc: false
 ---
 
-## Modification des paramètres de la machine virtuelle
+# Machine virtuelle Ubuntu 24.04 LTS (MATE)
+
+## Information générale
+* Nom d'utilisateur : **dev**
+* Mot de passe : **dev**
+
+## Modification du mot de passe
+Pour modifier le mot de passe par défaut:
+```bash
+passwd
+```
+Le système vous demandera votre mot de passe courant ainsi que le nouveau mot de passe désiré.
+
+## Modification des paramètres
 
 La machine virtuelle a été créée avec une configuration minimale:
 

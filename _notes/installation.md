@@ -4,6 +4,7 @@ title: "Installation de l'environnement"
 nav_order: 2
 has_toc: false
 ---
+
 # Installation et personnalisation de l'environnement
 
 Vous trouverez ici toute l'information pour installer et personnaliser votre environnement de développement.
@@ -95,16 +96,15 @@ Quelques suggestions d'options à activer ou d'extensions à ajouter:
 4. **(Optionnel) Modifier le délai de sauvegarde**
    - Toujours dans les paramètres, cherchez **"Files: Auto Save Delay"** pour ajuster le délai (en millisecondes) si vous avez choisi `afterDelay`.
 
-#### Astuce
-
-Vous pouvez aussi modifier directement le fichier `settings.json` :
-
-```json
-{
-  "files.autoSave": "afterDelay",
-  "files.autoSaveDelay": 1000
-}
-``` 
+{: .astuce}
+>Vous pouvez aussi modifier directement le fichier `settings.json` :
+>
+>```json
+>{
+>  "files.autoSave": "afterDelay",
+>  "files.autoSaveDelay": 1000
+>}
+>``` 
 
 ###  Activer le formatage automatique à la sauvegarde
 
@@ -120,11 +120,12 @@ Vous pouvez aussi modifier directement le fichier `settings.json` :
 3. **Activer le formatage automatique à la sauvegarde**
    - Cochez la case **Editor: Format On Save** pour que Visual Studio Code formate automatiquement le fichier à chaque sauvegarde.
 
-#### Astuce : Modifier directement le fichier settings.json
-
-1. Ouvrez la palette de commandes (`Ctrl + Shift + P` ou `Cmd + Shift + P`).
-2. Tapez **"Preferences: Open Settings (JSON)"** et ouvrez le fichier.
-3. Ajoutez ou modifiez la ligne suivante :
+{: .astuce}
+>#### Modifier directement le fichier `settings.json`
+>
+>1. Ouvrez la palette de commandes (`Ctrl + Shift + P` ou `Cmd + Shift + P`).
+>2. Tapez **"Preferences: Open Settings (JSON)"** et ouvrez le fichier.
+>3. Ajoutez ou modifiez la ligne suivante :
 
 ```json
 "editor.formatOnSave": true
