@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2026-01-19"
+title: "Séance 19"
 nav_order: 19
-published: true
+published: false
 ---
 
 # Séance 19 : UML : Diagramme de classes
 
-## 19 janvier 2026
+## <date>
 
 ### Ordre du jour
 

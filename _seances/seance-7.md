@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2025-11-17"
+title: "Séance 7"
 nav_order: 7
-published: true
+published: false
 ---
 
 # Séance 7 : Bases des structures de données - Arbres
 
-## 17 novembre 2025
+## <date>
 
 ### Ordre du jour
 

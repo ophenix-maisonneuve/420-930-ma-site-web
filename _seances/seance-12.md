@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2025-12-02"
+title: "Séance 12"
 nav_order: 12
-published: true
+published: false
 ---
 
 # Séance 12 : Structures de données: Files d'attente
 
-## 2 décembre 2025
+## <date>
 
 ### Ordre du jour
 

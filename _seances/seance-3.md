@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2025-11-03"
+title: "Séance 3"
 nav_order: 3
-published: true
+published: false
 ---
 
 # Séance 3 : Programmation orientée objet en Java (partie 2)
 
-##  3 novembre 2025
+## <date>
 
 ### Ordre du jour
 

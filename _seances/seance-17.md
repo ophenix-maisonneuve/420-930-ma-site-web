@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2026-01-12"
+title: "Séance 17"
 nav_order: 17
-published: true
+published: false
 ---
 
 # Séance 17 : Principes de développement
 
-## 12 janvier 2026
+## <date>
 
 ### Ordre du jour
 

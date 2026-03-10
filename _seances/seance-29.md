@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2026-02-24"
+title: "Séance 29"
 nav_order: 29
-published: true
+published: false
 ---
 
 # Séance 29: Préparation à l'épreuve finale (partie 2)
 
-## 24 février 2026
+## <date>
 
 ### Ordre du jour
 

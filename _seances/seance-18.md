@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2026-01-13"
+title: "Séance 18"
 nav_order: 18
-published: true
+published: false
 ---
 
 # Séance 18 : Principes de développement (partie 2)
 
-## 13 janvier 2026
+## <date>
 
 ### Ordre du jour
 

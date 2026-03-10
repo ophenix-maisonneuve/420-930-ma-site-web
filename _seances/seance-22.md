@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2026-01-27"
+title: "Séance 22"
 nav_order: 22
-published: true
+published: false
 ---
 
 # Séance 22 : Patrons *Strategy* et *Adapter*
 
-## 27 janvier 2026
+## <date>
 
 ### Ordre du jour
 

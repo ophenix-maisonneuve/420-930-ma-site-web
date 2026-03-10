@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2025-12-08"
+title: "Séance 13"
 nav_order: 13
-published: true
+published: false
 ---
 
 # Séance 13 : Structures de données: Arbres
 
-## 8 décembre 2025
+## <date>
 
 ### Ordre du jour
 

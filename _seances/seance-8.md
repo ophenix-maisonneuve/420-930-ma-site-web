@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2025-11-18"
+title: "Séance 8"
 nav_order: 8
-published: true
+published: false
 ---
 
 # Séance 8 : Bases des structures de données - Tables associatives
 
-## 18 novembre 2025
+## <date>
 
 ### Ordre du jour
 

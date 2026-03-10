@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2026-01-20"
+title: "Séance 20"
 nav_order: 20
-published: true
+published: false
 ---
 
 # Séance 20 : UML : Diagramme de séquence et introduction aux patrons de conception
 
-## 20 janvier 2026
+## <date>
 
 ### Ordre du jour
 

@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2025-12-01"
+title: "Séance 11"
 nav_order: 11
-published: true
+published: false
 ---
 
 # Séance 11 : Structures de données: Piles
 
-## 1er décembre 2025
+## <date>
 
 ### Ordre du jour
 

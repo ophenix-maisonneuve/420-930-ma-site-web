@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2025-10-28"
+title: "Séance 2"
 nav_order: 2
-published: true
+published: false
 ---
 
 # Séance 2 : Programmation orientée objet en Java (partie 1)
 
-## 28 octobre 2025
+## <date>
 
 ### Ordre du jour
 

@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2025-12-16"
+title: "Séance 16"
 nav_order: 16
-published: true
+published: false
 ---
 
 # Séance 16 : Complexité et structures de données - Révision
 
-## 16 décembre 2025
+## <date>
 
 ### Ordre du jour
 

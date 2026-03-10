@@ -1,11 +1,12 @@
 ---
 layout: default
-title: "2025-10-27"
+title: "Séance 1"
 nav_order: 1
+published: true
 ---
 # Séance 1 : Présentations
 
-## 27 octobre 2025
+## <date>
 
 ### Ordre du jour
 

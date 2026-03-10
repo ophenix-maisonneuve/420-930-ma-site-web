@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2025-12-09"
+title: "Séance 14"
 nav_order: 14
-published: true
+published: false
 ---
 
 # Séance 14 : Structures de données: Arbres (partie 2)
 
-## 9 décembre 2025
+## <date>
 
 ### Ordre du jour
 

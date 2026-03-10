@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2026-01-26"
+title: "Séance 21"
 nav_order: 21
-published: true
+published: false
 ---
 
 # Séance 21 : Patrons architecturaux
 
-## 26 janvier 2026
+## <date>
 
 ### Ordre du jour
 

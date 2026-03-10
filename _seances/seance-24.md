@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2026-02-03"
+title: "Séance 24"
 nav_order: 24
-published: true
+published: false
 ---
 
 # Séance 24: Command et State
 
-## 3 février 2026
+## <date>
 
 ### Ordre du jour
 

@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2025-11-12"
+title: "Séance 6"
 nav_order: 6
-published: true
+published: false
 ---
 
 # Séance 6 : Bases des structures de données - Structures linéaires (tableaux, listes)
 
-## 12 novembre 2025
+## <date>
 
 ### Ordre du jour
 

@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2025-12-15"
+title: "Séance 15"
 nav_order: 15
-published: true
+published: false
 ---
 
 # Séance 15 : Structures de données: Tables associatives
 
-## 15 décembre 2025
+## <date>
 
 ### Ordre du jour
 

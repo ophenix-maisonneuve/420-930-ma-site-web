@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2026-02-10"
+title: "Séance 26"
 nav_order: 26
-published: true
+published: false
 ---
 
 # Séance 26: Builder et Decorator
 
-## 10 février 2026
+## <date>
 
 ### Ordre du jour
 

@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2026-02-25"
+title: "Séance 30"
 nav_order: 30
-published: true
+published: false
 ---
 
 # Séance 30: Épreuve finale
 
-## 25 février 2026
+## <date>
 
 ### Ordre du jour
 

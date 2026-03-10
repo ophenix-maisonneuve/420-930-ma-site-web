@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2026-02-02"
+title: "Séance 23"
 nav_order: 23
-published: true
+published: false
 ---
 
 # Séance 23: Patrons mystères...
 
-## 2 février 2026
+## <date>
 
 ### Ordre du jour
 

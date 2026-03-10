@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2026-02-17"
+title: "Séance 28"
 nav_order: 28
-published: true
+published: false
 ---
 
 # Séance 28: Préparation à l'épreuve finale (partie 1)
 
-## 17 février 2026
+## <date>
 
 ### Ordre du jour
 

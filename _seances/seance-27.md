@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2026-02-16"
+title: "Séance 27"
 nav_order: 27
-published: true
+published: false
 ---
 
 # Séance 27: Factory method et abstract factory
 
-## 10 février 2026
+## <date>
 
 ### Ordre du jour
 

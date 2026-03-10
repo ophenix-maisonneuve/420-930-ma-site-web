@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2025-11-04"
+title: "Séance 4"
 nav_order: 4
-published: true
+published: false
 ---
 
 # Séance 4 : Complexité des algorithmes (partie 1)
 
-##  3 novembre 2025
+## <date>
 
 ### Ordre du jour
 

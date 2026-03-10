@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2025-11-24"
+title: "Séance 9"
 nav_order: 9
-published: true
+published: false
 ---
 
 # Séance 9 : Structures de données - Listes
 
-## 24 novembre 2025
+## <date>
 
 ### Ordre du jour
 

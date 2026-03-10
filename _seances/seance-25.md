@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2026-02-09"
+title: "Séance 25"
 nav_order: 25
-published: true
+published: false
 ---
 
 # Séance 25: Singleton et Facade
 
-## 9 février 2026
+## <date>
 
 ### Ordre du jour
 

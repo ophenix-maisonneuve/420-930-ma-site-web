@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "2025-11-25"
+title: "Séance 10"
 nav_order: 10
 published: true
 ---
 
 # Séance 10 : Structures de données - Listes (suite)
 
-## 25 novembre 2025
+## <date>
 
 ### Ordre du jour
 
