@@ -165,7 +165,7 @@ classDiagram
 L'agrégation est similaire à la composition, mais elle représente une relation faible, c'est-à-dire que les éléments peuvent exister indépendamment. En UML, on représente cette relation par un lien avec un bout en forme de losange vide qui pointe vers le tout.
 
 {: .warning}
-> En pratique, l’agrégation est très peu utilisée en UML moderne, car elle n’apporte presque pas de sémantique supplémentaire par rapport à une association classique. On lui préfère généralement une association unidirectionnelle, notamment lorsqu'une classe conserve une référence vers une autre (comme dans le cas d’une injection de dépendance).
+> En pratique, l’agrégation est de moins en moins utilisée en UML moderne, car elle n’apporte presque pas de sémantique supplémentaire par rapport à une association classique. On lui préfère généralement une association unidirectionnelle, notamment lorsqu'une classe conserve une référence vers une autre (comme dans le cas d’une injection de dépendance).
 
 ```mermaid
 classDiagram

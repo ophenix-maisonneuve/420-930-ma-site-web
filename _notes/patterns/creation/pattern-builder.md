@@ -35,7 +35,7 @@ Le patron Builder sépare la construction d’un objet de sa représentation et 
 ## Exemple
 
 {: .highlight}
-La version GoF historique définit une interface *Builder* et un *Director* qui orchestre les étapes. Bien qu'elle reste utile à connaître pour comprendre l'intention originale du patron, elle est moins fréquente dans les applications modernes, où la version simplifiée présentée ici est plus courante.
+La version GoF historique définit une interface *Builder* et un *Director* qui orchestre les étapes. Bien qu'elle reste utile à connaître pour comprendre l'intention originale du patron, elle est moins fréquente dans les applications Java modernes, où la version simplifiée présentée ici est plus courante.
 
 
 ### Diagramme de classes
